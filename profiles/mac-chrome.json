@@ -1,0 +1,253 @@
+{
+  "name": "mac-chrome",
+  "donor": "chrome",
+  "entropy": null,
+  "automation": {
+    "flags": {
+      "awesomium": false,
+      "cef": false,
+      "cefsharp": false,
+      "coachjs": false,
+      "fminer": false,
+      "geb": false,
+      "nightmarejs": false,
+      "phantomas": false,
+      "phantomjs": false,
+      "rhino": false,
+      "selenium": false,
+      "webdriverio": false,
+      "webdriver": false,
+      "headless_chrome": false
+    }
+  },
+  "battery": {
+    "c": true,
+    "l": 0.8,
+    "ct": -1,
+    "dt": -1
+  },
+  "browser": {
+    "engineNames": [
+      "chrome"
+    ],
+    "productSub": "20030107",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+    "vendor": "Google Inc."
+  },
+  "fonts": {
+    "detected": [
+      "Arial Unicode MS",
+      "Gill Sans",
+      "Helvetica Neue",
+      "Menlo"
+    ],
+    "metrics": {
+      "default": 73.78125,
+      "apple": 73.78125,
+      "serif": 73.78125,
+      "sans": 72.0078125,
+      "mono": 66.53125,
+      "min": 4.6171875,
+      "system": 73.046875
+    }
+  },
+  "gpu": {
+    "driverStrings": "",
+    "limits": [
+      16384,
+      16384,
+      2048,
+      2048,
+      4,
+      1000,
+      10,
+      8,
+      48,
+      16,
+      10,
+      8,
+      12,
+      65536,
+      4294967292,
+      256,
+      256,
+      8,
+      4294967292,
+      30,
+      2048,
+      null,
+      28,
+      8,
+      128,
+      32768,
+      1024,
+      1024,
+      1024,
+      64,
+      65535,
+      24,
+      10,
+      10,
+      8,
+      8
+    ],
+    "renderer": "WebKit WebGL",
+    "rendererUnmasked": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)",
+    "shadingLanguageVersion": "WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)",
+    "vendor": "WebKit",
+    "vendorUnmasked": "Google Inc. (Apple)",
+    "version": "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
+  },
+  "hardware": {
+    "cores": 8,
+    "memoryGb": 16,
+    "touchPoints": 0
+  },
+  "locale": {
+    "languages": [
+      "en-US"
+    ],
+    "timezone": "America/New_York"
+  },
+  "os": {
+    "platform": "MacIntel"
+  },
+  "plugins": [
+    {
+      "name": "PDF Viewer",
+      "description": "Portable Document Format",
+      "mimeTypes": [
+        {
+          "type": "application/pdf",
+          "suffixes": "pdf"
+        },
+        {
+          "type": "text/pdf",
+          "suffixes": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Chrome PDF Viewer",
+      "description": "Portable Document Format",
+      "mimeTypes": [
+        {
+          "type": "application/pdf",
+          "suffixes": "pdf"
+        },
+        {
+          "type": "text/pdf",
+          "suffixes": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Chromium PDF Viewer",
+      "description": "Portable Document Format",
+      "mimeTypes": [
+        {
+          "type": "application/pdf",
+          "suffixes": "pdf"
+        },
+        {
+          "type": "text/pdf",
+          "suffixes": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "Microsoft Edge PDF Viewer",
+      "description": "Portable Document Format",
+      "mimeTypes": [
+        {
+          "type": "application/pdf",
+          "suffixes": "pdf"
+        },
+        {
+          "type": "text/pdf",
+          "suffixes": "pdf"
+        }
+      ]
+    },
+    {
+      "name": "WebKit built-in PDF",
+      "description": "Portable Document Format",
+      "mimeTypes": [
+        {
+          "type": "application/pdf",
+          "suffixes": "pdf"
+        },
+        {
+          "type": "text/pdf",
+          "suffixes": "pdf"
+        }
+      ]
+    }
+  ],
+  "screen": {
+    "avail": {
+      "top": 34,
+      "left": 0,
+      "width": 1440,
+      "height": 875
+    },
+    "colorDepth": 24,
+    "colorGamut": "srgb",
+    "pixelRatio": 2,
+    "size": {
+      "width": 1440,
+      "height": 900
+    }
+  },
+  "storage": {
+    "jsHeapLimit": 4395630592,
+    "quota": 10737418240
+  },
+  "uach": {
+    "architecture": "arm",
+    "bitness": "64",
+    "brands": [
+      {
+        "b": "Not=A?Brand",
+        "v": "99"
+      },
+      {
+        "b": "Google Chrome",
+        "v": "149"
+      },
+      {
+        "b": "Chromium",
+        "v": "149"
+      }
+    ],
+    "fullVersion": "151.0.7922.138",
+    "fullVersionList": [
+      {
+        "b": "Not=A?Brand",
+        "v": "99.0.0.0"
+      },
+      {
+        "b": "Google Chrome",
+        "v": "151.0.7922.138"
+      },
+      {
+        "b": "Chromium",
+        "v": "151.0.7922.138"
+      }
+    ],
+    "mobile": false,
+    "model": "",
+    "platform": "macOS",
+    "platformVersion": "26.4.1"
+  },
+  "window": {
+    "inner": {
+      "width": 1280,
+      "height": 866
+    },
+    "outer": {
+      "width": 1280,
+      "height": 875
+    }
+  }
+}
