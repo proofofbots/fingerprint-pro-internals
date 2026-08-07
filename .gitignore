@@ -1,0 +1,5 @@
+node_modules/
+artifacts/
+_research/
+_notes/
+.DS_Store
