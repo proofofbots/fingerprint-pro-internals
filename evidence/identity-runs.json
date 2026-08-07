@@ -1,0 +1,46 @@
+{
+  "base": "fresh-mac.json",
+  "endpoint": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+  "controlVisitor": "05ylObK6pJ7LcCTbRhVv",
+  "controlStable": true,
+  "rows": [
+    {
+      "arm": "control",
+      "run": 1,
+      "status": 200,
+      "error": null,
+      "visitor": "05ylObK6pJ7LcCTbRhVv",
+      "confidence": 1,
+      "found": false,
+      "replayed": true,
+      "suspect": 22,
+      "tampering": true
+    },
+    {
+      "arm": "control",
+      "run": 2,
+      "status": 200,
+      "error": null,
+      "visitor": "05ylObK6pJ7LcCTbRhVv",
+      "confidence": 1,
+      "found": true,
+      "replayed": true,
+      "suspect": 22,
+      "tampering": true
+    }
+  ],
+  "summary": [
+    {
+      "arm": "control",
+      "why": "the base payload, unchanged",
+      "sends": 2,
+      "visitors": 1,
+      "matchesControl": true,
+      "confidence": [
+        1
+      ],
+      "failures": 0
+    }
+  ]
+}

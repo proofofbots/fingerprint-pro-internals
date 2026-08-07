@@ -1,0 +1,263 @@
+{
+  "base": "lake-win-mem8.payload.json",
+  "mode": "pairs",
+  "salt": "1786103440012",
+  "endpoint": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+  "collisions": 0,
+  "results": [
+    {
+      "arm": "none",
+      "why": "nothing changed — the pair that has to match",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "2lMEzbd7xW60Dk4cTmvO",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "2lMEzbd7xW60Dk4cTmvO",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "touch",
+      "why": "s19 — the touch support block",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "ScSOr5Qt6hjVy6Lv6E0I",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "hXaO2rFKl0zwqCaVqPDR",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": false
+    },
+    {
+      "arm": "color-gamut",
+      "why": "s37",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "Rt8UbPzqA2mwlKik7X2p",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Q3NOpN02sYoRITRqqkTI",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": false
+    },
+    {
+      "arm": "s24",
+      "why": "s24 — a constant integer the collector reports",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "KUsf2WAOYrOdJ1JMg8TD",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "PQup2s2eomJWhzSu3AoG",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": false
+    },
+    {
+      "arm": "system-font",
+      "why": "s206",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "8kr3tXjDt86jDjFdCZtU",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "8kr3tXjDt86jDjFdCZtU",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "window-size",
+      "why": "s150 — the outer and inner window boxes",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "h23I0vc7RtAVAg1cJlUv",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "h23I0vc7RtAVAg1cJlUv",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "avail-insets",
+      "why": "s6 — the available-screen insets",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "XCF38sUs6Tyn5hgS9Sgr",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "XCF38sUs6Tyn5hgS9Sgr",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "uach",
+      "why": "s58 — the client-hint block",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "6DMNUonTBBvD2m8cv8y8",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "6DMNUonTBBvD2m8cv8y8",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "vendor",
+      "why": "s27 — navigator.vendor",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "6FVrVqULMVWhr4mpCzlV",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "dY5u8s41uEVrbYad6oI3",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": false
+    },
+    {
+      "arm": "oscpu",
+      "why": "s1 — navigator.oscpu",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "zWnY011sOAuZ3U0Vqx9H",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "zWnY011sOAuZ3U0Vqx9H",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "webgl-limits",
+      "why": "s210.l — the WebGL limit vector",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "2Ca6zvraX1LIr3wnnyiE",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "2Ca6zvraX1LIr3wnnyiE",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    }
+  ]
+}

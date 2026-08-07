@@ -1,0 +1,80 @@
+{
+  "a": "lake-win-mem8.payload.json",
+  "b": "mac-device.json",
+  "token": "UfeSIU9nDPyQzfYD1eroIVY2h+7CgtlAx8jgNOTYbL1q7E2cVCAQuoYNyhqzn9dCsAR/ll8R2Ru7Y2OKBn1p5yE5OpIyzh==",
+  "steps": [
+    {
+      "label": "A, no cache",
+      "note": "mints A from its fingerprint",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498834530.TReU1O",
+      "visitor": "9hXpl3nBg7ytnetKJ2O9",
+      "confidence": 1,
+      "found": false,
+      "firstSeen": 1786103634540,
+      "replayed": true,
+      "suspect": 30,
+      "tampering": true
+    },
+    {
+      "label": "B, no cache",
+      "note": "mints B, must differ from A",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498837578.0k1JC4",
+      "visitor": "4a8TbgMG5Na1si5aNPz4",
+      "confidence": 1,
+      "found": false,
+      "firstSeen": 1786103637596,
+      "replayed": true,
+      "suspect": 8,
+      "tampering": true
+    },
+    {
+      "label": "A, fresh token",
+      "note": "binds the token to A",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498842760.L2400U",
+      "visitor": "9hXpl3nBg7ytnetKJ2O9",
+      "confidence": 0.99,
+      "found": true,
+      "firstSeen": 1786103634540,
+      "replayed": true,
+      "suspect": 30,
+      "tampering": true
+    },
+    {
+      "label": "B, A's token",
+      "note": "the question: does B answer as A",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498850333.xkxJnQ",
+      "visitor": "9hXpl3nBg7ytnetKJ2O9",
+      "confidence": 0.99,
+      "found": true,
+      "firstSeen": 1786103634540,
+      "replayed": true,
+      "suspect": 8,
+      "tampering": true
+    },
+    {
+      "label": "B, no cache again",
+      "note": "control, B should be B again",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498855850.4QnV8s",
+      "visitor": "dWHJ9Ggj7txMyDPo0KvX",
+      "confidence": 1,
+      "found": false,
+      "firstSeen": 1786103655862,
+      "replayed": true,
+      "suspect": 8,
+      "tampering": true
+    }
+  ],
+  "transferred": true,
+  "distinct": true,
+  "stable": false
+}

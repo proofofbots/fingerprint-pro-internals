@@ -1,0 +1,102 @@
+{
+  "base": "lake-win-mem8.payload.json",
+  "mode": "pairs",
+  "salt": "1786102527927",
+  "endpoint": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+  "collisions": 0,
+  "results": [
+    {
+      "arm": "none",
+      "why": "nothing changed — the pair that has to match",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "rXOwp7S6PKfgIxwnlReu",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "rXOwp7S6PKfgIxwnlReu",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "canvas",
+      "why": "s17 — both canvas digests",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "mUBw39wW02Ji6XYBfe87",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "mUBw39wW02Ji6XYBfe87",
+        "confidence": 0.92,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "screen",
+      "why": "s5 and s84 — the screen box",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "fI5rWwHZo28a907acLPX",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "fI5rWwHZo28a907acLPX",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "ip",
+      "why": "nothing in the payload; the second send leaves from a different exit IP",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "fUnww7NnSkzbpgM9o87i",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "fUnww7NnSkzbpgM9o87i",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    }
+  ]
+}

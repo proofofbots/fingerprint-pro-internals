@@ -1,0 +1,539 @@
+{
+  "base": "lake-win-mem8.payload.json",
+  "mode": "pairs",
+  "salt": "1786103267795",
+  "endpoint": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+  "collisions": 0,
+  "results": [
+    {
+      "arm": "none",
+      "why": "nothing changed — the pair that has to match",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "FsdXHTAP56IwBDiMwpyQ",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "FsdXHTAP56IwBDiMwpyQ",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "touch",
+      "why": "s19 — the touch support block",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "P3bia68U5ejlCaBCK1qA",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "80NqRFYvbI9AKwHZ5n3q",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "storage-flags",
+      "why": "s10, s11, s12 — session, local and indexed storage",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "l7Quc4T6lXbzK8huW6Em",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "l7Quc4T6lXbzK8huW6Em",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "engine-names",
+      "why": "s28",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "tP5sW5scZZNNv103vC7R",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "tP5sW5scZZNNv103vC7R",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "product-sub",
+      "why": "s123",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "e3XkIBq57YckOy244W2N",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "e3XkIBq57YckOy244W2N",
+        "confidence": 0.98,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "color-gamut",
+      "why": "s37",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "CqcgVwxjcPl0fNrlJv9Q",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "D6h0DSljkk5mVxT3QWtZ",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "architecture",
+      "why": "s81",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "3nnr56D0Qc3jNsar24c0",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "3nnr56D0Qc3jNsar24c0",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 29
+      },
+      "same": true
+    },
+    {
+      "arm": "wasm",
+      "why": "s22",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "pbMSa4K6vI1K7kqvnPB7",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "pbMSa4K6vI1K7kqvnPB7",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "s24",
+      "why": "s24 — a constant integer the collector reports",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "sSsQfMI7buSQHpuB9ZE2",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "M5IdrI4nes0l96WGa8MF",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "s117",
+      "why": "s117",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "EaPKKjcOG7FEXq5y7kNY",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "EaPKKjcOG7FEXq5y7kNY",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "s135",
+      "why": "s135",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "Se1hFrjl80VAH9FYQRBk",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Se1hFrjl80VAH9FYQRBk",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "s152",
+      "why": "s152",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "Tu43HIkMujM3hYnUsMy5",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Tu43HIkMujM3hYnUsMy5",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "s104",
+      "why": "s104",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "MESdH79r1XmxQ6HNSDRs",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "MESdH79r1XmxQ6HNSDRs",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "s214",
+      "why": "s214",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "YLvhEbvj7D3K6BHzDdj3",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "YLvhEbvj7D3K6BHzDdj3",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "s66",
+      "why": "s66",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "Ox5DshG77Mk1T6KlNJwG",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Ox5DshG77Mk1T6KlNJwG",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "s205",
+      "why": "s205",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "zdGzfaZrU9HBKK5S8eis",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "zdGzfaZrU9HBKK5S8eis",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 35
+      },
+      "same": true
+    },
+    {
+      "arm": "system-font",
+      "why": "s206",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "bOlRjOqHFQET9YdOwj6p",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    },
+    {
+      "arm": "window-size",
+      "why": "s150 — the outer and inner window boxes",
+      "first": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "second": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    },
+    {
+      "arm": "avail-insets",
+      "why": "s6 — the available-screen insets",
+      "first": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "second": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    },
+    {
+      "arm": "uach",
+      "why": "s58 — the client-hint block",
+      "first": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "second": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    },
+    {
+      "arm": "vendor",
+      "why": "s27 — navigator.vendor",
+      "first": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "second": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    },
+    {
+      "arm": "oscpu",
+      "why": "s1 — navigator.oscpu",
+      "first": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "second": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    },
+    {
+      "arm": "webgl-limits",
+      "why": "s210.l — the WebGL limit vector",
+      "first": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "second": {
+        "status": 429,
+        "error": "{ \"error\": \"429: Too many requests. Please try again later.\" }",
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    }
+  ]
+}

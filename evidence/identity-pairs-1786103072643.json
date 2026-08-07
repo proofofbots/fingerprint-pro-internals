@@ -1,0 +1,217 @@
+{
+  "base": "lake-win-mem8.payload.json",
+  "mode": "pairs",
+  "salt": "1786103072643",
+  "endpoint": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+  "collisions": 0,
+  "results": [
+    {
+      "arm": "none",
+      "why": "nothing changed — the pair that has to match",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "uboBoIrEH32AUxhQ0UkD",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "uboBoIrEH32AUxhQ0UkD",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "soft-1",
+      "why": "cumulative soft change: canvas",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "E8vicvJomz0ORCMKlYlJ",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "E8vicvJomz0ORCMKlYlJ",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "soft-2",
+      "why": "cumulative soft change: canvas + webgl",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "7jG7ZMt72yZtdyhRjc6j",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "7jG7ZMt72yZtdyhRjc6j",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "soft-3",
+      "why": "cumulative soft change: canvas + webgl + screen",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "j3UYqJMxk02WXfG8wWcx",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "j3UYqJMxk02WXfG8wWcx",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "soft-4",
+      "why": "cumulative soft change: canvas + webgl + screen + ua",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "RT5KK9dwwCd3S5qLChCe",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "RT5KK9dwwCd3S5qLChCe",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "soft-5",
+      "why": "cumulative soft change: canvas + webgl + screen + ua + locale",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "vrz3W3Wb9MLvR7bJTY81",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "vrz3W3Wb9MLvR7bJTY81",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "soft-6",
+      "why": "cumulative soft change: canvas + webgl + screen + ua + locale + fonts",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "idVfEwWFO3CIxxfK0U2R",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "idVfEwWFO3CIxxfK0U2R",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "soft-7",
+      "why": "cumulative soft change: canvas + webgl + screen + ua + locale + fonts + cores",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "2wGfEo8v6p3r50zLHls4",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "MaPIpggRQcGx6Zd0cfSL",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "soft-8",
+      "why": "cumulative soft change: canvas + webgl + screen + ua + locale + fonts + cores + gpu-strings",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "66cv3BWu1Pi8zMfegTha",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Rt2gB9AM1GNCznFyxb3x",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    }
+  ]
+}

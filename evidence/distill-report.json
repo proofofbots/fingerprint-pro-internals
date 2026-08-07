@@ -1,0 +1,1078 @@
+{
+  "from": "artifacts/captures/chrome-2026-07-31T06-30-07-595Z.json",
+  "as_origin": "https://demo.fingerprint.com",
+  "budget": 5,
+  "mode": "ofat:rare-hardware",
+  "baseline": {
+    "suspect_score": 9,
+    "bot": "not_detected",
+    "tampering": false,
+    "tampering_ml": 0.4804,
+    "anomaly": 0.0328,
+    "anti_detect": false,
+    "vm_ml": 0.143,
+    "incognito": false,
+    "privacy_settings": false,
+    "devtools": false,
+    "rare_device": false,
+    "rare_bucket": "<p95",
+    "confidence": 0.88,
+    "e_hw": 8,
+    "e_mem": 16,
+    "e_color": 30,
+    "e_screen": [
+      1440,
+      900
+    ],
+    "e_platform": "MacIntel",
+    "e_vendor": "Google Inc.",
+    "e_langs": [
+      [
+        "en-US"
+      ]
+    ],
+    "e_canvas": "511c25df6b789293ebcbcd0314df4ec1",
+    "e_wglrend": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+  },
+  "bundles": [
+    {
+      "id": "s7=64",
+      "hypothesis": "rare-hardware: isolate s7",
+      "sets": [
+        [
+          "s7",
+          "64"
+        ]
+      ],
+      "outputs": {
+        "suspect_score": 9,
+        "bot": "not_detected",
+        "tampering": false,
+        "tampering_ml": 0.2903,
+        "anomaly": 0.0328,
+        "anti_detect": false,
+        "vm_ml": 0.412,
+        "incognito": false,
+        "privacy_settings": false,
+        "devtools": false,
+        "rare_device": false,
+        "rare_bucket": "<p95",
+        "confidence": 0.88,
+        "e_hw": 64,
+        "e_mem": 16,
+        "e_color": 30,
+        "e_screen": [
+          1440,
+          900
+        ],
+        "e_platform": "MacIntel",
+        "e_vendor": "Google Inc.",
+        "e_langs": [
+          [
+            "en-US"
+          ]
+        ],
+        "e_canvas": "511c25df6b789293ebcbcd0314df4ec1",
+        "e_wglrend": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+      }
+    },
+    {
+      "id": "s4=128",
+      "hypothesis": "rare-hardware: isolate s4",
+      "sets": [
+        [
+          "s4",
+          "128"
+        ]
+      ],
+      "outputs": {
+        "suspect_score": 17,
+        "bot": "not_detected",
+        "tampering": true,
+        "tampering_ml": 0.3095,
+        "anomaly": 1,
+        "anti_detect": false,
+        "vm_ml": 0.053,
+        "incognito": false,
+        "privacy_settings": false,
+        "devtools": false,
+        "rare_device": false,
+        "rare_bucket": "<p95",
+        "confidence": 0.99,
+        "e_hw": 8,
+        "e_mem": 128,
+        "e_color": 30,
+        "e_screen": [
+          1440,
+          900
+        ],
+        "e_platform": "MacIntel",
+        "e_vendor": "Google Inc.",
+        "e_langs": [
+          [
+            "en-US"
+          ]
+        ],
+        "e_canvas": "511c25df6b789293ebcbcd0314df4ec1",
+        "e_wglrend": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+      }
+    },
+    {
+      "id": "s5=[7680,4320]",
+      "hypothesis": "rare-hardware: isolate s5",
+      "sets": [
+        [
+          "s5",
+          "[7680,4320]"
+        ]
+      ],
+      "outputs": {
+        "suspect_score": 21,
+        "bot": "not_detected",
+        "tampering": true,
+        "tampering_ml": 0.8728,
+        "anomaly": 0.0328,
+        "anti_detect": true,
+        "vm_ml": 0,
+        "incognito": false,
+        "privacy_settings": false,
+        "devtools": false,
+        "rare_device": true,
+        "rare_bucket": "not_seen",
+        "confidence": 0.88,
+        "e_hw": 8,
+        "e_mem": 16,
+        "e_color": 30,
+        "e_screen": [
+          7680,
+          4320
+        ],
+        "e_platform": "MacIntel",
+        "e_vendor": "Google Inc.",
+        "e_langs": [
+          [
+            "en-US"
+          ]
+        ],
+        "e_canvas": "511c25df6b789293ebcbcd0314df4ec1",
+        "e_wglrend": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+      }
+    }
+  ],
+  "throughput": [
+    {
+      "n": 0,
+      "tag": "baseline",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 6395,
+      "session": "V3FS1B93B"
+    },
+    {
+      "n": 3,
+      "tag": "s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 22114,
+      "session": "FI2DLAT1G"
+    },
+    {
+      "n": 28,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 22976,
+      "session": "SV8HNPAIS"
+    },
+    {
+      "n": 16,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 23218,
+      "session": "VFZCLKMX9"
+    },
+    {
+      "n": 1,
+      "tag": "s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 23678,
+      "session": "AGTGTR9RA"
+    },
+    {
+      "n": 14,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 24258,
+      "session": "9C2PHFV8U"
+    },
+    {
+      "n": 4,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 24380,
+      "session": "RRRWDPPQ6"
+    },
+    {
+      "n": 24,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 24307,
+      "session": "GJ9Z1WNT6"
+    },
+    {
+      "n": 7,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 24519,
+      "session": "TQAOCYN6Z"
+    },
+    {
+      "n": 13,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 24576,
+      "session": "272B00OVA"
+    },
+    {
+      "n": 11,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 24604,
+      "session": "O9HMKJ8V7"
+    },
+    {
+      "n": 43,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 24749,
+      "session": "70T4FKYOS"
+    },
+    {
+      "n": 38,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 25146,
+      "session": "OZRL5GGTH"
+    },
+    {
+      "n": 35,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 25251,
+      "session": "V9N38U0KN"
+    },
+    {
+      "n": 33,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 25513,
+      "session": "ACND8EIDU"
+    },
+    {
+      "n": 46,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 25317,
+      "session": "DXNYFFKJL"
+    },
+    {
+      "n": 8,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26082,
+      "session": "JI4ZNN488"
+    },
+    {
+      "n": 2,
+      "tag": "s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26101,
+      "session": "NEBF68IYT"
+    },
+    {
+      "n": 27,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26031,
+      "session": "IKA50IGI6"
+    },
+    {
+      "n": 31,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26028,
+      "session": "5CL97SJF6"
+    },
+    {
+      "n": 6,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26284,
+      "session": "1K7ULQPM5"
+    },
+    {
+      "n": 34,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26163,
+      "session": "I31EG5PYV"
+    },
+    {
+      "n": 19,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26389,
+      "session": "8V12KILGD"
+    },
+    {
+      "n": 21,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26425,
+      "session": "POSWUT35X"
+    },
+    {
+      "n": 26,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26385,
+      "session": "L13X894UZ"
+    },
+    {
+      "n": 22,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26472,
+      "session": "TDFMNLZD2"
+    },
+    {
+      "n": 5,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26692,
+      "session": "41KHR3TW9"
+    },
+    {
+      "n": 50,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26175,
+      "session": "AJM7OVZAZ"
+    },
+    {
+      "n": 40,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26453,
+      "session": "K13T54BS5"
+    },
+    {
+      "n": 23,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26733,
+      "session": "HAIQ9EPPZ"
+    },
+    {
+      "n": 17,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26836,
+      "session": "K1XWNJEUO"
+    },
+    {
+      "n": 15,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26882,
+      "session": "9S8OCODEB"
+    },
+    {
+      "n": 30,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26735,
+      "session": "8AKU8BJK0"
+    },
+    {
+      "n": 9,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27236,
+      "session": "BSVCOD4SK"
+    },
+    {
+      "n": 18,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27115,
+      "session": "0KYIEX7XK"
+    },
+    {
+      "n": 29,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27038,
+      "session": "5C0MG29II"
+    },
+    {
+      "n": 42,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 26907,
+      "session": "NQHFZU18E"
+    },
+    {
+      "n": 36,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27183,
+      "session": "9QPO3VWNL"
+    },
+    {
+      "n": 39,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27165,
+      "session": "BNAU2O26Z"
+    },
+    {
+      "n": 32,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27342,
+      "session": "S5HBPZ34J"
+    },
+    {
+      "n": 44,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27243,
+      "session": "AHSCEA833"
+    },
+    {
+      "n": 25,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27462,
+      "session": "IG6ZJZVJU"
+    },
+    {
+      "n": 49,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27145,
+      "session": "L8Z4S70WC"
+    },
+    {
+      "n": 47,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 27493,
+      "session": "PSVY4UORK"
+    },
+    {
+      "n": 12,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 28131,
+      "session": "L52XHGGCG"
+    },
+    {
+      "n": 20,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 28272,
+      "session": "YXJ1SP50U"
+    },
+    {
+      "n": 10,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 28515,
+      "session": "GTHNIMZFO"
+    },
+    {
+      "n": 48,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 28384,
+      "session": "8BD6OI1LD"
+    },
+    {
+      "n": 37,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 28656,
+      "session": "AEKO2JDCR"
+    },
+    {
+      "n": 52,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 7073,
+      "session": "RTCUGX3MN"
+    },
+    {
+      "n": 53,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 6995,
+      "session": "41U9UAGYS"
+    },
+    {
+      "n": 51,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 9615,
+      "session": "6UCUU2NGB"
+    },
+    {
+      "n": 45,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 34884,
+      "session": "OXVTF4VTY"
+    },
+    {
+      "n": 58,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 10892,
+      "session": "OJLQ75BA8"
+    },
+    {
+      "n": 60,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 11912,
+      "session": "XKJGPIUE7"
+    },
+    {
+      "n": 41,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 36639,
+      "session": "V1BNYP1SI"
+    },
+    {
+      "n": 56,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 12683,
+      "session": "VE4UPFYLS"
+    },
+    {
+      "n": 55,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 12775,
+      "session": "0OMY88PIS"
+    },
+    {
+      "n": 59,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 12616,
+      "session": "M9ULVOMQ9"
+    },
+    {
+      "n": 54,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 14393,
+      "session": "MKE6V7AMA"
+    },
+    {
+      "n": 67,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 13584,
+      "session": "PGLTRGCZ7"
+    },
+    {
+      "n": 65,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 14041,
+      "session": "ADSFU6N5Y"
+    },
+    {
+      "n": 64,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 14313,
+      "session": "B1YAAO8OQ"
+    },
+    {
+      "n": 57,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15864,
+      "session": "GHNR7DPGY"
+    },
+    {
+      "n": 78,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 14258,
+      "session": "J0YP5Z4NC"
+    },
+    {
+      "n": 82,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 14372,
+      "session": "073I657KV"
+    },
+    {
+      "n": 89,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 13920,
+      "session": "OV1AU8FTW"
+    },
+    {
+      "n": 76,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 14950,
+      "session": "E0G1QFGP4"
+    },
+    {
+      "n": 62,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 16197,
+      "session": "MKDQVUURF"
+    },
+    {
+      "n": 73,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15100,
+      "session": "4VLUZX4VG"
+    },
+    {
+      "n": 72,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15189,
+      "session": "LJ7K5EQOA"
+    },
+    {
+      "n": 74,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15161,
+      "session": "7C4FZPCCS"
+    },
+    {
+      "n": 66,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15683,
+      "session": "WC6MB4VAB"
+    },
+    {
+      "n": 81,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 14988,
+      "session": "OXS2XG1MB"
+    },
+    {
+      "n": 95,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 13522,
+      "session": "KBYVAA1DD"
+    },
+    {
+      "n": 71,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15694,
+      "session": "Z2YQFTMJ9"
+    },
+    {
+      "n": 70,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 16028,
+      "session": "5P6ZLNTPD"
+    },
+    {
+      "n": 84,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15192,
+      "session": "MX07P5BZU"
+    },
+    {
+      "n": 87,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15187,
+      "session": "KZ065VK7U"
+    },
+    {
+      "n": 68,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 16405,
+      "session": "JQKPVYV4Q"
+    },
+    {
+      "n": 97,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 13872,
+      "session": "I2EIHKXGV"
+    },
+    {
+      "n": 86,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15734,
+      "session": "2LFDC1GFZ"
+    },
+    {
+      "n": 99,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 12796,
+      "session": "XKB8YCY2L"
+    },
+    {
+      "n": 88,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 16024,
+      "session": "232GA034X"
+    },
+    {
+      "n": 69,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 17292,
+      "session": "I8O1VI1Z2"
+    },
+    {
+      "n": 92,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 16223,
+      "session": "RCQ0LRZN1"
+    },
+    {
+      "n": 77,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 17306,
+      "session": "S6ZGCQI2E"
+    },
+    {
+      "n": 98,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 15145,
+      "session": "PE8EZ4LBC"
+    },
+    {
+      "n": 75,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 17780,
+      "session": "QVUTPDKYN"
+    },
+    {
+      "n": 90,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 16962,
+      "session": "XN83UQI6A"
+    },
+    {
+      "n": 96,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 16481,
+      "session": "416HGW2YC"
+    },
+    {
+      "n": 80,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 18125,
+      "session": "H2C6PLXBQ"
+    },
+    {
+      "n": 93,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 17937,
+      "session": "X4RYRP5RF"
+    },
+    {
+      "n": 94,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 17928,
+      "session": "F7KIAMSSD"
+    },
+    {
+      "n": 91,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 19809,
+      "session": "V2HGOZDVN"
+    },
+    {
+      "n": 79,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 20807,
+      "session": "LREMZDF7M"
+    },
+    {
+      "n": 63,
+      "tag": "soak:s5=[7680,4320]",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 22845,
+      "session": "2DBS9Z05Y"
+    },
+    {
+      "n": 83,
+      "tag": "soak:s4=128",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 21700,
+      "session": "YQI9SZGLN"
+    },
+    {
+      "n": 61,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 23898,
+      "session": "DLSZYREPW"
+    },
+    {
+      "n": 85,
+      "tag": "soak:s7=64",
+      "postStatus": 200,
+      "bffStatus": 200,
+      "ok": true,
+      "ms": 25571,
+      "session": "GRB7ZVFKJ"
+    }
+  ],
+  "ratelimit": {
+    "total_replays": 100,
+    "ok": 100,
+    "first_failure_at": null,
+    "post_status_hist": {
+      "200": 100
+    },
+    "bff_status_hist": {
+      "200": 100
+    },
+    "avg_ms": 20955,
+    "distinct_ips": 100,
+    "distinct_sessions": 100
+  }
+}

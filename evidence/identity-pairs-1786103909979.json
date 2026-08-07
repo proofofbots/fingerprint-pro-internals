@@ -1,0 +1,68 @@
+{
+  "base": "lake-win-mem8.payload.json",
+  "mode": "pairs",
+  "salt": "1786103909979",
+  "endpoint": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+  "collisions": 0,
+  "results": [
+    {
+      "arm": "none",
+      "why": "nothing changed — the pair that has to match",
+      "first": {
+        "status": 200,
+        "error": null,
+        "eventId": "1785499111443.J5ZJCN",
+        "visitor": "3ClDnMrt2DtJFvMwMe1B",
+        "confidence": 1,
+        "found": false,
+        "firstSeen": 1786103911456,
+        "replayed": true,
+        "suspect": 30,
+        "tampering": true
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "eventId": "1785499115046.Jrs1NK",
+        "visitor": "3ClDnMrt2DtJFvMwMe1B",
+        "confidence": 0.99,
+        "found": true,
+        "firstSeen": 1786103911456,
+        "replayed": true,
+        "suspect": 30,
+        "tampering": true
+      },
+      "same": true
+    },
+    {
+      "arm": "color-depth",
+      "why": "s3",
+      "first": {
+        "status": 200,
+        "error": null,
+        "eventId": "1785499117529.cIjiWE",
+        "visitor": "4YVfKiu2ttrhQEIngqas",
+        "confidence": 1,
+        "found": false,
+        "firstSeen": 1786103917537,
+        "replayed": true,
+        "suspect": 30,
+        "tampering": true
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "eventId": "1785499120649.BUUDVi",
+        "visitor": "3ISPx88Zwwy89fNXEEo3",
+        "confidence": 1,
+        "found": false,
+        "firstSeen": 1786103920661,
+        "replayed": true,
+        "suspect": 30,
+        "tampering": true
+      },
+      "same": false
+    }
+  ]
+}

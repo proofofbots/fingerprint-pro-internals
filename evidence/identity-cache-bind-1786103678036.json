@@ -1,0 +1,80 @@
+{
+  "a": "mac-device2.json",
+  "b": "lake-win-mem8.payload.json",
+  "token": "i09b38nZuzsgyDUjnyeXLMxUgLu4owAT6YSW5ZdzUWUx2JLi+DxkjElZxwuU6Rg/JlFXgvzmr+yqUGPQzP9jElNXoHl7hc==",
+  "steps": [
+    {
+      "label": "A, no cache",
+      "note": "mints A from its fingerprint",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498879382.6GI8sd",
+      "visitor": "Yk5a4nF34a77XSjPBOmC",
+      "confidence": 1,
+      "found": false,
+      "firstSeen": 1786103679400,
+      "replayed": true,
+      "suspect": 8,
+      "tampering": true
+    },
+    {
+      "label": "B, no cache",
+      "note": "mints B, must differ from A",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498889588.gVytk4",
+      "visitor": "lUKorQtMDZ25F9epBrfJ",
+      "confidence": 1,
+      "found": false,
+      "firstSeen": 1786103689605,
+      "replayed": true,
+      "suspect": 30,
+      "tampering": true
+    },
+    {
+      "label": "A, fresh token",
+      "note": "binds the token to A",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498898258.Kls2cf",
+      "visitor": "Yk5a4nF34a77XSjPBOmC",
+      "confidence": 0.99,
+      "found": true,
+      "firstSeen": 1786103679400,
+      "replayed": true,
+      "suspect": 8,
+      "tampering": true
+    },
+    {
+      "label": "B, A's token",
+      "note": "the question: does B answer as A",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498901425.GvrGue",
+      "visitor": "Yk5a4nF34a77XSjPBOmC",
+      "confidence": 0.99,
+      "found": true,
+      "firstSeen": 1786103679400,
+      "replayed": true,
+      "suspect": 30,
+      "tampering": true
+    },
+    {
+      "label": "B, no cache again",
+      "note": "control, B should be B again",
+      "status": 200,
+      "error": null,
+      "eventId": "1785498905184.3V7BoJ",
+      "visitor": "Yk5a4nF34a77XSjPBOmC",
+      "confidence": 0.99,
+      "found": true,
+      "firstSeen": 1786103679400,
+      "replayed": true,
+      "suspect": 30,
+      "tampering": true
+    }
+  ],
+  "transferred": true,
+  "distinct": true,
+  "stable": false
+}

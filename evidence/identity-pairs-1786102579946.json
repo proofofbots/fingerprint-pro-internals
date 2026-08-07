@@ -1,0 +1,769 @@
+{
+  "base": "lake-win-mem8.payload.json",
+  "mode": "pairs",
+  "salt": "1786102579946",
+  "endpoint": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+  "collisions": 0,
+  "results": [
+    {
+      "arm": "none",
+      "why": "nothing changed — the pair that has to match",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "uzYBCJhO30I1d5ZsM5OO",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "uzYBCJhO30I1d5ZsM5OO",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "canvas",
+      "why": "s17 — both canvas digests",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "qmxmkOS8CqFqZTsU8P50",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "qmxmkOS8CqFqZTsU8P50",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "canvas-text-only",
+      "why": "s17.text alone",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "w6yHml5oEeJXbaDS3hq5",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "w6yHml5oEeJXbaDS3hq5",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "canvas2",
+      "why": "s76 — the other rendered-canvas digest",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "LvYtWIWFbQgB1E88F7fe",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "LvYtWIWFbQgB1E88F7fe",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "webgl-digests",
+      "why": "s75 — all seven WebGL digests",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "y3IdXe4CI0QKO3qJleB9",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "y3IdXe4CI0QKO3qJleB9",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "webgl-params-only",
+      "why": "s75.parameters alone",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "JKC5Exx4WIR48Zdyh3pA",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "JKC5Exx4WIR48Zdyh3pA",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "webgl-strings",
+      "why": "s74 — the unmasked vendor and renderer strings",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "fxNVBLX19ptqwhcoo7nJ",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "fxNVBLX19ptqwhcoo7nJ",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "audio-digest",
+      "why": "s46 — the hashed audio block",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "cv39RSeElzEx75Hdy6kK",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "PZOrcLxYvQGG5bsTx4jx",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "audio-float",
+      "why": "s21 — published as raw_device_attributes.audio",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "7I3BQCVwnvzZo9qxTcr2",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "7I3BQCVwnvzZo9qxTcr2",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "voices",
+      "why": "s52 — the speech-voice digest",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "wGJK00vbel90gHd7lNq6",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "wGJK00vbel90gHd7lNq6",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "fonts",
+      "why": "s20 — the detected font list",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "Lkc3NwFXlxucfw2n0RgU",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Lkc3NwFXlxucfw2n0RgU",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "font-metrics",
+      "why": "s51 — the per-family text widths",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "Helue6GJm20tksq6tIox",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Helue6GJm20tksq6tIox",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "screen",
+      "why": "s5 and s84 — the screen box",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "qFEdQCDIgoCYyv6WU9F9",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "qFEdQCDIgoCYyv6WU9F9",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "color-depth",
+      "why": "s3",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "ILK38X6CriOCWtmo2ME0",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "l65v8BLz7edNTedhvwq6",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "pixel-ratio",
+      "why": "s57",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "RFGyPhiP8kgk5YAHNJNG",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "RFGyPhiP8kgk5YAHNJNG",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "cores",
+      "why": "s7 — hardwareConcurrency",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "2OBhyq9BOxKoEHq9gjqr",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "2OBhyq9BOxKoEHq9gjqr",
+        "confidence": 0.98,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "memory",
+      "why": "s4 — deviceMemory",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "4ApQrqfnOt3OMWnC2FCf",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "RUh7sPr8BjTR8axyJgDe",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": false
+    },
+    {
+      "arm": "user-agent",
+      "why": "s101 and s103 — a different Chrome major",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "NrQes5yXu56I56xfE0h6",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "NrQes5yXu56I56xfE0h6",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "platform",
+      "why": "s15 — navigator.platform alone",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "qDa2LJ6WGsNY4wAUefOZ",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "qDa2LJ6WGsNY4wAUefOZ",
+        "confidence": 0.98,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "languages",
+      "why": "s2, s82, s202",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "iVRdgvZDocKZ6po4ExWn",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "iVRdgvZDocKZ6po4ExWn",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "timezone",
+      "why": "s9",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "R41KjBuSltvcz9Uw120U",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "R41KjBuSltvcz9Uw120U",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "plugins",
+      "why": "s16 — the plugin and mime table",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "0L4kuIZ3IaeK5uWTwPcq",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 30
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "0L4kuIZ3IaeK5uWTwPcq",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "session-uuid",
+      "why": "s216, s94.u, s219.u",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "YWu9F9au0UyGOumtXn17",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "YWu9F9au0UyGOumtXn17",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "browser-cache",
+      "why": "s56 — the blob the GET leg issues",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "xxVrSn7j6E2u9fGMG77o",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "xxVrSn7j6E2u9fGMG77o",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "storage-quota",
+      "why": "s29",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "x5Ad5C2rwiZTMEyw8ye6",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "x5Ad5C2rwiZTMEyw8ye6",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "dom-rects",
+      "why": "s92 and s93 — the two getBoundingClientRect boxes",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "SLC82pg5iEheoRLL42Uc",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "SLC82pg5iEheoRLL42Uc",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "keyboard",
+      "why": "s222 — the keyboard layout map",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "zmVaO8SD9YGCUk84Jdth",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "zmVaO8SD9YGCUk84Jdth",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "battery",
+      "why": "s217",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "wgEadhQiVSJMwZPuyQd3",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "wgEadhQiVSJMwZPuyQd3",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "webauthn",
+      "why": "s215 — the WebAuthn capability table",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "Mk0a4YFhg14ISmazqQ5M",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "Mk0a4YFhg14ISmazqQ5M",
+        "confidence": 0.97,
+        "found": true,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": true
+    },
+    {
+      "arm": "ip",
+      "why": "nothing in the payload; the second send leaves from a different exit IP",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "GTLSzynT890xXS8bGjHS",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "GTLSzynT890xXS8bGjHS",
+        "confidence": 0.99,
+        "found": true,
+        "replayed": true,
+        "suspect": 30
+      },
+      "same": true
+    },
+    {
+      "arm": "all-coarse",
+      "why": "every coarse attribute at once, s56 left pinned",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "ph2KXFNYxYikeWpgD9Do",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "f8B3ak6sXXOMrpUuNieC",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "all-coarse-nocache",
+      "why": "the same, with s56 emptied",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "19Q41tsNg4Y9usiW4Frh",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": "GZbxx13y0hpPzX63vNWx",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "same": false
+    },
+    {
+      "arm": "cache-only",
+      "why": "s56 emptied and nothing else touched",
+      "first": {
+        "status": 200,
+        "error": null,
+        "visitor": "4eGR3xGV7QcnPjbS6Pw5",
+        "confidence": 1,
+        "found": false,
+        "replayed": true,
+        "suspect": 43
+      },
+      "second": {
+        "status": 200,
+        "error": null,
+        "visitor": null,
+        "confidence": null,
+        "found": null,
+        "replayed": null,
+        "suspect": null
+      },
+      "same": null
+    }
+  ]
+}
