@@ -1,0 +1,124 @@
+{
+  "source": "agent/agent.clean.js",
+  "builder": "buildEnvelope",
+  "params": [
+    {
+      "name": "modules",
+      "fallback": ""
+    },
+    {
+      "name": "components",
+      "fallback": "{}"
+    },
+    {
+      "name": "apiKey",
+      "fallback": ""
+    },
+    {
+      "name": "browserCache",
+      "fallback": ""
+    },
+    {
+      "name": "tag",
+      "fallback": ""
+    },
+    {
+      "name": "linkedId",
+      "fallback": ""
+    },
+    {
+      "name": "imi",
+      "fallback": ""
+    },
+    {
+      "name": "storageKeyPrefix",
+      "fallback": ""
+    },
+    {
+      "name": "urlHashing",
+      "fallback": ""
+    },
+    {
+      "name": "ii",
+      "fallback": ""
+    },
+    {
+      "name": "ab",
+      "fallback": ""
+    },
+    {
+      "name": "fast",
+      "fallback": ""
+    },
+    {
+      "name": "eventId",
+      "fallback": ""
+    }
+  ],
+  "keys": [
+    {
+      "key": "c",
+      "expression": "apiKey"
+    },
+    {
+      "key": "t",
+      "expression": "fn117(tag)"
+    },
+    {
+      "key": "lid",
+      "expression": "linkedId"
+    },
+    {
+      "key": "m",
+      "expression": "imi.m"
+    },
+    {
+      "key": "l",
+      "expression": "imi.l"
+    },
+    {
+      "key": "mo",
+      "expression": "modules.map(arg324=>arg324.key).filter(arg325=>Boolean(arg325))"
+    },
+    {
+      "key": "s56",
+      "expression": "browserCache"
+    },
+    {
+      "key": "sc",
+      "expression": "fn1()"
+    },
+    {
+      "key": "uh",
+      "expression": "fn27(urlHashing)"
+    },
+    {
+      "key": "ii",
+      "expression": "ii"
+    },
+    {
+      "key": "gt",
+      "expression": "1"
+    },
+    {
+      "key": "ab",
+      "expression": "ab"
+    },
+    {
+      "key": "hu",
+      "expression": "fast?0:eventId?1:undefined"
+    },
+    {
+      "key": "ri",
+      "expression": "eventId"
+    }
+  ],
+  "spreads": [
+    {
+      "expression": "fn13(components)",
+      "callee": "fn13",
+      "keys": [],
+      "passthrough": true
+    }
+  ]
+}

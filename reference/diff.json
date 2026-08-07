@@ -1,0 +1,1107 @@
+{
+  "before": "signals-2026-07-31-jsl4.0.0.json",
+  "after": "signals.json",
+  "totals": {
+    "before": 143,
+    "after": 143,
+    "added": 0,
+    "removed": 0,
+    "changed": 56
+  },
+  "added": [],
+  "removed": [],
+  "changed": [
+    {
+      "id": "s94",
+      "binding": "sig_s94_webkitRTCPeerConnection",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "h_s94_fn: !(v78 instanceof Error) || !new RegExp(\"\\\\bcreateOffer\\\\b.*(\\\\bcallback\\\\b.*\\\\bnot a function\\\\b|\\\\barguments required\\\\b.*\\\\bpresent\\\\b)\", \"i\").test(readVaulte…"
+        ]
+      }
+    },
+    {
+      "id": "s167",
+      "binding": "sig_s167_atob",
+      "codes": {
+        "gone": [],
+        "fresh": [
+          "-6"
+        ]
+      },
+      "checks": {
+        "gone": 0,
+        "fresh": 3,
+        "sample": [
+          "h_s167_fn: v75.s === -1",
+          "h_s167_fn3: v691 == null",
+          "h_s167_fn3: new RegExp(\"CreateCdmFunc not available\").test(v692)"
+        ]
+      },
+      "constants": {
+        "gone": [],
+        "fresh": [
+          "=== -1"
+        ]
+      }
+    },
+    {
+      "id": "s52",
+      "binding": "sig_s52_origin",
+      "shapes": {
+        "gone": [],
+        "fresh": [
+          "value"
+        ]
+      },
+      "checks": {
+        "gone": 6,
+        "fresh": 12,
+        "sample": [
+          "fn161: fn25()",
+          "fn161: function (arg934) { return !arg934.addEventListener || fn46() && fn140() || fn25() && fn48(window.origin ?? \"\") === 548031109; }(arg933)",
+          "fn161: !arg934.addEventListener || fn46() && fn140() || fn25() && fn48(window.origin ?? \"\") === 548031109"
+        ]
+      },
+      "constants": {
+        "gone": [],
+        "fresh": [
+          "=== 0",
+          ">= 3",
+          ">= 4",
+          "in \"ApplePayError\"",
+          "in \"AudioBuffer\"",
+          "in \"CSSMozDocumentRule\"",
+          "in \"CSSPrimitiveValue\"",
+          "in \"CanvasCaptureMediaStream\"",
+          "in \"Counter\"",
+          "in \"MozAppearance\"",
+          "in \"PushManager\"",
+          "in \"RGBColor\"",
+          "in \"RTCPeerConnection\"",
+          "in \"ServiceWorker\"",
+          "in \"WebKitMediaKeys\"",
+          "in \"buildID\"",
+          "in \"geolocation\"",
+          "in \"mozInnerScreenX\"",
+          "in \"onmozfullscreenchange\""
+        ]
+      }
+    },
+    {
+      "id": "s26",
+      "binding": "sig_s26_mediaDevices",
+      "checks": {
+        "gone": 2,
+        "fresh": 0,
+        "sample": []
+      },
+      "constants": {
+        "gone": [
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s20",
+      "binding": "sig_s20_hidden",
+      "shapes": {
+        "gone": [
+          "null"
+        ],
+        "fresh": []
+      },
+      "checks": {
+        "gone": 2,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s36",
+      "binding": "sig_s36_div",
+      "checks": {
+        "gone": 2,
+        "fresh": 2,
+        "sample": [
+          "h_s36_div: !((parentElement = element3.parentNode) == null)",
+          "fn25: fn9([\"ApplePayError\" in window, \"CSSPrimitiveValue\" in window, \"Counter\" in window, navigator.vendor.indexOf(\"Apple\") === 0, \"RGBColor\" in window, \"WebKitMediaK…"
+        ]
+      }
+    },
+    {
+      "id": "s51",
+      "binding": "sig_s51_iframe",
+      "checks": {
+        "gone": 5,
+        "fresh": 5,
+        "sample": [
+          "h_s51_iframe: arg703 && \"srcdoc\" in iframe2",
+          "h_s51_iframe: iframe2.contentWindow?.document?.readyState === \"complete\"",
+          "h_s51_iframe: !((parentElement2 = iframe2.parentNode) == null)"
+        ]
+      }
+    },
+    {
+      "id": "s21",
+      "binding": "sig_s21_domRectList",
+      "checks": {
+        "gone": 7,
+        "fresh": 8,
+        "sample": [
+          "h_s21_domRectList: !offlineAudioContext",
+          "h_s21_domRectList: fn25() && !fn14() && !function () { return fn9([\"DOMRectList\" in window, \"RTCPeerConnectionIceEvent\" in window, \"SVGGeometryElement\" in window, \"ontransitioncan…",
+          "h_s21_domRectList: v1121 && v1122 >= 3"
+        ]
+      },
+      "constants": {
+        "gone": [],
+        "fresh": [
+          "=== 0",
+          ">= 4",
+          "in \"ApplePayError\"",
+          "in \"CSSPrimitiveValue\"",
+          "in \"Counter\"",
+          "in \"RGBColor\"",
+          "in \"TouchEvent\"",
+          "in \"WebKitMediaKeys\"",
+          "in \"autocapitalize\"",
+          "in \"ongestureend\"",
+          "in \"orientation\"",
+          "in \"pointerLockElement\"",
+          "in \"safari\""
+        ]
+      }
+    },
+    {
+      "id": "s154",
+      "binding": "sig_s154_brave",
+      "checks": {
+        "gone": 2,
+        "fresh": 2,
+        "sample": [
+          "fn11: fn9([\"webkitPersistentStorage\" in navigator, \"webkitTemporaryStorage\" in navigator, (navigator.vendor || \"\").indexOf(\"Google\") === 0, \"webkitResolveLocalFileSys…",
+          "fn46: fn9([\"buildID\" in navigator, \"MozAppearance\" in (document.documentElement?.style ?? {}), \"onmozfullscreenchange\" in window, \"mozInnerScreenX\" in window, \"CSSMoz…"
+        ]
+      }
+    },
+    {
+      "id": "s23",
+      "binding": "sig_s23_clipboardItem",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "fn11: fn9([\"webkitPersistentStorage\" in navigator, \"webkitTemporaryStorage\" in navigator, (navigator.vendor || \"\").indexOf(\"Google\") === 0, \"webkitResolveLocalFileSys…"
+        ]
+      }
+    },
+    {
+      "id": "s29",
+      "binding": "sig_s29",
+      "checks": {
+        "gone": 3,
+        "fresh": 1,
+        "sample": [
+          "!webkitTemporaryStorage && !storage?.estimate"
+        ]
+      }
+    },
+    {
+      "id": "s84",
+      "binding": "sig_s84_hidden",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s85",
+      "binding": "sig_s85_blob",
+      "apis": {
+        "gone": [
+          "TextEncoder"
+        ],
+        "fresh": []
+      },
+      "shapes": {
+        "gone": [
+          "call"
+        ],
+        "fresh": [
+          "value"
+        ]
+      },
+      "checks": {
+        "gone": 7,
+        "fresh": 6,
+        "sample": [
+          "fn25: fn9([\"ApplePayError\" in window, \"CSSPrimitiveValue\" in window, \"Counter\" in window, navigator.vendor.indexOf(\"Apple\") === 0, \"RGBColor\" in window, \"WebKitMediaK…",
+          "fn46: fn9([\"buildID\" in navigator, \"MozAppearance\" in (document.documentElement?.style ?? {}), \"onmozfullscreenchange\" in window, \"mozInnerScreenX\" in window, \"CSSMoz…",
+          "h_s85_securityError: !indexedDB2"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s89",
+      "binding": "sig_s89_storage",
+      "renamed": [
+        "sig_s89_hidden",
+        "sig_s89_storage"
+      ],
+      "apis": {
+        "gone": [
+          "navigator",
+          "TextEncoder"
+        ],
+        "fresh": [
+          "navigator.storage",
+          "navigator.storage.getDirectory",
+          "navigator.storage.getDirectory()"
+        ]
+      },
+      "checks": {
+        "gone": 5,
+        "fresh": 1,
+        "sample": [
+          "!storage2?.getDirectory"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s17",
+      "binding": "sig_s17_canvas",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "h_s17_canvas: !!(!v540 || !canvas3.toDataURL)"
+        ]
+      }
+    },
+    {
+      "id": "s87",
+      "binding": "sig_s87_hidden",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s92",
+      "binding": "sig_s92_createDocumentFragment",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s93",
+      "binding": "sig_s93_hidden",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s204",
+      "binding": "sig_s204_hidden",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s206",
+      "binding": "sig_s206_style",
+      "checks": {
+        "gone": 2,
+        "fresh": 2,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0",
+          "fn46: fn9([\"buildID\" in navigator, \"MozAppearance\" in (document.documentElement?.style ?? {}), \"onmozfullscreenchange\" in window, \"mozInnerScreenX\" in window, \"CSSMoz…"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s210",
+      "binding": "sig_s210_gpu",
+      "renamed": [
+        "sig_s210_style",
+        "sig_s210_gpu"
+      ],
+      "apis": {
+        "gone": [
+          "navigator"
+        ],
+        "fresh": [
+          "navigator.gpu",
+          "navigator.gpu.requestAdapter()"
+        ]
+      },
+      "shapes": {
+        "gone": [
+          "call"
+        ],
+        "fresh": []
+      },
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "fn46: fn9([\"buildID\" in navigator, \"MozAppearance\" in (document.documentElement?.style ?? {}), \"onmozfullscreenchange\" in window, \"mozInnerScreenX\" in window, \"CSSMoz…"
+        ]
+      }
+    },
+    {
+      "id": "s158",
+      "binding": "sig_s158_hidden",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s152",
+      "binding": "sig_s152_hidden",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": [
+          "=== 0"
+        ]
+      }
+    },
+    {
+      "id": "s163",
+      "binding": "sig_s163_applePayError",
+      "checks": {
+        "gone": 3,
+        "fresh": 3,
+        "sample": [
+          "fn11: fn9([\"webkitPersistentStorage\" in navigator, \"webkitTemporaryStorage\" in navigator, (navigator.vendor || \"\").indexOf(\"Google\") === 0, \"webkitResolveLocalFileSys…",
+          "fn25: fn9([\"ApplePayError\" in window, \"CSSPrimitiveValue\" in window, \"Counter\" in window, navigator.vendor.indexOf(\"Apple\") === 0, \"RGBColor\" in window, \"WebKitMediaK…",
+          "sharedIframeIsNotAvailable: v1167 || v1166.length === 0"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "!== 0"
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s160",
+      "binding": "sig_s160_origin",
+      "checks": {
+        "gone": 6,
+        "fresh": 12,
+        "sample": [
+          "fn161: fn25()",
+          "fn161: function (arg934) { return !arg934.addEventListener || fn46() && fn140() || fn25() && fn48(window.origin ?? \"\") === 548031109; }(arg933)",
+          "fn161: !arg934.addEventListener || fn46() && fn140() || fn25() && fn48(window.origin ?? \"\") === 548031109"
+        ]
+      },
+      "constants": {
+        "gone": [],
+        "fresh": [
+          "=== 0",
+          ">= 3",
+          ">= 4",
+          "in \"ApplePayError\"",
+          "in \"AudioBuffer\"",
+          "in \"CSSMozDocumentRule\"",
+          "in \"CSSPrimitiveValue\"",
+          "in \"CanvasCaptureMediaStream\"",
+          "in \"Counter\"",
+          "in \"MozAppearance\"",
+          "in \"PushManager\"",
+          "in \"RGBColor\"",
+          "in \"RTCPeerConnection\"",
+          "in \"ServiceWorker\"",
+          "in \"WebKitMediaKeys\"",
+          "in \"buildID\"",
+          "in \"geolocation\"",
+          "in \"mozInnerScreenX\"",
+          "in \"onmozfullscreenchange\""
+        ]
+      }
+    },
+    {
+      "id": "s70",
+      "binding": "sig_s70_textDecoder",
+      "apis": {
+        "gone": [
+          "navigator"
+        ],
+        "fresh": [
+          "navigator.gpu.requestAdapter()"
+        ]
+      },
+      "shapes": {
+        "gone": [
+          "call"
+        ],
+        "fresh": [
+          "value"
+        ]
+      }
+    },
+    {
+      "id": "s214",
+      "binding": "sig_s214_storageBuckets",
+      "renamed": [
+        "sig_s214_hidden",
+        "sig_s214_storageBuckets"
+      ],
+      "apis": {
+        "gone": [
+          "navigator"
+        ],
+        "fresh": [
+          "navigator.storageBuckets",
+          "navigator.storageBuckets.delete",
+          "navigator.storageBuckets.delete()",
+          "navigator.storageBuckets.open",
+          "navigator.storageBuckets.open()"
+        ]
+      },
+      "checks": {
+        "gone": 6,
+        "fresh": 5,
+        "sample": [
+          "h_s214_storageBuckets: !storageBuckets || typeof storageBuckets !== \"object\" || typeof storageBuckets.open !== \"function\"",
+          "h_s214_storageBuckets: fn118(v121)",
+          "h_s214_storageBuckets: indexedDB === undefined || typeof indexedDB.open !== \"function\" || typeof v120.estimate !== \"function\""
+        ]
+      }
+    },
+    {
+      "id": "s216",
+      "binding": "sig_s216_managed",
+      "renamed": [
+        "sig_s216_getRandomValues",
+        "sig_s216_managed"
+      ],
+      "apis": {
+        "gone": [
+          "navigator"
+        ],
+        "fresh": [
+          "navigator.managed",
+          "navigator.managed.getManagedConfiguration",
+          "navigator.managed.getManagedConfiguration()"
+        ]
+      },
+      "checks": {
+        "gone": 5,
+        "fresh": 5,
+        "sample": [
+          "h_s216_managed: !managed || typeof managed.getManagedConfiguration !== \"function\"",
+          "h_s216_managed: fn11() && fn23()",
+          "h_s216_managed: v89 instanceof Error"
+        ]
+      }
+    },
+    {
+      "id": "s222",
+      "binding": "sig_s222_keyboard",
+      "renamed": [
+        "sig_s222",
+        "sig_s222_keyboard"
+      ],
+      "apis": {
+        "gone": [
+          "navigator",
+          "TextEncoder"
+        ],
+        "fresh": [
+          "navigator.keyboard",
+          "navigator.keyboard.getLayoutMap",
+          "navigator.keyboard.getLayoutMap()"
+        ]
+      },
+      "checks": {
+        "gone": 4,
+        "fresh": 1,
+        "sample": [
+          "!keyboard || typeof keyboard.getLayoutMap !== \"function\""
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s223",
+      "binding": "sig_s223_presentationRequest",
+      "apis": {
+        "gone": [
+          "TextEncoder"
+        ],
+        "fresh": []
+      },
+      "shapes": {
+        "gone": [
+          "call"
+        ],
+        "fresh": [
+          "value"
+        ]
+      },
+      "checks": {
+        "gone": 3,
+        "fresh": 0,
+        "sample": []
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s22",
+      "binding": "sig_s22_webAssembly",
+      "renamed": [
+        "sig_s22",
+        "sig_s22_webAssembly"
+      ],
+      "apis": {
+        "gone": [
+          "window",
+          "TextEncoder"
+        ],
+        "fresh": [
+          "window.WebAssembly",
+          "window.WebAssembly.validate",
+          "window.WebAssembly.validate()"
+        ]
+      },
+      "checks": {
+        "gone": 6,
+        "fresh": 2,
+        "sample": [
+          "!webAssembly?.validate",
+          "webAssembly.validate(Uint8Array.of(...v631, ...v634))"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s30",
+      "binding": "sig_s30_doNotTrack",
+      "renamed": [
+        "sig_s30",
+        "sig_s30_doNotTrack"
+      ],
+      "apis": {
+        "gone": [
+          "navigator",
+          "TextEncoder"
+        ],
+        "fresh": [
+          "navigator.doNotTrack"
+        ]
+      },
+      "checks": {
+        "gone": 4,
+        "fresh": 1,
+        "sample": [
+          "doNotTrack == null"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s33",
+      "binding": "sig_s33_brave",
+      "renamed": [
+        "sig_s33_braveEthereum",
+        "sig_s33_brave"
+      ],
+      "apis": {
+        "gone": [
+          "Navigator",
+          "TextEncoder"
+        ],
+        "fresh": [
+          "Navigator.prototype.brave",
+          "Navigator.prototype.connection",
+          "Navigator.prototype"
+        ]
+      },
+      "checks": {
+        "gone": 4,
+        "fresh": 1,
+        "sample": [
+          "fn11: fn9([\"webkitPersistentStorage\" in navigator, \"webkitTemporaryStorage\" in navigator, (navigator.vendor || \"\").indexOf(\"Google\") === 0, \"webkitResolveLocalFileSys…"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s49",
+      "binding": "sig_s49",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "!\"client_timeout\"?.now"
+        ]
+      }
+    },
+    {
+      "id": "s50",
+      "binding": "sig_s50_performance",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "jsHeapSizeLimit == null"
+        ]
+      }
+    },
+    {
+      "id": "s61",
+      "binding": "sig_s61_webkitPersistentStorage",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "fn11: fn9([\"webkitPersistentStorage\" in navigator, \"webkitTemporaryStorage\" in navigator, (navigator.vendor || \"\").indexOf(\"Google\") === 0, \"webkitResolveLocalFileSys…"
+        ]
+      }
+    },
+    {
+      "id": "s62",
+      "binding": "sig_s62_applePayError",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "fn25: fn9([\"ApplePayError\" in window, \"CSSPrimitiveValue\" in window, \"Counter\" in window, navigator.vendor.indexOf(\"Apple\") === 0, \"RGBColor\" in window, \"WebKitMediaK…"
+        ]
+      }
+    },
+    {
+      "id": "s63",
+      "binding": "sig_s63_ongestureend",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "fn14: fn9([\"safari\" in window, !(\"ongestureend\" in window), !(\"TouchEvent\" in window), !(\"orientation\" in window), window && !(\"autocapitalize\" in window.prototype), …"
+        ]
+      }
+    },
+    {
+      "id": "s64",
+      "binding": "sig_s64_style",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "fn46: fn9([\"buildID\" in navigator, \"MozAppearance\" in (document.documentElement?.style ?? {}), \"onmozfullscreenchange\" in window, \"mozInnerScreenX\" in window, \"CSSMoz…"
+        ]
+      }
+    },
+    {
+      "id": "s65",
+      "binding": "sig_s65_audio",
+      "checks": {
+        "gone": 2,
+        "fresh": 2,
+        "sample": [
+          "fn11: fn9([\"webkitPersistentStorage\" in navigator, \"webkitTemporaryStorage\" in navigator, (navigator.vendor || \"\").indexOf(\"Google\") === 0, \"webkitResolveLocalFileSys…",
+          "fn46: fn9([\"buildID\" in navigator, \"MozAppearance\" in (document.documentElement?.style ?? {}), \"onmozfullscreenchange\" in window, \"mozInnerScreenX\" in window, \"CSSMoz…"
+        ]
+      }
+    },
+    {
+      "id": "s72",
+      "binding": "sig_s72",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "\"client_timeout\" === null"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "=== \"3b947bb\""
+        ],
+        "fresh": [
+          "=== \"client_timeout\""
+        ]
+      }
+    },
+    {
+      "id": "s2",
+      "binding": "sig_s2_browserLanguage",
+      "checks": {
+        "gone": 3,
+        "fresh": 3,
+        "sample": [
+          "h_s2_browserLanguage: !(fn11() && function () { return fn9([!(\"MediaSettingsRange\" in window), \"RTCEncodedAudioFrame\" in window, \"\" + window.Intl == \"[object Intl]\", \"\" + window.Refl…",
+          "h_s2_browserLanguage: fn9([!(\"MediaSettingsRange\" in window), \"RTCEncodedAudioFrame\" in window, \"\" + window.Intl == \"[object Intl]\", \"\" + window.Reflect == \"[object Reflect]\"]) >= 3",
+          "fn11: fn9([\"webkitPersistentStorage\" in navigator, \"webkitTemporaryStorage\" in navigator, (navigator.vendor || \"\").indexOf(\"Google\") === 0, \"webkitResolveLocalFileSys…"
+        ]
+      }
+    },
+    {
+      "id": "s15",
+      "binding": "sig_s15_webkitRequestFullscreen",
+      "checks": {
+        "gone": 4,
+        "fresh": 4,
+        "sample": [
+          "h_s15_webkitRequestFullscreen: \"client_timeout\" === \"MacIntel\" && fn25() && !fn14()",
+          "h_s15_webkitRequestFullscreen: function () { if (navigator.platform === \"iPad\") { return true; } const v385 = screen.width / screen.height; return fn9([\"MediaSource\" in window, !!Element.prot…",
+          "fn25: fn9([\"ApplePayError\" in window, \"CSSPrimitiveValue\" in window, \"Counter\" in window, navigator.vendor.indexOf(\"Apple\") === 0, \"RGBColor\" in window, \"WebKitMediaK…"
+        ]
+      }
+    },
+    {
+      "id": "s39",
+      "binding": "sig_s39_forcedColors",
+      "checks": {
+        "gone": 1,
+        "fresh": 2,
+        "sample": [
+          "h_s39_fn: h_s39_forcedColors(\"active\")",
+          "h_s39_fn: h_s39_forcedColors(\"none\")"
+        ]
+      }
+    },
+    {
+      "id": "s42",
+      "binding": "sig_s42_minMonochrome",
+      "checks": {
+        "gone": 1,
+        "fresh": 0,
+        "sample": []
+      }
+    },
+    {
+      "id": "s43",
+      "binding": "sig_s43_prefersReducedMotion",
+      "checks": {
+        "gone": 2,
+        "fresh": 1,
+        "sample": [
+          "h_s43_fn: !!h_s43_prefersReducedMotion(\"reduce\") || !h_s43_prefersReducedMotion(\"no-preference\") && undefined"
+        ]
+      }
+    },
+    {
+      "id": "s86",
+      "binding": "sig_s86_removeItem",
+      "renamed": [
+        "sig_s86_onafterprint",
+        "sig_s86_removeItem"
+      ],
+      "apis": {
+        "gone": [],
+        "fresh": [
+          "window.localStorage.removeItem(\"test\")",
+          "window.localStorage.setItem(\"test\")",
+          "window.localStorage"
+        ]
+      },
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "fn25: fn9([\"ApplePayError\" in window, \"CSSPrimitiveValue\" in window, \"Counter\" in window, navigator.vendor.indexOf(\"Apple\") === 0, \"RGBColor\" in window, \"WebKitMediaK…"
+        ]
+      }
+    },
+    {
+      "id": "s96",
+      "binding": "sig_s96_audioContext",
+      "checks": {
+        "gone": 3,
+        "fresh": 3,
+        "sample": [
+          "h_s96_audioContext: !fn23() && !fn25()",
+          "h_s96_audioContext: !isFinite(baseLatency)",
+          "fn25: fn9([\"ApplePayError\" in window, \"CSSPrimitiveValue\" in window, \"Counter\" in window, navigator.vendor.indexOf(\"Apple\") === 0, \"RGBColor\" in window, \"WebKitMediaK…"
+        ]
+      }
+    },
+    {
+      "id": "s201",
+      "binding": "sig_s201_srChannelCount",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "h_s201_srChannelCount: fn9([\"srLatency\" in v588, \"srChannelCount\" in v588, \"devicePosture\" in navigator, window && \"segments\" in window, \"getTextInformation\" in Image.prototype]) >= 3"
+        ]
+      }
+    },
+    {
+      "id": "s157",
+      "binding": "sig_s157",
+      "checks": {
+        "gone": 1,
+        "fresh": 0,
+        "sample": []
+      }
+    },
+    {
+      "id": "s144",
+      "binding": "sig_s144_sharedArrayBuffer",
+      "checks": {
+        "gone": 1,
+        "fresh": 1,
+        "sample": [
+          "buffer6.byteLength === undefined"
+        ]
+      }
+    },
+    {
+      "id": "s162",
+      "binding": "sig_s162_languages",
+      "renamed": [
+        "sig_s162",
+        "sig_s162_languages"
+      ],
+      "apis": {
+        "gone": [
+          "navigator",
+          "TextEncoder"
+        ],
+        "fresh": [
+          "navigator.languages"
+        ]
+      },
+      "checks": {
+        "gone": 5,
+        "fresh": 2,
+        "sample": [
+          "h_s162_fn: v960 && v960.writable",
+          "h_s162_fn: v962 && (v962.writable || v962.configurable)"
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s165",
+      "binding": "sig_s165_event",
+      "apis": {
+        "gone": [
+          "TextEncoder"
+        ],
+        "fresh": []
+      },
+      "checks": {
+        "gone": 4,
+        "fresh": 1,
+        "sample": [
+          "typeof isTrusted !== \"boolean\""
+        ]
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s203",
+      "binding": "sig_s203_createElement",
+      "apis": {
+        "gone": [
+          "TextEncoder"
+        ],
+        "fresh": []
+      },
+      "shapes": {
+        "gone": [
+          "call"
+        ],
+        "fresh": [
+          "value"
+        ]
+      },
+      "checks": {
+        "gone": 3,
+        "fresh": 0,
+        "sample": []
+      },
+      "constants": {
+        "gone": [
+          "== \"function\"",
+          "=== \"string\""
+        ],
+        "fresh": []
+      }
+    },
+    {
+      "id": "s74",
+      "binding": "sig_s74_canvas",
+      "codes": {
+        "gone": [],
+        "fresh": [
+          "-1",
+          "-2"
+        ]
+      }
+    },
+    {
+      "id": "s75",
+      "binding": "sig_s75_canvas",
+      "codes": {
+        "gone": [],
+        "fresh": [
+          "-1",
+          "-2"
+        ]
+      }
+    }
+  ]
+}

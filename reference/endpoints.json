@@ -1,0 +1,156 @@
+{
+  "source": "agent/agent.clean.js",
+  "capture": "captures/safari-2026-08-07T16-00-02-124Z.json",
+  "chunking": {
+    "helper": "fn60",
+    "seed": "arg731[v849&15]",
+    "min": 4,
+    "max": 7
+  },
+  "sequence": [
+    {
+      "at": 140,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 344,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 358,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 583,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 1143,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 2195,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 2579,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 4152,
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=<apiKey>",
+      "status": null,
+      "reqSize": 3851,
+      "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+      "signals": 144
+    },
+    {
+      "at": 4158,
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=<apiKey>",
+      "status": null,
+      "reqSize": 3852,
+      "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+      "signals": 144
+    },
+    {
+      "at": 4255,
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=<apiKey>",
+      "status": null,
+      "reqSize": 3852,
+      "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+      "signals": 144
+    },
+    {
+      "at": 4647,
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=<apiKey>",
+      "status": null,
+      "reqSize": 3851,
+      "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+      "signals": 144
+    },
+    {
+      "at": 5135,
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=<apiKey>",
+      "status": null,
+      "reqSize": 3851,
+      "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+      "signals": 144
+    },
+    {
+      "at": 6099,
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=<apiKey>",
+      "status": null,
+      "reqSize": 3852,
+      "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+      "signals": 144
+    },
+    {
+      "at": 6427,
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=<apiKey>",
+      "status": null,
+      "reqSize": 3851,
+      "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+      "signals": 144
+    },
+    {
+      "at": 7715,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    },
+    {
+      "at": 10251,
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=<apiKey>",
+      "status": null,
+      "reqSize": 0,
+      "encoding": "empty",
+      "signals": 0
+    }
+  ]
+}

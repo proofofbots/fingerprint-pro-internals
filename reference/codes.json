@@ -1,0 +1,2109 @@
+{
+  "source": "agent/agent.clean.js",
+  "statusError": "botdError",
+  "totals": {
+    "codes": 11,
+    "sites": 282
+  },
+  "codes": [
+    {
+      "code": 0,
+      "kinds": {
+        "returned": 96,
+        "caught": 12
+      },
+      "reasons": [],
+      "signals": [
+        "s94",
+        "s219",
+        "s167",
+        "s213",
+        "s52",
+        "s6",
+        "s26",
+        "s58",
+        "s20",
+        "s36",
+        "s51",
+        "s21",
+        "s154",
+        "s79",
+        "s23",
+        "s29",
+        "s84",
+        "s85",
+        "s89",
+        "s17",
+        "s87",
+        "s92",
+        "s93",
+        "s204",
+        "s206",
+        "s207",
+        "s210",
+        "s211",
+        "s158",
+        "s152",
+        "s163",
+        "s95",
+        "s97",
+        "s160",
+        "s70",
+        "s106",
+        "s214",
+        "s215",
+        "s216",
+        "s217",
+        "s222",
+        "s223",
+        "s22",
+        "s30",
+        "s33",
+        "s44",
+        "s45",
+        "s49",
+        "s50",
+        "s57",
+        "s59",
+        "s60",
+        "s61",
+        "s62",
+        "s63",
+        "s64",
+        "s65",
+        "s66",
+        "s68",
+        "s71",
+        "s24",
+        "s72",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s7",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s19",
+        "s27",
+        "s28",
+        "s32",
+        "s37",
+        "s41",
+        "s39",
+        "s42",
+        "s38",
+        "s43",
+        "s40",
+        "s46",
+        "s80",
+        "s81",
+        "s82",
+        "s83",
+        "s86",
+        "s91",
+        "s96",
+        "s98",
+        "s99",
+        "s200",
+        "s201",
+        "s202",
+        "s101",
+        "s103",
+        "s104",
+        "s117",
+        "s119",
+        "s123",
+        "s131",
+        "s133",
+        "s136",
+        "s148",
+        "s149",
+        "s150",
+        "s157",
+        "s102",
+        "s118",
+        "s120",
+        "s130",
+        "s132",
+        "s135",
+        "s139",
+        "s142",
+        "s144",
+        "s145",
+        "s146",
+        "s151",
+        "s153",
+        "s155",
+        "s156",
+        "s159",
+        "s162",
+        "s165",
+        "s166",
+        "s205",
+        "s203",
+        "s209",
+        "s212",
+        "s74",
+        "s75",
+        "s221",
+        "s76",
+        "s69",
+        "s55",
+        "s48"
+      ],
+      "observed": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s15",
+        "s16",
+        "s17",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s24",
+        "s27",
+        "s28",
+        "s29",
+        "s30",
+        "s32",
+        "s33",
+        "s36",
+        "s37",
+        "s38",
+        "s39",
+        "s40",
+        "s41",
+        "s42",
+        "s43",
+        "s44",
+        "s45",
+        "s46",
+        "s48",
+        "s49",
+        "s50",
+        "s51",
+        "s52",
+        "s56",
+        "s57",
+        "s58",
+        "s59",
+        "s60",
+        "s61",
+        "s62",
+        "s63",
+        "s64",
+        "s65",
+        "s66",
+        "s68",
+        "s69",
+        "s71",
+        "s72",
+        "s74",
+        "s75",
+        "s76",
+        "s80",
+        "s81",
+        "s82",
+        "s83",
+        "s84",
+        "s85",
+        "s87",
+        "s89",
+        "s91",
+        "s92",
+        "s93",
+        "s94",
+        "s96",
+        "s98",
+        "s99",
+        "s101",
+        "s102",
+        "s103",
+        "s104",
+        "s106",
+        "s117",
+        "s118",
+        "s119",
+        "s120",
+        "s123",
+        "s130",
+        "s131",
+        "s132",
+        "s133",
+        "s135",
+        "s136",
+        "s139",
+        "s142",
+        "s145",
+        "s146",
+        "s148",
+        "s150",
+        "s151",
+        "s152",
+        "s153",
+        "s154",
+        "s155",
+        "s156",
+        "s157",
+        "s158",
+        "s159",
+        "s160",
+        "s162",
+        "s163",
+        "s165",
+        "s166",
+        "s200",
+        "s201",
+        "s202",
+        "s203",
+        "s204",
+        "s205",
+        "s206",
+        "s207",
+        "s209",
+        "s210",
+        "s211",
+        "s212",
+        "s214",
+        "s215",
+        "s216",
+        "s217",
+        "s219",
+        "s221",
+        "s222",
+        "s223"
+      ],
+      "sites": [
+        {
+          "owner": "h_s20_fn",
+          "line": 193,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s70_fn",
+          "line": 215,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s167_fn",
+          "line": 279,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s205_url",
+          "line": 282,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s94_fn",
+          "line": 306,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s118_plugins",
+          "line": 358,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s216_managed",
+          "line": 376,
+          "kind": "caught"
+        },
+        {
+          "owner": "h_s216_managed",
+          "line": 381,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s152_hidden",
+          "line": 416,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s87_hidden",
+          "line": 537,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s95_atomics",
+          "line": 558,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s214_storageBuckets",
+          "line": 646,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s48",
+          "line": 818,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s215_publicKeyCredential",
+          "line": 833,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s211_decodingInfo",
+          "line": 842,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s132",
+          "line": 1554,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s97_dataTransfer",
+          "line": 1566,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s145",
+          "line": 1600,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s153_onLine",
+          "line": 1842,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s209_getRandomValues",
+          "line": 1872,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s30_doNotTrack",
+          "line": 1912,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s84_hidden",
+          "line": 3028,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s79_url",
+          "line": 3041,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s29",
+          "line": 3068,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s26_mediaDevices",
+          "line": 3119,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s154_brave",
+          "line": 3149,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s86_removeItem",
+          "line": 3191,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s86_removeItem",
+          "line": 3196,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s86_removeItem",
+          "line": 3198,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s45_date",
+          "line": 3259,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s85_securityError",
+          "line": 3277,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s85_securityError",
+          "line": 3280,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s210_gpu",
+          "line": 3339,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s71",
+          "line": 3702,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s44_prefersColorScheme",
+          "line": 3771,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s44_prefersColorScheme",
+          "line": 3774,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s203_createElement",
+          "line": 3847,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s51_iframe",
+          "line": 3885,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3917,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s200_timeOrigin",
+          "line": 4048,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s155",
+          "line": 4064,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s22_webAssembly",
+          "line": 4172,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s158_hidden",
+          "line": 4183,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s162_languages",
+          "line": 4202,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn75",
+          "line": 4248,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s92_createDocumentFragment",
+          "line": 4293,
+          "kind": "returned"
+        },
+        {
+          "owner": "comWidevineAlpha",
+          "line": 4356,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s135_mimeTypes",
+          "line": 4368,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s212_getComputedStyle",
+          "line": 4405,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s94_fn5",
+          "line": 4434,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn85",
+          "line": 4642,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s50_performance",
+          "line": 4707,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s167_fn3",
+          "line": 4720,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s151",
+          "line": 4819,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s23_clipboardItem",
+          "line": 4898,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s223_presentationRequest",
+          "line": 4918,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s24",
+          "line": 4924,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s146_objectToInspect",
+          "line": 4932,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s146_objectToInspect",
+          "line": 4934,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s49",
+          "line": 4989,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s204_hidden",
+          "line": 5001,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s33_fn",
+          "line": 5021,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s166",
+          "line": 5418,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s89_storage",
+          "line": 5613,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s89_storage",
+          "line": 5623,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s89_storage",
+          "line": 5631,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s89_storage",
+          "line": 5636,
+          "kind": "caught"
+        },
+        {
+          "owner": "h_s94_notSupportedError",
+          "line": 5722,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s82_language",
+          "line": 5734,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s83_languages",
+          "line": 5744,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s130_sourceBuffer",
+          "line": 5809,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s165_event",
+          "line": 5833,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s163_fn",
+          "line": 5881,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s69_subtle",
+          "line": 5900,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s21_domRectList",
+          "line": 5983,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s6_availLeft",
+          "line": 5985,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s5_height",
+          "line": 5993,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s46",
+          "line": 6032,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s96_audioContext",
+          "line": 6047,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s75_canvas",
+          "line": 6067,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s156",
+          "line": 6243,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s217_getBattery",
+          "line": 6251,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s207_fontFace",
+          "line": 6295,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s207_fontFace",
+          "line": 6297,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s159_function",
+          "line": 6409,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s159_function",
+          "line": 6411,
+          "kind": "caught"
+        },
+        {
+          "owner": "fn123",
+          "line": 6461,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn123",
+          "line": 6480,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s99_isSecureContext",
+          "line": 6819,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn131",
+          "line": 6865,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s144_sharedArrayBuffer",
+          "line": 6968,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s222_keyboard",
+          "line": 6987,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s12_fn",
+          "line": 7013,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s98",
+          "line": 7033,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s142_matchMedia",
+          "line": 7045,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s93_hidden",
+          "line": 7061,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s206_style",
+          "line": 7122,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s120",
+          "line": 7168,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s120",
+          "line": 7170,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s58",
+          "line": 7209,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s55_localStorage",
+          "line": 7331,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s139_css",
+          "line": 7441,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s76_canvas",
+          "line": 7746,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s102_userAgentData",
+          "line": 7752,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s57_devicePixelRatio",
+          "line": 8011,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s72",
+          "line": 8040,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn155",
+          "line": 8233,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s70_textDecoder",
+          "line": 8951,
+          "kind": "returned"
+        }
+      ]
+    },
+    {
+      "code": -1,
+      "kinds": {
+        "returned": 54,
+        "fallback": 19,
+        "caught": 2,
+        "thrown": 11
+      },
+      "reasons": [
+        "${} undefined",
+        "document.documentElement is undefined",
+        "navigator.appVersion is undefined",
+        "navigator.connection is undefined",
+        "navigator.connection.rtt is undefined",
+        "navigator.mimeTypes is undefined",
+        "navigator.permissions is undefined",
+        "navigator.plugins is undefined",
+        "navigator.productSub is undefined",
+        "window.Notification is undefined",
+        "window.external is undefined"
+      ],
+      "signals": [
+        "s167",
+        "s213",
+        "s52",
+        "s26",
+        "s58",
+        "s36",
+        "s21",
+        "s154",
+        "s79",
+        "s23",
+        "s29",
+        "s85",
+        "s89",
+        "s17",
+        "s206",
+        "s210",
+        "s211",
+        "s158",
+        "s163",
+        "s95",
+        "s97",
+        "s160",
+        "s70",
+        "s106",
+        "s214",
+        "s215",
+        "s216",
+        "s217",
+        "s222",
+        "s223",
+        "s22",
+        "s30",
+        "s44",
+        "s49",
+        "s50",
+        "s57",
+        "s66",
+        "s72",
+        "s1",
+        "s3",
+        "s4",
+        "s7",
+        "s14",
+        "s15",
+        "s16",
+        "s37",
+        "s41",
+        "s39",
+        "s42",
+        "s38",
+        "s43",
+        "s40",
+        "s80",
+        "s82",
+        "s83",
+        "s86",
+        "s91",
+        "s96",
+        "s202",
+        "s103",
+        "s104",
+        "s117",
+        "s123",
+        "s131",
+        "s133",
+        "s136",
+        "s149",
+        "s118",
+        "s132",
+        "s135",
+        "s139",
+        "s142",
+        "s144",
+        "s145",
+        "s151",
+        "s159",
+        "s162",
+        "s165",
+        "s209",
+        "s74",
+        "s75",
+        "s221",
+        "s76",
+        "s55"
+      ],
+      "observed": [
+        "s1",
+        "s4",
+        "s14",
+        "s23",
+        "s30",
+        "s36",
+        "s41",
+        "s50",
+        "s55",
+        "s58",
+        "s66",
+        "s70",
+        "s85",
+        "s86",
+        "s91",
+        "s95",
+        "s104",
+        "s133",
+        "s149",
+        "s163",
+        "s206",
+        "s214",
+        "s216",
+        "s217",
+        "s222",
+        "s223"
+      ],
+      "sites": [
+        {
+          "owner": "h_s70_fn",
+          "line": 211,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s167_fn",
+          "line": 268,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s118_plugins",
+          "line": 349,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s216_managed",
+          "line": 363,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s95_atomics",
+          "line": 560,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s214_storageBuckets",
+          "line": 604,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s214_storageBuckets",
+          "line": 622,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn28",
+          "line": 792,
+          "kind": "fallback",
+          "via": "fn47"
+        },
+        {
+          "owner": "h_s215_publicKeyCredential",
+          "line": 823,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s211_decodingInfo",
+          "line": 840,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s132",
+          "line": 1552,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s97_dataTransfer",
+          "line": 1568,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s145",
+          "line": 1596,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s163_applePayError",
+          "line": 1769,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s209_getRandomValues",
+          "line": 1851,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s30_doNotTrack",
+          "line": 1910,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s79_url",
+          "line": 3045,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s79_url",
+          "line": 3045,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s29",
+          "line": 3058,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s26_mediaDevices",
+          "line": 3109,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s154_brave",
+          "line": 3132,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s86_removeItem",
+          "line": 3184,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s221_canvas",
+          "line": 3234,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s210_gpu",
+          "line": 3317,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s44_prefersColorScheme",
+          "line": 3776,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn68",
+          "line": 3987,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s22_webAssembly",
+          "line": 4157,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s158_hidden",
+          "line": 4178,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s162_languages",
+          "line": 4204,
+          "kind": "returned"
+        },
+        {
+          "owner": "comWidevineAlpha",
+          "line": 4349,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s135_mimeTypes",
+          "line": 4363,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s85_blob",
+          "line": 4649,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s50_performance",
+          "line": 4705,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s167_fn3",
+          "line": 4724,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s151",
+          "line": 4821,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s23_clipboardItem",
+          "line": 4896,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s223_presentationRequest",
+          "line": 4904,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s223_presentationRequest",
+          "line": 4913,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s49",
+          "line": 4968,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s103_appVersion",
+          "line": 5059,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s104_rtt",
+          "line": 5065,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s104_rtt",
+          "line": 5068,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s117_navigatorPluginsIsUndefined",
+          "line": 5082,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s123_fn",
+          "line": 5102,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s133_external",
+          "line": 5108,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s136_mimeTypes",
+          "line": 5118,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s106_notification",
+          "line": 5131,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s106_notification",
+          "line": 5134,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s131_fn",
+          "line": 5149,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s149_fn",
+          "line": 5166,
+          "kind": "thrown"
+        },
+        {
+          "owner": "sig_s89_storage",
+          "line": 5607,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s82_language",
+          "line": 5736,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s83_languages",
+          "line": 5746,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s165_event",
+          "line": 5831,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s36_div",
+          "line": 5978,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s1_oscpu",
+          "line": 5989,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s3_colorDepth",
+          "line": 5991,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s4_deviceMemory",
+          "line": 5992,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s7_hardwareConcurrency",
+          "line": 5997,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s14_cpuClass",
+          "line": 6002,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s15_webkitRequestFullscreen",
+          "line": 6003,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s16_plugins",
+          "line": 6004,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s37_colorGamut",
+          "line": 6024,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s41_invertedColors",
+          "line": 6025,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s39_forcedColors",
+          "line": 6026,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s42_minMonochrome",
+          "line": 6027,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s38_prefersContrast",
+          "line": 6028,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s43_prefersReducedMotion",
+          "line": 6029,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s91_prefersReducedTransparency",
+          "line": 6030,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s40_dynamicRange",
+          "line": 6031,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s80_pdfViewerEnabled",
+          "line": 6040,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s66_createElement",
+          "line": 6042,
+          "kind": "fallback",
+          "via": "fn159"
+        },
+        {
+          "owner": "sig_s217_getBattery",
+          "line": 6247,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s159_function",
+          "line": 6393,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s144_sharedArrayBuffer",
+          "line": 6966,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s222_keyboard",
+          "line": 6973,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s142_matchMedia",
+          "line": 7043,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s206_style",
+          "line": 7115,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s58",
+          "line": 7188,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s55_localStorage",
+          "line": 7339,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s139_css",
+          "line": 7439,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s76_canvas",
+          "line": 7748,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s57_devicePixelRatio",
+          "line": 8009,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s72",
+          "line": 8035,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s213_getCurrentPosition",
+          "line": 8179,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn161",
+          "line": 8451,
+          "kind": "returned"
+        }
+      ]
+    },
+    {
+      "code": -2,
+      "kinds": {
+        "returned": 25,
+        "thrown": 4,
+        "caught": 2
+      },
+      "reasons": [
+        "Function.prototype.bind is undefined",
+        "document.documentElement.getAttributeNames is not a function",
+        "navigator.permissions.query is not a function",
+        "window.external.toString is not a function"
+      ],
+      "signals": [
+        "s167",
+        "s213",
+        "s52",
+        "s26",
+        "s21",
+        "s154",
+        "s79",
+        "s23",
+        "s29",
+        "s85",
+        "s89",
+        "s17",
+        "s210",
+        "s158",
+        "s95",
+        "s97",
+        "s160",
+        "s70",
+        "s106",
+        "s214",
+        "s215",
+        "s216",
+        "s217",
+        "s222",
+        "s223",
+        "s72",
+        "s96",
+        "s202",
+        "s131",
+        "s133",
+        "s148",
+        "s142",
+        "s144",
+        "s159",
+        "s74",
+        "s75"
+      ],
+      "observed": [
+        "s17",
+        "s52",
+        "s96",
+        "s144",
+        "s160",
+        "s167",
+        "s213"
+      ],
+      "sites": [
+        {
+          "owner": "sig_s216_managed",
+          "line": 467,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s95_atomics",
+          "line": 553,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s215_publicKeyCredential",
+          "line": 654,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s97_dataTransfer",
+          "line": 1563,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s79_url",
+          "line": 3041,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s29",
+          "line": 3081,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s26_mediaDevices",
+          "line": 3107,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s154_brave",
+          "line": 3138,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s85_securityError",
+          "line": 3264,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s210_gpu",
+          "line": 3320,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3896,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn68",
+          "line": 4023,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s158_hidden",
+          "line": 4181,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s214_storageBuckets",
+          "line": 4303,
+          "kind": "returned"
+        },
+        {
+          "owner": "comWidevineAlpha",
+          "line": 4352,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s23_clipboardItem",
+          "line": 4893,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s223_presentationRequest",
+          "line": 4920,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s167_atob",
+          "line": 5008,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s133_external",
+          "line": 5112,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s106_notification",
+          "line": 5138,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s131_fn",
+          "line": 5153,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s148_fn",
+          "line": 5159,
+          "kind": "thrown"
+        },
+        {
+          "owner": "sig_s89_storage",
+          "line": 5604,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s217_getBattery",
+          "line": 6265,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s159_function",
+          "line": 6405,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s144_sharedArrayBuffer",
+          "line": 6962,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s222_keyboard",
+          "line": 6983,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s142_matchMedia",
+          "line": 7037,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s72",
+          "line": 8038,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn161",
+          "line": 8531,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s70_textDecoder",
+          "line": 8943,
+          "kind": "returned"
+        }
+      ]
+    },
+    {
+      "code": -3,
+      "kinds": {
+        "returned": 18,
+        "caught": 3,
+        "thrown": 4
+      },
+      "reasons": [
+        "${} not an object",
+        "errorTrace signal unexpected behaviour",
+        "navigator.plugins.length is undefined",
+        "notificationPermissions signal unexpected behaviour"
+      ],
+      "signals": [
+        "s94",
+        "s219",
+        "s167",
+        "s213",
+        "s26",
+        "s21",
+        "s154",
+        "s79",
+        "s23",
+        "s85",
+        "s210",
+        "s95",
+        "s97",
+        "s70",
+        "s106",
+        "s214",
+        "s216",
+        "s223",
+        "s96",
+        "s202",
+        "s117",
+        "s119",
+        "s149",
+        "s135"
+      ],
+      "observed": [
+        "s23",
+        "s26",
+        "s79",
+        "s95",
+        "s97",
+        "s167"
+      ],
+      "sites": [
+        {
+          "owner": "h_s167_fn",
+          "line": 270,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s216_managed",
+          "line": 366,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s95_atomics",
+          "line": 556,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s214_storageBuckets",
+          "line": 644,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s97_dataTransfer",
+          "line": 1570,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s79_url",
+          "line": 3049,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s79_url",
+          "line": 3049,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s154_brave",
+          "line": 3135,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s210_gpu",
+          "line": 3350,
+          "kind": "caught"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3898,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3937,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn68",
+          "line": 4013,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn68",
+          "line": 4025,
+          "kind": "returned"
+        },
+        {
+          "owner": "comWidevineAlpha",
+          "line": 4358,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s135_mimeTypes",
+          "line": 4366,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s85_blob",
+          "line": 4645,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s23_clipboardItem",
+          "line": 4889,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s223_presentationRequest",
+          "line": 4901,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s117_navigatorPluginsIsUndefined",
+          "line": 5085,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s119_fn",
+          "line": 5097,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s106_notification",
+          "line": 5144,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s149_fn",
+          "line": 5169,
+          "kind": "thrown"
+        },
+        {
+          "owner": "h_s94_notSupportedError",
+          "line": 5706,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn131",
+          "line": 6853,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn131",
+          "line": 6860,
+          "kind": "caught"
+        }
+      ]
+    },
+    {
+      "code": -4,
+      "kinds": {
+        "returned": 5,
+        "caught": 2,
+        "fallback after 300ms": 1
+      },
+      "reasons": [],
+      "signals": [
+        "s94",
+        "s219",
+        "s167",
+        "s213",
+        "s26",
+        "s85",
+        "s210",
+        "s70",
+        "s223"
+      ],
+      "observed": [
+        "s56",
+        "s167"
+      ],
+      "sites": [
+        {
+          "owner": "h_s167_fn",
+          "line": 266,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s85_securityError",
+          "line": 3293,
+          "kind": "caught"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3941,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn68",
+          "line": 4031,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s223_presentationRequest",
+          "line": 4910,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s94_webkitRTCPeerConnection",
+          "line": 5843,
+          "kind": "fallback after 300ms",
+          "via": "fn66"
+        },
+        {
+          "owner": "fn131",
+          "line": 6867,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s213_getCurrentPosition",
+          "line": 8181,
+          "kind": "returned"
+        }
+      ]
+    },
+    {
+      "code": -5,
+      "kinds": {
+        "returned": 9,
+        "caught": 2
+      },
+      "reasons": [],
+      "signals": [
+        "s167",
+        "s213",
+        "s26",
+        "s85",
+        "s70"
+      ],
+      "observed": [],
+      "sites": [
+        {
+          "owner": "h_s70_fn",
+          "line": 217,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s26_mediaDevices",
+          "line": 3117,
+          "kind": "caught"
+        },
+        {
+          "owner": "h_s85_securityError",
+          "line": 3271,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s85_securityError",
+          "line": 3290,
+          "kind": "caught"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3906,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3939,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3943,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s213_getCurrentPosition",
+          "line": 3952,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn75",
+          "line": 4250,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s167_atob",
+          "line": 5006,
+          "kind": "returned"
+        },
+        {
+          "owner": "sig_s213_getCurrentPosition",
+          "line": 8187,
+          "kind": "returned"
+        }
+      ]
+    },
+    {
+      "code": -6,
+      "kinds": {
+        "returned": 2,
+        "caught": 1
+      },
+      "reasons": [],
+      "signals": [
+        "s94",
+        "s219",
+        "s167"
+      ],
+      "observed": [],
+      "sites": [
+        {
+          "owner": "h_s167_fn",
+          "line": 277,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn68",
+          "line": 4027,
+          "kind": "returned"
+        },
+        {
+          "owner": "h_s94_notSupportedError",
+          "line": 5714,
+          "kind": "caught"
+        }
+      ]
+    },
+    {
+      "code": -7,
+      "kinds": {
+        "returned": 2
+      },
+      "reasons": [],
+      "signals": [
+        "s94",
+        "s219",
+        "s70"
+      ],
+      "observed": [],
+      "sites": [
+        {
+          "owner": "h_s70_fn4",
+          "line": 1558,
+          "kind": "returned"
+        },
+        {
+          "owner": "fn68",
+          "line": 4029,
+          "kind": "returned"
+        }
+      ]
+    },
+    {
+      "code": -8,
+      "kinds": {
+        "returned": 1
+      },
+      "reasons": [],
+      "signals": [
+        "s94",
+        "s219"
+      ],
+      "observed": [],
+      "sites": [
+        {
+          "owner": "h_s94_fn",
+          "line": 304,
+          "kind": "returned"
+        }
+      ]
+    },
+    {
+      "code": -9,
+      "kinds": {
+        "caught": 1
+      },
+      "reasons": [],
+      "signals": [
+        "s94",
+        "s219"
+      ],
+      "observed": [],
+      "sites": [
+        {
+          "owner": "h_s94_notSupportedError",
+          "line": 5717,
+          "kind": "caught"
+        }
+      ]
+    },
+    {
+      "code": -101,
+      "kinds": {
+        "caught": 6
+      },
+      "reasons": [],
+      "signals": [
+        "s20",
+        "s51",
+        "s29",
+        "s84",
+        "s87",
+        "s92",
+        "s93",
+        "s204",
+        "s206",
+        "s158",
+        "s152",
+        "s163",
+        "s214",
+        "s217",
+        "s222"
+      ],
+      "observed": [],
+      "sites": [
+        {
+          "owner": "h_s214_storageBuckets",
+          "line": 612,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s29",
+          "line": 3084,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s51_iframe",
+          "line": 3888,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s217_getBattery",
+          "line": 6262,
+          "kind": "caught"
+        },
+        {
+          "owner": "sig_s222_keyboard",
+          "line": 6980,
+          "kind": "caught"
+        },
+        {
+          "owner": "sharedIframeIsNotAvailable",
+          "line": 8832,
+          "kind": "caught"
+        }
+      ]
+    }
+  ]
+}
