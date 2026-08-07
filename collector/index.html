@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>fp-collect</title>
+    <style>
+      body {
+        font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+        margin: 24px;
+        max-width: 1100px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border-bottom: 1px solid #ddd;
+        padding: 3px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      td.value {
+        max-width: 640px;
+        overflow-wrap: anywhere;
+      }
+      tr.failed td {
+        color: #a00;
+      }
+      #summary {
+        margin: 12px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>fp-collect</h1>
+    <p>
+      Runs the Fingerprint Pro v4 agent's own collectors, extracted from the deobfuscated bundle.
+      Nothing is sent anywhere. The full result is on <code>window.fp</code>.
+    </p>
+    <div id="summary">collecting…</div>
+    <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>signal</th>
+          <th>s</th>
+          <th>ms</th>
+          <th>value</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+
+    <script type="module">
+      import { collect, buildPayload } from "./fp-collect.js";
+
+      const started = Date.now();
+      const result = await collect();
+      const payload = await buildPayload({ apiKey: "none" });
+      window.fp = { ...result, payload };
+
+      const rows = Object.entries(result.named)
+        .map(([signal, entry]) => ({ signal, ...entry }))
+        .sort((a, b) => Number(a.id.slice(1)) - Number(b.id.slice(1)));
+
+      const collected = rows.filter((row) => row.value?.s === 0).length;
+      document.getElementById("summary").textContent =
+        `${rows.length} collectors, ${collected} reported status 0, ` +
+        `${Object.keys(payload).length} wire keys, ${Date.now() - started} ms`;
+
+      const body = document.getElementById("rows");
+      for (const row of rows) {
+        const status = row.value?.s ?? "err";
+        const value = row.error ?? JSON.stringify(row.value?.v);
+        const tr = document.createElement("tr");
+        if (status !== 0) tr.className = "failed";
+        for (const cell of [row.id, row.signal, String(status), String(row.duration ?? ""), value]) {
+          const td = document.createElement("td");
+          td.textContent = cell === undefined ? "" : String(cell).slice(0, 400);
+          if (cell === value) td.className = "value";
+          tr.append(td);
+        }
+        body.append(tr);
+      }
+    </script>
+  </body>
+</html>
