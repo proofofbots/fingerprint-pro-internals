@@ -3,3 +3,4 @@ artifacts/
 _research/
 _notes/
 .DS_Store
+agent/unresolved-hashes.json
