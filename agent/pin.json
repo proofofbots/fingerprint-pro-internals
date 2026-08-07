@@ -1,0 +1,13 @@
+{
+  "version": "jsl/4.0.0",
+  "url": "https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8/web/v4/ahNo3Idb3RiQg69bQglE?ci=jsl/4.0.0",
+  "sha256": "250c7dfed751a8699cbcbb34c98626fd08f6980f09cba9706fa8091698a40592",
+  "bytes": 194100,
+  "etag": "W/\"yQj8QxEFw5rB/F9oS1J/9uGBmQA\"",
+  "fetchedAt": "2026-08-07T15:41:14Z",
+  "derived": {
+    "agent.clean.js": "21a031435b4b3cf6f32b92e3103956eb4b7135dc50e6e85be78b76e0ecb3ae97",
+    "agent.clean.keepnames.js": "548a03546c67a0b530b62e33a2eb4033ef4953d106a07079eaeddaedfcd9374f",
+    "worker.clean.js": "48b5205e7e54b71a4e375471f6ce4781c77c74b94706242f448f13dedfc35c8d"
+  }
+}

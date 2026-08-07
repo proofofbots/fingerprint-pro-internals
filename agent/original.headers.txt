@@ -1,0 +1,19 @@
+HTTP/2 200 
+content-type: text/javascript; charset=utf-8
+content-length: 192978
+date: Fri, 31 Jul 2026 03:53:31 GMT
+access-control-allow-origin: *
+cache-control: public, max-age=3475, s-maxage=60
+cf-cache-status: HIT
+cf-ray: a27355b41b76b885-IAD
+cross-origin-resource-policy: cross-origin
+server: cloudflare
+timing-allow-origin: *
+x-content-type-options: nosniff
+etag: W/"eIuzmEte5yldJ7YCgejZsBfTEXI"
+vary: Accept-Encoding
+x-cache: Miss from cloudfront
+via: 1.1 188f79724f54adec48e2bcaf1aeded1e.cloudfront.net (CloudFront)
+x-amz-cf-pop: HEL51-P7
+x-amz-cf-id: odNndPN-ItQ3Tr3JycI1ttXJgao4fosEWjWbA2mSK2hNHqqoQ_bs8Q==
+
