@@ -1,0 +1,721 @@
+{
+  "agent": "/Users/proofofbots/proofofbot/fingerprint-pro-internals/artifacts/agent.original.js",
+  "dictionary": 228932,
+  "resolved": [
+    {
+      "hash": 3065852031,
+      "uses": 11,
+      "name": "message",
+      "ambiguous": false
+    },
+    {
+      "hash": 1801730948,
+      "uses": 5,
+      "name": "v",
+      "ambiguous": false
+    },
+    {
+      "hash": 318865860,
+      "uses": 5,
+      "name": "close",
+      "ambiguous": false
+    },
+    {
+      "hash": 2758837156,
+      "uses": 5,
+      "name": "open",
+      "ambiguous": false
+    },
+    {
+      "hash": 3538568711,
+      "uses": 4,
+      "name": "estimate",
+      "ambiguous": false
+    },
+    {
+      "hash": 453955339,
+      "uses": 3,
+      "name": "s",
+      "ambiguous": false
+    },
+    {
+      "hash": 3632233996,
+      "uses": 3,
+      "name": "test",
+      "ambiguous": false
+    },
+    {
+      "hash": 2744374011,
+      "uses": 3,
+      "name": "state",
+      "ambiguous": false
+    },
+    {
+      "hash": 882066760,
+      "uses": 2,
+      "name": "createOffer",
+      "ambiguous": false
+    },
+    {
+      "hash": 1017138619,
+      "uses": 2,
+      "name": "getManagedConfiguration",
+      "ambiguous": false
+    },
+    {
+      "hash": 2617745417,
+      "uses": 2,
+      "name": "getRandomValues",
+      "ambiguous": false
+    },
+    {
+      "hash": 325763347,
+      "uses": 2,
+      "name": "result",
+      "ambiguous": false
+    },
+    {
+      "hash": 974290055,
+      "uses": 2,
+      "name": "delete",
+      "ambiguous": false
+    },
+    {
+      "hash": 3192107409,
+      "uses": 2,
+      "name": "getClientCapabilities",
+      "ambiguous": false
+    },
+    {
+      "hash": 3516168465,
+      "uses": 2,
+      "name": "decodingInfo",
+      "ambiguous": false
+    },
+    {
+      "hash": 2046110272,
+      "uses": 2,
+      "name": "enumerateDevices",
+      "ambiguous": false
+    },
+    {
+      "hash": 1590906722,
+      "uses": 2,
+      "name": "getContext",
+      "ambiguous": false
+    },
+    {
+      "hash": 2350531887,
+      "uses": 2,
+      "name": "width",
+      "ambiguous": false
+    },
+    {
+      "hash": 1417288500,
+      "uses": 2,
+      "name": "storage",
+      "ambiguous": false
+    },
+    {
+      "hash": 1108488788,
+      "uses": 2,
+      "name": "validate",
+      "ambiguous": false
+    },
+    {
+      "hash": 123626528,
+      "uses": 2,
+      "name": "addEventListener",
+      "ambiguous": false
+    },
+    {
+      "hash": 1240758083,
+      "uses": 2,
+      "name": "reconnect",
+      "ambiguous": false
+    },
+    {
+      "hash": 3686698663,
+      "uses": 2,
+      "name": "getDirectory",
+      "ambiguous": false
+    },
+    {
+      "hash": 3034174415,
+      "uses": 2,
+      "name": "lastModified",
+      "ambiguous": false
+    },
+    {
+      "hash": 146191367,
+      "uses": 2,
+      "name": "createWritable",
+      "ambiguous": false
+    },
+    {
+      "hash": 2778955679,
+      "uses": 2,
+      "name": "removeEntry",
+      "ambiguous": false
+    },
+    {
+      "hash": 621177879,
+      "uses": 2,
+      "name": "audioCapabilities",
+      "ambiguous": false
+    },
+    {
+      "hash": 1973166116,
+      "uses": 2,
+      "name": "defineProperty",
+      "ambiguous": false
+    },
+    {
+      "hash": 1822441138,
+      "uses": 2,
+      "name": "getBattery",
+      "ambiguous": false
+    },
+    {
+      "hash": 1110892003,
+      "uses": 2,
+      "name": "getOwnPropertyDescriptor",
+      "ambiguous": false
+    },
+    {
+      "hash": 2813370411,
+      "uses": 2,
+      "name": "writable",
+      "ambiguous": false
+    },
+    {
+      "hash": 3695528204,
+      "uses": 2,
+      "name": "getLayoutMap",
+      "ambiguous": false
+    },
+    {
+      "hash": 250646760,
+      "uses": 1,
+      "name": "managed",
+      "ambiguous": false
+    },
+    {
+      "hash": 2900309608,
+      "uses": 1,
+      "name": "mediaCapabilities",
+      "ambiguous": false
+    },
+    {
+      "hash": 2882756133,
+      "uses": 1,
+      "name": "webkitTapHighlightColor",
+      "ambiguous": false
+    },
+    {
+      "hash": 3858258232,
+      "uses": 1,
+      "name": "webkitTouchCallout",
+      "ambiguous": false
+    },
+    {
+      "hash": 701619454,
+      "uses": 1,
+      "name": "storageBuckets",
+      "ambiguous": false
+    },
+    {
+      "hash": 1915421369,
+      "uses": 1,
+      "name": "indexedDB",
+      "ambiguous": false
+    },
+    {
+      "hash": 138212912,
+      "uses": 1,
+      "name": "createObjectStore",
+      "ambiguous": false
+    },
+    {
+      "hash": 3505086064,
+      "uses": 1,
+      "name": "usage",
+      "ambiguous": false
+    },
+    {
+      "hash": 4146387716,
+      "uses": 1,
+      "name": "supported",
+      "ambiguous": false
+    },
+    {
+      "hash": 1965183968,
+      "uses": 1,
+      "name": "smooth",
+      "ambiguous": false
+    },
+    {
+      "hash": 2920301991,
+      "uses": 1,
+      "name": "powerEfficient",
+      "ambiguous": false
+    },
+    {
+      "hash": 2741656292,
+      "uses": 1,
+      "name": "prototype",
+      "ambiguous": false
+    },
+    {
+      "hash": 2256349940,
+      "uses": 1,
+      "name": "allowedFeatures",
+      "ambiguous": false
+    },
+    {
+      "hash": 2027710893,
+      "uses": 1,
+      "name": "fillRect",
+      "ambiguous": false
+    },
+    {
+      "hash": 2240176009,
+      "uses": 1,
+      "name": "getImageData",
+      "ambiguous": false
+    },
+    {
+      "hash": 4115522831,
+      "uses": 1,
+      "name": "height",
+      "ambiguous": false
+    },
+    {
+      "hash": 2918445923,
+      "uses": 1,
+      "name": "data",
+      "ambiguous": false
+    },
+    {
+      "hash": 3087401394,
+      "uses": 1,
+      "name": "doNotTrack",
+      "ambiguous": false
+    },
+    {
+      "hash": 2706846255,
+      "uses": 1,
+      "name": "webkitTemporaryStorage",
+      "ambiguous": false
+    },
+    {
+      "hash": 1291883197,
+      "uses": 1,
+      "name": "queryUsageAndQuota",
+      "ambiguous": false
+    },
+    {
+      "hash": 1813778413,
+      "uses": 1,
+      "name": "quota",
+      "ambiguous": false
+    },
+    {
+      "hash": 2915035553,
+      "uses": 1,
+      "name": "deviceId",
+      "ambiguous": false
+    },
+    {
+      "hash": 3984689328,
+      "uses": 1,
+      "name": "groupId",
+      "ambiguous": false
+    },
+    {
+      "hash": 1002749145,
+      "uses": 1,
+      "name": "kind",
+      "ambiguous": false
+    },
+    {
+      "hash": 693717494,
+      "uses": 1,
+      "name": "openDatabase",
+      "ambiguous": false
+    },
+    {
+      "hash": 1703339950,
+      "uses": 1,
+      "name": "localStorage",
+      "ambiguous": false
+    },
+    {
+      "hash": 2330630162,
+      "uses": 1,
+      "name": "setItem",
+      "ambiguous": false
+    },
+    {
+      "hash": 588657539,
+      "uses": 1,
+      "name": "removeItem",
+      "ambiguous": false
+    },
+    {
+      "hash": 3313063598,
+      "uses": 1,
+      "name": "getSupportedExtensions",
+      "ambiguous": false
+    },
+    {
+      "hash": 4248514160,
+      "uses": 1,
+      "name": "get",
+      "ambiguous": false
+    },
+    {
+      "hash": 2928708052,
+      "uses": 1,
+      "name": "put",
+      "ambiguous": false
+    },
+    {
+      "hash": 3885781331,
+      "uses": 1,
+      "name": "deleteDatabase",
+      "ambiguous": false
+    },
+    {
+      "hash": 1455634619,
+      "uses": 1,
+      "name": "limits",
+      "ambiguous": false
+    },
+    {
+      "hash": 1843675174,
+      "uses": 1,
+      "name": "description",
+      "ambiguous": false
+    },
+    {
+      "hash": 154121870,
+      "uses": 1,
+      "name": "device",
+      "ambiguous": false
+    },
+    {
+      "hash": 4163855836,
+      "uses": 1,
+      "name": "isFallbackAdapter",
+      "ambiguous": false
+    },
+    {
+      "hash": 868071530,
+      "uses": 1,
+      "name": "style",
+      "ambiguous": false
+    },
+    {
+      "hash": 3555432007,
+      "uses": 1,
+      "name": "getCurrentPosition",
+      "ambiguous": false
+    },
+    {
+      "hash": 1997877400,
+      "uses": 1,
+      "name": "code",
+      "ambiguous": false
+    },
+    {
+      "hash": 3788099005,
+      "uses": 1,
+      "name": "PERMISSION_DENIED",
+      "ambiguous": false
+    },
+    {
+      "hash": 2796740938,
+      "uses": 1,
+      "name": "POSITION_UNAVAILABLE",
+      "ambiguous": false
+    },
+    {
+      "hash": 3187968904,
+      "uses": 1,
+      "name": "TIMEOUT",
+      "ambiguous": false
+    },
+    {
+      "hash": 4177808745,
+      "uses": 1,
+      "name": "WebAssembly",
+      "ambiguous": false
+    },
+    {
+      "hash": 2698072953,
+      "uses": 1,
+      "name": "languages",
+      "ambiguous": false
+    },
+    {
+      "hash": 2297974007,
+      "uses": 1,
+      "name": "getPropertyValue",
+      "ambiguous": false
+    },
+    {
+      "hash": 4101391790,
+      "uses": 1,
+      "name": "url",
+      "ambiguous": false
+    },
+    {
+      "hash": 1914874273,
+      "uses": 1,
+      "name": "assign",
+      "ambiguous": false
+    },
+    {
+      "hash": 4184312542,
+      "uses": 1,
+      "name": "connectionState",
+      "ambiguous": false
+    },
+    {
+      "hash": 3098533860,
+      "uses": 1,
+      "name": "jsHeapSizeLimit",
+      "ambiguous": false
+    },
+    {
+      "hash": 552725026,
+      "uses": 1,
+      "name": "createMediaKeys",
+      "ambiguous": false
+    },
+    {
+      "hash": 2562634255,
+      "uses": 1,
+      "name": "getFileHandle",
+      "ambiguous": false
+    },
+    {
+      "hash": 2104195679,
+      "uses": 1,
+      "name": "write",
+      "ambiguous": false
+    },
+    {
+      "hash": 2331980737,
+      "uses": 1,
+      "name": "getFile",
+      "ambiguous": false
+    },
+    {
+      "hash": 3626513111,
+      "uses": 1,
+      "name": "input",
+      "ambiguous": false
+    },
+    {
+      "hash": 3494972344,
+      "uses": 1,
+      "name": "isFinite",
+      "ambiguous": false
+    },
+    {
+      "hash": 3966979758,
+      "uses": 1,
+      "name": "isTrusted",
+      "ambiguous": false
+    },
+    {
+      "hash": 1297038992,
+      "uses": 1,
+      "name": "createElement",
+      "ambiguous": false
+    },
+    {
+      "hash": 770559087,
+      "uses": 1,
+      "name": "permissions",
+      "ambiguous": false
+    },
+    {
+      "hash": 616412651,
+      "uses": 1,
+      "name": "query",
+      "ambiguous": false
+    },
+    {
+      "hash": 184195108,
+      "uses": 1,
+      "name": "charging",
+      "ambiguous": false
+    },
+    {
+      "hash": 2599078931,
+      "uses": 1,
+      "name": "level",
+      "ambiguous": false
+    },
+    {
+      "hash": 1551991640,
+      "uses": 1,
+      "name": "dischargingTime",
+      "ambiguous": false
+    },
+    {
+      "hash": 3860080092,
+      "uses": 1,
+      "name": "set",
+      "ambiguous": false
+    },
+    {
+      "hash": 3695949181,
+      "uses": 1,
+      "name": "createSession",
+      "ambiguous": false
+    },
+    {
+      "hash": 244589941,
+      "uses": 1,
+      "name": "removeEventListener",
+      "ambiguous": false
+    },
+    {
+      "hash": 2552575352,
+      "uses": 1,
+      "name": "update",
+      "ambiguous": false
+    },
+    {
+      "hash": 2250224811,
+      "uses": 1,
+      "name": "generateRequest",
+      "ambiguous": false
+    },
+    {
+      "hash": 3179935986,
+      "uses": 1,
+      "name": "gpu",
+      "ambiguous": false
+    },
+    {
+      "hash": 1678473624,
+      "uses": 1,
+      "name": "requestAdapter",
+      "ambiguous": false
+    },
+    {
+      "hash": 1864904696,
+      "uses": 1,
+      "name": "ewr",
+      "ambiguous": false
+    },
+    {
+      "hash": 1651707638,
+      "uses": 1,
+      "name": "configurable",
+      "ambiguous": false
+    },
+    {
+      "hash": 2205450389,
+      "uses": 1,
+      "name": "keyboard",
+      "ambiguous": false
+    },
+    {
+      "hash": 3994889901,
+      "uses": 1,
+      "name": "requestMediaKeySystemAccess",
+      "ambiguous": false
+    },
+    {
+      "hash": 2487676862,
+      "uses": 1,
+      "name": "strokeColor",
+      "ambiguous": false
+    },
+    {
+      "hash": 41374024,
+      "uses": 1,
+      "name": "glyphOrientationVertical",
+      "ambiguous": false
+    },
+    {
+      "hash": 2796484463,
+      "uses": 1,
+      "name": "webkitRequestFileSystem",
+      "ambiguous": false
+    },
+    {
+      "hash": 704082790,
+      "uses": 1,
+      "name": "connection",
+      "ambiguous": false
+    },
+    {
+      "hash": 3017323393,
+      "uses": 1,
+      "name": "onorientationchange",
+      "ambiguous": false
+    },
+    {
+      "hash": 859837811,
+      "uses": 1,
+      "name": "contacts",
+      "ambiguous": false
+    },
+    {
+      "hash": 72906005,
+      "uses": 1,
+      "name": "ontypechange",
+      "ambiguous": false
+    },
+    {
+      "hash": 142982734,
+      "uses": 1,
+      "name": "createDataChannelAndOffer",
+      "ambiguous": false
+    },
+    {
+      "hash": 76151562,
+      "uses": 1,
+      "name": "setLocalDescription",
+      "ambiguous": false
+    },
+    {
+      "hash": 107910612,
+      "uses": 1,
+      "name": "closeConnectionWhenTurnEnds",
+      "ambiguous": false
+    },
+    {
+      "hash": 2660613247,
+      "uses": 1,
+      "name": "drm",
+      "ambiguous": false
+    },
+    {
+      "hash": 3779360887,
+      "uses": 1,
+      "name": "requestAdapterInfo",
+      "ambiguous": false
+    },
+    {
+      "hash": 4112659446,
+      "uses": 1,
+      "name": "vendor",
+      "ambiguous": false
+    },
+    {
+      "hash": 1956208378,
+      "uses": 1,
+      "name": "architecture",
+      "ambiguous": false
+    }
+  ],
+  "unresolved": []
+}

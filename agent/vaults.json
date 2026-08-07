@@ -1,0 +1,969 @@
+{
+  "agent": "/Users/proofofbots/proofofbot/fingerprint-pro-internals/artifacts/agent.original.js",
+  "roles": {
+    "compress": "b",
+    "decryptSelfKeyed": "Z",
+    "xorFromName": "Tm",
+    "readProp": "NW",
+    "permute": "BW",
+    "hash128": "ul",
+    "envelope": "el",
+    "makeVault": "Yr",
+    "makeEnvVault": "UP",
+    "deepClone": "kN",
+    "crc32Bytes": "Pt",
+    "jsonDecode": "Yt",
+    "requestPath": "lO",
+    "asBytes": "XO",
+    "jsonEncode": "CO",
+    "findName": "Pf",
+    "decryptEnvKeyed": "ld",
+    "toBytes": "ud",
+    "sealFrame": "LD",
+    "base64Encode": "CD",
+    "base64Decode": "vD",
+    "helperUrl": "mN"
+  },
+  "tables": {
+    "FP": {
+      "kind": "self-keyed",
+      "size": 7,
+      "entries": [
+        "api.fpjs.io",
+        "us",
+        "https://",
+        {
+          "us": "use1",
+          "eu": "euc1",
+          "ap": "aps1"
+        },
+        "-turn.fpjs.io",
+        "\\+",
+        "\\/"
+      ]
+    },
+    "Ca": {
+      "kind": "self-keyed",
+      "size": 6,
+      "entries": [
+        "featurePolicy",
+        "brave",
+        "braveSolana",
+        "braveEthereum",
+        [
+          "cardano",
+          "solana",
+          "ethereum"
+        ],
+        "connection"
+      ]
+    },
+    "Ga": {
+      "kind": "self-keyed",
+      "size": 3,
+      "entries": [
+        [
+          "--hydra-450",
+          "--super-color",
+          "--super-bg-color",
+          "--border-dynamic",
+          "--size-md",
+          "--banner-height"
+        ],
+        "getComputedStyle",
+        "documentElement"
+      ]
+    },
+    "pa": {
+      "kind": "self-keyed",
+      "size": 1,
+      "entries": [
+        "performance"
+      ]
+    },
+    "HO": {
+      "kind": "self-keyed",
+      "size": 5,
+      "entries": [
+        {
+          "create": true
+        },
+        "function",
+        {
+          "s": 0,
+          "v": {
+            "re": "",
+            "cwe": "createWritable is not a function",
+            "clm": 0,
+            "wlm": 0
+          }
+        },
+        {
+          "keepExistingData": true
+        },
+        ".agent"
+      ]
+    },
+    "SO": {
+      "kind": "env-keyed",
+      "size": 18,
+      "entries": [
+        [
+          "var/db/MobileIdentityData/Version.plist",
+          "private/preboot/active",
+          "etc/hosts",
+          "var/mobile/Library/SpringBoard/TodayViewArchive.plist",
+          "var/mobile/Library/Preferences/com.apple.corerecents.recentsd.plist"
+        ],
+        "DataTransfer",
+        "TypeError",
+        "file",
+        "lastModified",
+        "RegExp",
+        "exec",
+        "createElement",
+        "type",
+        "File",
+        {
+          "type": "text/plain"
+        },
+        "items",
+        "add",
+        "message",
+        "must be an instance of File",
+        "files",
+        "webkitEntries",
+        "undefined"
+      ]
+    },
+    "eO": {
+      "kind": "self-keyed",
+      "size": 5,
+      "entries": [
+        "default.ini",
+        "File",
+        "URL",
+        "filesystem:///",
+        "?#"
+      ]
+    },
+    "BO": {
+      "kind": "self-keyed",
+      "size": 6,
+      "entries": [
+        "indexedDB",
+        "onerror",
+        "onupgradeneeded",
+        {
+          "autoIncrement": true
+        },
+        "Blob",
+        "SecurityError"
+      ]
+    },
+    "EO": {
+      "kind": "self-keyed",
+      "size": 31,
+      "entries": [
+        "drm",
+        "wv",
+        "wvp",
+        "pr",
+        [
+          "com.microsoft.playready",
+          "com.youtube.playready"
+        ],
+        "ck",
+        [
+          "webkit-org.w3.clearkey",
+          "org.w3.clearkey"
+        ],
+        "pt",
+        [
+          "com.adobe.primetime",
+          "com.adobe.access"
+        ],
+        "fp",
+        [
+          "com.apple.fairplay"
+        ],
+        "MediaKeys",
+        "WebKitMediaKeys",
+        "MSMediaKeys",
+        "requestMediaKeySystemAccess",
+        "featurePolicy",
+        "encrypted-media",
+        "mediaCapabilities",
+        "decodingInfo",
+        "com.widevine.alpha",
+        "media-source",
+        {
+          "contentType": "audio/mp4; codecs=\"mp4a.40.2\""
+        },
+        {
+          "contentType": "video/mp4; codecs=\"avc1.42E01E\"",
+          "bitrate": 10000,
+          "framerate": 30,
+          "height": 480,
+          "width": 640
+        },
+        {
+          "robustness": "SW_SECURE_CRYPTO"
+        },
+        "keySystemAccess",
+        "brave",
+        "robustness",
+        "SW_SECURE_CRYPTO",
+        "sessionTypes",
+        [
+          "persistent-license"
+        ],
+        {
+          "initDataTypes": [
+            "cenc"
+          ],
+          "audioCapabilities": [
+            {
+              "contentType": "audio/mp4;codecs=\"mp4a.40.2\""
+            }
+          ]
+        }
+      ]
+    },
+    "_O": {
+      "kind": "self-keyed",
+      "size": 1,
+      "entries": [
+        [
+          [
+            "navigator",
+            [
+              "plugins",
+              "userAgent",
+              "platform",
+              "appName",
+              "languages"
+            ]
+          ],
+          [
+            "screen",
+            [
+              "width",
+              "availWidth",
+              "height",
+              "availHeight"
+            ]
+          ]
+        ]
+      ]
+    },
+    "Of": {
+      "kind": "self-keyed",
+      "size": 1,
+      "entries": [
+        "length"
+      ]
+    },
+    "Sf": {
+      "kind": "self-keyed",
+      "size": 20,
+      "entries": [
+        {
+          "credential": "admin"
+        },
+        "urls",
+        "username",
+        "iceServers",
+        "turn:",
+        {
+          "transport": "tcp"
+        },
+        "NotSupportedError",
+        "RTCPeerConnection",
+        "webkitRTCPeerConnection",
+        "UnknownError",
+        "Cannot create so many PeerConnections",
+        "\\bcreateOffer\\b.*(\\bcallback\\b.*\\bnot a function\\b|\\barguments required\\b.*\\bpresent\\b)",
+        "object",
+        "errorCode",
+        "url",
+        "icecandidateerror",
+        "closed",
+        "closeConnection",
+        "createDataChannelAndOffer",
+        "closeConnectionWhenTurnEnds"
+      ]
+    },
+    "xf": {
+      "kind": "env-keyed",
+      "size": 9,
+      "entries": [
+        [
+          {
+            "initDataTypes": [
+              "webm"
+            ],
+            "audioCapabilities": [
+              {
+                "contentType": "audio/mp4"
+              }
+            ]
+          }
+        ],
+        "requestMediaKeySystemAccess",
+        "org.w3.clearkey",
+        "createMediaKeys",
+        "function",
+        "createSession",
+        "generateRequest",
+        "webm",
+        "sessionId"
+      ]
+    },
+    "Qf": {
+      "kind": "env-keyed",
+      "size": 4,
+      "entries": [
+        [
+          "br.gov.meugovbr",
+          "co.visualsupply.cam",
+          "com.airbnb.app",
+          "com.alipay.iphoneclient",
+          "com.apple.MobileSMS",
+          "com.apple.Preferences",
+          "com.apple.ScreenshotServicesService",
+          "com.apple.mediaanalysisd",
+          "com.apple.mobilephone",
+          "com.atebits.Tweetie2",
+          "com.badoo.Badoo",
+          "com.burbn.barcelona",
+          "com.burbn.instagram",
+          "com.canva.canvaeditor",
+          "com.cardify.tinder",
+          "com.einnovation.temu",
+          "com.facebook.Facebook",
+          "com.facebook.Messenger",
+          "com.google.Drive",
+          "com.google.Gmail",
+          "com.google.GoogleMobile",
+          "com.google.Maps.WatchKitApp",
+          "com.google.Translate",
+          "com.google.chrome.ios",
+          "com.google.ios.youtube",
+          "com.google.photos",
+          "com.grabtaxi.iphone",
+          "com.grubhub.search",
+          "com.hammerandchisel.discord",
+          "com.iwilab.KakaoTalk",
+          "com.lemon.lvoverseas",
+          "com.linkedin.LinkedIn",
+          "com.microsoft.skype.teams",
+          "com.moxco.bumble",
+          "com.openai.chat",
+          "com.reddit.Reddit",
+          "com.revolut.revolut",
+          "com.ss.iphone.ugc.Ame",
+          "com.ss.iphone.ugc.Aweme",
+          "com.strava.stravaride",
+          "com.tencent.xin",
+          "com.tenten.app",
+          "com.tinyspeck.chatlyio",
+          "com.toyopagroup.picaboo",
+          "com.ubercab.UberEats",
+          "com.viber",
+          "com.vk.vkclient",
+          "com.woltapp.wolt",
+          "com.zhiliaoapp.musically",
+          "doordash.DoorDashConsumer",
+          "ee.mtakso.client",
+          "jp.naver.line",
+          "net.whatsapp.WhatsApp",
+          "net.whatsapp.WhatsAppSMB",
+          "org.whispersystems.signal",
+          "ph.telegra.Telegraph",
+          "pinterest",
+          "ru.yandex.ytaxi",
+          "tv.twitch"
+        ],
+        "/private/var/mobile/Media/PhotoData/external/",
+        "/1",
+        "getParent"
+      ]
+    },
+    "Jf": {
+      "kind": "env-keyed",
+      "size": 72,
+      "entries": [
+        "gpu",
+        "createElement",
+        "canvas",
+        "getContext",
+        "webgpu",
+        "features",
+        "requestDevice",
+        "getPreferredCanvasFormat",
+        "configure",
+        "createShaderModule",
+        "shader",
+        "struct O{@builtin(position)position:vec4f,@location(0)texcoord:vec2f}fn rotation(a:vec4f)->mat4x4f{var m=mat4x4f();var x=a.x;var y=a.y;var z=a.z;let n=sqrt(x*x+y*y+z*z);x/=n;y/=n;z/=n;let xx=x*x;let yy=y*y;let zz=z*z;let c=cos(a.w);let s=sin(a.w);let o=1-c;m[0]=vec4f(xx+(1-xx)*c,x*y*o+z*s,x*z*o-y*s,0);m[1]=vec4f(x*y*o-z*s,yy+(1-yy)*c,y*z*o+x*s,0);m[2]=vec4f(x*z*o+y*s,y*z*o-x*s,zz+(1-zz)*c,0);m[3]=vec4f(0,0,0,1);return transpose(m);}@group(1) @binding(0) var<uniform> axr:vec4f;@vertex fn vs(@builtin(vertex_index) i:u32)->O{let n=vec2f(-0.5,0.5);let o=vec2f(1.0,0.0);let v=array(n.xxy,n.yxy,n.xyy,n.yyy,n.xxx,n.yxx,n.xyx,n.yyx);let t=array(0,2,3,0,3,1,4,6,7,4,7,5,0,2,6,0,6,4,1,3,7,1,7,5,2,6,7,2,7,3,0,4,5,0,5,1);let u=array(o.yx,o.yy,o.xy,o.yx,o.xy,o.xx);var r:O;r.position=rotation(axr)*vec4f(v[t[i]],1);r.texcoord=u[i%6];return r;}@group(0) @binding(0) var s:sampler;@group(0) @binding(1) var t:texture_2d<f32>;@fragment fn fs(i:O)->@location(0) vec4f{return textureSample(t,s,i.texcoord);}",
+        "createRenderPipeline",
+        "pipeline",
+        "auto",
+        {
+          "cullMode": "none"
+        },
+        "createTexture",
+        "checkered",
+        "rgba8unorm",
+        "GPUTextureUsage",
+        "TEXTURE_BINDING",
+        "COPY_DST",
+        "queue",
+        "writeTexture",
+        "createSampler",
+        {
+          "magFilter": "nearest"
+        },
+        "createBindGroup",
+        "getBindGroupLayout",
+        "createView",
+        "createBuffer",
+        "axrs",
+        "BYTES_PER_ELEMENT",
+        "GPUBufferUsage",
+        "UNIFORM",
+        "getMappedRange",
+        "set",
+        "unmap",
+        "createQuerySet",
+        {
+          "type": "timestamp",
+          "count": 2
+        },
+        "count",
+        "QUERY_RESOLVE",
+        "COPY_SRC",
+        "size",
+        "MAP_READ",
+        "renderPass",
+        [
+          {
+            "clearValue": [
+              0.3,
+              0.3,
+              0.3,
+              1
+            ],
+            "loadOp": "clear",
+            "storeOp": "store"
+          }
+        ],
+        "colorAttachments",
+        "view",
+        "getCurrentTexture",
+        "createCommandEncoder",
+        {
+          "label": "encoder"
+        },
+        "beginRenderPass",
+        "setPipeline",
+        "setBindGroup",
+        "performance",
+        "now",
+        "draw",
+        "end",
+        "resolveQuerySet",
+        "mapState",
+        "unmapped",
+        "copyBufferToBuffer",
+        "finish",
+        "submit",
+        "buffer",
+        "mapAsync",
+        "GPUMapMode",
+        "READ",
+        "subarray",
+        "toDataURL",
+        "info",
+        "requestAdapterInfo"
+      ]
+    },
+    "td": {
+      "kind": "self-keyed",
+      "size": 6,
+      "entries": [
+        "stack",
+        "document",
+        "div",
+        "id",
+        "setTimeout",
+        "console"
+      ]
+    },
+    "fd": {
+      "kind": "self-keyed",
+      "size": 2,
+      "entries": [
+        "Event",
+        "boolean"
+      ]
+    },
+    "Dd": {
+      "kind": "self-keyed",
+      "size": 7,
+      "entries": [
+        "CAUSxwUKwQIIAxIQFwW5F8wSBIaLBjM6L3cqjBiCtIKSBSKOAjCCAQoCggEBAJntWzsyfateJO/DtiqVtZhSCtW8yzdQPgZFuBTYdrjfQFEEQa2M462xG7iMTnJaXkqeB5UpHVhYQCOn4a8OOKkSeTkwCGELbxWMh4x+Ib/7/up34QGeHleB6KRfRiY9FOYOgFioYHrc4E+shFexN6jWfM3rM3BdmDoh+07svUoQykdJDKR+ql1DghjduvHK3jOS8T1v+2RC/THhv0CwxgTRxLpMlSCkv5fuvWCSmvzu9Vu69WTi0Ods18Vcc6CCuZYSC4NZ7c4kcHCCaA1vZ8bYLErF8xNEkKdO7DevSy8BDFnoKEPiWC8La59dsPxebt9k+9MItHEbzxJQAZyfWgkCAwEAAToUbGljZW5zZS53aWRldmluZS5jb20SgAOuNHMUtag1KX8nE4j7e7jLUnfSSYI83dHaMLkzOVEes8y96gS5RLknwSE0bv296snUE5F+bsF2oQQ4RgpQO8GVK5uk5M4PxL/CCpgIqq9L/NGcHc/N9XTMrCjRtBBBbPneiAQwHL2zNMr80NQJeEI6ZC5UYT3wr8+WykqSSdhV5Cs6cD7xdn9qm9Nta/gr52u/DLpP3lnSq8x2/rZCR7hcQx+8pSJmthn8NpeVQ/ypy727+voOGlXnVaPHvOZV+WRvWCq5z3CqCLl5+Gf2Ogsrf9s2LFvE7NVV2FvKqcWTw4PIV9Sdqrd+QLeFHd/SSZiAjjWyWOddeOrAyhb3BHMEwg2T7eTo/xxvF+YkPj89qPwXCYcOxF+6gjomPwzvofcJOxkJkoMmMzcFBDopvab5tDQsyN9UPLGhGC98X/8z8QSQ+spbJTYLdgFenFoGq47gLwDS6NWYYQSqzE3Udf2W7pzk4ybyG4PHBYV3s4cyzdq8amvtE/sNSdOKReuHpfQ=",
+        "CreateCdmFunc not available",
+        "clearTimeout",
+        "message",
+        "setTimeout",
+        "AAAARHBzc2gAAAAA7e+LqXnWSs6jyCfc1R0h7QAAACQIARIBMRoNd2lkZXZpbmVfdGVzdCIKMjAxNV90ZWFycyoCU0Q=",
+        "cenc"
+      ]
+    },
+    "Xd": {
+      "kind": "self-keyed",
+      "size": 3,
+      "entries": [
+        "createElement",
+        "width",
+        "calc( 1px * ( sin( 66911823500 * ( 36781 / -0.55 * cos( -30780.497322536891 ) ) ) )"
+      ]
+    },
+    "Sd": {
+      "kind": "self-keyed",
+      "size": 9,
+      "entries": [
+        "createElement",
+        "canvas",
+        "2d",
+        "width",
+        "height",
+        "fillStyle",
+        "rgba(",
+        ",255)",
+        "crypto"
+      ]
+    },
+    "zd": {
+      "kind": "self-keyed",
+      "size": 10,
+      "entries": [
+        [
+          "maxTextureDimension1D",
+          "maxTextureDimension2D",
+          "maxTextureDimension3D",
+          "maxTextureArrayLayers",
+          "maxBindGroups",
+          "maxBindingsPerBindGroup",
+          "maxDynamicUniformBuffersPerPipelineLayout",
+          "maxDynamicStorageBuffersPerPipelineLayout",
+          "maxSampledTexturesPerShaderStage",
+          "maxSamplersPerShaderStage",
+          "maxStorageBuffersPerShaderStage",
+          "maxStorageTexturesPerShaderStage",
+          "maxUniformBuffersPerShaderStage",
+          "maxUniformBufferBindingSize",
+          "maxStorageBufferBindingSize",
+          "minUniformBufferOffsetAlignment",
+          "minStorageBufferOffsetAlignment",
+          "maxVertexBuffers",
+          "maxBufferSize",
+          "maxVertexAttributes",
+          "maxVertexBufferArrayStride",
+          "maxInterStageShaderComponents",
+          "maxInterStageShaderVariables",
+          "maxColorAttachments",
+          "maxColorAttachmentBytesPerSample",
+          "maxComputeWorkgroupStorageSize",
+          "maxComputeInvocationsPerWorkgroup",
+          "maxComputeWorkgroupSizeX",
+          "maxComputeWorkgroupSizeY",
+          "maxComputeWorkgroupSizeZ",
+          "maxComputeWorkgroupsPerDimension",
+          "maxBindGroupsPlusVertexBuffers",
+          "maxStorageBuffersInFragmentStage",
+          "maxStorageBuffersInVertexStage",
+          "maxStorageTexturesInFragmentStage",
+          "maxStorageTexturesInVertexStage"
+        ],
+        "string",
+        "limits.",
+        "adapter.info",
+        "adapterInfo.description",
+        "adapterInfo.device",
+        "adapterInfo.isFallbackAdapter",
+        "isFallbackAdapter",
+        "Error accessing property ",
+        ": "
+      ]
+    },
+    "nd": {
+      "kind": "self-keyed",
+      "size": 11,
+      "entries": [
+        {
+          "channels": 2,
+          "bitrate": 132700,
+          "samplerate": 5200
+        },
+        "file",
+        "video/mp4; codecs=av01.0.08M.08",
+        "video/webm; codecs=vp8",
+        "video/webm; codecs=vp09.00.10.08",
+        "video/mp4; codecs=hvc1.1.6.L93.B0",
+        "video/mp4; codecs=avc1.640028",
+        "video/mp4; codecs=avc1.640033",
+        "audio/ogg; codecs=opus",
+        "audio/mp4; codecs=mp4a.40.5",
+        "mediaCapabilities"
+      ]
+    },
+    "Gd": {
+      "kind": "self-keyed",
+      "size": 13,
+      "entries": [
+        "permissions",
+        "function",
+        "geolocation",
+        {
+          "name": "geolocation"
+        },
+        "prompt",
+        "denied",
+        {
+          "enableHighAccuracy": true,
+          "timeout": 10000,
+          "maximumAge": 0
+        },
+        "granted",
+        "la",
+        "lo",
+        "al",
+        "ac",
+        "alac"
+      ]
+    },
+    "Rd": {
+      "kind": "self-keyed",
+      "size": 7,
+      "entries": [
+        "object",
+        "function",
+        "onupgradeneeded",
+        {
+          "keyPath": "k"
+        },
+        "onsuccess",
+        "onerror",
+        "number"
+      ]
+    },
+    "Kd": {
+      "kind": "self-keyed",
+      "size": 3,
+      "entries": [
+        {
+          "conditionalCreate": "cc",
+          "conditionalGet": "cg",
+          "hybridTransport": "ht",
+          "passkeyPlatformAuthenticator": "ppa",
+          "userVerifyingPlatformAuthenticator": "uvpa",
+          "relatedOrigins": "ro",
+          "signalAllAcceptedCredentials": "saac",
+          "signalCurrentUserDetails": "scud",
+          "signalUnknownCredential": "suc",
+          "extension:credProps": "ecp",
+          "extension:prf": "ep",
+          "extension:appid": "eai",
+          "extension:appidExclude": "eaie",
+          "extension:credBlob": "ecb",
+          "extension:credProtect": "ecpr",
+          "extension:hmacSecret": "ehs",
+          "extension:largeBlob": "elb",
+          "extension:minPinLength": "empl",
+          "extension:payment": "epy"
+        },
+        "PublicKeyCredential",
+        "function"
+      ]
+    },
+    "$d": {
+      "kind": "self-keyed",
+      "size": 2,
+      "entries": [
+        "function",
+        "crypto"
+      ]
+    },
+    "PD": {
+      "kind": "self-keyed",
+      "size": 7,
+      "entries": [
+        "granted",
+        "prompt",
+        "mediaDevices",
+        "function",
+        {
+          "name": "camera"
+        },
+        {
+          "name": "microphone"
+        },
+        "denied"
+      ]
+    },
+    "fD": {
+      "kind": "self-keyed",
+      "size": 3,
+      "entries": [
+        "NotAllowedError",
+        "getBattery",
+        "function"
+      ]
+    },
+    "yD": {
+      "kind": "self-keyed",
+      "size": 4,
+      "entries": [
+        [
+          "EXT_blend_minmax",
+          "EXT_clip_control",
+          "EXT_clip_cull_distance",
+          "EXT_color_buffer_float",
+          "EXT_color_buffer_half_float",
+          "EXT_conservative_depth",
+          "EXT_depth_clamp",
+          "EXT_disjoint_timer_query",
+          "EXT_disjoint_timer_query_webgl2",
+          "EXT_float_blend",
+          "EXT_frag_depth",
+          "EXT_polygon_offset_clamp",
+          "EXT_render_snorm",
+          "EXT_sRGB",
+          "EXT_shader_texture_lod",
+          "EXT_texture_compression_bptc",
+          "EXT_texture_compression_rgtc",
+          "EXT_texture_filter_anisotropic",
+          "EXT_texture_mirror_clamp_to_edge",
+          "EXT_texture_norm16",
+          "KHR_parallel_shader_compile",
+          "NV_shader_noperspective_interpolation",
+          "OES_depth_texture",
+          "OES_element_index_uint",
+          "OES_fbo_render_mipmap",
+          "OES_standard_derivatives",
+          "OES_texture_float",
+          "OES_texture_float_linear",
+          "OES_texture_half_float",
+          "OES_texture_half_float_linear",
+          "OES_vertex_array_object",
+          "OES_draw_buffers_indexed",
+          "OES_sample_variables",
+          "OES_shader_multisample_interpolation",
+          "OVR_multiview2",
+          "WEBGL_blend_func_extended",
+          "WEBGL_clip_cull_distance",
+          "WEBGL_color_buffer_float",
+          "WEBGL_compressed_texture_astc",
+          "WEBGL_compressed_texture_etc",
+          "WEBGL_compressed_texture_etc1",
+          "WEBGL_compressed_texture_pvrtc",
+          "WEBGL_compressed_texture_s3tc",
+          "WEBGL_compressed_texture_s3tc_srgb",
+          "WEBGL_debug_renderer_info",
+          "WEBGL_debug_shaders",
+          "WEBGL_depth_texture",
+          "WEBGL_draw_buffers",
+          "WEBGL_draw_instanced_base_vertex_base_instance",
+          "WEBGL_get_buffer_sub_data_async",
+          "WEBGL_lose_context",
+          "WEBGL_multi_draw",
+          "WEBGL_multi_draw_instanced",
+          "WEBGL_multi_draw_instanced_base_vertex_base_instance",
+          "WEBGL_multiview",
+          "WEBGL_polygon_mode",
+          "WEBGL_provoking_vertex",
+          "WEBGL_render_shared_exponent",
+          "WEBGL_shader_pixel_local_storage",
+          "WEBGL_stencil_texturing",
+          "WEBGL_video_texture",
+          "WEBGL_webcodecs_video_frame",
+          "WEBKIT_WEBGL_compressed_texture_pvrtc"
+        ],
+        "createElement",
+        "canvas",
+        "webgl2"
+      ]
+    },
+    "MD": {
+      "kind": "self-keyed",
+      "size": 3,
+      "entries": [
+        "must be called from a top-level browsing context",
+        "DOMException",
+        "function"
+      ]
+    },
+    "eD": {
+      "kind": "self-keyed",
+      "size": 4,
+      "entries": [
+        "cast:",
+        "1bf61339ba6d48768badd4270e9c568c",
+        "PresentationRequest",
+        "function"
+      ]
+    },
+    "nD": {
+      "kind": "self-keyed",
+      "size": 144,
+      "entries": [
+        "s94",
+        "s219",
+        "s167",
+        "s213",
+        "s52",
+        "s6",
+        "s26",
+        "s58",
+        "s20",
+        "s36",
+        "s51",
+        "s21",
+        "s154",
+        "s79",
+        "s23",
+        "s29",
+        "s84",
+        "s85",
+        "s89",
+        "s17",
+        "s87",
+        "s92",
+        "s93",
+        "s204",
+        "s206",
+        "s207",
+        "s210",
+        "s211",
+        "s158",
+        "s152",
+        "s163",
+        "s95",
+        "s97",
+        "s160",
+        "s70",
+        "s106",
+        "s214",
+        "s215",
+        "s216",
+        "s217",
+        "s222",
+        "s223",
+        "s22",
+        "s30",
+        "s33",
+        "s44",
+        "s45",
+        "s49",
+        "s50",
+        "s57",
+        "s59",
+        "s60",
+        "s61",
+        "s62",
+        "s63",
+        "s64",
+        "s65",
+        "s66",
+        "s68",
+        "s71",
+        "s24",
+        "s72",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s7",
+        "s9",
+        "s10",
+        "s11",
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s19",
+        "s27",
+        "s28",
+        "s32",
+        "s37",
+        "s41",
+        "s39",
+        "s42",
+        "s38",
+        "s43",
+        "s40",
+        "s46",
+        "s80",
+        "s81",
+        "s82",
+        "s83",
+        "s86",
+        "s91",
+        "s96",
+        "s98",
+        "s99",
+        "s200",
+        "s201",
+        "s202",
+        "s101",
+        "s103",
+        "s104",
+        "s117",
+        "s119",
+        "s123",
+        "s131",
+        "s133",
+        "s136",
+        "s148",
+        "s149",
+        "s150",
+        "s157",
+        "s102",
+        "s118",
+        "s120",
+        "s130",
+        "s132",
+        "s135",
+        "s139",
+        "s142",
+        "s144",
+        "s145",
+        "s146",
+        "s151",
+        "s153",
+        "s155",
+        "s156",
+        "s159",
+        "s162",
+        "s165",
+        "s166",
+        "s205",
+        "s203",
+        "s209",
+        "s212",
+        "s74",
+        "s75",
+        "s221",
+        "s76",
+        "cm",
+        "s69",
+        "s55",
+        "s48"
+      ]
+    }
+  }
+}
