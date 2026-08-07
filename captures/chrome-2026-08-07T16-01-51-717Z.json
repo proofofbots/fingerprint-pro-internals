@@ -1,0 +1,4284 @@
+{
+  "summary": {
+    "requests": 2,
+    "apiEvents": 0,
+    "workers": 1,
+    "probeApis": 27,
+    "probeCalls": 223
+  },
+  "version": "1.0.0",
+  "origin": "http://localhost:8099/?b=chromeb",
+  "startedAt": "2026-08-07T16:01:42.795Z",
+  "requests": [
+    {
+      "t": 84.1,
+      "kind": "fetch",
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=kBwLN2IyH1GjeJBLpl8C",
+      "status": 200,
+      "ms": 2.5,
+      "respHeaders": {
+        "cache-control": "max-age=31536000, immutable, private",
+        "content-length": "96",
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "reqSize": 0,
+      "decoded": {
+        "encoding": "empty",
+        "size": 0
+      },
+      "response": {
+        "encoding": "opaque",
+        "size": 96,
+        "head": "664f35433250684143446e723743753052356246426c7042434d37576c756c7442724d4e34426d774e5a6d4b497a4774…",
+        "text": "fO5C2PhACDnr7Cu0R5bFBlpBCM7WlultBrMN4BmwNZmKIzGtNJ0drPkPJVccV44dcmzz+UFE5JQ7v9KFKw2JIRTyPVvGIw==",
+        "base64": "Zk81QzJQaEFDRG5yN0N1MFI1YkZCbHBCQ003V2x1bHRCck1ONEJtd05abUtJekd0TkowZHJQa1BKVmNjVjQ0ZGNtenorVUZFNUpRN3Y5S0ZLdzJKSVJUeVBWdkdJdz09"
+      }
+    },
+    {
+      "t": 541.6,
+      "kind": "fetch",
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=kBwLN2IyH1GjeJBLpl8C",
+      "status": 403,
+      "ms": 369.8,
+      "respHeaders": {
+        "content-length": "238",
+        "content-type": "application/json; charset=utf-8"
+      },
+      "headers": {
+        "Content-Type": "text/plain"
+      },
+      "reqSize": 4756,
+      "reqRaw": "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",
+      "decoded": {
+        "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+        "size": 4756,
+        "plainSize": 13184,
+        "key": [
+          118,
+          62,
+          22,
+          125,
+          58,
+          72,
+          251,
+          3,
+          62
+        ],
+        "tag": [
+          3,
+          14
+        ],
+        "json": {
+          "c": "kBwLN2IyH1GjeJBLpl8C",
+          "m": "l",
+          "l": "jsl/4.0.0",
+          "mo": [
+            "ex",
+            "cm"
+          ],
+          "s56": {
+            "s": 0,
+            "v": "fO5C2PhACDnr7Cu0R5bFBlpBCM7WlultBrMN4BmwNZmKIzGtNJ0drPkPJVccV44dcmzz+UFE5JQ7v9KFKw2JIRTyPVvGIw=="
+          },
+          "sc": {
+            "u": "http://localhost:8099/agent.js"
+          },
+          "ii": [],
+          "gt": 1,
+          "ab": {
+            "noop": "a"
+          },
+          "s52": {
+            "s": 0,
+            "v": "d0e72d5a94fc81340261f946f8ff6644"
+          },
+          "s6": {
+            "s": 0,
+            "v": [
+              34,
+              0,
+              64,
+              0
+            ]
+          },
+          "s26": {
+            "s": -3,
+            "v": null
+          },
+          "s58": {
+            "s": 0,
+            "v": {
+              "b": [
+                {
+                  "b": "Not=A?Brand",
+                  "v": "99"
+                },
+                {
+                  "b": "Google Chrome",
+                  "v": "149"
+                },
+                {
+                  "b": "Chromium",
+                  "v": "149"
+                }
+              ],
+              "m": false,
+              "p": "macOS",
+              "h": {
+                "brands": "[{\"brand\":\"Not=A?Brand\",\"version\":\"99\"},{\"brand\":\"Google Chrome\",\"version\":\"151\"},{\"brand\":\"Chromium\",\"version\":\"151\"}]",
+                "mobile": "false",
+                "platform": "macOS",
+                "platformVersion": "26.4.1",
+                "architecture": "arm",
+                "bitness": "64",
+                "model": "",
+                "uaFullVersion": "151.0.7922.138",
+                "fullVersionList": "[{\"brand\":\"Not=A?Brand\",\"version\":\"99.0.0.0\"},{\"brand\":\"Google Chrome\",\"version\":\"151.0.7922.138\"},{\"brand\":\"Chromium\",\"version\":\"151.0.7922.138\"}]"
+              },
+              "nah": []
+            }
+          },
+          "s20": {
+            "s": 0,
+            "v": [
+              "Arial Unicode MS",
+              "Gill Sans",
+              "Helvetica Neue",
+              "Menlo"
+            ]
+          },
+          "s36": {
+            "s": -1,
+            "v": null
+          },
+          "s51": {
+            "s": 0,
+            "v": {
+              "default": 73.78125,
+              "apple": 73.78125,
+              "serif": 73.78125,
+              "sans": 72.0078125,
+              "mono": 66.53125,
+              "min": 4.6171875,
+              "system": 73.046875
+            }
+          },
+          "s21": {
+            "s": 0,
+            "v": 124.04348155876505
+          },
+          "s154": {
+            "s": 0,
+            "v": {
+              "wv": true,
+              "wvp": false,
+              "pr": false,
+              "ck": true,
+              "pt": false,
+              "fp": false
+            }
+          },
+          "s79": {
+            "s": -3,
+            "v": [
+              {
+                "n": "default.ini",
+                "l": -1
+              }
+            ]
+          },
+          "s23": {
+            "s": -3,
+            "v": null
+          },
+          "s29": {
+            "s": 0,
+            "v": 10737418240
+          },
+          "s84": {
+            "s": 0,
+            "v": {
+              "w": 1440,
+              "h": 900
+            }
+          },
+          "s85": {
+            "s": -1,
+            "v": null
+          },
+          "s89": {
+            "s": 0,
+            "v": {
+              "re": "",
+              "cwe": "",
+              "clm": 1786118503316,
+              "wlm": 1786118503331
+            }
+          },
+          "s17": {
+            "s": 0,
+            "v": {
+              "winding": true,
+              "geometry": "450a6dd5dcd3e8c3c37904511c25df6b",
+              "text": "789293ebcbcd0314df4ec135810ad0ed"
+            }
+          },
+          "s87": {
+            "s": 0,
+            "v": {
+              "ac": "rgb(0, 117, 255)",
+              "act": "rgb(255, 255, 255)",
+              "at": "rgb(255, 0, 0)",
+              "ab": "rgb(0, 0, 0)",
+              "aca": "rgb(255, 255, 255)",
+              "aw": "rgb(255, 255, 255)",
+              "b": "rgb(255, 255, 255)",
+              "bh": "rgb(239, 239, 239)",
+              "bs": "rgb(239, 239, 239)",
+              "bb": "rgb(0, 0, 0)",
+              "bf": "rgb(239, 239, 239)",
+              "bt": "rgb(0, 0, 0)",
+              "ft": "rgb(0, 0, 0)",
+              "gt": "rgb(128, 128, 128)",
+              "h": "rgba(128, 188, 254, 0.6)",
+              "ht": "rgb(0, 0, 0)",
+              "ib": "rgb(255, 255, 255)",
+              "ic": "rgb(255, 255, 255)",
+              "ict": "rgb(128, 128, 128)",
+              "it": "rgb(0, 0, 0)",
+              "lt": "rgb(0, 0, 238)",
+              "m": "rgb(255, 255, 0)",
+              "me": "rgb(255, 255, 255)",
+              "s": "rgb(255, 255, 255)",
+              "tdds": "rgb(0, 0, 0)",
+              "tdf": "rgb(239, 239, 239)",
+              "tdh": "rgb(0, 0, 0)",
+              "tdls": "rgb(0, 0, 0)",
+              "tds": "rgb(0, 0, 0)",
+              "vt": "rgb(85, 26, 139)",
+              "w": "rgb(255, 255, 255)",
+              "wf": "rgb(0, 0, 0)",
+              "wt": "rgb(0, 0, 0)",
+              "si": "rgb(179, 215, 255)",
+              "sit": "rgb(0, 0, 0)"
+            }
+          },
+          "s92": {
+            "s": 0,
+            "v": {
+              "x": 8,
+              "y": 8,
+              "left": 8,
+              "right": 293.3046875,
+              "bottom": 26.5,
+              "height": 18.5,
+              "top": 8,
+              "width": 285.3046875,
+              "font": "Times"
+            }
+          },
+          "s93": {
+            "s": 0,
+            "v": {
+              "x": 8,
+              "y": 9.5,
+              "left": 8,
+              "right": 1288,
+              "bottom": 28,
+              "height": 18.5,
+              "top": 9.5,
+              "width": 1280,
+              "font": "Times"
+            }
+          },
+          "s204": {
+            "s": 0,
+            "v": true
+          },
+          "s206": {
+            "s": -1,
+            "v": null
+          },
+          "s207": {
+            "s": 0,
+            "v": true
+          },
+          "s210": {
+            "s": 0,
+            "v": {
+              "ds": "",
+              "dv": "",
+              "f": false,
+              "l": [
+                16384,
+                16384,
+                2048,
+                2048,
+                4,
+                1000,
+                10,
+                8,
+                48,
+                16,
+                10,
+                8,
+                12,
+                65536,
+                4294967292,
+                256,
+                256,
+                8,
+                4294967292,
+                30,
+                2048,
+                null,
+                28,
+                8,
+                128,
+                32768,
+                1024,
+                1024,
+                1024,
+                64,
+                65535,
+                24,
+                10,
+                10,
+                8,
+                8
+              ]
+            }
+          },
+          "s211": {
+            "s": 0,
+            "v": [
+              7,
+              3,
+              7,
+              7,
+              7,
+              7,
+              7,
+              7
+            ]
+          },
+          "s158": {
+            "s": 0,
+            "v": true
+          },
+          "s152": {
+            "s": 0,
+            "v": 1
+          },
+          "s163": {
+            "s": 0,
+            "v": true
+          },
+          "s95": {
+            "s": -1,
+            "v": null
+          },
+          "s97": {
+            "s": -3,
+            "v": null
+          },
+          "s160": {
+            "s": 0,
+            "v": []
+          },
+          "s70": {
+            "s": -1,
+            "v": null
+          },
+          "s106": {
+            "s": 0,
+            "v": false
+          },
+          "s214": {
+            "s": 0,
+            "v": 1299
+          },
+          "s215": {
+            "s": 0,
+            "v": {
+              "cc": true,
+              "cg": true,
+              "eai": true,
+              "eaie": true,
+              "ecb": true,
+              "ecp": true,
+              "elb": true,
+              "empl": true,
+              "epy": true,
+              "ep": true,
+              "ht": true,
+              "ppa": true,
+              "ro": true,
+              "saac": true,
+              "scud": true,
+              "suc": true,
+              "uvpa": true
+            }
+          },
+          "s216": {
+            "s": 0,
+            "v": "4db36f26-ed66-0c78-fff0-bd5c2cf13321"
+          },
+          "s217": {
+            "s": 0,
+            "v": {
+              "c": true,
+              "l": 0.8,
+              "ct": -1,
+              "dt": -1
+            }
+          },
+          "s222": {
+            "s": 0,
+            "v": [
+              [
+                "IntlYen",
+                "ˇ"
+              ],
+              [
+                "KeyK",
+                "k"
+              ],
+              [
+                "KeyG",
+                "g"
+              ],
+              [
+                "Digit2",
+                "2"
+              ],
+              [
+                "Digit0",
+                "0"
+              ],
+              [
+                "KeyV",
+                "v"
+              ],
+              [
+                "KeyA",
+                "a"
+              ],
+              [
+                "Backquote",
+                "<"
+              ],
+              [
+                "KeyL",
+                "l"
+              ],
+              [
+                "IntlBackslash",
+                "ˇ"
+              ],
+              [
+                "Quote",
+                "ä"
+              ],
+              [
+                "KeyW",
+                "w"
+              ],
+              [
+                "Digit8",
+                "8"
+              ],
+              [
+                "KeyM",
+                "m"
+              ],
+              [
+                "KeyH",
+                "h"
+              ],
+              [
+                "Period",
+                "."
+              ],
+              [
+                "Digit7",
+                "7"
+              ],
+              [
+                "Digit1",
+                "1"
+              ],
+              [
+                "KeyP",
+                "p"
+              ],
+              [
+                "KeyD",
+                "d"
+              ],
+              [
+                "KeyF",
+                "f"
+              ],
+              [
+                "KeyO",
+                "o"
+              ],
+              [
+                "KeyQ",
+                "q"
+              ],
+              [
+                "KeyC",
+                "c"
+              ],
+              [
+                "KeyN",
+                "n"
+              ],
+              [
+                "BracketLeft",
+                "ü"
+              ],
+              [
+                "KeyZ",
+                "z"
+              ],
+              [
+                "KeyY",
+                "y"
+              ],
+              [
+                "Digit3",
+                "3"
+              ],
+              [
+                "Digit6",
+                "6"
+              ],
+              [
+                "Digit5",
+                "5"
+              ],
+              [
+                "KeyX",
+                "x"
+              ],
+              [
+                "Slash",
+                "-"
+              ],
+              [
+                "Backslash",
+                "'"
+              ],
+              [
+                "Comma",
+                ","
+              ],
+              [
+                "Minus",
+                "+"
+              ],
+              [
+                "Digit4",
+                "4"
+              ],
+              [
+                "KeyB",
+                "b"
+              ],
+              [
+                "KeyT",
+                "t"
+              ],
+              [
+                "Digit9",
+                "9"
+              ],
+              [
+                "KeyS",
+                "s"
+              ],
+              [
+                "KeyI",
+                "i"
+              ],
+              [
+                "KeyU",
+                "u"
+              ],
+              [
+                "IntlRo",
+                "<"
+              ],
+              [
+                "Equal",
+                "´"
+              ],
+              [
+                "KeyJ",
+                "j"
+              ],
+              [
+                "Semicolon",
+                "ö"
+              ],
+              [
+                "KeyR",
+                "r"
+              ],
+              [
+                "BracketRight",
+                "õ"
+              ],
+              [
+                "KeyE",
+                "e"
+              ]
+            ]
+          },
+          "s223": {
+            "s": 0,
+            "v": "Error joining route: No matching route"
+          },
+          "s22": {
+            "s": 0,
+            "v": 23
+          },
+          "s30": {
+            "s": -1,
+            "v": null
+          },
+          "s33": {
+            "s": 0,
+            "v": false
+          },
+          "s44": {
+            "s": 0,
+            "v": true
+          },
+          "s45": {
+            "s": 0,
+            "v": [
+              1786118502913,
+              1786129302913
+            ]
+          },
+          "s49": {
+            "s": 0,
+            "v": [
+              0.09999996423721313,
+              0.10000002384185791
+            ]
+          },
+          "s50": {
+            "s": 0,
+            "v": 4395630592
+          },
+          "s57": {
+            "s": 0,
+            "v": 2
+          },
+          "s59": {
+            "s": 0,
+            "v": false
+          },
+          "s60": {
+            "s": 0,
+            "v": false
+          },
+          "s61": {
+            "s": 0,
+            "v": true
+          },
+          "s62": {
+            "s": 0,
+            "v": false
+          },
+          "s63": {
+            "s": 0,
+            "v": false
+          },
+          "s64": {
+            "s": 0,
+            "v": false
+          },
+          "s65": {
+            "s": 0,
+            "v": false
+          },
+          "s66": {
+            "s": -1,
+            "v": null
+          },
+          "s68": {
+            "s": 0,
+            "v": false
+          },
+          "s71": {
+            "s": 0,
+            "v": {
+              "w": "http://localhost:8099",
+              "l": "http://localhost:8099",
+              "a": []
+            }
+          },
+          "s24": {
+            "s": 0,
+            "v": 33
+          },
+          "s72": {
+            "s": 0,
+            "v": true
+          },
+          "s1": {
+            "s": -1,
+            "v": null
+          },
+          "s2": {
+            "s": 0,
+            "v": [
+              [
+                "en-US"
+              ]
+            ]
+          },
+          "s3": {
+            "s": 0,
+            "v": 30
+          },
+          "s4": {
+            "s": 0,
+            "v": 16
+          },
+          "s5": {
+            "s": 0,
+            "v": [
+              1440,
+              900
+            ]
+          },
+          "s7": {
+            "s": 0,
+            "v": 8
+          },
+          "s9": {
+            "s": 0,
+            "v": "America/New_York"
+          },
+          "s10": {
+            "s": 0,
+            "v": true
+          },
+          "s11": {
+            "s": 0,
+            "v": true
+          },
+          "s12": {
+            "s": 0,
+            "v": true
+          },
+          "s13": {
+            "s": 0,
+            "v": false
+          },
+          "s14": {
+            "s": -1,
+            "v": null
+          },
+          "s15": {
+            "s": 0,
+            "v": "MacIntel"
+          },
+          "s16": {
+            "s": 0,
+            "v": [
+              {
+                "name": "PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "Chrome PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "Chromium PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "Microsoft Edge PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "WebKit built-in PDF",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          "s19": {
+            "s": 0,
+            "v": {
+              "maxTouchPoints": 0,
+              "touchEvent": false,
+              "touchStart": false
+            }
+          },
+          "s27": {
+            "s": 0,
+            "v": "Google Inc."
+          },
+          "s28": {
+            "s": 0,
+            "v": [
+              "chrome"
+            ]
+          },
+          "s32": {
+            "s": 0,
+            "v": true
+          },
+          "s37": {
+            "s": 0,
+            "v": "srgb"
+          },
+          "s41": {
+            "s": -1,
+            "v": null
+          },
+          "s39": {
+            "s": 0,
+            "v": false
+          },
+          "s42": {
+            "s": 0,
+            "v": 0
+          },
+          "s38": {
+            "s": 0,
+            "v": 0
+          },
+          "s43": {
+            "s": 0,
+            "v": false
+          },
+          "s40": {
+            "s": 0,
+            "v": false
+          },
+          "s46": {
+            "s": 0,
+            "v": "7dd62f966d2a84a0ca91702215013a5a"
+          },
+          "s80": {
+            "s": 0,
+            "v": true
+          },
+          "s81": {
+            "s": 0,
+            "v": 127
+          },
+          "s82": {
+            "s": 0,
+            "v": "en-US"
+          },
+          "s83": {
+            "s": 0,
+            "v": [
+              "en-US",
+              "en"
+            ]
+          },
+          "s86": {
+            "s": -1,
+            "v": null
+          },
+          "s91": {
+            "s": 0,
+            "v": false
+          },
+          "s96": {
+            "s": -2,
+            "v": null
+          },
+          "s98": {
+            "s": 0,
+            "v": true
+          },
+          "s99": {
+            "s": 0,
+            "v": true
+          },
+          "s200": {
+            "s": 0,
+            "v": 1786118502719.4
+          },
+          "s201": {
+            "s": 0,
+            "v": false
+          },
+          "s202": {
+            "s": 0,
+            "v": "en-US"
+          },
+          "s101": {
+            "s": 0,
+            "v": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34"
+          },
+          "s103": {
+            "s": 0,
+            "v": "5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34"
+          },
+          "s104": {
+            "s": 0,
+            "v": 100
+          },
+          "s117": {
+            "s": 0,
+            "v": 5
+          },
+          "s119": {
+            "s": 0,
+            "v": "TypeError: Cannot read properties of null (reading '0')\n    at wt (http://localhost:8099/agent.js:5:94835)\n    at http://localhost:8099/agent.js:5:122269\n    at ht (http://localhost:8099/agent.js:5:101158)\n    at http://localhost:8099/agent.js:5:163053\n    at new Promise (<anonymous>)\n    at http://localhost:8099/agent.js:5:163018\n    at http://localhost:8099/agent.js:5:163412\n    at em (http://localhost:8099/agent.js:5:11024)\n    at Hd (http://localhost:8099/agent.js:5:162985)\n    at http://localhost:8099/agent.js:5:21226"
+          },
+          "s123": {
+            "s": 0,
+            "v": "20030107"
+          },
+          "s131": {
+            "s": 0,
+            "v": [
+              "lang"
+            ]
+          },
+          "s133": {
+            "s": 0,
+            "v": "[object External]"
+          },
+          "s136": {
+            "s": 0,
+            "v": true
+          },
+          "s148": {
+            "s": 0,
+            "v": "function bind() { [native code] }"
+          },
+          "s149": {
+            "s": -1,
+            "v": null
+          },
+          "s150": {
+            "s": 0,
+            "v": {
+              "outerWidth": 1280,
+              "outerHeight": 875,
+              "innerWidth": 1280,
+              "innerHeight": 866
+            }
+          },
+          "s157": {
+            "s": 0,
+            "v": {
+              "awesomium": false,
+              "cef": false,
+              "cefsharp": false,
+              "coachjs": false,
+              "fminer": false,
+              "geb": false,
+              "nightmarejs": false,
+              "phantomas": false,
+              "phantomjs": false,
+              "rhino": false,
+              "selenium": false,
+              "webdriverio": false,
+              "webdriver": false,
+              "headless_chrome": false
+            }
+          },
+          "s102": {
+            "s": 0,
+            "v": true
+          },
+          "s118": {
+            "s": 0,
+            "v": true
+          },
+          "s120": {
+            "s": 0,
+            "v": false
+          },
+          "s130": {
+            "s": 0,
+            "v": [
+              "function",
+              "function"
+            ]
+          },
+          "s132": {
+            "s": 0,
+            "v": "function close() { [native code] }"
+          },
+          "s135": {
+            "s": 0,
+            "v": 2
+          },
+          "s139": {
+            "s": 0,
+            "v": true
+          },
+          "s142": {
+            "s": 0,
+            "v": true
+          },
+          "s144": {
+            "s": -2,
+            "v": null
+          },
+          "s145": {
+            "s": 0,
+            "v": [
+              "getGamepads",
+              "javaEnabled",
+              "sendBeacon",
+              "vibrate",
+              "Navigator",
+              "adAuctionComponents",
+              "runAdAuction",
+              "canLoadAdAuctionFencedFrame",
+              "canShare",
+              "share",
+              "clearAppBadge",
+              "getBattery",
+              "getUserMedia",
+              "requestMIDIAccess",
+              "requestMediaKeySystemAccess",
+              "setAppBadge",
+              "webkitGetUserMedia",
+              "clearOriginJoinedAdInterestGroups",
+              "createAuctionNonce",
+              "joinAdInterestGroup",
+              "leaveAdInterestGroup",
+              "updateAdInterestGroups",
+              "deprecatedReplaceInURN",
+              "deprecatedURNToURL",
+              "getInstalledRelatedApps",
+              "getInterestGroupAdAuctionData",
+              "registerProtocolHandler",
+              "unregisterProtocolHandler"
+            ]
+          },
+          "s146": {
+            "s": 0,
+            "v": false
+          },
+          "s151": {
+            "s": 0,
+            "v": true
+          },
+          "s153": {
+            "s": 0,
+            "v": true
+          },
+          "s155": {
+            "s": 0,
+            "v": {}
+          },
+          "s156": {
+            "s": 0,
+            "v": [
+              "Iterator",
+              "chrome",
+              "WebAssembly"
+            ]
+          },
+          "s159": {
+            "s": 0,
+            "v": false
+          },
+          "s162": {
+            "s": 0,
+            "v": false
+          },
+          "s165": {
+            "s": 0,
+            "v": {
+              "isTrusted": false
+            }
+          },
+          "s166": {
+            "s": 0,
+            "v": {
+              "l": 83,
+              "p": [
+                {
+                  "i": 21,
+                  "n": "onLine"
+                },
+                {
+                  "i": 22,
+                  "n": "webdriver"
+                },
+                {
+                  "i": 27,
+                  "n": "getGamepads"
+                }
+              ]
+            }
+          },
+          "s205": {
+            "s": 0,
+            "v": "c:"
+          },
+          "s203": {
+            "s": 0,
+            "v": "calc(0.207912px)"
+          },
+          "s209": {
+            "s": 0,
+            "v": {
+              "s": [
+                202813177,
+                -543302417,
+                -1978880485,
+                707539521
+              ],
+              "p": [
+                254,
+                51,
+                13,
+                255,
+                198,
+                12,
+                2,
+                255,
+                237,
+                216,
+                155,
+                255,
+                65,
+                106,
+                143,
+                255,
+                118,
+                41,
+                185,
+                255,
+                36,
+                122,
+                216,
+                255,
+                92,
+                58,
+                105,
+                255,
+                252,
+                73,
+                131,
+                255,
+                112,
+                254,
+                120,
+                255,
+                178,
+                45,
+                68,
+                255,
+                193,
+                210,
+                120,
+                255,
+                226,
+                46,
+                57,
+                255,
+                56,
+                29,
+                103,
+                255,
+                2,
+                184,
+                43,
+                255,
+                219,
+                57,
+                85,
+                255,
+                28,
+                32,
+                43,
+                255
+              ],
+              "d": 4
+            }
+          },
+          "s212": {
+            "s": 0,
+            "v": false
+          },
+          "s74": {
+            "s": 0,
+            "v": {
+              "version": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+              "vendor": "WebKit",
+              "vendorUnmasked": "Google Inc. (Apple)",
+              "renderer": "WebKit WebGL",
+              "rendererUnmasked": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)",
+              "shadingLanguageVersion": "WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)"
+            }
+          },
+          "s75": {
+            "s": 0,
+            "v": {
+              "contextAttributes": "c539f609a8144e0dde97b8b41eccabec",
+              "parameters": "9f4c2e33cf60f85ae04968e7db4579b6",
+              "parameters2": "63d6386ca66a1b6029c8f8aa88e84b51",
+              "shaderPrecisions": "799fd4175a9e6e8ecef2a120c96de0e7",
+              "extensions": "4c4df60753dd012e0e2d883e2b6e0b19",
+              "extensionParameters": "8cca448192085da824519c1a5bc8f44e",
+              "extensionParameters2": "96626aa8e83b15801a2c1a09d17b1ede",
+              "unsupportedExtensions": []
+            }
+          },
+          "s221": {
+            "s": 0,
+            "v": {
+              "b": [
+                2285869946,
+                193740763
+              ],
+              "u": []
+            }
+          },
+          "s76": {
+            "s": 0,
+            "v": "ba6f863bbaf1ca51302562dcc90ba781"
+          },
+          "s94": {
+            "s": 0,
+            "v": {
+              "u": "48260295-76ec-f182-ec45-59bc1666aef7",
+              "e": [],
+              "s": []
+            }
+          },
+          "s219": {
+            "s": 0,
+            "v": {
+              "u": "96ff700f-a668-39a4-b0e1-00da8c4e0f72",
+              "e": [],
+              "s": []
+            }
+          },
+          "s167": {
+            "s": -2,
+            "v": null
+          },
+          "s213": {
+            "s": -2,
+            "v": null
+          },
+          "epv": "3b947bb",
+          "lr": [
+            {
+              "am": "get",
+              "v": "1",
+              "dt": "2026-08-07T15:59:03.594Z",
+              "ci": "js/4.1.4",
+              "pi": "3ezaF4ZWA4",
+              "ai": "qCInidzS",
+              "ri": "lBc70xGravW6",
+              "c": "kBwLN2IyH1GjeJBLpl8C",
+              "rid": null,
+              "er": "origin_not_available: FingerprintError: forbidden",
+              "cr": null,
+              "mo": [
+                "ex",
+                "cm"
+              ],
+              "sa": [],
+              "ls": 90,
+              "le": 137,
+              "ca": [
+                {
+                  "s": 141,
+                  "e": 570,
+                  "u": "https://api.fpjs.io/xridvya/qAo6p?q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 142,
+                  "de": 162,
+                  "cs": 162,
+                  "css": 167,
+                  "ce": 438,
+                  "qs": 438,
+                  "ss": 570
+                }
+              ],
+              "ss": 91,
+              "se": 492,
+              "sd": {
+                "s52": 295,
+                "s6": 6,
+                "s26": 294,
+                "s58": 242,
+                "s20": 241,
+                "s36": 234,
+                "s51": 235,
+                "s21": 8,
+                "s154": 291,
+                "s79": 237,
+                "s23": 218,
+                "s29": 240,
+                "s84": 236,
+                "s85": 230,
+                "s89": 341,
+                "s17": 15,
+                "s87": 221,
+                "s92": 221,
+                "s93": 221,
+                "s204": 221,
+                "s206": 221,
+                "s207": 214,
+                "s210": 223,
+                "s211": 271,
+                "s158": 219,
+                "s152": 219,
+                "s163": 223,
+                "s95": 201,
+                "s97": 218,
+                "s160": 270,
+                "s70": 222,
+                "s106": 268,
+                "s214": 306,
+                "s215": 219,
+                "s216": 219,
+                "s217": 219,
+                "s222": 219,
+                "s223": 219,
+                "s22": 1,
+                "s30": 0,
+                "s33": 0,
+                "s44": 0,
+                "s45": 0,
+                "s49": 2,
+                "s50": 1,
+                "s57": 0,
+                "s59": 0,
+                "s60": 0,
+                "s61": 0,
+                "s62": 0,
+                "s63": 0,
+                "s64": 0,
+                "s65": 0,
+                "s66": 0,
+                "s68": 0,
+                "s71": 0,
+                "s24": 0,
+                "s72": 0,
+                "s1": 0,
+                "s2": 0,
+                "s3": 0,
+                "s4": 0,
+                "s5": 0,
+                "s7": 0,
+                "s9": 6,
+                "s10": 0,
+                "s11": 0,
+                "s12": 0,
+                "s13": 0,
+                "s14": 0,
+                "s15": 0,
+                "s16": 158,
+                "s19": 0,
+                "s27": 0,
+                "s28": 0,
+                "s32": 0,
+                "s37": 0,
+                "s41": 0,
+                "s39": 0,
+                "s42": 0,
+                "s38": 0,
+                "s43": 0,
+                "s40": 0,
+                "s46": 1,
+                "s80": 0,
+                "s81": 0,
+                "s82": 0,
+                "s83": 0,
+                "s86": 0,
+                "s91": 0,
+                "s96": 0,
+                "s98": 0,
+                "s99": 0,
+                "s200": 0,
+                "s201": 0,
+                "s202": 0,
+                "s101": 0,
+                "s103": 0,
+                "s104": 0,
+                "s117": 0,
+                "s119": 0,
+                "s123": 0,
+                "s131": 0,
+                "s133": 0,
+                "s136": 0,
+                "s148": 0,
+                "s149": 0,
+                "s150": 0,
+                "s157": 0,
+                "s102": 0,
+                "s118": 0,
+                "s120": 0,
+                "s130": 1,
+                "s132": 0,
+                "s135": 0,
+                "s139": 0,
+                "s142": 0,
+                "s144": 0,
+                "s145": 0,
+                "s146": 0,
+                "s151": 0,
+                "s153": 0,
+                "s155": 0,
+                "s156": 0,
+                "s159": 0,
+                "s162": 0,
+                "s165": 1,
+                "s166": 0,
+                "s205": 0,
+                "s203": 0,
+                "s209": 2,
+                "s212": 2,
+                "s74": 4,
+                "s75": 11,
+                "s221": 3,
+                "s76": 2,
+                "s94": 48,
+                "s219": 7,
+                "s167": 0,
+                "s213": 1
+              },
+              "gs": 137,
+              "ge": 987,
+              "cs": null,
+              "ce": null,
+              "fa": [],
+              "ia": [
+                {
+                  "s": 574,
+                  "e": 986,
+                  "u": "https://api.fpjs.io/?ci=js/4.1.4&q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 575,
+                  "de": 575,
+                  "cs": 575,
+                  "css": 589,
+                  "ce": 826,
+                  "qs": 827,
+                  "ss": 986
+                }
+              ],
+              "vs": [
+                {
+                  "t": 90,
+                  "s": "v"
+                }
+              ],
+              "ab": {
+                "noop": "a"
+              },
+              "ao": true,
+              "or": false
+            }
+          ],
+          "s69": {
+            "s": 0,
+            "v": [
+              {
+                "l": "http://localhost:8099/?b=chromeb",
+                "f": ""
+              }
+            ]
+          },
+          "s55": {
+            "s": -1,
+            "v": null
+          },
+          "s48": {
+            "s": 0,
+            "v": [
+              -1824586024,
+              228773046,
+              774081871,
+              -380722735,
+              -240854683,
+              -300767211
+            ]
+          }
+        }
+      },
+      "signals": [
+        {
+          "id": "s56",
+          "label": "",
+          "s": 0,
+          "v": "fO5C2PhACDnr7Cu0R5bFBlpBCM7WlultBrMN4BmwNZmKIzGtNJ0drPkPJVccV44dcmzz+UFE5JQ7v9KFKw2JIRTyPVvGIw==",
+          "path": "s56"
+        },
+        {
+          "id": "s52",
+          "label": "window.origin",
+          "s": 0,
+          "v": "d0e72d5a94fc81340261f946f8ff6644",
+          "path": "s52"
+        },
+        {
+          "id": "s6",
+          "label": "screen.availLeft",
+          "s": 0,
+          "v": [
+            34,
+            0,
+            64,
+            0
+          ],
+          "path": "s6"
+        },
+        {
+          "id": "s26",
+          "label": "navigator.mediaDevices",
+          "s": -3,
+          "v": null,
+          "path": "s26"
+        },
+        {
+          "id": "s58",
+          "label": "navigator",
+          "s": 0,
+          "v": {
+            "b": [
+              {
+                "b": "Not=A?Brand",
+                "v": "99"
+              },
+              {
+                "b": "Google Chrome",
+                "v": "149"
+              },
+              {
+                "b": "Chromium",
+                "v": "149"
+              }
+            ],
+            "m": false,
+            "p": "macOS",
+            "h": {
+              "brands": "[{\"brand\":\"Not=A?Brand\",\"version\":\"99\"},{\"brand\":\"Google Chrome\",\"version\":\"151\"},{\"brand\":\"Chromium\",\"version\":\"151\"}]",
+              "mobile": "false",
+              "platform": "macOS",
+              "platformVersion": "26.4.1",
+              "architecture": "arm",
+              "bitness": "64",
+              "model": "",
+              "uaFullVersion": "151.0.7922.138",
+              "fullVersionList": "[{\"brand\":\"Not=A?Brand\",\"version\":\"99.0.0.0\"},{\"brand\":\"Google Chrome\",\"version\":\"151.0.7922.138\"},{\"brand\":\"Chromium\",\"version\":\"151.0.7922.138\"}]"
+            },
+            "nah": []
+          },
+          "path": "s58"
+        },
+        {
+          "id": "s20",
+          "label": "DOMException",
+          "s": 0,
+          "v": [
+            "Arial Unicode MS",
+            "Gill Sans",
+            "Helvetica Neue",
+            "Menlo"
+          ],
+          "path": "s20"
+        },
+        {
+          "id": "s36",
+          "label": "document.createElement(\"div\")",
+          "s": -1,
+          "v": null,
+          "path": "s36"
+        },
+        {
+          "id": "s51",
+          "label": "document.createElement(\"iframe\")",
+          "s": 0,
+          "v": {
+            "default": 73.78125,
+            "apple": 73.78125,
+            "serif": 73.78125,
+            "sans": 72.0078125,
+            "mono": 66.53125,
+            "min": 4.6171875,
+            "system": 73.046875
+          },
+          "path": "s51"
+        },
+        {
+          "id": "s21",
+          "label": "window.DOMRectList",
+          "s": 0,
+          "v": 124.04348155876505,
+          "path": "s21"
+        },
+        {
+          "id": "s154",
+          "label": "navigator.brave",
+          "s": 0,
+          "v": {
+            "wv": true,
+            "wvp": false,
+            "pr": false,
+            "ck": true,
+            "pt": false,
+            "fp": false
+          },
+          "path": "s154"
+        },
+        {
+          "id": "s79",
+          "label": "window.URL",
+          "s": -3,
+          "v": [
+            {
+              "n": "default.ini",
+              "l": -1
+            }
+          ],
+          "path": "s79"
+        },
+        {
+          "id": "s23",
+          "label": "window.ClipboardItem",
+          "s": -3,
+          "v": null,
+          "path": "s23"
+        },
+        {
+          "id": "s29",
+          "label": "DOMException",
+          "s": 0,
+          "v": 10737418240,
+          "path": "s29"
+        },
+        {
+          "id": "s84",
+          "label": "DOMException",
+          "s": 0,
+          "v": {
+            "w": 1440,
+            "h": 900
+          },
+          "path": "s84"
+        },
+        {
+          "id": "s85",
+          "label": "window.Blob",
+          "s": -1,
+          "v": null,
+          "path": "s85"
+        },
+        {
+          "id": "s89",
+          "label": "navigator.storage",
+          "s": 0,
+          "v": {
+            "re": "",
+            "cwe": "",
+            "clm": 1786118503316,
+            "wlm": 1786118503331
+          },
+          "path": "s89"
+        },
+        {
+          "id": "s17",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": {
+            "winding": true,
+            "geometry": "450a6dd5dcd3e8c3c37904511c25df6b",
+            "text": "789293ebcbcd0314df4ec135810ad0ed"
+          },
+          "path": "s17"
+        },
+        {
+          "id": "s87",
+          "label": "DOMException",
+          "s": 0,
+          "v": {
+            "ac": "rgb(0, 117, 255)",
+            "act": "rgb(255, 255, 255)",
+            "at": "rgb(255, 0, 0)",
+            "ab": "rgb(0, 0, 0)",
+            "aca": "rgb(255, 255, 255)",
+            "aw": "rgb(255, 255, 255)",
+            "b": "rgb(255, 255, 255)",
+            "bh": "rgb(239, 239, 239)",
+            "bs": "rgb(239, 239, 239)",
+            "bb": "rgb(0, 0, 0)",
+            "bf": "rgb(239, 239, 239)",
+            "bt": "rgb(0, 0, 0)",
+            "ft": "rgb(0, 0, 0)",
+            "gt": "rgb(128, 128, 128)",
+            "h": "rgba(128, 188, 254, 0.6)",
+            "ht": "rgb(0, 0, 0)",
+            "ib": "rgb(255, 255, 255)",
+            "ic": "rgb(255, 255, 255)",
+            "ict": "rgb(128, 128, 128)",
+            "it": "rgb(0, 0, 0)",
+            "lt": "rgb(0, 0, 238)",
+            "m": "rgb(255, 255, 0)",
+            "me": "rgb(255, 255, 255)",
+            "s": "rgb(255, 255, 255)",
+            "tdds": "rgb(0, 0, 0)",
+            "tdf": "rgb(239, 239, 239)",
+            "tdh": "rgb(0, 0, 0)",
+            "tdls": "rgb(0, 0, 0)",
+            "tds": "rgb(0, 0, 0)",
+            "vt": "rgb(85, 26, 139)",
+            "w": "rgb(255, 255, 255)",
+            "wf": "rgb(0, 0, 0)",
+            "wt": "rgb(0, 0, 0)",
+            "si": "rgb(179, 215, 255)",
+            "sit": "rgb(0, 0, 0)"
+          },
+          "path": "s87"
+        },
+        {
+          "id": "s92",
+          "label": "document.createDocumentFragment()",
+          "s": 0,
+          "v": {
+            "x": 8,
+            "y": 8,
+            "left": 8,
+            "right": 293.3046875,
+            "bottom": 26.5,
+            "height": 18.5,
+            "top": 8,
+            "width": 285.3046875,
+            "font": "Times"
+          },
+          "path": "s92"
+        },
+        {
+          "id": "s93",
+          "label": "DOMException",
+          "s": 0,
+          "v": {
+            "x": 8,
+            "y": 9.5,
+            "left": 8,
+            "right": 1288,
+            "bottom": 28,
+            "height": 18.5,
+            "top": 9.5,
+            "width": 1280,
+            "font": "Times"
+          },
+          "path": "s93"
+        },
+        {
+          "id": "s204",
+          "label": "DOMException",
+          "s": 0,
+          "v": true,
+          "path": "s204"
+        },
+        {
+          "id": "s206",
+          "label": "document.documentElement.style",
+          "s": -1,
+          "v": null,
+          "path": "s206"
+        },
+        {
+          "id": "s207",
+          "label": "FontFace",
+          "s": 0,
+          "v": true,
+          "path": "s207"
+        },
+        {
+          "id": "s210",
+          "label": "navigator.gpu",
+          "s": 0,
+          "v": {
+            "ds": "",
+            "dv": "",
+            "f": false,
+            "l": [
+              16384,
+              16384,
+              2048,
+              2048,
+              4,
+              1000,
+              10,
+              8,
+              48,
+              16,
+              10,
+              8,
+              12,
+              65536,
+              4294967292,
+              256,
+              256,
+              8,
+              4294967292,
+              30,
+              2048,
+              null,
+              28,
+              8,
+              128,
+              32768,
+              1024,
+              1024,
+              1024,
+              64,
+              65535,
+              24,
+              10,
+              10,
+              8,
+              8
+            ]
+          },
+          "path": "s210"
+        },
+        {
+          "id": "s211",
+          "label": "navigator.mediaCapabilities.decodingInfo()",
+          "s": 0,
+          "v": [
+            7,
+            3,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "path": "s211"
+        },
+        {
+          "id": "s158",
+          "label": "DOMException",
+          "s": 0,
+          "v": true,
+          "path": "s158"
+        },
+        {
+          "id": "s152",
+          "label": "DOMException",
+          "s": 0,
+          "v": 1,
+          "path": "s152"
+        },
+        {
+          "id": "s163",
+          "label": "navigator.vendor.indexOf(\"Apple\")",
+          "s": 0,
+          "v": true,
+          "path": "s163"
+        },
+        {
+          "id": "s95",
+          "label": "window.Atomics",
+          "s": -1,
+          "v": null,
+          "path": "s95"
+        },
+        {
+          "id": "s97",
+          "label": "window.DataTransfer",
+          "s": -3,
+          "v": null,
+          "path": "s97"
+        },
+        {
+          "id": "s160",
+          "label": "window.origin",
+          "s": 0,
+          "v": [],
+          "path": "s160"
+        },
+        {
+          "id": "s70",
+          "label": "TextDecoder",
+          "s": -1,
+          "v": null,
+          "path": "s70"
+        },
+        {
+          "id": "s106",
+          "label": "window.Notification",
+          "s": 0,
+          "v": false,
+          "path": "s106"
+        },
+        {
+          "id": "s214",
+          "label": "navigator.storageBuckets",
+          "s": 0,
+          "v": 1299,
+          "path": "s214"
+        },
+        {
+          "id": "s215",
+          "label": "window.PublicKeyCredential",
+          "s": 0,
+          "v": {
+            "cc": true,
+            "cg": true,
+            "eai": true,
+            "eaie": true,
+            "ecb": true,
+            "ecp": true,
+            "elb": true,
+            "empl": true,
+            "epy": true,
+            "ep": true,
+            "ht": true,
+            "ppa": true,
+            "ro": true,
+            "saac": true,
+            "scud": true,
+            "suc": true,
+            "uvpa": true
+          },
+          "path": "s215"
+        },
+        {
+          "id": "s216",
+          "label": "navigator.managed",
+          "s": 0,
+          "v": "4db36f26-ed66-0c78-fff0-bd5c2cf13321",
+          "path": "s216"
+        },
+        {
+          "id": "s217",
+          "label": "navigator.getBattery",
+          "s": 0,
+          "v": {
+            "c": true,
+            "l": 0.8,
+            "ct": -1,
+            "dt": -1
+          },
+          "path": "s217"
+        },
+        {
+          "id": "s222",
+          "label": "navigator.keyboard",
+          "s": 0,
+          "v": [
+            [
+              "IntlYen",
+              "ˇ"
+            ],
+            [
+              "KeyK",
+              "k"
+            ],
+            [
+              "KeyG",
+              "g"
+            ],
+            [
+              "Digit2",
+              "2"
+            ],
+            [
+              "Digit0",
+              "0"
+            ],
+            [
+              "KeyV",
+              "v"
+            ],
+            [
+              "KeyA",
+              "a"
+            ],
+            [
+              "Backquote",
+              "<"
+            ],
+            [
+              "KeyL",
+              "l"
+            ],
+            [
+              "IntlBackslash",
+              "ˇ"
+            ],
+            [
+              "Quote",
+              "ä"
+            ],
+            [
+              "KeyW",
+              "w"
+            ],
+            [
+              "Digit8",
+              "8"
+            ],
+            [
+              "KeyM",
+              "m"
+            ],
+            [
+              "KeyH",
+              "h"
+            ],
+            [
+              "Period",
+              "."
+            ],
+            [
+              "Digit7",
+              "7"
+            ],
+            [
+              "Digit1",
+              "1"
+            ],
+            [
+              "KeyP",
+              "p"
+            ],
+            [
+              "KeyD",
+              "d"
+            ],
+            [
+              "KeyF",
+              "f"
+            ],
+            [
+              "KeyO",
+              "o"
+            ],
+            [
+              "KeyQ",
+              "q"
+            ],
+            [
+              "KeyC",
+              "c"
+            ],
+            [
+              "KeyN",
+              "n"
+            ],
+            [
+              "BracketLeft",
+              "ü"
+            ],
+            [
+              "KeyZ",
+              "z"
+            ],
+            [
+              "KeyY",
+              "y"
+            ],
+            [
+              "Digit3",
+              "3"
+            ],
+            [
+              "Digit6",
+              "6"
+            ],
+            [
+              "Digit5",
+              "5"
+            ],
+            [
+              "KeyX",
+              "x"
+            ],
+            [
+              "Slash",
+              "-"
+            ],
+            [
+              "Backslash",
+              "'"
+            ],
+            [
+              "Comma",
+              ","
+            ],
+            [
+              "Minus",
+              "+"
+            ],
+            [
+              "Digit4",
+              "4"
+            ],
+            [
+              "KeyB",
+              "b"
+            ],
+            [
+              "KeyT",
+              "t"
+            ],
+            [
+              "Digit9",
+              "9"
+            ],
+            [
+              "KeyS",
+              "s"
+            ],
+            [
+              "KeyI",
+              "i"
+            ],
+            [
+              "KeyU",
+              "u"
+            ],
+            [
+              "IntlRo",
+              "<"
+            ],
+            [
+              "Equal",
+              "´"
+            ],
+            [
+              "KeyJ",
+              "j"
+            ],
+            [
+              "Semicolon",
+              "ö"
+            ],
+            [
+              "KeyR",
+              "r"
+            ],
+            [
+              "BracketRight",
+              "õ"
+            ],
+            [
+              "KeyE",
+              "e"
+            ]
+          ],
+          "path": "s222"
+        },
+        {
+          "id": "s223",
+          "label": "window.PresentationRequest",
+          "s": 0,
+          "v": "Error joining route: No matching route",
+          "path": "s223"
+        },
+        {
+          "id": "s22",
+          "label": "window.WebAssembly",
+          "s": 0,
+          "v": 23,
+          "path": "s22"
+        },
+        {
+          "id": "s30",
+          "label": "navigator.doNotTrack",
+          "s": -1,
+          "v": null,
+          "path": "s30"
+        },
+        {
+          "id": "s33",
+          "label": "Navigator.prototype.brave",
+          "s": 0,
+          "v": false,
+          "path": "s33"
+        },
+        {
+          "id": "s44",
+          "label": "matchMedia(`(prefers-color-scheme: ${})`)",
+          "s": 0,
+          "v": true,
+          "path": "s44"
+        },
+        {
+          "id": "s45",
+          "label": "Date",
+          "s": 0,
+          "v": [
+            1786118502913,
+            1786129302913
+          ],
+          "path": "s45"
+        },
+        {
+          "id": "s49",
+          "label": "window",
+          "s": 0,
+          "v": [
+            0.09999996423721313,
+            0.10000002384185791
+          ],
+          "path": "s49"
+        },
+        {
+          "id": "s50",
+          "label": "window.performance",
+          "s": 0,
+          "v": 4395630592,
+          "path": "s50"
+        },
+        {
+          "id": "s57",
+          "label": "window.devicePixelRatio",
+          "s": 0,
+          "v": 2,
+          "path": "s57"
+        },
+        {
+          "id": "s59",
+          "label": "navigator.msPointerEnabled",
+          "s": 0,
+          "v": false,
+          "path": "s59"
+        },
+        {
+          "id": "s60",
+          "label": "navigator.msLaunchUri",
+          "s": 0,
+          "v": false,
+          "path": "s60"
+        },
+        {
+          "id": "s61",
+          "label": "navigator.webkitPersistentStorage",
+          "s": 0,
+          "v": true,
+          "path": "s61"
+        },
+        {
+          "id": "s62",
+          "label": "navigator.vendor.indexOf(\"Apple\")",
+          "s": 0,
+          "v": false,
+          "path": "s62"
+        },
+        {
+          "id": "s63",
+          "label": "window.ongestureend",
+          "s": 0,
+          "v": false,
+          "path": "s63"
+        },
+        {
+          "id": "s64",
+          "label": "document.documentElement.style",
+          "s": 0,
+          "v": false,
+          "path": "s64"
+        },
+        {
+          "id": "s65",
+          "label": "Audio",
+          "s": 0,
+          "v": false,
+          "path": "s65"
+        },
+        {
+          "id": "s66",
+          "label": "document.createElement(\"a\")",
+          "s": -1,
+          "v": null,
+          "path": "s66"
+        },
+        {
+          "id": "s68",
+          "label": "window.AudioBuffer",
+          "s": 0,
+          "v": false,
+          "path": "s68"
+        },
+        {
+          "id": "s71",
+          "label": "window",
+          "s": 0,
+          "v": {
+            "w": "http://localhost:8099",
+            "l": "http://localhost:8099",
+            "a": []
+          },
+          "path": "s71"
+        },
+        {
+          "id": "s24",
+          "label": "eval.toString()",
+          "s": 0,
+          "v": 33,
+          "path": "s24"
+        },
+        {
+          "id": "s72",
+          "label": "navigator",
+          "s": 0,
+          "v": true,
+          "path": "s72"
+        },
+        {
+          "id": "s1",
+          "label": "navigator.oscpu",
+          "s": -1,
+          "v": null,
+          "path": "s1"
+        },
+        {
+          "id": "s2",
+          "label": "navigator.browserLanguage",
+          "s": 0,
+          "v": [
+            [
+              "en-US"
+            ]
+          ],
+          "path": "s2"
+        },
+        {
+          "id": "s3",
+          "label": "window.screen.colorDepth",
+          "s": 0,
+          "v": 30,
+          "path": "s3"
+        },
+        {
+          "id": "s4",
+          "label": "navigator.deviceMemory",
+          "s": 0,
+          "v": 16,
+          "path": "s4"
+        },
+        {
+          "id": "s5",
+          "label": "screen.height",
+          "s": 0,
+          "v": [
+            1440,
+            900
+          ],
+          "path": "s5"
+        },
+        {
+          "id": "s7",
+          "label": "navigator.hardwareConcurrency",
+          "s": 0,
+          "v": 8,
+          "path": "s7"
+        },
+        {
+          "id": "s9",
+          "label": "Date",
+          "s": 0,
+          "v": "America/New_York",
+          "path": "s9"
+        },
+        {
+          "id": "s10",
+          "label": "window.sessionStorage",
+          "s": 0,
+          "v": true,
+          "path": "s10"
+        },
+        {
+          "id": "s11",
+          "label": "window.localStorage",
+          "s": 0,
+          "v": true,
+          "path": "s11"
+        },
+        {
+          "id": "s12",
+          "label": "window.indexedDB",
+          "s": 0,
+          "v": true,
+          "path": "s12"
+        },
+        {
+          "id": "s13",
+          "label": "window.openDatabase",
+          "s": 0,
+          "v": false,
+          "path": "s13"
+        },
+        {
+          "id": "s14",
+          "label": "navigator.cpuClass",
+          "s": -1,
+          "v": null,
+          "path": "s14"
+        },
+        {
+          "id": "s15",
+          "label": "Element.prototype.webkitRequestFullscreen",
+          "s": 0,
+          "v": "MacIntel",
+          "path": "s15"
+        },
+        {
+          "id": "s16",
+          "label": "navigator.plugins.length",
+          "s": 0,
+          "v": [
+            {
+              "name": "PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Chrome PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Chromium PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Microsoft Edge PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "WebKit built-in PDF",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            }
+          ],
+          "path": "s16"
+        },
+        {
+          "id": "s19",
+          "label": "document.createEvent(\"TouchEvent\")",
+          "s": 0,
+          "v": {
+            "maxTouchPoints": 0,
+            "touchEvent": false,
+            "touchStart": false
+          },
+          "path": "s19"
+        },
+        {
+          "id": "s27",
+          "label": "navigator.vendor",
+          "s": 0,
+          "v": "Google Inc.",
+          "path": "s27"
+        },
+        {
+          "id": "s28",
+          "label": "window",
+          "s": 0,
+          "v": [
+            "chrome"
+          ],
+          "path": "s28"
+        },
+        {
+          "id": "s32",
+          "label": "document.cookie.indexOf(\"cookietest=\")",
+          "s": 0,
+          "v": true,
+          "path": "s32"
+        },
+        {
+          "id": "s37",
+          "label": "matchMedia(`(color-gamut: ${})`)",
+          "s": 0,
+          "v": "srgb",
+          "path": "s37"
+        },
+        {
+          "id": "s41",
+          "label": "matchMedia(`(inverted-colors: ${})`)",
+          "s": -1,
+          "v": null,
+          "path": "s41"
+        },
+        {
+          "id": "s39",
+          "label": "matchMedia(`(forced-colors: ${})`)",
+          "s": 0,
+          "v": false,
+          "path": "s39"
+        },
+        {
+          "id": "s42",
+          "label": "matchMedia(\"(min-monochrome: 0)\")",
+          "s": 0,
+          "v": 0,
+          "path": "s42"
+        },
+        {
+          "id": "s38",
+          "label": "matchMedia(`(prefers-contrast: ${})`)",
+          "s": 0,
+          "v": 0,
+          "path": "s38"
+        },
+        {
+          "id": "s43",
+          "label": "matchMedia(`(prefers-reduced-motion: ${})`)",
+          "s": 0,
+          "v": false,
+          "path": "s43"
+        },
+        {
+          "id": "s40",
+          "label": "matchMedia(`(dynamic-range: ${})`)",
+          "s": 0,
+          "v": false,
+          "path": "s40"
+        },
+        {
+          "id": "s46",
+          "label": "TextEncoder",
+          "s": 0,
+          "v": "7dd62f966d2a84a0ca91702215013a5a",
+          "path": "s46"
+        },
+        {
+          "id": "s80",
+          "label": "navigator.pdfViewerEnabled",
+          "s": 0,
+          "v": true,
+          "path": "s80"
+        },
+        {
+          "id": "s81",
+          "label": "",
+          "s": 0,
+          "v": 127,
+          "path": "s81"
+        },
+        {
+          "id": "s82",
+          "label": "navigator.language",
+          "s": 0,
+          "v": "en-US",
+          "path": "s82"
+        },
+        {
+          "id": "s83",
+          "label": "navigator.languages",
+          "s": 0,
+          "v": [
+            "en-US",
+            "en"
+          ],
+          "path": "s83"
+        },
+        {
+          "id": "s86",
+          "label": "window.localStorage.removeItem(\"test\")",
+          "s": -1,
+          "v": null,
+          "path": "s86"
+        },
+        {
+          "id": "s91",
+          "label": "matchMedia(`(prefers-reduced-transparency: ${})…",
+          "s": 0,
+          "v": false,
+          "path": "s91"
+        },
+        {
+          "id": "s96",
+          "label": "AudioContext",
+          "s": -2,
+          "v": null,
+          "path": "s96"
+        },
+        {
+          "id": "s98",
+          "label": "Navigator.prototype",
+          "s": 0,
+          "v": true,
+          "path": "s98"
+        },
+        {
+          "id": "s99",
+          "label": "window.isSecureContext",
+          "s": 0,
+          "v": true,
+          "path": "s99"
+        },
+        {
+          "id": "s200",
+          "label": "performance.now()",
+          "s": 0,
+          "v": 1786118502719.4,
+          "path": "s200"
+        },
+        {
+          "id": "s201",
+          "label": "Audio.prototype",
+          "s": 0,
+          "v": false,
+          "path": "s201"
+        },
+        {
+          "id": "s202",
+          "label": "window.Intl",
+          "s": 0,
+          "v": "en-US",
+          "path": "s202"
+        },
+        {
+          "id": "s101",
+          "label": "navigator.userAgent",
+          "s": 0,
+          "v": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+          "path": "s101"
+        },
+        {
+          "id": "s103",
+          "label": "navigator.appVersion",
+          "s": 0,
+          "v": "5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.34 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.34",
+          "path": "s103"
+        },
+        {
+          "id": "s104",
+          "label": "navigator.connection.rtt",
+          "s": 0,
+          "v": 100,
+          "path": "s104"
+        },
+        {
+          "id": "s117",
+          "label": "navigator.plugins.length",
+          "s": 0,
+          "v": 5,
+          "path": "s117"
+        },
+        {
+          "id": "s119",
+          "label": "probe:errorTrace signal unexpected behaviour",
+          "s": 0,
+          "v": "TypeError: Cannot read properties of null (reading '0')\n    at wt (http://localhost:8099/agent.js:5:94835)\n    at http:/…(528)",
+          "path": "s119"
+        },
+        {
+          "id": "s123",
+          "label": "navigator",
+          "s": 0,
+          "v": "20030107",
+          "path": "s123"
+        },
+        {
+          "id": "s131",
+          "label": "document.documentElement",
+          "s": 0,
+          "v": [
+            "lang"
+          ],
+          "path": "s131"
+        },
+        {
+          "id": "s133",
+          "label": "window.external",
+          "s": 0,
+          "v": "[object External]",
+          "path": "s133"
+        },
+        {
+          "id": "s136",
+          "label": "MimeType.prototype",
+          "s": 0,
+          "v": true,
+          "path": "s136"
+        },
+        {
+          "id": "s148",
+          "label": "probe:Function.prototype.bind is undefined",
+          "s": 0,
+          "v": "function bind() { [native code] }",
+          "path": "s148"
+        },
+        {
+          "id": "s149",
+          "label": "window",
+          "s": -1,
+          "v": null,
+          "path": "s149"
+        },
+        {
+          "id": "s150",
+          "label": "window.innerHeight",
+          "s": 0,
+          "v": {
+            "outerWidth": 1280,
+            "outerHeight": 875,
+            "innerWidth": 1280,
+            "innerHeight": 866
+          },
+          "path": "s150"
+        },
+        {
+          "id": "s157",
+          "label": "window.document",
+          "s": 0,
+          "v": {
+            "awesomium": false,
+            "cef": false,
+            "cefsharp": false,
+            "coachjs": false,
+            "fminer": false,
+            "geb": false,
+            "nightmarejs": false,
+            "phantomas": false,
+            "phantomjs": false,
+            "rhino": false,
+            "selenium": false,
+            "webdriverio": false,
+            "webdriver": false,
+            "headless_chrome": false
+          },
+          "path": "s157"
+        },
+        {
+          "id": "s102",
+          "label": "navigator.userAgentData",
+          "s": 0,
+          "v": true,
+          "path": "s102"
+        },
+        {
+          "id": "s118",
+          "label": "Plugin.prototype",
+          "s": 0,
+          "v": true,
+          "path": "s118"
+        },
+        {
+          "id": "s120",
+          "label": "probe:a",
+          "s": 0,
+          "v": false,
+          "path": "s120"
+        },
+        {
+          "id": "s130",
+          "label": "SourceBuffer",
+          "s": 0,
+          "v": [
+            "function",
+            "function"
+          ],
+          "path": "s130"
+        },
+        {
+          "id": "s132",
+          "label": "window.close",
+          "s": 0,
+          "v": "function close() { [native code] }",
+          "path": "s132"
+        },
+        {
+          "id": "s135",
+          "label": "navigator.mimeTypes.length",
+          "s": 0,
+          "v": 2,
+          "path": "s135"
+        },
+        {
+          "id": "s139",
+          "label": "CSS",
+          "s": 0,
+          "v": true,
+          "path": "s139"
+        },
+        {
+          "id": "s142",
+          "label": "window.matchMedia",
+          "s": 0,
+          "v": true,
+          "path": "s142"
+        },
+        {
+          "id": "s144",
+          "label": "window.SharedArrayBuffer",
+          "s": -2,
+          "v": null,
+          "path": "s144"
+        },
+        {
+          "id": "s145",
+          "label": "navigator",
+          "s": 0,
+          "v": [
+            "getGamepads",
+            "javaEnabled",
+            "sendBeacon",
+            "vibrate",
+            "Navigator",
+            "adAuctionComponents",
+            "runAdAuction",
+            "canLoadAdAuctionFencedFrame",
+            "canShare",
+            "share",
+            "clearAppBadge",
+            "getBattery",
+            "getUserMedia",
+            "requestMIDIAccess",
+            "requestMediaKeySystemAccess",
+            "setAppBadge",
+            "webkitGetUserMedia",
+            "clearOriginJoinedAdInterestGroups",
+            "createAuctionNonce",
+            "joinAdInterestGroup",
+            "leaveAdInterestGroup",
+            "updateAdInterestGroups",
+            "deprecatedReplaceInURN",
+            "deprecatedURNToURL",
+            "getInstalledRelatedApps",
+            "getInterestGroupAdAuctionData",
+            "registerProtocolHandler",
+            "unregisterProtocolHandler"
+          ],
+          "path": "s145"
+        },
+        {
+          "id": "s146",
+          "label": "objectToInspect",
+          "s": 0,
+          "v": false,
+          "path": "s146"
+        },
+        {
+          "id": "s151",
+          "label": "document",
+          "s": 0,
+          "v": true,
+          "path": "s151"
+        },
+        {
+          "id": "s153",
+          "label": "navigator.onLine",
+          "s": 0,
+          "v": true,
+          "path": "s153"
+        },
+        {
+          "id": "s155",
+          "label": "window",
+          "s": 0,
+          "v": {},
+          "path": "s155"
+        },
+        {
+          "id": "s156",
+          "label": "window",
+          "s": 0,
+          "v": [
+            "Iterator",
+            "chrome",
+            "WebAssembly"
+          ],
+          "path": "s156"
+        },
+        {
+          "id": "s159",
+          "label": "window.Function",
+          "s": 0,
+          "v": false,
+          "path": "s159"
+        },
+        {
+          "id": "s162",
+          "label": "navigator.languages",
+          "s": 0,
+          "v": false,
+          "path": "s162"
+        },
+        {
+          "id": "s165",
+          "label": "window.Event",
+          "s": 0,
+          "v": {
+            "isTrusted": false
+          },
+          "path": "s165"
+        },
+        {
+          "id": "s166",
+          "label": "Navigator.prototype",
+          "s": 0,
+          "v": {
+            "l": 83,
+            "p": [
+              {
+                "i": 21,
+                "n": "onLine"
+              },
+              {
+                "i": 22,
+                "n": "webdriver"
+              },
+              {
+                "i": 27,
+                "n": "getGamepads"
+              }
+            ]
+          },
+          "path": "s166"
+        },
+        {
+          "id": "s205",
+          "label": "URL",
+          "s": 0,
+          "v": "c:",
+          "path": "s205"
+        },
+        {
+          "id": "s203",
+          "label": "document.createElement(\"a\")",
+          "s": 0,
+          "v": "calc(0.207912px)",
+          "path": "s203"
+        },
+        {
+          "id": "s209",
+          "label": "window.crypto.getRandomValues()",
+          "s": 0,
+          "v": {
+            "s": [
+              202813177,
+              -543302417,
+              -1978880485,
+              707539521
+            ],
+            "p": [
+              254,
+              51,
+              13,
+              255,
+              198,
+              12,
+              2,
+              255,
+              237,
+              216,
+              155,
+              255,
+              65,
+              106,
+              143,
+              255,
+              118,
+              41,
+              185,
+              255,
+              36,
+              122,
+              216,
+              255,
+              92,
+              58,
+              105,
+              255,
+              252,
+              73,
+              131,
+              255,
+              112,
+              254,
+              120,
+              255,
+              178,
+              45,
+              68,
+              255,
+              193,
+              210,
+              120,
+              255,
+              226,
+              46,
+              57,
+              255,
+              56,
+              29,
+              103,
+              255,
+              2,
+              184,
+              43,
+              255,
+              219,
+              57,
+              85,
+              255,
+              28,
+              32,
+              43,
+              255
+            ],
+            "d": 4
+          },
+          "path": "s209"
+        },
+        {
+          "id": "s212",
+          "label": "window.getComputedStyle()",
+          "s": 0,
+          "v": false,
+          "path": "s212"
+        },
+        {
+          "id": "s74",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": {
+            "version": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+            "vendor": "WebKit",
+            "vendorUnmasked": "Google Inc. (Apple)",
+            "renderer": "WebKit WebGL",
+            "rendererUnmasked": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)",
+            "shadingLanguageVersion": "WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)"
+          },
+          "path": "s74"
+        },
+        {
+          "id": "s75",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": {
+            "contextAttributes": "c539f609a8144e0dde97b8b41eccabec",
+            "parameters": "9f4c2e33cf60f85ae04968e7db4579b6",
+            "parameters2": "63d6386ca66a1b6029c8f8aa88e84b51",
+            "shaderPrecisions": "799fd4175a9e6e8ecef2a120c96de0e7",
+            "extensions": "4c4df60753dd012e0e2d883e2b6e0b19",
+            "extensionParameters": "8cca448192085da824519c1a5bc8f44e",
+            "extensionParameters2": "96626aa8e83b15801a2c1a09d17b1ede",
+            "unsupportedExtensions": []
+          },
+          "path": "s75"
+        },
+        {
+          "id": "s221",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": {
+            "b": [
+              2285869946,
+              193740763
+            ],
+            "u": []
+          },
+          "path": "s221"
+        },
+        {
+          "id": "s76",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": "ba6f863bbaf1ca51302562dcc90ba781",
+          "path": "s76"
+        },
+        {
+          "id": "s94",
+          "label": "window.webkitRTCPeerConnection",
+          "s": 0,
+          "v": {
+            "u": "48260295-76ec-f182-ec45-59bc1666aef7",
+            "e": [],
+            "s": []
+          },
+          "path": "s94"
+        },
+        {
+          "id": "s219",
+          "label": "window.webkitRTCPeerConnection",
+          "s": 0,
+          "v": {
+            "u": "96ff700f-a668-39a4-b0e1-00da8c4e0f72",
+            "e": [],
+            "s": []
+          },
+          "path": "s219"
+        },
+        {
+          "id": "s167",
+          "label": "atob()",
+          "s": -2,
+          "v": null,
+          "path": "s167"
+        },
+        {
+          "id": "s213",
+          "label": "navigator.geolocation.getCurrentPosition()",
+          "s": -2,
+          "v": null,
+          "path": "s213"
+        },
+        {
+          "id": "s69",
+          "label": "window.crypto.subtle",
+          "s": 0,
+          "v": [
+            {
+              "l": "http://localhost:8099/?b=chromeb",
+              "f": ""
+            }
+          ],
+          "path": "s69"
+        },
+        {
+          "id": "s55",
+          "label": "document.cookie.split(\";\")",
+          "s": -1,
+          "v": null,
+          "path": "s55"
+        },
+        {
+          "id": "s48",
+          "label": "",
+          "s": 0,
+          "v": [
+            -1824586024,
+            228773046,
+            774081871,
+            -380722735,
+            -240854683,
+            -300767211
+          ],
+          "path": "s48"
+        }
+      ],
+      "response": {
+        "encoding": "json",
+        "size": 238,
+        "json": {
+          "version": "4",
+          "event_id": "1786118503653.O6HUNE",
+          "sealed_result": null,
+          "error": {
+            "code": "origin_not_available",
+            "message": "forbidden"
+          },
+          "internal": "2dzm5plUh1+iU62R32DHGY/j6BRh+DBa6kWYymIIi1kuhTe8nHsKnV540CuWhHhN2l41niyFgXcAjFk1hDbB0k88hQ=="
+        }
+      }
+    }
+  ],
+  "api": [],
+  "probes": [
+    {
+      "t": 9.7,
+      "api": "indexedDB.databases",
+      "call": 1,
+      "ret": [],
+      "args": [],
+      "ms": 0.1
+    },
+    {
+      "t": 20.4,
+      "api": "createElement.iframe",
+      "call": 1
+    },
+    {
+      "t": 71.3,
+      "api": "RTCPeerConnection.new",
+      "call": 1,
+      "args": [
+        {
+          "iceServers": [
+            {
+              "credential": "admin",
+              "urls": "turn:use1-turn.fpjs.io?transport=tcp",
+              "username": "48260295-76ec-f182-ec45-59bc1666aef7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "t": 72.4,
+      "api": "RTCPeerConnection.new",
+      "call": 2,
+      "args": [
+        {
+          "iceServers": [
+            {
+              "credential": "admin",
+              "urls": "turn:use1-turn.fpjs.io:80?transport=tcp",
+              "username": "96ff700f-a668-39a4-b0e1-00da8c4e0f72"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "t": 83.6,
+      "api": "permissions.query",
+      "call": 1,
+      "ret": "geolocation -> prompt",
+      "args": [
+        {
+          "name": "geolocation"
+        }
+      ],
+      "ms": 0.1
+    },
+    {
+      "t": 88.8,
+      "api": "createElement.iframe",
+      "call": 2
+    },
+    {
+      "t": 94.3,
+      "api": "createElement.canvas",
+      "call": 1
+    },
+    {
+      "t": 94.3,
+      "api": "canvas.getContext",
+      "call": 1,
+      "args": [
+        "2d"
+      ],
+      "ms": 0,
+      "ret": "2d -> ctx"
+    },
+    {
+      "t": 109.2,
+      "api": "canvas.toDataURL",
+      "call": 1,
+      "args": [],
+      "ms": 6.7,
+      "ret": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfz…(13438)"
+    },
+    {
+      "t": 109.9,
+      "api": "canvas.toDataURL",
+      "call": 2,
+      "args": [],
+      "ms": 0.6,
+      "ret": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfz…(13438)"
+    },
+    {
+      "t": 111,
+      "api": "canvas.toDataURL",
+      "call": 3,
+      "args": [],
+      "ms": 1.1,
+      "ret": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHoAAABuCAYAAADoHg…(7794)"
+    },
+    {
+      "t": 118,
+      "api": "PresentationRequest.new",
+      "call": 1,
+      "args": [
+        [
+          "cast:"
+        ]
+      ]
+    },
+    {
+      "t": 118.7,
+      "api": "matchMedia",
+      "call": 1,
+      "args": [
+        "(prefers-color-scheme: dark)"
+      ],
+      "ms": 0.1,
+      "ret": "(prefers-color-scheme: dark) -> true"
+    },
+    {
+      "t": 285.9,
+      "api": "matchMedia",
+      "call": 2,
+      "args": [
+        "(color-gamut: rec2020)"
+      ],
+      "ms": 0,
+      "ret": "(color-gamut: rec2020) -> false"
+    },
+    {
+      "t": 285.9,
+      "api": "matchMedia",
+      "call": 3,
+      "args": [
+        "(color-gamut: p3)"
+      ],
+      "ms": 0,
+      "ret": "(color-gamut: p3) -> false"
+    },
+    {
+      "t": 287.2,
+      "api": "CSS.supports",
+      "call": 1,
+      "args": [
+        "backdrop-filter",
+        "blur(2px)"
+      ],
+      "ms": 0,
+      "ret": true
+    },
+    {
+      "t": 288.8,
+      "api": "createElement.canvas",
+      "call": 2
+    },
+    {
+      "t": 288.9,
+      "api": "canvas.getContext",
+      "call": 2,
+      "args": [
+        "2d"
+      ],
+      "ms": 0,
+      "ret": "2d -> ctx"
+    },
+    {
+      "t": 290.4,
+      "api": "2d.getImageData",
+      "call": 1,
+      "args": [
+        0,
+        0,
+        4,
+        4
+      ],
+      "ms": 1.1,
+      "ret": "ImageData 4x4"
+    },
+    {
+      "t": 290.5,
+      "api": "getComputedStyle",
+      "call": 1,
+      "args": [
+        "[<html>]"
+      ],
+      "ms": 0,
+      "ret": "CSSStyleDeclaration"
+    },
+    {
+      "t": 292.9,
+      "api": "createElement.canvas",
+      "call": 3
+    },
+    {
+      "t": 312.7,
+      "api": "canvas.getContext",
+      "call": 3,
+      "args": [
+        "webgl"
+      ],
+      "ms": 19.8,
+      "ret": "webgl -> ctx"
+    },
+    {
+      "t": 312.7,
+      "api": "WebGLRenderingContext.getExtension",
+      "call": 1,
+      "args": [
+        "WEBGL_debug_renderer_info"
+      ],
+      "ms": 0,
+      "ret": "WEBGL_debug_renderer_info -> ok"
+    },
+    {
+      "t": 312.8,
+      "api": "WebGLRenderingContext.getParameter",
+      "call": 1,
+      "args": [
+        7938
+      ],
+      "ms": 0.1,
+      "ret": "WebGL 1.0 (OpenGL ES 2.0 Chromium)"
+    },
+    {
+      "t": 312.8,
+      "api": "WebGLRenderingContext.getParameter",
+      "call": 2,
+      "args": [
+        7936
+      ],
+      "ms": 0,
+      "ret": "WebKit"
+    },
+    {
+      "t": 312.8,
+      "api": "WebGLRenderingContext.getParameter",
+      "call": 3,
+      "args": [
+        37445
+      ],
+      "ms": 0,
+      "ret": "Google Inc. (Apple)"
+    },
+    {
+      "t": 313,
+      "api": "WebGLRenderingContext.getSupportedExtensions",
+      "call": 1,
+      "args": [],
+      "ms": 0.1,
+      "ret": "39 extensions"
+    },
+    {
+      "t": 313,
+      "api": "WebGLRenderingContext.getContextAttributes",
+      "call": 1,
+      "args": [],
+      "ms": 0,
+      "ret": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "desynchronized": false,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false,
+        "xrCompatible": false
+      }
+    },
+    {
+      "t": 314.9,
+      "api": "WebGLRenderingContext.getExtension",
+      "call": 2,
+      "args": [
+        "ANGLE_instanced_arrays"
+      ],
+      "ms": 0.1,
+      "ret": "ANGLE_instanced_arrays -> ok"
+    },
+    {
+      "t": 314.9,
+      "api": "WebGLRenderingContext.getExtension",
+      "call": 3,
+      "args": [
+        "EXT_blend_minmax"
+      ],
+      "ms": 0,
+      "ret": "EXT_blend_minmax -> ok"
+    },
+    {
+      "t": 320.7,
+      "api": "WebGLRenderingContext.getShaderPrecisionFormat",
+      "call": 1,
+      "args": [
+        35632,
+        36336
+      ],
+      "ms": 0,
+      "ret": {
+        "rangeMin": 127,
+        "rangeMax": 127,
+        "precision": 23
+      }
+    },
+    {
+      "t": 320.7,
+      "api": "WebGLRenderingContext.getShaderPrecisionFormat",
+      "call": 2,
+      "args": [
+        35632,
+        36337
+      ],
+      "ms": 0,
+      "ret": {
+        "rangeMin": 127,
+        "rangeMax": 127,
+        "precision": 23
+      }
+    },
+    {
+      "t": 320.7,
+      "api": "WebGLRenderingContext.getShaderPrecisionFormat",
+      "call": 3,
+      "args": [
+        35632,
+        36338
+      ],
+      "ms": 0,
+      "ret": {
+        "rangeMin": 127,
+        "rangeMax": 127,
+        "precision": 23
+      }
+    },
+    {
+      "t": 324.4,
+      "api": "WebGL2RenderingContext.getSupportedExtensions",
+      "call": 1,
+      "args": [],
+      "ms": 0,
+      "ret": "36 extensions"
+    },
+    {
+      "t": 408.5,
+      "api": "requestMediaKeySystemAccess",
+      "call": 1,
+      "error": "NotSupportedError: Unsupported keySystem or supportedConfigurations.",
+      "args": [
+        "com.microsoft.playready",
+        [
+          {
+            "initDataTypes": [
+              "cenc"
+            ],
+            "audioCapabilities": [
+              {
+                "contentType": "audio/mp4;codecs=\"mp4a.40.2\""
+              }
+            ]
+          }
+        ]
+      ],
+      "ms": 0
+    },
+    {
+      "t": 408.6,
+      "api": "requestMediaKeySystemAccess",
+      "call": 2,
+      "error": "NotSupportedError: Unsupported keySystem or supportedConfigurations.",
+      "args": [
+        "webkit-org.w3.clearkey",
+        [
+          {
+            "initDataTypes": [
+              "cenc"
+            ],
+            "audioCapabilities": [
+              {
+                "contentType": "audio/mp4;codecs=\"mp4a.40.2\""
+              }
+            ]
+          }
+        ]
+      ],
+      "ms": 0.2
+    },
+    {
+      "t": 408.7,
+      "api": "requestMediaKeySystemAccess",
+      "call": 3,
+      "error": "NotSupportedError: Unsupported keySystem or supportedConfigurations.",
+      "args": [
+        "com.adobe.primetime",
+        [
+          {
+            "initDataTypes": [
+              "cenc"
+            ],
+            "audioCapabilities": [
+              {
+                "contentType": "audio/mp4;codecs=\"mp4a.40.2\""
+              }
+            ]
+          }
+        ]
+      ],
+      "ms": 0
+    },
+    {
+      "t": 408.7,
+      "api": "FontFace.load",
+      "call": 1,
+      "ret": {},
+      "args": [],
+      "ms": 0.4
+    },
+    {
+      "t": 435.6,
+      "api": "audio.startRendering",
+      "call": 1,
+      "ret": "AudioBuffer",
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 435.7,
+      "api": "permissions.query",
+      "call": 2,
+      "ret": "camera -> prompt",
+      "args": [
+        {
+          "name": "camera"
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 436.2,
+      "api": "mediaCapabilities.decodingInfo",
+      "call": 1,
+      "ret": {
+        "powerEfficient": false,
+        "smooth": true,
+        "supported": true,
+        "keySystemAccess": {}
+      },
+      "args": [
+        {
+          "type": "media-source",
+          "audio": {
+            "contentType": "audio/mp4; codecs=\"mp4a.40.2\""
+          },
+          "video": {
+            "contentType": "video/mp4; codecs=\"avc1.42E01E\"",
+            "bitrate": 10000,
+            "framerate": 30,
+            "height": 480,
+            "width": 640
+          },
+          "keySystemConfiguration": {
+            "keySystem": "com.widevine.alpha",
+            "video": {
+              "robustness": "SW_SECURE_CRYPTO"
+            }
+          }
+        }
+      ],
+      "ms": 0.1
+    },
+    {
+      "t": 436.9,
+      "api": "navigator.getBattery",
+      "call": 1,
+      "ret": {
+        "level": 0.8,
+        "charging": true
+      },
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 437.1,
+      "api": "PublicKeyCredential.getClientCapabilities",
+      "call": 1,
+      "ret": {
+        "conditionalCreate": true,
+        "conditionalGet": true,
+        "extension:appid": true,
+        "extension:appidExclude": true,
+        "extension:cmtgKey": false,
+        "extension:credBlob": true,
+        "extension:credProps": true,
+        "extension:credentialProtectionPolicy": true,
+        "extension:crossDeviceFallbackUrl": false,
+        "extension:enforceCredentialProtectionPolicy": true,
+        "extension:getCredBlob": true,
+        "extension:hmacCreateSecret": true,
+        "extension:largeBlob": true,
+        "extension:minPinLength": true,
+        "extension:payment": true,
+        "extension:prf": true,
+        "hybridTransport": true,
+        "immediateGet": true,
+        "passkeyPlatformAuthenticator": true,
+        "relatedOrigins": true,
+        "signalAllAcceptedCredentials": true,
+        "signalCurrentUserDetails": true,
+        "signalUnknownCredential": true,
+        "userVerifyingPlatformAuthenticator": true
+      },
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 437.4,
+      "api": "gpuAdapter.info",
+      "call": 1,
+      "ret": {}
+    },
+    {
+      "t": 437.4,
+      "api": "gpu.requestAdapter",
+      "call": 1,
+      "ret": "GPUAdapter",
+      "args": [],
+      "ms": 0.8
+    },
+    {
+      "t": 437.6,
+      "api": "gpuAdapter.info",
+      "call": 2,
+      "ret": {}
+    },
+    {
+      "t": 437.6,
+      "api": "gpu.requestAdapter",
+      "call": 2,
+      "ret": "GPUAdapter",
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 439,
+      "api": "permissions.query",
+      "call": 3,
+      "ret": "notifications -> prompt",
+      "args": [
+        {
+          "name": "notifications"
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 488.4,
+      "api": "mediaCapabilities.decodingInfo",
+      "call": 2,
+      "ret": {
+        "powerEfficient": false,
+        "smooth": true,
+        "supported": true,
+        "keySystemAccess": {}
+      },
+      "args": [
+        {
+          "type": "media-source",
+          "audio": {
+            "contentType": "audio/mp4; codecs=\"mp4a.40.2\""
+          },
+          "video": {
+            "contentType": "video/mp4; codecs=\"avc1.42E01E\"",
+            "bitrate": 10000,
+            "framerate": 30,
+            "height": 480,
+            "width": 640
+          },
+          "keySystemConfiguration": {
+            "keySystem": "com.widevine.alpha",
+            "video": {
+              "robustness": "SW_SECURE_CRYPTO"
+            }
+          }
+        }
+      ],
+      "ms": 0.2
+    },
+    {
+      "t": 488.5,
+      "api": "mediaCapabilities.decodingInfo",
+      "call": 3,
+      "ret": {
+        "powerEfficient": false,
+        "smooth": true,
+        "supported": true,
+        "keySystemAccess": {}
+      },
+      "args": [
+        {
+          "type": "media-source",
+          "audio": {
+            "contentType": "audio/mp4; codecs=\"mp4a.40.2\""
+          },
+          "video": {
+            "contentType": "video/mp4; codecs=\"avc1.42E01E\"",
+            "bitrate": 10000,
+            "framerate": 30,
+            "height": 480,
+            "width": 640
+          },
+          "keySystemConfiguration": {
+            "keySystem": "com.widevine.alpha",
+            "video": {
+              "robustness": "SW_SECURE_CRYPTO"
+            }
+          }
+        }
+      ],
+      "ms": 0.1
+    },
+    {
+      "t": 491.1,
+      "api": "RTCPeerConnection.icecandidate",
+      "call": 1,
+      "ret": "candidate:3623664537 1 udp 2113937151 1136cef1-0edb-047d-e764-46ee58865f4c.local 50070 typ host generation 0 ufrag RsdL network-cost 999"
+    },
+    {
+      "t": 491.1,
+      "api": "RTCPeerConnection.icecandidate",
+      "call": 2,
+      "ret": "candidate:4289589974 1 udp 2113937151 1136cef1-0edb-047d-e764-46ee58865f4c.local 54867 typ host generation 0 ufrag i+p7 network-cost 999"
+    }
+  ],
+  "probeCounts": {
+    "indexedDB.databases": 1,
+    "createElement.iframe": 2,
+    "RTCPeerConnection.new": 2,
+    "permissions.query": 4,
+    "createElement.canvas": 4,
+    "canvas.getContext": 4,
+    "canvas.toDataURL": 4,
+    "PresentationRequest.new": 1,
+    "matchMedia": 18,
+    "CSS.supports": 1,
+    "2d.getImageData": 1,
+    "getComputedStyle": 1,
+    "WebGLRenderingContext.getExtension": 39,
+    "WebGLRenderingContext.getParameter": 96,
+    "WebGLRenderingContext.getSupportedExtensions": 1,
+    "WebGLRenderingContext.getContextAttributes": 1,
+    "WebGLRenderingContext.getShaderPrecisionFormat": 12,
+    "WebGL2RenderingContext.getSupportedExtensions": 1,
+    "requestMediaKeySystemAccess": 9,
+    "FontFace.load": 1,
+    "audio.startRendering": 1,
+    "mediaCapabilities.decodingInfo": 11,
+    "navigator.getBattery": 1,
+    "PublicKeyCredential.getClientCapabilities": 1,
+    "gpuAdapter.info": 2,
+    "gpu.requestAdapter": 2,
+    "RTCPeerConnection.icecandidate": 2
+  },
+  "workers": [
+    {
+      "t": 17.7,
+      "kind": "Worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "sourceLength": 1645,
+      "source": "function $P(m,...W){m.postMessage(W);}function GD(m,W,l){l instanceof Error?$P(m,W,l.name,l.message,l.stack):$P(m,W,null,String(l));}const $D=function({port:m=self,workerModules:W=[]}={}){!function(m,W){let l;(r=self).window||(r.window=self),self.requestIdleCallback||(self.requestIdleCallback=(m,{timeout:W}={})=>setTimeout(m,null!=W?W:1e3)),self.document||(self.document={hidden:!1,addEventListener:(m,W,l)=>self.addEventListener(m,W,l),removeEventListener:(m,W,l)=>self.removeEventListener(m,W,l)});var r;let P=!1;m.addEventListener(\"message\",async({data:r})=>{if(r instanceof Array)switch(r[0]){case 0:$P(m,1);break;case 3:try{if(l)throw new Error(\"Worker is already running.\");const P=r[1],N=W(),t={};for(const m of N)m.sources&&Object.assign(t,m.sources.stage1,m.sources.stage2,m.sources.stage3);const o=Object.keys(t),a=Promise.all(o.map(async m=>{const W=await async function(m,W){const l=Date.now();try{const r=await m(W),P=Date.now()-l;if(\"function\"!=typeof r)return ()=>({value:r,duration:P});const N=r;return async()=>{const m=Date.now();try{return {value:await N(),duration:P+(Date.now()-m)}}catch(hO){return {error:String(hO),duration:P+(Date.now()-m)}}}}catch(kO){const W=Date.now()-l;return ()=>({error:String(kO),duration:W})}}(t[m],P);return [m,W]}));l=async()=>{const m=await a,W={};return await Promise.all(m.map(async([m,l])=>{W[m]=await l();})),W},$P(m,4);}catch(CO){GD(m,5,CO);}break;case 6:try{if(!l)throw new Error(\"Worker signal collection was not started.\");$P(m,7,await l()),P=!0;}catch(ZO){GD(m,8,ZO);}break;case 9:P&&$P(m,10);}}),$P(m,2);}(m,()=>[{sources:{stage1:{},stage2:{},stage3:{}}},...W.map(m=>m())]);};$D();"
+    }
+  ],
+  "messages": [
+    {
+      "t": 436.1,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        2
+      ]
+    },
+    {
+      "t": 436.1,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        0
+      ]
+    },
+    {
+      "t": 488.7,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        1
+      ]
+    },
+    {
+      "t": 488.8,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        3,
+        {
+          "ab": {
+            "noop": "a"
+          },
+          "te": "use1-turn.fpjs.io",
+          "esc": true,
+          "ewr": true
+        }
+      ]
+    },
+    {
+      "t": 489.1,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        4
+      ]
+    },
+    {
+      "t": 489.1,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        6
+      ]
+    },
+    {
+      "t": 490.2,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        7,
+        {}
+      ]
+    },
+    {
+      "t": 490.2,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        9
+      ]
+    },
+    {
+      "t": 490.6,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/e088b0b1-905f-c3e4-36bb-aa1d219007f9",
+      "msg": [
+        10
+      ]
+    }
+  ],
+  "storage": {
+    "local": {
+      "_vid_lr": {
+        "raw": "[[\"lBc70xGravW6\",\"5ejs5++LS7WIKVNY6jCX6URxYsgs0PwLf3qcaY+qGHF0yC/BqhNxatp5g6UZa3Xbf+G5HGlt03GFuwdmYd4Rl6QLMDHIcZfiWnxsxHqbvAt/epoil7ILYD2QKvO8cwQZ3mmZqkg6etBpxMtgPTGOMeaqBXEqg2mPqkURO917zc9bMi69fZekCzB60GnU4Gc8a6Mv17t7OgmNfYzqeDQ0r2mZqls6PMhx2/1FP3TILseqE3E3mCLS4UcMNoU/6ulfMjGGKtfkTGl4rCLb70whKJgi2/xsISqFOY+oTzwqiCLR7Ew9esZp1voLaTafJ9mkCz43yHHuqkwresZp1uULDnTIONSqEwgFxmnZ+wtpYdpnl+RMcWLbeIKkCzA5yH…(2669)",
+        "decoded": [
+          {
+            "key": "lBc70xGravW6",
+            "value": {
+              "am": "get",
+              "v": "1",
+              "dt": "2026-08-07T15:59:03.594Z",
+              "ci": "js/4.1.4",
+              "pi": "3ezaF4ZWA4",
+              "ai": "qCInidzS",
+              "ri": "lBc70xGravW6",
+              "c": "kBwLN2IyH1GjeJBLpl8C",
+              "rid": null,
+              "er": "origin_not_available: FingerprintError: forbidden",
+              "cr": null,
+              "mo": [
+                "ex",
+                "cm"
+              ],
+              "sa": [],
+              "ls": 90,
+              "le": 137,
+              "ca": [
+                {
+                  "s": 141,
+                  "e": 570,
+                  "u": "https://api.fpjs.io/xridvya/qAo6p?q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 142,
+                  "de": 162,
+                  "cs": 162,
+                  "css": 167,
+                  "ce": 438,
+                  "qs": 438,
+                  "ss": 570
+                }
+              ],
+              "ss": 91,
+              "se": 492,
+              "sd": {
+                "s52": 295,
+                "s6": 6,
+                "s26": 294,
+                "s58": 242,
+                "s20": 241,
+                "s36": 234,
+                "s51": 235,
+                "s21": 8,
+                "s154": 291,
+                "s79": 237,
+                "s23": 218,
+                "s29": 240,
+                "s84": 236,
+                "s85": 230,
+                "s89": 341,
+                "s17": 15,
+                "s87": 221,
+                "s92": 221,
+                "s93": 221,
+                "s204": 221,
+                "s206": 221,
+                "s207": 214,
+                "s210": 223,
+                "s211": 271,
+                "s158": 219,
+                "s152": 219,
+                "s163": 223,
+                "s95": 201,
+                "s97": 218,
+                "s160": 270,
+                "s70": 222,
+                "s106": 268,
+                "s214": 306,
+                "s215": 219,
+                "s216": 219,
+                "s217": 219,
+                "s222": 219,
+                "s223": 219,
+                "s22": 1,
+                "s30": 0,
+                "s33": 0,
+                "s44": 0,
+                "s45": 0,
+                "s49": 2,
+                "s50": 1,
+                "s57": 0,
+                "s59": 0,
+                "s60": 0,
+                "s61": 0,
+                "s62": 0,
+                "s63": 0,
+                "s64": 0,
+                "s65": 0,
+                "s66": 0,
+                "s68": 0,
+                "s71": 0,
+                "s24": 0,
+                "s72": 0,
+                "s1": 0,
+                "s2": 0,
+                "s3": 0,
+                "s4": 0,
+                "s5": 0,
+                "s7": 0,
+                "s9": 6,
+                "s10": 0,
+                "s11": 0,
+                "s12": 0,
+                "s13": 0,
+                "s14": 0,
+                "s15": 0,
+                "s16": 158,
+                "s19": 0,
+                "s27": 0,
+                "s28": 0,
+                "s32": 0,
+                "s37": 0,
+                "s41": 0,
+                "s39": 0,
+                "s42": 0,
+                "s38": 0,
+                "s43": 0,
+                "s40": 0,
+                "s46": 1,
+                "s80": 0,
+                "s81": 0,
+                "s82": 0,
+                "s83": 0,
+                "s86": 0,
+                "s91": 0,
+                "s96": 0,
+                "s98": 0,
+                "s99": 0,
+                "s200": 0,
+                "s201": 0,
+                "s202": 0,
+                "s101": 0,
+                "s103": 0,
+                "s104": 0,
+                "s117": 0,
+                "s119": 0,
+                "s123": 0,
+                "s131": 0,
+                "s133": 0,
+                "s136": 0,
+                "s148": 0,
+                "s149": 0,
+                "s150": 0,
+                "s157": 0,
+                "s102": 0,
+                "s118": 0,
+                "s120": 0,
+                "s130": 1,
+                "s132": 0,
+                "s135": 0,
+                "s139": 0,
+                "s142": 0,
+                "s144": 0,
+                "s145": 0,
+                "s146": 0,
+                "s151": 0,
+                "s153": 0,
+                "s155": 0,
+                "s156": 0,
+                "s159": 0,
+                "s162": 0,
+                "s165": 1,
+                "s166": 0,
+                "s205": 0,
+                "s203": 0,
+                "s209": 2,
+                "s212": 2,
+                "s74": 4,
+                "s75": 11,
+                "s221": 3,
+                "s76": 2,
+                "s94": 48,
+                "s219": 7,
+                "s167": 0,
+                "s213": 1
+              },
+              "gs": 137,
+              "ge": 987,
+              "cs": null,
+              "ce": null,
+              "fa": [],
+              "ia": [
+                {
+                  "s": 574,
+                  "e": 986,
+                  "u": "https://api.fpjs.io/?ci=js/4.1.4&q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 575,
+                  "de": 575,
+                  "cs": 575,
+                  "css": 589,
+                  "ce": 826,
+                  "qs": 827,
+                  "ss": 986
+                }
+              ],
+              "vs": [
+                {
+                  "t": 90,
+                  "s": "v"
+                }
+              ],
+              "ab": {
+                "noop": "a"
+              },
+              "ao": true,
+              "or": false
+            }
+          }
+        ]
+      }
+    },
+    "session": {},
+    "cookies": {},
+    "databases": []
+  },
+  "resources": [
+    {
+      "t": 73.5,
+      "kind": "iframe",
+      "url": "about:blank"
+    },
+    {
+      "t": 338.5,
+      "kind": "iframe",
+      "url": "(srcless)"
+    }
+  ],
+  "notes": []
+}

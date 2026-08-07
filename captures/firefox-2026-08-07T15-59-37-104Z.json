@@ -1,0 +1,3743 @@
+{
+  "summary": {
+    "requests": 2,
+    "apiEvents": 0,
+    "workers": 1,
+    "probeApis": 27,
+    "probeCalls": 202
+  },
+  "version": "1.0.0",
+  "origin": "http://localhost:8099/?b=firefox",
+  "startedAt": "2026-08-07T15:59:28.015Z",
+  "requests": [
+    {
+      "t": 66.7,
+      "kind": "fetch",
+      "method": "GET",
+      "url": "https://api.fpjs.io/xridvya/qAo6p?q=kBwLN2IyH1GjeJBLpl8C",
+      "status": 200,
+      "ms": 283.3,
+      "respHeaders": {
+        "cache-control": "max-age=31536000, immutable, private",
+        "content-length": "96",
+        "content-type": "text/plain; charset=utf-8"
+      },
+      "reqSize": 0,
+      "decoded": {
+        "encoding": "empty",
+        "size": 0
+      },
+      "response": {
+        "encoding": "opaque",
+        "size": 96,
+        "head": "76694145456d727a727a595269685867476b63327135627344434a785a38576866365842775052494f2b614c4b6f2b79…",
+        "text": "viAEEmrzrzYRihXgGkc2q5bsDCJxZ8Whf6XBwPRIO+aLKo+yFlGacgIc2bNL+cWcvC9v81qpaECjZX70T/yzP+9J6Lld/y8=",
+        "base64": "dmlBRUVtcnpyellSaWhYZ0drYzJxNWJzRENKeFo4V2hmNlhCd1BSSU8rYUxLbyt5RmxHYWNnSWMyYk5MK2NXY3ZDOXY4MXFwYUVDalpYNzBUL3l6UCs5SjZMbGQveTg9"
+      }
+    },
+    {
+      "t": 700,
+      "kind": "fetch",
+      "method": "POST",
+      "url": "https://api.fpjs.io/?ci=js/4.1.4&q=kBwLN2IyH1GjeJBLpl8C",
+      "status": 403,
+      "ms": 366.7,
+      "respHeaders": {
+        "content-length": "314",
+        "content-type": "application/json; charset=utf-8"
+      },
+      "headers": {
+        "Content-Type": "text/plain"
+      },
+      "reqSize": 3669,
+      "reqRaw": "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",
+      "decoded": {
+        "encoding": "framed(tag=3,14,key=9)+deflate-raw",
+        "size": 3669,
+        "plainSize": 10928,
+        "key": [
+          26,
+          191,
+          27,
+          248,
+          0,
+          113,
+          14,
+          36,
+          98
+        ],
+        "tag": [
+          3,
+          14
+        ],
+        "json": {
+          "c": "kBwLN2IyH1GjeJBLpl8C",
+          "m": "l",
+          "l": "jsl/4.0.0",
+          "mo": [
+            "ex",
+            "cm"
+          ],
+          "s56": {
+            "s": 0,
+            "v": "viAEEmrzrzYRihXgGkc2q5bsDCJxZ8Whf6XBwPRIO+aLKo+yFlGacgIc2bNL+cWcvC9v81qpaECjZX70T/yzP+9J6Lld/y8="
+          },
+          "sc": {
+            "u": "http://localhost:8099/agent.js"
+          },
+          "ii": [],
+          "gt": 1,
+          "ab": {
+            "noop": "a"
+          },
+          "s52": {
+            "s": -2,
+            "v": null
+          },
+          "s6": {
+            "s": 0,
+            "v": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "s26": {
+            "s": -3,
+            "v": null
+          },
+          "s58": {
+            "s": -1,
+            "v": null
+          },
+          "s20": {
+            "s": 0,
+            "v": [
+              "Arial Unicode MS",
+              "Gill Sans",
+              "Helvetica Neue",
+              "Menlo"
+            ]
+          },
+          "s36": {
+            "s": -1,
+            "v": null
+          },
+          "s51": {
+            "s": 0,
+            "v": {
+              "default": 147.5833282470703,
+              "apple": 147.5833282470703,
+              "serif": 147.5833282470703,
+              "sans": 144.01666259765625,
+              "mono": 133.1666717529297,
+              "min": 9.23333740234375,
+              "system": 146
+            }
+          },
+          "s21": {
+            "s": 0,
+            "v": 35.74996626004577
+          },
+          "s154": {
+            "s": 0,
+            "v": {
+              "wv": false,
+              "wvp": false,
+              "pr": false,
+              "ck": true,
+              "pt": false,
+              "fp": false
+            }
+          },
+          "s79": {
+            "s": -3,
+            "v": [
+              {
+                "n": "default.ini",
+                "l": 897845342
+              }
+            ]
+          },
+          "s23": {
+            "s": -1,
+            "v": null
+          },
+          "s29": {
+            "s": 1,
+            "v": 10737418240
+          },
+          "s84": {
+            "s": 0,
+            "v": {
+              "w": 1400,
+              "h": 900
+            }
+          },
+          "s85": {
+            "s": 0,
+            "v": ""
+          },
+          "s89": {
+            "s": 0,
+            "v": {
+              "re": "",
+              "cwe": "",
+              "clm": 1786118368376,
+              "wlm": 1786118368389
+            }
+          },
+          "s17": {
+            "s": -2,
+            "v": {
+              "winding": true,
+              "geometry": "",
+              "text": ""
+            }
+          },
+          "s87": {
+            "s": 0,
+            "v": {
+              "ac": "rgb(0, 96, 223)",
+              "act": "rgb(255, 255, 255)",
+              "at": "rgb(238, 0, 0)",
+              "ab": "rgb(143, 143, 157)",
+              "aca": "rgb(255, 255, 255)",
+              "aw": "rgb(255, 255, 255)",
+              "b": "rgb(255, 255, 255)",
+              "bh": "rgb(233, 233, 237)",
+              "bs": "rgb(233, 233, 237)",
+              "bb": "rgb(143, 143, 157)",
+              "bf": "rgb(233, 233, 237)",
+              "bt": "rgb(0, 0, 0)",
+              "ft": "rgb(0, 0, 0)",
+              "gt": "rgb(109, 109, 109)",
+              "h": "rgb(51, 153, 255)",
+              "ht": "rgb(255, 255, 255)",
+              "ib": "rgb(255, 255, 255)",
+              "ic": "rgb(255, 255, 255)",
+              "ict": "rgb(109, 109, 109)",
+              "it": "rgb(0, 0, 0)",
+              "lt": "rgb(0, 0, 238)",
+              "m": "rgb(255, 255, 0)",
+              "me": "rgb(255, 255, 255)",
+              "s": "rgb(255, 255, 255)",
+              "tdds": "rgb(143, 143, 157)",
+              "tdf": "rgb(233, 233, 237)",
+              "tdh": "rgb(143, 143, 157)",
+              "tdls": "rgb(143, 143, 157)",
+              "tds": "rgb(143, 143, 157)",
+              "vt": "rgb(85, 26, 139)",
+              "w": "rgb(255, 255, 255)",
+              "wf": "rgb(143, 143, 157)",
+              "wt": "rgb(0, 0, 0)",
+              "si": "rgb(51, 153, 255)",
+              "sit": "rgb(255, 255, 255)"
+            }
+          },
+          "s92": {
+            "s": 0,
+            "v": {
+              "x": 8,
+              "y": 10.5,
+              "left": 8,
+              "right": 293.70001220703125,
+              "bottom": 26.5,
+              "height": 16,
+              "top": 10.5,
+              "width": 285.70001220703125,
+              "font": "serif"
+            }
+          },
+          "s93": {
+            "s": 0,
+            "v": {
+              "x": 8,
+              "y": 12,
+              "left": 8,
+              "right": 1288,
+              "bottom": 28,
+              "height": 16,
+              "top": 12,
+              "width": 1280,
+              "font": "serif"
+            }
+          },
+          "s204": {
+            "s": 0,
+            "v": true
+          },
+          "s206": {
+            "s": 0,
+            "v": "-apple-system"
+          },
+          "s207": {
+            "s": 0,
+            "v": true
+          },
+          "s210": {
+            "s": 0,
+            "v": {
+              "ds": "",
+              "dv": "",
+              "f": false,
+              "l": [
+                8192,
+                8192,
+                2048,
+                256,
+                4,
+                1000,
+                8,
+                4,
+                16,
+                16,
+                8,
+                4,
+                12,
+                65536,
+                134217728,
+                256,
+                256,
+                8,
+                268435456,
+                16,
+                2048,
+                null,
+                16,
+                8,
+                32,
+                16384,
+                256,
+                256,
+                256,
+                64,
+                65535,
+                24,
+                8,
+                8,
+                4,
+                4
+              ]
+            }
+          },
+          "s211": {
+            "s": 0,
+            "v": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          },
+          "s158": {
+            "s": 0,
+            "v": false
+          },
+          "s152": {
+            "s": 0,
+            "v": 1
+          },
+          "s163": {
+            "s": -1,
+            "v": null
+          },
+          "s95": {
+            "s": -1,
+            "v": null
+          },
+          "s97": {
+            "s": -3,
+            "v": null
+          },
+          "s160": {
+            "s": -2,
+            "v": null
+          },
+          "s70": {
+            "s": -1,
+            "v": null
+          },
+          "s106": {
+            "s": 0,
+            "v": false
+          },
+          "s214": {
+            "s": -1,
+            "v": null
+          },
+          "s215": {
+            "s": 0,
+            "v": {
+              "cc": false,
+              "cg": true,
+              "eai": true,
+              "ecp": true,
+              "elb": true,
+              "empl": true,
+              "ep": true,
+              "ht": true,
+              "ppa": true,
+              "ro": true,
+              "saac": false,
+              "scud": false,
+              "suc": false,
+              "uvpa": true
+            }
+          },
+          "s216": {
+            "s": -1,
+            "v": null
+          },
+          "s217": {
+            "s": -1,
+            "v": null
+          },
+          "s222": {
+            "s": -1,
+            "v": null
+          },
+          "s223": {
+            "s": -1,
+            "v": null
+          },
+          "s22": {
+            "s": 0,
+            "v": 23
+          },
+          "s30": {
+            "s": 0,
+            "v": "unspecified"
+          },
+          "s33": {
+            "s": 0,
+            "v": false
+          },
+          "s44": {
+            "s": 0,
+            "v": false
+          },
+          "s45": {
+            "s": 0,
+            "v": [
+              1786118368232,
+              1786118368232
+            ]
+          },
+          "s49": {
+            "s": 0,
+            "v": [
+              1,
+              1
+            ]
+          },
+          "s50": {
+            "s": -1,
+            "v": null
+          },
+          "s57": {
+            "s": 0,
+            "v": 2
+          },
+          "s59": {
+            "s": 0,
+            "v": false
+          },
+          "s60": {
+            "s": 0,
+            "v": false
+          },
+          "s61": {
+            "s": 0,
+            "v": false
+          },
+          "s62": {
+            "s": 0,
+            "v": false
+          },
+          "s63": {
+            "s": 0,
+            "v": true
+          },
+          "s64": {
+            "s": 0,
+            "v": true
+          },
+          "s65": {
+            "s": 0,
+            "v": false
+          },
+          "s66": {
+            "s": -1,
+            "v": null
+          },
+          "s68": {
+            "s": 0,
+            "v": false
+          },
+          "s71": {
+            "s": 0,
+            "v": {
+              "w": "http://localhost:8099",
+              "l": "http://localhost:8099",
+              "a": []
+            }
+          },
+          "s24": {
+            "s": 0,
+            "v": 37
+          },
+          "s72": {
+            "s": 0,
+            "v": false
+          },
+          "s1": {
+            "s": 0,
+            "v": "Intel Mac OS X 10.15"
+          },
+          "s2": {
+            "s": 0,
+            "v": [
+              [
+                "en-US"
+              ],
+              [
+                "en-US",
+                "en"
+              ]
+            ]
+          },
+          "s3": {
+            "s": 0,
+            "v": 24
+          },
+          "s4": {
+            "s": -1,
+            "v": null
+          },
+          "s5": {
+            "s": 0,
+            "v": [
+              900,
+              1400
+            ]
+          },
+          "s7": {
+            "s": 0,
+            "v": 8
+          },
+          "s9": {
+            "s": 0,
+            "v": "Atlantic/Reykjavik"
+          },
+          "s10": {
+            "s": 0,
+            "v": true
+          },
+          "s11": {
+            "s": 0,
+            "v": true
+          },
+          "s12": {
+            "s": 0,
+            "v": true
+          },
+          "s13": {
+            "s": 0,
+            "v": false
+          },
+          "s14": {
+            "s": -1,
+            "v": null
+          },
+          "s15": {
+            "s": 0,
+            "v": "MacIntel"
+          },
+          "s16": {
+            "s": 0,
+            "v": [
+              {
+                "name": "PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "Chrome PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "Chromium PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "Microsoft Edge PDF Viewer",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              },
+              {
+                "name": "WebKit built-in PDF",
+                "description": "Portable Document Format",
+                "mimeTypes": [
+                  {
+                    "type": "application/pdf",
+                    "suffixes": "pdf"
+                  },
+                  {
+                    "type": "text/pdf",
+                    "suffixes": "pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          "s19": {
+            "s": 0,
+            "v": {
+              "maxTouchPoints": 0,
+              "touchEvent": false,
+              "touchStart": false
+            }
+          },
+          "s27": {
+            "s": 0,
+            "v": ""
+          },
+          "s28": {
+            "s": 0,
+            "v": []
+          },
+          "s32": {
+            "s": 0,
+            "v": true
+          },
+          "s37": {
+            "s": 0,
+            "v": "srgb"
+          },
+          "s41": {
+            "s": -1,
+            "v": null
+          },
+          "s39": {
+            "s": 0,
+            "v": false
+          },
+          "s42": {
+            "s": 0,
+            "v": 0
+          },
+          "s38": {
+            "s": 0,
+            "v": 0
+          },
+          "s43": {
+            "s": 0,
+            "v": false
+          },
+          "s40": {
+            "s": 0,
+            "v": false
+          },
+          "s46": {
+            "s": 0,
+            "v": "68435bacb697dfef876c37f0d927c893"
+          },
+          "s80": {
+            "s": 0,
+            "v": true
+          },
+          "s81": {
+            "s": 0,
+            "v": 127
+          },
+          "s82": {
+            "s": 0,
+            "v": "en-US"
+          },
+          "s83": {
+            "s": 0,
+            "v": [
+              "en-US",
+              "en"
+            ]
+          },
+          "s86": {
+            "s": -1,
+            "v": null
+          },
+          "s91": {
+            "s": -1,
+            "v": null
+          },
+          "s96": {
+            "s": -2,
+            "v": null
+          },
+          "s98": {
+            "s": 0,
+            "v": true
+          },
+          "s99": {
+            "s": 0,
+            "v": true
+          },
+          "s200": {
+            "s": 0,
+            "v": 1786118367832.015
+          },
+          "s201": {
+            "s": 0,
+            "v": false
+          },
+          "s202": {
+            "s": 0,
+            "v": "en-US"
+          },
+          "s101": {
+            "s": 0,
+            "v": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0"
+          },
+          "s103": {
+            "s": 0,
+            "v": "5.0 (Macintosh)"
+          },
+          "s104": {
+            "s": -1,
+            "v": null
+          },
+          "s117": {
+            "s": 0,
+            "v": 5
+          },
+          "s119": {
+            "s": 0,
+            "v": "wt@http://localhost:8099/agent.js:5:94831\nyO/<@http://localhost:8099/agent.js:5:122269\nht@http://localhost:8099/agent.js:5:101158\nHd/N</l<@http://localhost:8099/agent.js:5:163055\nHd/N</<@http://localhost:8099/agent.js:5:163018\nHd/N<@http://localhost:8099/agent.js:5:163412\nem@http://localhost:8099/agent.js:5:11024\nHd@http://localhost:8099/agent.js:5:162985\nEm/a<@http://localhost:8099/agent.js:5:21228\n"
+          },
+          "s123": {
+            "s": 0,
+            "v": "20100101"
+          },
+          "s131": {
+            "s": 0,
+            "v": [
+              "lang"
+            ]
+          },
+          "s133": {
+            "s": 0,
+            "v": "[object External]"
+          },
+          "s136": {
+            "s": 0,
+            "v": true
+          },
+          "s148": {
+            "s": 0,
+            "v": "function bind() {\n    [native code]\n}"
+          },
+          "s149": {
+            "s": -1,
+            "v": null
+          },
+          "s150": {
+            "s": 0,
+            "v": {
+              "outerWidth": 1400,
+              "outerHeight": 900,
+              "innerWidth": 1400,
+              "innerHeight": 900
+            }
+          },
+          "s157": {
+            "s": 0,
+            "v": {
+              "awesomium": false,
+              "cef": false,
+              "cefsharp": false,
+              "coachjs": false,
+              "fminer": false,
+              "geb": false,
+              "nightmarejs": false,
+              "phantomas": false,
+              "phantomjs": false,
+              "rhino": false,
+              "selenium": false,
+              "webdriverio": false,
+              "webdriver": false,
+              "headless_chrome": false
+            }
+          },
+          "s102": {
+            "s": 0,
+            "v": false
+          },
+          "s118": {
+            "s": 0,
+            "v": true
+          },
+          "s120": {
+            "s": 0,
+            "v": false
+          },
+          "s130": {
+            "s": 0,
+            "v": [
+              "function",
+              "function"
+            ]
+          },
+          "s132": {
+            "s": 0,
+            "v": "function close() {\n    [native code]\n}"
+          },
+          "s135": {
+            "s": 0,
+            "v": 2
+          },
+          "s139": {
+            "s": 0,
+            "v": true
+          },
+          "s142": {
+            "s": 0,
+            "v": true
+          },
+          "s144": {
+            "s": -2,
+            "v": null
+          },
+          "s145": {
+            "s": 0,
+            "v": [
+              "javaEnabled",
+              "getGamepads",
+              "requestMIDIAccess",
+              "mozGetUserMedia",
+              "sendBeacon",
+              "requestMediaKeySystemAccess",
+              "getAutoplayPolicy",
+              "registerProtocolHandler",
+              "taintEnabled",
+              "Navigator"
+            ]
+          },
+          "s146": {
+            "s": 0,
+            "v": false
+          },
+          "s151": {
+            "s": 0,
+            "v": true
+          },
+          "s153": {
+            "s": 0,
+            "v": true
+          },
+          "s155": {
+            "s": 0,
+            "v": {}
+          },
+          "s156": {
+            "s": 0,
+            "v": [
+              "Iterator"
+            ]
+          },
+          "s159": {
+            "s": 0,
+            "v": false
+          },
+          "s162": {
+            "s": 0,
+            "v": false
+          },
+          "s165": {
+            "s": 0,
+            "v": {
+              "isTrusted": false
+            }
+          },
+          "s166": {
+            "s": 0,
+            "v": {
+              "l": 48,
+              "p": [
+                {
+                  "i": 1,
+                  "n": "getGamepads"
+                },
+                {
+                  "i": 32,
+                  "n": "webdriver"
+                },
+                {
+                  "i": 45,
+                  "n": "onLine"
+                }
+              ]
+            }
+          },
+          "s205": {
+            "s": 0,
+            "v": "c:"
+          },
+          "s203": {
+            "s": 0,
+            "v": "calc(-0.0773484px)"
+          },
+          "s209": {
+            "s": 0,
+            "v": {
+              "s": [
+                1803201284,
+                -182736976,
+                1570167563,
+                1163345585
+              ],
+              "p": [
+                12,
+                173,
+                17,
+                68,
+                1,
+                111,
+                127,
+                141,
+                124,
+                50,
+                51,
+                169,
+                164,
+                154,
+                85,
+                43,
+                156,
+                90,
+                223,
+                57,
+                239,
+                37,
+                87,
+                241,
+                111,
+                67,
+                15,
+                251,
+                141,
+                185,
+                206,
+                57,
+                12,
+                173,
+                17,
+                68,
+                1,
+                111,
+                127,
+                141,
+                124,
+                50,
+                51,
+                169,
+                164,
+                154,
+                85,
+                43,
+                156,
+                90,
+                223,
+                57,
+                239,
+                37,
+                87,
+                241,
+                111,
+                67,
+                15,
+                251,
+                141,
+                185,
+                206,
+                57
+              ],
+              "d": 4
+            }
+          },
+          "s212": {
+            "s": 0,
+            "v": false
+          },
+          "s74": {
+            "s": 0,
+            "v": {
+              "version": "WebGL 1.0",
+              "vendor": "Mozilla",
+              "vendorUnmasked": "",
+              "renderer": "Mozilla",
+              "rendererUnmasked": "",
+              "shadingLanguageVersion": "WebGL GLSL ES 1.0"
+            }
+          },
+          "s75": {
+            "s": 0,
+            "v": {
+              "contextAttributes": "0540e2fb3a6cd11bbd72e874f7df928f",
+              "parameters": "4e1944aac5aa15b5628ca7c928182f7b",
+              "parameters2": "132e3116bdbfd3b19048a22e5e1dfc7e",
+              "shaderPrecisions": "aacfa3af2caf3f08e2755877ed69968f",
+              "extensions": "69dcd707f4842bf1394474e4015691b2",
+              "extensionParameters": "f6462be9eccba8f0aa6f8ca60174f58f",
+              "extensionParameters2": "acbc41c29ef748b1fe18a5d704016637",
+              "unsupportedExtensions": []
+            }
+          },
+          "s221": {
+            "s": 0,
+            "v": {
+              "b": [
+                2281898568,
+                17046528
+              ],
+              "u": []
+            }
+          },
+          "s76": {
+            "s": 0,
+            "v": "f0a6c522c643884b684ccad06cc698e6"
+          },
+          "s94": {
+            "s": 0,
+            "v": {
+              "u": "205af1ce-042e-007f-235a-10c489984a18",
+              "e": [],
+              "s": []
+            }
+          },
+          "s219": {
+            "s": 0,
+            "v": {
+              "u": "4a5bac09-6216-504b-c034-1db00a943d88",
+              "e": [],
+              "s": []
+            }
+          },
+          "s167": {
+            "s": -3,
+            "v": null
+          },
+          "s213": {
+            "s": -2,
+            "v": null
+          },
+          "epv": "3b947bb",
+          "lr": [
+            {
+              "am": "get",
+              "v": "1",
+              "dt": "2026-07-31T06:30:42.920Z",
+              "ci": "js/4.1.3",
+              "pi": "HrS9RDzFLT",
+              "ai": "wAMyscCw",
+              "ri": "IO5KnMKd02T3",
+              "c": "kBwLN2IyH1GjeJBLpl8C",
+              "rid": null,
+              "er": "origin_not_available: FingerprintError: forbidden",
+              "cr": null,
+              "mo": [
+                "ex",
+                "cm"
+              ],
+              "sa": [],
+              "ls": 150,
+              "le": 183,
+              "ca": [
+                {
+                  "s": 183,
+                  "e": 667,
+                  "u": "https://api.fpjs.io/xridvya/qAo6p?q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 183,
+                  "de": 183,
+                  "cs": 250,
+                  "css": 283,
+                  "ce": 550,
+                  "qs": 550,
+                  "ss": 667
+                }
+              ],
+              "ss": 150,
+              "se": 800,
+              "sd": {
+                "s52": 600,
+                "s6": 0,
+                "s26": 333,
+                "s58": 300,
+                "s20": 316,
+                "s36": 316,
+                "s51": 316,
+                "s21": 200,
+                "s154": 150,
+                "s79": 133,
+                "s23": 133,
+                "s29": 133,
+                "s84": 133,
+                "s85": 133,
+                "s89": 167,
+                "s17": 17,
+                "s87": 116,
+                "s92": 116,
+                "s93": 116,
+                "s204": 116,
+                "s206": 116,
+                "s207": 116,
+                "s210": 133,
+                "s211": 133,
+                "s158": 116,
+                "s152": 116,
+                "s163": 100,
+                "s95": 100,
+                "s97": 116,
+                "s160": 400,
+                "s70": 133,
+                "s106": 117,
+                "s214": 100,
+                "s215": 100,
+                "s216": 100,
+                "s217": 84,
+                "s222": 84,
+                "s223": 100,
+                "s22": 0,
+                "s30": 0,
+                "s33": 0,
+                "s44": 0,
+                "s45": 0,
+                "s49": 0,
+                "s50": 0,
+                "s57": 0,
+                "s59": 0,
+                "s60": 0,
+                "s61": 0,
+                "s62": 0,
+                "s63": 0,
+                "s64": 0,
+                "s65": 0,
+                "s66": 0,
+                "s68": 0,
+                "s71": 0,
+                "s24": 0,
+                "s72": 0,
+                "s1": 0,
+                "s2": 0,
+                "s3": 0,
+                "s4": 0,
+                "s5": 0,
+                "s7": 0,
+                "s9": 0,
+                "s10": 0,
+                "s11": 0,
+                "s12": 0,
+                "s13": 0,
+                "s14": 0,
+                "s15": 0,
+                "s16": 0,
+                "s19": 0,
+                "s27": 0,
+                "s28": 0,
+                "s32": 0,
+                "s37": 0,
+                "s41": 0,
+                "s39": 0,
+                "s42": 0,
+                "s38": 17,
+                "s43": 0,
+                "s40": 0,
+                "s46": 0,
+                "s80": 0,
+                "s81": 0,
+                "s82": 0,
+                "s83": 0,
+                "s86": 0,
+                "s91": 0,
+                "s96": 0,
+                "s98": 0,
+                "s99": 0,
+                "s200": 0,
+                "s201": 0,
+                "s202": 0,
+                "s101": 0,
+                "s103": 0,
+                "s104": 0,
+                "s117": 0,
+                "s119": 0,
+                "s123": 0,
+                "s131": 0,
+                "s133": 0,
+                "s136": 0,
+                "s148": 0,
+                "s149": 0,
+                "s150": 0,
+                "s157": 0,
+                "s102": 0,
+                "s118": 0,
+                "s120": 0,
+                "s130": 0,
+                "s132": 0,
+                "s135": 0,
+                "s139": 0,
+                "s142": 0,
+                "s144": 0,
+                "s145": 0,
+                "s146": 0,
+                "s151": 0,
+                "s153": 0,
+                "s155": 0,
+                "s156": 0,
+                "s159": 0,
+                "s162": 0,
+                "s165": 0,
+                "s166": 0,
+                "s205": 0,
+                "s203": 0,
+                "s209": 0,
+                "s212": 0,
+                "s74": 33,
+                "s75": 0,
+                "s221": 17,
+                "s76": 17,
+                "s94": 350,
+                "s219": 333,
+                "s167": 0,
+                "s213": 0
+              },
+              "gs": 183,
+              "ge": 933,
+              "cs": null,
+              "ce": null,
+              "fa": [],
+              "ia": [
+                {
+                  "s": 800,
+                  "e": 917,
+                  "u": "https://api.fpjs.io/?ci=js/4.1.3&q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 800,
+                  "de": 800,
+                  "cs": 800,
+                  "css": 800,
+                  "ce": 800,
+                  "qs": 800,
+                  "ss": 917
+                }
+              ],
+              "vs": [
+                {
+                  "t": 150,
+                  "s": "v"
+                }
+              ],
+              "ab": {
+                "noop": "b"
+              },
+              "ao": true,
+              "or": false
+            }
+          ],
+          "s69": {
+            "s": 0,
+            "v": [
+              {
+                "l": "http://localhost:8099/?b=firefox",
+                "f": ""
+              }
+            ]
+          },
+          "s55": {
+            "s": -1,
+            "v": null
+          },
+          "s48": {
+            "s": 0,
+            "v": [
+              -268326814,
+              695000757,
+              -633977706,
+              25912894,
+              -99173774,
+              13995273
+            ]
+          }
+        }
+      },
+      "signals": [
+        {
+          "id": "s56",
+          "label": "",
+          "s": 0,
+          "v": "viAEEmrzrzYRihXgGkc2q5bsDCJxZ8Whf6XBwPRIO+aLKo+yFlGacgIc2bNL+cWcvC9v81qpaECjZX70T/yzP+9J6Lld/y8=",
+          "path": "s56"
+        },
+        {
+          "id": "s52",
+          "label": "window.origin",
+          "s": -2,
+          "v": null,
+          "path": "s52"
+        },
+        {
+          "id": "s6",
+          "label": "screen.availLeft",
+          "s": 0,
+          "v": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "path": "s6"
+        },
+        {
+          "id": "s26",
+          "label": "navigator.mediaDevices",
+          "s": -3,
+          "v": null,
+          "path": "s26"
+        },
+        {
+          "id": "s58",
+          "label": "navigator",
+          "s": -1,
+          "v": null,
+          "path": "s58"
+        },
+        {
+          "id": "s20",
+          "label": "DOMException",
+          "s": 0,
+          "v": [
+            "Arial Unicode MS",
+            "Gill Sans",
+            "Helvetica Neue",
+            "Menlo"
+          ],
+          "path": "s20"
+        },
+        {
+          "id": "s36",
+          "label": "document.createElement(\"div\")",
+          "s": -1,
+          "v": null,
+          "path": "s36"
+        },
+        {
+          "id": "s51",
+          "label": "document.createElement(\"iframe\")",
+          "s": 0,
+          "v": {
+            "default": 147.5833282470703,
+            "apple": 147.5833282470703,
+            "serif": 147.5833282470703,
+            "sans": 144.01666259765625,
+            "mono": 133.1666717529297,
+            "min": 9.23333740234375,
+            "system": 146
+          },
+          "path": "s51"
+        },
+        {
+          "id": "s21",
+          "label": "window.DOMRectList",
+          "s": 0,
+          "v": 35.74996626004577,
+          "path": "s21"
+        },
+        {
+          "id": "s154",
+          "label": "navigator.brave",
+          "s": 0,
+          "v": {
+            "wv": false,
+            "wvp": false,
+            "pr": false,
+            "ck": true,
+            "pt": false,
+            "fp": false
+          },
+          "path": "s154"
+        },
+        {
+          "id": "s79",
+          "label": "window.URL",
+          "s": -3,
+          "v": [
+            {
+              "n": "default.ini",
+              "l": 897845342
+            }
+          ],
+          "path": "s79"
+        },
+        {
+          "id": "s23",
+          "label": "window.ClipboardItem",
+          "s": -1,
+          "v": null,
+          "path": "s23"
+        },
+        {
+          "id": "s29",
+          "label": "DOMException",
+          "s": 1,
+          "v": 10737418240,
+          "path": "s29"
+        },
+        {
+          "id": "s84",
+          "label": "DOMException",
+          "s": 0,
+          "v": {
+            "w": 1400,
+            "h": 900
+          },
+          "path": "s84"
+        },
+        {
+          "id": "s85",
+          "label": "window.Blob",
+          "s": 0,
+          "v": "",
+          "path": "s85"
+        },
+        {
+          "id": "s89",
+          "label": "navigator.storage",
+          "s": 0,
+          "v": {
+            "re": "",
+            "cwe": "",
+            "clm": 1786118368376,
+            "wlm": 1786118368389
+          },
+          "path": "s89"
+        },
+        {
+          "id": "s17",
+          "label": "document.createElement(\"canvas\")",
+          "s": -2,
+          "v": {
+            "winding": true,
+            "geometry": "",
+            "text": ""
+          },
+          "path": "s17"
+        },
+        {
+          "id": "s87",
+          "label": "DOMException",
+          "s": 0,
+          "v": {
+            "ac": "rgb(0, 96, 223)",
+            "act": "rgb(255, 255, 255)",
+            "at": "rgb(238, 0, 0)",
+            "ab": "rgb(143, 143, 157)",
+            "aca": "rgb(255, 255, 255)",
+            "aw": "rgb(255, 255, 255)",
+            "b": "rgb(255, 255, 255)",
+            "bh": "rgb(233, 233, 237)",
+            "bs": "rgb(233, 233, 237)",
+            "bb": "rgb(143, 143, 157)",
+            "bf": "rgb(233, 233, 237)",
+            "bt": "rgb(0, 0, 0)",
+            "ft": "rgb(0, 0, 0)",
+            "gt": "rgb(109, 109, 109)",
+            "h": "rgb(51, 153, 255)",
+            "ht": "rgb(255, 255, 255)",
+            "ib": "rgb(255, 255, 255)",
+            "ic": "rgb(255, 255, 255)",
+            "ict": "rgb(109, 109, 109)",
+            "it": "rgb(0, 0, 0)",
+            "lt": "rgb(0, 0, 238)",
+            "m": "rgb(255, 255, 0)",
+            "me": "rgb(255, 255, 255)",
+            "s": "rgb(255, 255, 255)",
+            "tdds": "rgb(143, 143, 157)",
+            "tdf": "rgb(233, 233, 237)",
+            "tdh": "rgb(143, 143, 157)",
+            "tdls": "rgb(143, 143, 157)",
+            "tds": "rgb(143, 143, 157)",
+            "vt": "rgb(85, 26, 139)",
+            "w": "rgb(255, 255, 255)",
+            "wf": "rgb(143, 143, 157)",
+            "wt": "rgb(0, 0, 0)",
+            "si": "rgb(51, 153, 255)",
+            "sit": "rgb(255, 255, 255)"
+          },
+          "path": "s87"
+        },
+        {
+          "id": "s92",
+          "label": "document.createDocumentFragment()",
+          "s": 0,
+          "v": {
+            "x": 8,
+            "y": 10.5,
+            "left": 8,
+            "right": 293.70001220703125,
+            "bottom": 26.5,
+            "height": 16,
+            "top": 10.5,
+            "width": 285.70001220703125,
+            "font": "serif"
+          },
+          "path": "s92"
+        },
+        {
+          "id": "s93",
+          "label": "DOMException",
+          "s": 0,
+          "v": {
+            "x": 8,
+            "y": 12,
+            "left": 8,
+            "right": 1288,
+            "bottom": 28,
+            "height": 16,
+            "top": 12,
+            "width": 1280,
+            "font": "serif"
+          },
+          "path": "s93"
+        },
+        {
+          "id": "s204",
+          "label": "DOMException",
+          "s": 0,
+          "v": true,
+          "path": "s204"
+        },
+        {
+          "id": "s206",
+          "label": "document.documentElement.style",
+          "s": 0,
+          "v": "-apple-system",
+          "path": "s206"
+        },
+        {
+          "id": "s207",
+          "label": "FontFace",
+          "s": 0,
+          "v": true,
+          "path": "s207"
+        },
+        {
+          "id": "s210",
+          "label": "navigator.gpu",
+          "s": 0,
+          "v": {
+            "ds": "",
+            "dv": "",
+            "f": false,
+            "l": [
+              8192,
+              8192,
+              2048,
+              256,
+              4,
+              1000,
+              8,
+              4,
+              16,
+              16,
+              8,
+              4,
+              12,
+              65536,
+              134217728,
+              256,
+              256,
+              8,
+              268435456,
+              16,
+              2048,
+              null,
+              16,
+              8,
+              32,
+              16384,
+              256,
+              256,
+              256,
+              64,
+              65535,
+              24,
+              8,
+              8,
+              4,
+              4
+            ]
+          },
+          "path": "s210"
+        },
+        {
+          "id": "s211",
+          "label": "navigator.mediaCapabilities.decodingInfo()",
+          "s": 0,
+          "v": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "path": "s211"
+        },
+        {
+          "id": "s158",
+          "label": "DOMException",
+          "s": 0,
+          "v": false,
+          "path": "s158"
+        },
+        {
+          "id": "s152",
+          "label": "DOMException",
+          "s": 0,
+          "v": 1,
+          "path": "s152"
+        },
+        {
+          "id": "s163",
+          "label": "navigator.vendor.indexOf(\"Apple\")",
+          "s": -1,
+          "v": null,
+          "path": "s163"
+        },
+        {
+          "id": "s95",
+          "label": "window.Atomics",
+          "s": -1,
+          "v": null,
+          "path": "s95"
+        },
+        {
+          "id": "s97",
+          "label": "window.DataTransfer",
+          "s": -3,
+          "v": null,
+          "path": "s97"
+        },
+        {
+          "id": "s160",
+          "label": "window.origin",
+          "s": -2,
+          "v": null,
+          "path": "s160"
+        },
+        {
+          "id": "s70",
+          "label": "TextDecoder",
+          "s": -1,
+          "v": null,
+          "path": "s70"
+        },
+        {
+          "id": "s106",
+          "label": "window.Notification",
+          "s": 0,
+          "v": false,
+          "path": "s106"
+        },
+        {
+          "id": "s214",
+          "label": "navigator.storageBuckets",
+          "s": -1,
+          "v": null,
+          "path": "s214"
+        },
+        {
+          "id": "s215",
+          "label": "window.PublicKeyCredential",
+          "s": 0,
+          "v": {
+            "cc": false,
+            "cg": true,
+            "eai": true,
+            "ecp": true,
+            "elb": true,
+            "empl": true,
+            "ep": true,
+            "ht": true,
+            "ppa": true,
+            "ro": true,
+            "saac": false,
+            "scud": false,
+            "suc": false,
+            "uvpa": true
+          },
+          "path": "s215"
+        },
+        {
+          "id": "s216",
+          "label": "navigator.managed",
+          "s": -1,
+          "v": null,
+          "path": "s216"
+        },
+        {
+          "id": "s217",
+          "label": "navigator.getBattery",
+          "s": -1,
+          "v": null,
+          "path": "s217"
+        },
+        {
+          "id": "s222",
+          "label": "navigator.keyboard",
+          "s": -1,
+          "v": null,
+          "path": "s222"
+        },
+        {
+          "id": "s223",
+          "label": "window.PresentationRequest",
+          "s": -1,
+          "v": null,
+          "path": "s223"
+        },
+        {
+          "id": "s22",
+          "label": "window.WebAssembly",
+          "s": 0,
+          "v": 23,
+          "path": "s22"
+        },
+        {
+          "id": "s30",
+          "label": "navigator.doNotTrack",
+          "s": 0,
+          "v": "unspecified",
+          "path": "s30"
+        },
+        {
+          "id": "s33",
+          "label": "Navigator.prototype.brave",
+          "s": 0,
+          "v": false,
+          "path": "s33"
+        },
+        {
+          "id": "s44",
+          "label": "matchMedia(`(prefers-color-scheme: ${})`)",
+          "s": 0,
+          "v": false,
+          "path": "s44"
+        },
+        {
+          "id": "s45",
+          "label": "Date",
+          "s": 0,
+          "v": [
+            1786118368232,
+            1786118368232
+          ],
+          "path": "s45"
+        },
+        {
+          "id": "s49",
+          "label": "window",
+          "s": 0,
+          "v": [
+            1,
+            1
+          ],
+          "path": "s49"
+        },
+        {
+          "id": "s50",
+          "label": "window.performance",
+          "s": -1,
+          "v": null,
+          "path": "s50"
+        },
+        {
+          "id": "s57",
+          "label": "window.devicePixelRatio",
+          "s": 0,
+          "v": 2,
+          "path": "s57"
+        },
+        {
+          "id": "s59",
+          "label": "navigator.msPointerEnabled",
+          "s": 0,
+          "v": false,
+          "path": "s59"
+        },
+        {
+          "id": "s60",
+          "label": "navigator.msLaunchUri",
+          "s": 0,
+          "v": false,
+          "path": "s60"
+        },
+        {
+          "id": "s61",
+          "label": "navigator.webkitPersistentStorage",
+          "s": 0,
+          "v": false,
+          "path": "s61"
+        },
+        {
+          "id": "s62",
+          "label": "navigator.vendor.indexOf(\"Apple\")",
+          "s": 0,
+          "v": false,
+          "path": "s62"
+        },
+        {
+          "id": "s63",
+          "label": "window.ongestureend",
+          "s": 0,
+          "v": true,
+          "path": "s63"
+        },
+        {
+          "id": "s64",
+          "label": "document.documentElement.style",
+          "s": 0,
+          "v": true,
+          "path": "s64"
+        },
+        {
+          "id": "s65",
+          "label": "Audio",
+          "s": 0,
+          "v": false,
+          "path": "s65"
+        },
+        {
+          "id": "s66",
+          "label": "document.createElement(\"a\")",
+          "s": -1,
+          "v": null,
+          "path": "s66"
+        },
+        {
+          "id": "s68",
+          "label": "window.AudioBuffer",
+          "s": 0,
+          "v": false,
+          "path": "s68"
+        },
+        {
+          "id": "s71",
+          "label": "window",
+          "s": 0,
+          "v": {
+            "w": "http://localhost:8099",
+            "l": "http://localhost:8099",
+            "a": []
+          },
+          "path": "s71"
+        },
+        {
+          "id": "s24",
+          "label": "eval.toString()",
+          "s": 0,
+          "v": 37,
+          "path": "s24"
+        },
+        {
+          "id": "s72",
+          "label": "navigator",
+          "s": 0,
+          "v": false,
+          "path": "s72"
+        },
+        {
+          "id": "s1",
+          "label": "navigator.oscpu",
+          "s": 0,
+          "v": "Intel Mac OS X 10.15",
+          "path": "s1"
+        },
+        {
+          "id": "s2",
+          "label": "navigator.browserLanguage",
+          "s": 0,
+          "v": [
+            [
+              "en-US"
+            ],
+            [
+              "en-US",
+              "en"
+            ]
+          ],
+          "path": "s2"
+        },
+        {
+          "id": "s3",
+          "label": "window.screen.colorDepth",
+          "s": 0,
+          "v": 24,
+          "path": "s3"
+        },
+        {
+          "id": "s4",
+          "label": "navigator.deviceMemory",
+          "s": -1,
+          "v": null,
+          "path": "s4"
+        },
+        {
+          "id": "s5",
+          "label": "screen.height",
+          "s": 0,
+          "v": [
+            900,
+            1400
+          ],
+          "path": "s5"
+        },
+        {
+          "id": "s7",
+          "label": "navigator.hardwareConcurrency",
+          "s": 0,
+          "v": 8,
+          "path": "s7"
+        },
+        {
+          "id": "s9",
+          "label": "Date",
+          "s": 0,
+          "v": "Atlantic/Reykjavik",
+          "path": "s9"
+        },
+        {
+          "id": "s10",
+          "label": "window.sessionStorage",
+          "s": 0,
+          "v": true,
+          "path": "s10"
+        },
+        {
+          "id": "s11",
+          "label": "window.localStorage",
+          "s": 0,
+          "v": true,
+          "path": "s11"
+        },
+        {
+          "id": "s12",
+          "label": "window.indexedDB",
+          "s": 0,
+          "v": true,
+          "path": "s12"
+        },
+        {
+          "id": "s13",
+          "label": "window.openDatabase",
+          "s": 0,
+          "v": false,
+          "path": "s13"
+        },
+        {
+          "id": "s14",
+          "label": "navigator.cpuClass",
+          "s": -1,
+          "v": null,
+          "path": "s14"
+        },
+        {
+          "id": "s15",
+          "label": "Element.prototype.webkitRequestFullscreen",
+          "s": 0,
+          "v": "MacIntel",
+          "path": "s15"
+        },
+        {
+          "id": "s16",
+          "label": "navigator.plugins.length",
+          "s": 0,
+          "v": [
+            {
+              "name": "PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Chrome PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Chromium PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "Microsoft Edge PDF Viewer",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            },
+            {
+              "name": "WebKit built-in PDF",
+              "description": "Portable Document Format",
+              "mimeTypes": [
+                {
+                  "type": "application/pdf",
+                  "suffixes": "pdf"
+                },
+                {
+                  "type": "text/pdf",
+                  "suffixes": "pdf"
+                }
+              ]
+            }
+          ],
+          "path": "s16"
+        },
+        {
+          "id": "s19",
+          "label": "document.createEvent(\"TouchEvent\")",
+          "s": 0,
+          "v": {
+            "maxTouchPoints": 0,
+            "touchEvent": false,
+            "touchStart": false
+          },
+          "path": "s19"
+        },
+        {
+          "id": "s27",
+          "label": "navigator.vendor",
+          "s": 0,
+          "v": "",
+          "path": "s27"
+        },
+        {
+          "id": "s28",
+          "label": "window",
+          "s": 0,
+          "v": [],
+          "path": "s28"
+        },
+        {
+          "id": "s32",
+          "label": "document.cookie.indexOf(\"cookietest=\")",
+          "s": 0,
+          "v": true,
+          "path": "s32"
+        },
+        {
+          "id": "s37",
+          "label": "matchMedia(`(color-gamut: ${})`)",
+          "s": 0,
+          "v": "srgb",
+          "path": "s37"
+        },
+        {
+          "id": "s41",
+          "label": "matchMedia(`(inverted-colors: ${})`)",
+          "s": -1,
+          "v": null,
+          "path": "s41"
+        },
+        {
+          "id": "s39",
+          "label": "matchMedia(`(forced-colors: ${})`)",
+          "s": 0,
+          "v": false,
+          "path": "s39"
+        },
+        {
+          "id": "s42",
+          "label": "matchMedia(\"(min-monochrome: 0)\")",
+          "s": 0,
+          "v": 0,
+          "path": "s42"
+        },
+        {
+          "id": "s38",
+          "label": "matchMedia(`(prefers-contrast: ${})`)",
+          "s": 0,
+          "v": 0,
+          "path": "s38"
+        },
+        {
+          "id": "s43",
+          "label": "matchMedia(`(prefers-reduced-motion: ${})`)",
+          "s": 0,
+          "v": false,
+          "path": "s43"
+        },
+        {
+          "id": "s40",
+          "label": "matchMedia(`(dynamic-range: ${})`)",
+          "s": 0,
+          "v": false,
+          "path": "s40"
+        },
+        {
+          "id": "s46",
+          "label": "TextEncoder",
+          "s": 0,
+          "v": "68435bacb697dfef876c37f0d927c893",
+          "path": "s46"
+        },
+        {
+          "id": "s80",
+          "label": "navigator.pdfViewerEnabled",
+          "s": 0,
+          "v": true,
+          "path": "s80"
+        },
+        {
+          "id": "s81",
+          "label": "",
+          "s": 0,
+          "v": 127,
+          "path": "s81"
+        },
+        {
+          "id": "s82",
+          "label": "navigator.language",
+          "s": 0,
+          "v": "en-US",
+          "path": "s82"
+        },
+        {
+          "id": "s83",
+          "label": "navigator.languages",
+          "s": 0,
+          "v": [
+            "en-US",
+            "en"
+          ],
+          "path": "s83"
+        },
+        {
+          "id": "s86",
+          "label": "window.localStorage.removeItem(\"test\")",
+          "s": -1,
+          "v": null,
+          "path": "s86"
+        },
+        {
+          "id": "s91",
+          "label": "matchMedia(`(prefers-reduced-transparency: ${})…",
+          "s": -1,
+          "v": null,
+          "path": "s91"
+        },
+        {
+          "id": "s96",
+          "label": "AudioContext",
+          "s": -2,
+          "v": null,
+          "path": "s96"
+        },
+        {
+          "id": "s98",
+          "label": "Navigator.prototype",
+          "s": 0,
+          "v": true,
+          "path": "s98"
+        },
+        {
+          "id": "s99",
+          "label": "window.isSecureContext",
+          "s": 0,
+          "v": true,
+          "path": "s99"
+        },
+        {
+          "id": "s200",
+          "label": "performance.now()",
+          "s": 0,
+          "v": 1786118367832.015,
+          "path": "s200"
+        },
+        {
+          "id": "s201",
+          "label": "Audio.prototype",
+          "s": 0,
+          "v": false,
+          "path": "s201"
+        },
+        {
+          "id": "s202",
+          "label": "window.Intl",
+          "s": 0,
+          "v": "en-US",
+          "path": "s202"
+        },
+        {
+          "id": "s101",
+          "label": "navigator.userAgent",
+          "s": 0,
+          "v": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:151.0) Gecko/20100101 Firefox/151.0",
+          "path": "s101"
+        },
+        {
+          "id": "s103",
+          "label": "navigator.appVersion",
+          "s": 0,
+          "v": "5.0 (Macintosh)",
+          "path": "s103"
+        },
+        {
+          "id": "s104",
+          "label": "navigator.connection.rtt",
+          "s": -1,
+          "v": null,
+          "path": "s104"
+        },
+        {
+          "id": "s117",
+          "label": "navigator.plugins.length",
+          "s": 0,
+          "v": 5,
+          "path": "s117"
+        },
+        {
+          "id": "s119",
+          "label": "probe:errorTrace signal unexpected behaviour",
+          "s": 0,
+          "v": "wt@http://localhost:8099/agent.js:5:94831\nyO/<@http://localhost:8099/agent.js:5:122269\nht@http://localhost:8099/agent.js…(403)",
+          "path": "s119"
+        },
+        {
+          "id": "s123",
+          "label": "navigator",
+          "s": 0,
+          "v": "20100101",
+          "path": "s123"
+        },
+        {
+          "id": "s131",
+          "label": "document.documentElement",
+          "s": 0,
+          "v": [
+            "lang"
+          ],
+          "path": "s131"
+        },
+        {
+          "id": "s133",
+          "label": "window.external",
+          "s": 0,
+          "v": "[object External]",
+          "path": "s133"
+        },
+        {
+          "id": "s136",
+          "label": "MimeType.prototype",
+          "s": 0,
+          "v": true,
+          "path": "s136"
+        },
+        {
+          "id": "s148",
+          "label": "probe:Function.prototype.bind is undefined",
+          "s": 0,
+          "v": "function bind() {\n    [native code]\n}",
+          "path": "s148"
+        },
+        {
+          "id": "s149",
+          "label": "window",
+          "s": -1,
+          "v": null,
+          "path": "s149"
+        },
+        {
+          "id": "s150",
+          "label": "window.innerHeight",
+          "s": 0,
+          "v": {
+            "outerWidth": 1400,
+            "outerHeight": 900,
+            "innerWidth": 1400,
+            "innerHeight": 900
+          },
+          "path": "s150"
+        },
+        {
+          "id": "s157",
+          "label": "window.document",
+          "s": 0,
+          "v": {
+            "awesomium": false,
+            "cef": false,
+            "cefsharp": false,
+            "coachjs": false,
+            "fminer": false,
+            "geb": false,
+            "nightmarejs": false,
+            "phantomas": false,
+            "phantomjs": false,
+            "rhino": false,
+            "selenium": false,
+            "webdriverio": false,
+            "webdriver": false,
+            "headless_chrome": false
+          },
+          "path": "s157"
+        },
+        {
+          "id": "s102",
+          "label": "navigator.userAgentData",
+          "s": 0,
+          "v": false,
+          "path": "s102"
+        },
+        {
+          "id": "s118",
+          "label": "Plugin.prototype",
+          "s": 0,
+          "v": true,
+          "path": "s118"
+        },
+        {
+          "id": "s120",
+          "label": "probe:a",
+          "s": 0,
+          "v": false,
+          "path": "s120"
+        },
+        {
+          "id": "s130",
+          "label": "SourceBuffer",
+          "s": 0,
+          "v": [
+            "function",
+            "function"
+          ],
+          "path": "s130"
+        },
+        {
+          "id": "s132",
+          "label": "window.close",
+          "s": 0,
+          "v": "function close() {\n    [native code]\n}",
+          "path": "s132"
+        },
+        {
+          "id": "s135",
+          "label": "navigator.mimeTypes.length",
+          "s": 0,
+          "v": 2,
+          "path": "s135"
+        },
+        {
+          "id": "s139",
+          "label": "CSS",
+          "s": 0,
+          "v": true,
+          "path": "s139"
+        },
+        {
+          "id": "s142",
+          "label": "window.matchMedia",
+          "s": 0,
+          "v": true,
+          "path": "s142"
+        },
+        {
+          "id": "s144",
+          "label": "window.SharedArrayBuffer",
+          "s": -2,
+          "v": null,
+          "path": "s144"
+        },
+        {
+          "id": "s145",
+          "label": "navigator",
+          "s": 0,
+          "v": [
+            "javaEnabled",
+            "getGamepads",
+            "requestMIDIAccess",
+            "mozGetUserMedia",
+            "sendBeacon",
+            "requestMediaKeySystemAccess",
+            "getAutoplayPolicy",
+            "registerProtocolHandler",
+            "taintEnabled",
+            "Navigator"
+          ],
+          "path": "s145"
+        },
+        {
+          "id": "s146",
+          "label": "objectToInspect",
+          "s": 0,
+          "v": false,
+          "path": "s146"
+        },
+        {
+          "id": "s151",
+          "label": "document",
+          "s": 0,
+          "v": true,
+          "path": "s151"
+        },
+        {
+          "id": "s153",
+          "label": "navigator.onLine",
+          "s": 0,
+          "v": true,
+          "path": "s153"
+        },
+        {
+          "id": "s155",
+          "label": "window",
+          "s": 0,
+          "v": {},
+          "path": "s155"
+        },
+        {
+          "id": "s156",
+          "label": "window",
+          "s": 0,
+          "v": [
+            "Iterator"
+          ],
+          "path": "s156"
+        },
+        {
+          "id": "s159",
+          "label": "window.Function",
+          "s": 0,
+          "v": false,
+          "path": "s159"
+        },
+        {
+          "id": "s162",
+          "label": "navigator.languages",
+          "s": 0,
+          "v": false,
+          "path": "s162"
+        },
+        {
+          "id": "s165",
+          "label": "window.Event",
+          "s": 0,
+          "v": {
+            "isTrusted": false
+          },
+          "path": "s165"
+        },
+        {
+          "id": "s166",
+          "label": "Navigator.prototype",
+          "s": 0,
+          "v": {
+            "l": 48,
+            "p": [
+              {
+                "i": 1,
+                "n": "getGamepads"
+              },
+              {
+                "i": 32,
+                "n": "webdriver"
+              },
+              {
+                "i": 45,
+                "n": "onLine"
+              }
+            ]
+          },
+          "path": "s166"
+        },
+        {
+          "id": "s205",
+          "label": "URL",
+          "s": 0,
+          "v": "c:",
+          "path": "s205"
+        },
+        {
+          "id": "s203",
+          "label": "document.createElement(\"a\")",
+          "s": 0,
+          "v": "calc(-0.0773484px)",
+          "path": "s203"
+        },
+        {
+          "id": "s209",
+          "label": "window.crypto.getRandomValues()",
+          "s": 0,
+          "v": {
+            "s": [
+              1803201284,
+              -182736976,
+              1570167563,
+              1163345585
+            ],
+            "p": [
+              12,
+              173,
+              17,
+              68,
+              1,
+              111,
+              127,
+              141,
+              124,
+              50,
+              51,
+              169,
+              164,
+              154,
+              85,
+              43,
+              156,
+              90,
+              223,
+              57,
+              239,
+              37,
+              87,
+              241,
+              111,
+              67,
+              15,
+              251,
+              141,
+              185,
+              206,
+              57,
+              12,
+              173,
+              17,
+              68,
+              1,
+              111,
+              127,
+              141,
+              124,
+              50,
+              51,
+              169,
+              164,
+              154,
+              85,
+              43,
+              156,
+              90,
+              223,
+              57,
+              239,
+              37,
+              87,
+              241,
+              111,
+              67,
+              15,
+              251,
+              141,
+              185,
+              206,
+              57
+            ],
+            "d": 4
+          },
+          "path": "s209"
+        },
+        {
+          "id": "s212",
+          "label": "window.getComputedStyle()",
+          "s": 0,
+          "v": false,
+          "path": "s212"
+        },
+        {
+          "id": "s74",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": {
+            "version": "WebGL 1.0",
+            "vendor": "Mozilla",
+            "vendorUnmasked": "",
+            "renderer": "Mozilla",
+            "rendererUnmasked": "",
+            "shadingLanguageVersion": "WebGL GLSL ES 1.0"
+          },
+          "path": "s74"
+        },
+        {
+          "id": "s75",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": {
+            "contextAttributes": "0540e2fb3a6cd11bbd72e874f7df928f",
+            "parameters": "4e1944aac5aa15b5628ca7c928182f7b",
+            "parameters2": "132e3116bdbfd3b19048a22e5e1dfc7e",
+            "shaderPrecisions": "aacfa3af2caf3f08e2755877ed69968f",
+            "extensions": "69dcd707f4842bf1394474e4015691b2",
+            "extensionParameters": "f6462be9eccba8f0aa6f8ca60174f58f",
+            "extensionParameters2": "acbc41c29ef748b1fe18a5d704016637",
+            "unsupportedExtensions": []
+          },
+          "path": "s75"
+        },
+        {
+          "id": "s221",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": {
+            "b": [
+              2281898568,
+              17046528
+            ],
+            "u": []
+          },
+          "path": "s221"
+        },
+        {
+          "id": "s76",
+          "label": "document.createElement(\"canvas\")",
+          "s": 0,
+          "v": "f0a6c522c643884b684ccad06cc698e6",
+          "path": "s76"
+        },
+        {
+          "id": "s94",
+          "label": "window.webkitRTCPeerConnection",
+          "s": 0,
+          "v": {
+            "u": "205af1ce-042e-007f-235a-10c489984a18",
+            "e": [],
+            "s": []
+          },
+          "path": "s94"
+        },
+        {
+          "id": "s219",
+          "label": "window.webkitRTCPeerConnection",
+          "s": 0,
+          "v": {
+            "u": "4a5bac09-6216-504b-c034-1db00a943d88",
+            "e": [],
+            "s": []
+          },
+          "path": "s219"
+        },
+        {
+          "id": "s167",
+          "label": "atob()",
+          "s": -3,
+          "v": null,
+          "path": "s167"
+        },
+        {
+          "id": "s213",
+          "label": "navigator.geolocation.getCurrentPosition()",
+          "s": -2,
+          "v": null,
+          "path": "s213"
+        },
+        {
+          "id": "s69",
+          "label": "window.crypto.subtle",
+          "s": 0,
+          "v": [
+            {
+              "l": "http://localhost:8099/?b=firefox",
+              "f": ""
+            }
+          ],
+          "path": "s69"
+        },
+        {
+          "id": "s55",
+          "label": "document.cookie.split(\";\")",
+          "s": -1,
+          "v": null,
+          "path": "s55"
+        },
+        {
+          "id": "s48",
+          "label": "",
+          "s": 0,
+          "v": [
+            -268326814,
+            695000757,
+            -633977706,
+            25912894,
+            -99173774,
+            13995273
+          ],
+          "path": "s48"
+        }
+      ],
+      "response": {
+        "encoding": "json",
+        "size": 314,
+        "json": {
+          "version": "4",
+          "event_id": "1786118369012.W8lYga",
+          "sealed_result": null,
+          "error": {
+            "code": "origin_not_available",
+            "message": "forbidden"
+          },
+          "internal": "m56o4Y4gvsRMkR8Mr4l+cvFlWtwVB6zJeCVrYGYMkmeXH8kpR/G57tXZPg5xRfkXaIwpBTUaPM5bzAUs9/50HtJbJzlYs6+jOCJ9M2LithssOw8GERSLxXJYVH0iRw2J03UOAWEIXw7OlHVDT2YbWgGDwnJDVXxfCTm/yw=="
+        }
+      }
+    }
+  ],
+  "api": [],
+  "probes": [
+    {
+      "t": 16.7,
+      "api": "indexedDB.databases",
+      "call": 1,
+      "ret": [],
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 50,
+      "api": "createElement.iframe",
+      "call": 1
+    },
+    {
+      "t": 66.7,
+      "api": "RTCPeerConnection.new",
+      "call": 1,
+      "args": [
+        {
+          "iceServers": [
+            {
+              "credential": "admin",
+              "urls": "turn:use1-turn.fpjs.io?transport=tcp",
+              "username": "205af1ce-042e-007f-235a-10c489984a18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "t": 66.7,
+      "api": "RTCPeerConnection.new",
+      "call": 2,
+      "args": [
+        {
+          "iceServers": [
+            {
+              "credential": "admin",
+              "urls": "turn:use1-turn.fpjs.io:80?transport=tcp",
+              "username": "4a5bac09-6216-504b-c034-1db00a943d88"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "t": 66.7,
+      "api": "RTCPeerConnection.icecandidate",
+      "call": 1,
+      "ret": "candidate:0 1 UDP 2122252543 6c515424-2d70-6812-17c3-d29376c8f61c.local 61951 typ host"
+    },
+    {
+      "t": 66.7,
+      "api": "RTCPeerConnection.icecandidate",
+      "call": 2,
+      "ret": "candidate:1 1 TCP 2105524479 6c515424-2d70-6812-17c3-d29376c8f61c.local 9 typ host tcptype active"
+    },
+    {
+      "t": 66.7,
+      "api": "RTCPeerConnection.icecandidate",
+      "call": 3,
+      "ret": "candidate:0 1 UDP 2122252543 db582423-b177-2578-990e-a57bb69d3e4c.local 55319 typ host"
+    },
+    {
+      "t": 66.7,
+      "api": "createElement.iframe",
+      "call": 2
+    },
+    {
+      "t": 200,
+      "api": "indexedDB.open",
+      "call": 1,
+      "args": [
+        "it1YTVXpVYBdRmWD",
+        1
+      ],
+      "ms": 0,
+      "ret": "it1YTVXpVYBdRmWD"
+    },
+    {
+      "t": 200,
+      "api": "createElement.canvas",
+      "call": 1
+    },
+    {
+      "t": 200,
+      "api": "canvas.getContext",
+      "call": 1,
+      "args": [
+        "2d"
+      ],
+      "ms": 0,
+      "ret": "2d -> ctx"
+    },
+    {
+      "t": 216.7,
+      "api": "canvas.toDataURL",
+      "call": 1,
+      "args": [],
+      "ms": 0,
+      "ret": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfz…(882)"
+    },
+    {
+      "t": 216.7,
+      "api": "canvas.toDataURL",
+      "call": 2,
+      "args": [],
+      "ms": 0,
+      "ret": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA8CAYAAABYfz…(882)"
+    },
+    {
+      "t": 216.7,
+      "api": "matchMedia",
+      "call": 1,
+      "args": [
+        "(prefers-color-scheme: dark)"
+      ],
+      "ms": 0,
+      "ret": "(prefers-color-scheme: dark) -> false"
+    },
+    {
+      "t": 216.7,
+      "api": "matchMedia",
+      "call": 2,
+      "args": [
+        "(prefers-color-scheme: light)"
+      ],
+      "ms": 0,
+      "ret": "(prefers-color-scheme: light) -> true"
+    },
+    {
+      "t": 250,
+      "api": "matchMedia",
+      "call": 3,
+      "args": [
+        "(color-gamut: rec2020)"
+      ],
+      "ms": 0,
+      "ret": "(color-gamut: rec2020) -> false"
+    },
+    {
+      "t": 250,
+      "api": "CSS.supports",
+      "call": 1,
+      "args": [
+        "backdrop-filter",
+        "blur(2px)"
+      ],
+      "ms": 0,
+      "ret": true
+    },
+    {
+      "t": 266.7,
+      "api": "createElement.canvas",
+      "call": 2
+    },
+    {
+      "t": 266.7,
+      "api": "canvas.getContext",
+      "call": 2,
+      "args": [
+        "2d"
+      ],
+      "ms": 0,
+      "ret": "2d -> ctx"
+    },
+    {
+      "t": 266.7,
+      "api": "2d.getImageData",
+      "call": 1,
+      "args": [
+        0,
+        0,
+        4,
+        4
+      ],
+      "ms": 0,
+      "ret": "ImageData 4x4"
+    },
+    {
+      "t": 266.7,
+      "api": "getComputedStyle",
+      "call": 1,
+      "args": [
+        "[<html>]"
+      ],
+      "ms": 0,
+      "ret": "CSSStyleDeclaration"
+    },
+    {
+      "t": 283.3,
+      "api": "createElement.canvas",
+      "call": 3
+    },
+    {
+      "t": 300,
+      "api": "canvas.getContext",
+      "call": 3,
+      "args": [
+        "webgl"
+      ],
+      "ms": 16.67,
+      "ret": "webgl -> ctx"
+    },
+    {
+      "t": 300,
+      "api": "WebGLRenderingContext.getParameter",
+      "call": 1,
+      "args": [
+        7938
+      ],
+      "ms": 0,
+      "ret": "WebGL 1.0"
+    },
+    {
+      "t": 300,
+      "api": "WebGLRenderingContext.getParameter",
+      "call": 2,
+      "args": [
+        7936
+      ],
+      "ms": 0,
+      "ret": "Mozilla"
+    },
+    {
+      "t": 300,
+      "api": "WebGLRenderingContext.getParameter",
+      "call": 3,
+      "args": [
+        7937
+      ],
+      "ms": 0,
+      "ret": "Mozilla"
+    },
+    {
+      "t": 300,
+      "api": "WebGLRenderingContext.getSupportedExtensions",
+      "call": 1,
+      "args": [],
+      "ms": 0,
+      "ret": "26 extensions"
+    },
+    {
+      "t": 300,
+      "api": "WebGLRenderingContext.getContextAttributes",
+      "call": 1,
+      "args": [],
+      "ms": 0,
+      "ret": {
+        "alpha": true,
+        "antialias": true,
+        "depth": true,
+        "failIfMajorPerformanceCaveat": false,
+        "powerPreference": "default",
+        "premultipliedAlpha": true,
+        "preserveDrawingBuffer": false,
+        "stencil": false
+      }
+    },
+    {
+      "t": 316.7,
+      "api": "WebGLRenderingContext.getExtension",
+      "call": 1,
+      "args": [
+        "ANGLE_instanced_arrays"
+      ],
+      "ms": 0,
+      "ret": "ANGLE_instanced_arrays -> ok"
+    },
+    {
+      "t": 316.7,
+      "api": "WebGLRenderingContext.getExtension",
+      "call": 2,
+      "args": [
+        "EXT_blend_minmax"
+      ],
+      "ms": 0,
+      "ret": "EXT_blend_minmax -> ok"
+    },
+    {
+      "t": 316.7,
+      "api": "WebGLRenderingContext.getExtension",
+      "call": 3,
+      "args": [
+        "EXT_color_buffer_half_float"
+      ],
+      "ms": 0,
+      "ret": "EXT_color_buffer_half_float -> ok"
+    },
+    {
+      "t": 316.7,
+      "api": "WebGLRenderingContext.getShaderPrecisionFormat",
+      "call": 1,
+      "args": [
+        35632,
+        36336
+      ],
+      "ms": 0,
+      "ret": {
+        "rangeMin": 127,
+        "rangeMax": 127,
+        "precision": 23
+      }
+    },
+    {
+      "t": 316.7,
+      "api": "WebGLRenderingContext.getShaderPrecisionFormat",
+      "call": 2,
+      "args": [
+        35632,
+        36337
+      ],
+      "ms": 0,
+      "ret": {
+        "rangeMin": 127,
+        "rangeMax": 127,
+        "precision": 23
+      }
+    },
+    {
+      "t": 316.7,
+      "api": "WebGLRenderingContext.getShaderPrecisionFormat",
+      "call": 3,
+      "args": [
+        35632,
+        36338
+      ],
+      "ms": 0,
+      "ret": {
+        "rangeMin": 127,
+        "rangeMax": 127,
+        "precision": 23
+      }
+    },
+    {
+      "t": 316.7,
+      "api": "WebGL2RenderingContext.getSupportedExtensions",
+      "call": 1,
+      "args": [],
+      "ms": 0,
+      "ret": "12 extensions"
+    },
+    {
+      "t": 316.7,
+      "api": "canvas.toDataURL",
+      "call": 3,
+      "args": [],
+      "ms": 0,
+      "ret": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7…(2266)"
+    },
+    {
+      "t": 333.3,
+      "api": "requestMediaKeySystemAccess",
+      "call": 1,
+      "error": "NotSupportedError: Key system is unsupported",
+      "args": [
+        "com.microsoft.playready",
+        [
+          {
+            "initDataTypes": [
+              "cenc"
+            ],
+            "audioCapabilities": [
+              {
+                "contentType": "audio/mp4;codecs=\"mp4a.40.2\""
+              }
+            ]
+          }
+        ]
+      ],
+      "ms": 0
+    },
+    {
+      "t": 333.3,
+      "api": "requestMediaKeySystemAccess",
+      "call": 2,
+      "error": "NotSupportedError: Key system is unsupported",
+      "args": [
+        "webkit-org.w3.clearkey",
+        [
+          {
+            "initDataTypes": [
+              "cenc"
+            ],
+            "audioCapabilities": [
+              {
+                "contentType": "audio/mp4;codecs=\"mp4a.40.2\""
+              }
+            ]
+          }
+        ]
+      ],
+      "ms": 0
+    },
+    {
+      "t": 333.3,
+      "api": "requestMediaKeySystemAccess",
+      "call": 3,
+      "error": "NotSupportedError: Key system is unsupported",
+      "args": [
+        "com.adobe.primetime",
+        [
+          {
+            "initDataTypes": [
+              "cenc"
+            ],
+            "audioCapabilities": [
+              {
+                "contentType": "audio/mp4;codecs=\"mp4a.40.2\""
+              }
+            ]
+          }
+        ]
+      ],
+      "ms": 0
+    },
+    {
+      "t": 333.3,
+      "api": "PublicKeyCredential.getClientCapabilities",
+      "call": 1,
+      "ret": {
+        "conditionalCreate": false,
+        "conditionalGet": true,
+        "extension:appid": true,
+        "extension:credProps": true,
+        "extension:credentialProtectionPolicy": false,
+        "extension:enforceCredentialProtectionPolicy": false,
+        "extension:hmacCreateSecret": true,
+        "extension:largeBlob": true,
+        "extension:minPinLength": true,
+        "extension:prf": true,
+        "hybridTransport": true,
+        "passkeyPlatformAuthenticator": true,
+        "relatedOrigins": true,
+        "signalAllAcceptedCredentials": false,
+        "signalCurrentUserDetails": false,
+        "signalUnknownCredential": false,
+        "userVerifyingPlatformAuthenticator": true
+      },
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 350,
+      "api": "storage.estimate",
+      "call": 1,
+      "ret": {
+        "quota": 10737418240,
+        "usage": 511015
+      },
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 350,
+      "api": "FontFace.load",
+      "call": 1,
+      "ret": {},
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 350,
+      "api": "mediaCapabilities.decodingInfo",
+      "call": 1,
+      "ret": {
+        "powerEfficient": false,
+        "smooth": true,
+        "supported": true,
+        "keySystemAccess": null
+      },
+      "args": [
+        {
+          "type": "file",
+          "video": {
+            "contentType": "video/mp4; codecs=av01.0.08M.08",
+            "width": 1920,
+            "height": 1080,
+            "bitrate": 5000000,
+            "framerate": 30
+          }
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 350,
+      "api": "mediaCapabilities.decodingInfo",
+      "call": 2,
+      "ret": {
+        "powerEfficient": false,
+        "smooth": true,
+        "supported": true,
+        "keySystemAccess": null
+      },
+      "args": [
+        {
+          "type": "file",
+          "video": {
+            "contentType": "video/webm; codecs=vp8",
+            "width": 1920,
+            "height": 1080,
+            "bitrate": 5000000,
+            "framerate": 30
+          }
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 350,
+      "api": "mediaCapabilities.decodingInfo",
+      "call": 3,
+      "ret": {
+        "powerEfficient": false,
+        "smooth": true,
+        "supported": true,
+        "keySystemAccess": null
+      },
+      "args": [
+        {
+          "type": "file",
+          "video": {
+            "contentType": "video/webm; codecs=vp09.00.10.08",
+            "width": 1920,
+            "height": 1080,
+            "bitrate": 5000000,
+            "framerate": 30
+          }
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 366.7,
+      "api": "permissions.query",
+      "call": 1,
+      "ret": "geolocation -> prompt",
+      "args": [
+        {
+          "name": "geolocation"
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 366.7,
+      "api": "permissions.query",
+      "call": 2,
+      "ret": "camera -> prompt",
+      "args": [
+        {
+          "name": "camera"
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 366.7,
+      "api": "permissions.query",
+      "call": 3,
+      "ret": "notifications -> prompt",
+      "args": [
+        {
+          "name": "notifications"
+        }
+      ],
+      "ms": 0
+    },
+    {
+      "t": 366.7,
+      "api": "gpuAdapter.info",
+      "call": 1,
+      "ret": {}
+    },
+    {
+      "t": 366.7,
+      "api": "gpu.requestAdapter",
+      "call": 1,
+      "ret": "GPUAdapter",
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 366.7,
+      "api": "gpuAdapter.info",
+      "call": 2,
+      "ret": {}
+    },
+    {
+      "t": 366.7,
+      "api": "gpu.requestAdapter",
+      "call": 2,
+      "ret": "GPUAdapter",
+      "args": [],
+      "ms": 0
+    },
+    {
+      "t": 366.7,
+      "api": "audio.startRendering",
+      "call": 1,
+      "ret": "AudioBuffer",
+      "args": [],
+      "ms": 0
+    }
+  ],
+  "probeCounts": {
+    "indexedDB.databases": 1,
+    "createElement.iframe": 2,
+    "RTCPeerConnection.new": 2,
+    "RTCPeerConnection.icecandidate": 4,
+    "indexedDB.open": 1,
+    "createElement.canvas": 4,
+    "canvas.getContext": 4,
+    "canvas.toDataURL": 3,
+    "matchMedia": 19,
+    "CSS.supports": 1,
+    "2d.getImageData": 1,
+    "getComputedStyle": 1,
+    "WebGLRenderingContext.getParameter": 92,
+    "WebGLRenderingContext.getSupportedExtensions": 1,
+    "WebGLRenderingContext.getContextAttributes": 1,
+    "WebGLRenderingContext.getExtension": 25,
+    "WebGLRenderingContext.getShaderPrecisionFormat": 12,
+    "WebGL2RenderingContext.getSupportedExtensions": 1,
+    "requestMediaKeySystemAccess": 7,
+    "PublicKeyCredential.getClientCapabilities": 1,
+    "storage.estimate": 1,
+    "FontFace.load": 1,
+    "mediaCapabilities.decodingInfo": 8,
+    "permissions.query": 4,
+    "gpuAdapter.info": 2,
+    "gpu.requestAdapter": 2,
+    "audio.startRendering": 1
+  },
+  "workers": [
+    {
+      "t": 33.3,
+      "kind": "Worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "sourceLength": 1645,
+      "source": "function $P(m,...W){m.postMessage(W);}function GD(m,W,l){l instanceof Error?$P(m,W,l.name,l.message,l.stack):$P(m,W,null,String(l));}const $D=function({port:m=self,workerModules:W=[]}={}){!function(m,W){let l;(r=self).window||(r.window=self),self.requestIdleCallback||(self.requestIdleCallback=(m,{timeout:W}={})=>setTimeout(m,null!=W?W:1e3)),self.document||(self.document={hidden:!1,addEventListener:(m,W,l)=>self.addEventListener(m,W,l),removeEventListener:(m,W,l)=>self.removeEventListener(m,W,l)});var r;let P=!1;m.addEventListener(\"message\",async({data:r})=>{if(r instanceof Array)switch(r[0]){case 0:$P(m,1);break;case 3:try{if(l)throw new Error(\"Worker is already running.\");const P=r[1],N=W(),t={};for(const m of N)m.sources&&Object.assign(t,m.sources.stage1,m.sources.stage2,m.sources.stage3);const o=Object.keys(t),a=Promise.all(o.map(async m=>{const W=await async function(m,W){const l=Date.now();try{const r=await m(W),P=Date.now()-l;if(\"function\"!=typeof r)return ()=>({value:r,duration:P});const N=r;return async()=>{const m=Date.now();try{return {value:await N(),duration:P+(Date.now()-m)}}catch(hO){return {error:String(hO),duration:P+(Date.now()-m)}}}}catch(kO){const W=Date.now()-l;return ()=>({error:String(kO),duration:W})}}(t[m],P);return [m,W]}));l=async()=>{const m=await a,W={};return await Promise.all(m.map(async([m,l])=>{W[m]=await l();})),W},$P(m,4);}catch(CO){GD(m,5,CO);}break;case 6:try{if(!l)throw new Error(\"Worker signal collection was not started.\");$P(m,7,await l()),P=!0;}catch(ZO){GD(m,8,ZO);}break;case 9:P&&$P(m,10);}}),$P(m,2);}(m,()=>[{sources:{stage1:{},stage2:{},stage3:{}}},...W.map(m=>m())]);};$D();"
+    }
+  ],
+  "messages": [
+    {
+      "t": 66.7,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        2
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        0
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        1
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        3,
+        {
+          "ab": {
+            "noop": "a"
+          },
+          "te": "use1-turn.fpjs.io",
+          "esc": true,
+          "ewr": true
+        }
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        4
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        6
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        7,
+        {}
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "to-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        9
+      ]
+    },
+    {
+      "t": 66.7,
+      "dir": "from-worker",
+      "url": "blob:http://localhost:8099/1badd627-9e1e-a5ac-2158-d107b9a068f6",
+      "msg": [
+        10
+      ]
+    }
+  ],
+  "storage": {
+    "local": {
+      "_vid_lr": {
+        "raw": "[[\"IO5KnMKd02T3\",\"MDM3M2iG+Au+aW+p3JdwnAgCi+a1bNsdTYX+4SmES16L8LVvyktVi+6nOYhEX5HxpzzqWVmT76cxiltBkO6nUZxFTcq1tTGcAxyG6Lk6kFpNhf7nYpxTTeGuxDLsLRXvkMMpkksOwP6tKckoItCv9EjJS0OLrv4phEsm5uncZfMiC5nuwzicRU3K/q0p3wEhxu/eb9xaPcCN8D2HCz7OsNIpkksdwLi1MdAcA8XwtW7MS1WLs+Vi2QAB9rL4f+EIGci1+2rcBQqT/NFi0A4K26zlYtAdKtuu+HmESQnGrvVi2g0Kx/67Kd0bTZOy4mfSRU3Es7Ux5UsK0f67Kd0ETfTwtXjfS1Xygbsp0hpNk+2iO5JLA8z+rTqGWkOLv/…(2681)",
+        "decoded": [
+          {
+            "key": "IO5KnMKd02T3",
+            "value": {
+              "am": "get",
+              "v": "1",
+              "dt": "2026-07-31T06:30:42.920Z",
+              "ci": "js/4.1.3",
+              "pi": "HrS9RDzFLT",
+              "ai": "wAMyscCw",
+              "ri": "IO5KnMKd02T3",
+              "c": "kBwLN2IyH1GjeJBLpl8C",
+              "rid": null,
+              "er": "origin_not_available: FingerprintError: forbidden",
+              "cr": null,
+              "mo": [
+                "ex",
+                "cm"
+              ],
+              "sa": [],
+              "ls": 150,
+              "le": 183,
+              "ca": [
+                {
+                  "s": 183,
+                  "e": 667,
+                  "u": "https://api.fpjs.io/xridvya/qAo6p?q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 183,
+                  "de": 183,
+                  "cs": 250,
+                  "css": 283,
+                  "ce": 550,
+                  "qs": 550,
+                  "ss": 667
+                }
+              ],
+              "ss": 150,
+              "se": 800,
+              "sd": {
+                "s52": 600,
+                "s6": 0,
+                "s26": 333,
+                "s58": 300,
+                "s20": 316,
+                "s36": 316,
+                "s51": 316,
+                "s21": 200,
+                "s154": 150,
+                "s79": 133,
+                "s23": 133,
+                "s29": 133,
+                "s84": 133,
+                "s85": 133,
+                "s89": 167,
+                "s17": 17,
+                "s87": 116,
+                "s92": 116,
+                "s93": 116,
+                "s204": 116,
+                "s206": 116,
+                "s207": 116,
+                "s210": 133,
+                "s211": 133,
+                "s158": 116,
+                "s152": 116,
+                "s163": 100,
+                "s95": 100,
+                "s97": 116,
+                "s160": 400,
+                "s70": 133,
+                "s106": 117,
+                "s214": 100,
+                "s215": 100,
+                "s216": 100,
+                "s217": 84,
+                "s222": 84,
+                "s223": 100,
+                "s22": 0,
+                "s30": 0,
+                "s33": 0,
+                "s44": 0,
+                "s45": 0,
+                "s49": 0,
+                "s50": 0,
+                "s57": 0,
+                "s59": 0,
+                "s60": 0,
+                "s61": 0,
+                "s62": 0,
+                "s63": 0,
+                "s64": 0,
+                "s65": 0,
+                "s66": 0,
+                "s68": 0,
+                "s71": 0,
+                "s24": 0,
+                "s72": 0,
+                "s1": 0,
+                "s2": 0,
+                "s3": 0,
+                "s4": 0,
+                "s5": 0,
+                "s7": 0,
+                "s9": 0,
+                "s10": 0,
+                "s11": 0,
+                "s12": 0,
+                "s13": 0,
+                "s14": 0,
+                "s15": 0,
+                "s16": 0,
+                "s19": 0,
+                "s27": 0,
+                "s28": 0,
+                "s32": 0,
+                "s37": 0,
+                "s41": 0,
+                "s39": 0,
+                "s42": 0,
+                "s38": 17,
+                "s43": 0,
+                "s40": 0,
+                "s46": 0,
+                "s80": 0,
+                "s81": 0,
+                "s82": 0,
+                "s83": 0,
+                "s86": 0,
+                "s91": 0,
+                "s96": 0,
+                "s98": 0,
+                "s99": 0,
+                "s200": 0,
+                "s201": 0,
+                "s202": 0,
+                "s101": 0,
+                "s103": 0,
+                "s104": 0,
+                "s117": 0,
+                "s119": 0,
+                "s123": 0,
+                "s131": 0,
+                "s133": 0,
+                "s136": 0,
+                "s148": 0,
+                "s149": 0,
+                "s150": 0,
+                "s157": 0,
+                "s102": 0,
+                "s118": 0,
+                "s120": 0,
+                "s130": 0,
+                "s132": 0,
+                "s135": 0,
+                "s139": 0,
+                "s142": 0,
+                "s144": 0,
+                "s145": 0,
+                "s146": 0,
+                "s151": 0,
+                "s153": 0,
+                "s155": 0,
+                "s156": 0,
+                "s159": 0,
+                "s162": 0,
+                "s165": 0,
+                "s166": 0,
+                "s205": 0,
+                "s203": 0,
+                "s209": 0,
+                "s212": 0,
+                "s74": 33,
+                "s75": 0,
+                "s221": 17,
+                "s76": 17,
+                "s94": 350,
+                "s219": 333,
+                "s167": 0,
+                "s213": 0
+              },
+              "gs": 183,
+              "ge": 933,
+              "cs": null,
+              "ce": null,
+              "fa": [],
+              "ia": [
+                {
+                  "s": 800,
+                  "e": 917,
+                  "u": "https://api.fpjs.io/?ci=js/4.1.3&q=kBwLN2IyH1GjeJBLpl8C",
+                  "er": null,
+                  "ds": 800,
+                  "de": 800,
+                  "cs": 800,
+                  "css": 800,
+                  "ce": 800,
+                  "qs": 800,
+                  "ss": 917
+                }
+              ],
+              "vs": [
+                {
+                  "t": 150,
+                  "s": "v"
+                }
+              ],
+              "ab": {
+                "noop": "b"
+              },
+              "ao": true,
+              "or": false
+            }
+          }
+        ]
+      }
+    },
+    "session": {},
+    "cookies": {},
+    "databases": []
+  },
+  "resources": [
+    {
+      "t": 66.7,
+      "kind": "iframe",
+      "url": "about:blank"
+    },
+    {
+      "t": 316.7,
+      "kind": "iframe",
+      "url": "(srcless)"
+    }
+  ],
+  "notes": []
+}
