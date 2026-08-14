@@ -6,59 +6,36 @@
   </picture>
 </p>
 
-<h3 align="center">The complete, documented teardown of the Fingerprint Pro v4 browser agent</h3>
+<h3 align="center">Fingerprint Pro v4, deobfuscated and documented</h3>
 
 <p align="center">
-  Every signal it collects, named and explained. The obfuscation removed and the source published.
-  The wire format, the identity model and the tooling to reproduce all of it.
+  <b>143 signals named. The bundle unpacked. The wire format decoded.</b>
 </p>
 
 <p align="center">
-  <b><a href="docs/index.html">Documentation site</a></b> ·
-  <b><a href="docs/explorer.html">Live signal explorer</a></b> ·
+  <b><a href="docs/explorer.html">Run it on your browser</a></b> ·
+  <b><a href="docs/index.html">Read the docs</a></b> ·
   <a href="reference/signals.md">Signal map</a> ·
-  <a href="reference/slices/">Collector sources</a> ·
-  <a href="docs/01-architecture.md">Guide</a>
+  <a href="reference/slices/">Collector sources</a>
 </p>
 
 ---
 
-Fingerprint Pro is the commercial browser fingerprinting service behind `fpjs.io`. Its agent ships
-as an obfuscated bundle: CRC32 constants instead of property names, four encrypted string tables,
-operator wrappers over every expression, and a binary wire format that hides what leaves your
-browser. This repository is that agent taken apart, and what came out of it written down.
+`fpjs.io` ships its agent as an obfuscated bundle: CRC32 constants instead of property names, four
+encrypted string tables, operator wrappers over every expression, and a binary wire format. This is
+that agent taken apart.
 
-**What is in here**
+| | |
+| --- | --- |
+| [**143 signals, one row each**](reference/signals.md) | surfaces touched, status codes, constants compared, value shape |
+| [**The agent, readable**](agent/) | CRC32 names resolved, tables decrypted, wrappers folded, bindings renamed, hash-pinned |
+| [**Every collector as its own file**](reference/slices/) | one signal plus only the helpers it reaches, instead of a 200 KB bundle |
+| [**The collectors, runnable**](collector/) | `collect`, `buildPayload`, `frame`, `send` from a console. No agent, no network |
+| [**Wire format, end to end**](docs/03-wire-format.md) | JSON to bytes, deflate-raw over 1024, sealed with a key that ships inside the frame |
+| [**What `visitor_id` is a function of**](docs/06-identity.md) | 7 fields break a match alone, `s56` is a bearer token, not a fingerprint |
 
-- **All 143 wire signals, documented.** One row per signal id with the browser surfaces it touches,
-  the status codes it can return, the constants it compares against and the shape of the value it
-  reports. Canvas, WebGL, WebGPU with timestamp queries, audio, fonts, speech voices, DRM key
-  systems, the automation and tamper probes, the engine discriminators, the full media-query
-  battery. [`reference/signals.md`](reference/signals.md)
-- **The deobfuscated agent.** The shipped program with the CRC32 property lookups resolved, the
-  string vaults decrypted and inlined, the operator wrappers folded and every binding renamed.
-  Pinned to the hash of the original so it can be checked against the real bundle.
-  [`agent/`](agent/)
-- **The source of every collector, on its own page.** 143 files, each carrying one collector plus
-  every helper only that collector can reach, so you can read what a single signal does without
-  opening a 200 KB bundle. [`reference/slices/`](reference/slices/)
-- **The collectors as a runnable module.** `fp-collect.js` exports `collect`, `buildPayload`,
-  `frame` and `send`: the agent's own measurement code, callable from a page or a console, with no
-  agent and no network. [`collector/`](collector/)
-- **The wire format, end to end.** JSON to bytes, deflate-raw over 1024 bytes, sealed with a key
-  that ships inside the frame. A codec that opens and rebuilds real frames from Node.
-  [`03-wire-format`](docs/03-wire-format.md)
-- **What the visitor id is actually a function of.** Paired sends against a live tenant: which
-  fields break an identity match on their own, how much drift the server absorbs, and why `s56` is
-  a bearer token rather than a fingerprint. [`06-identity`](docs/06-identity.md)
-- **Captures and evidence.** Chrome, Firefox and Safari runs of the same pinned build, the raw rows
-  behind every claim, and the tools that produced them. Nothing here is asserted without the file
-  that shows it.
-- **A live explorer.** A page that runs those 143 collectors against your own browser and shows what
-  each one measured under readable names, with a JSON tree per signal. It sends nothing.
-
-Everything the analysis does **not** establish is written down too, in
-[08-not-determined](docs/08-not-determined.md).
+Chrome, Firefox and Safari captures of the same pinned build back every claim, and the limits are
+written down in [08-not-determined](docs/08-not-determined.md).
 
 ## The site
 
