@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>fpspy — fingerprint-pro-internals</title>
+    <meta name="description" content="A console script that instruments the Fingerprint agent on any page it runs on. Paste fpspy.js into the DevTools console. It works whether the agent has already loaded, is loading, or has not been inj" />
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" class="current" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">DevTools instrumentation</div><h1>fpspy</h1><p class="lede">A console script that instruments the Fingerprint agent on any page it runs on. Paste fpspy.js into the DevTools console. It works whether the agent has already loaded, is loading, or has not been inj</p></div>
+        <p>A console script that instruments the Fingerprint agent on any page it runs on. Paste
+<code>fpspy.js</code> into the DevTools console. It works whether the agent has already loaded, is loading, or
+has not been injected yet.</p>
+<p>Regenerate with <code>npm run spy</code> after editing <code>tools/fpspy.src.js</code>. The generator&#39;s one job is to
+inline the signal-id labels from <code>reference/signals.json</code> so a decoded payload is readable.</p>
+<h2 id="what-it-hooks">What it hooks<a class="anchor" href="#what-it-hooks">#</a></h2>
+<p><code>fetch</code>, <code>XMLHttpRequest</code>, <code>sendBeacon</code>, <code>Blob</code> and <code>URL.createObjectURL</code>, <code>Worker</code>, the
+collector-facing browser APIs, and the <code>FingerprintJS</code> global if one appears. The global&#39;s <code>load()</code>
+gets <code>debug: true</code> forced on, which turns on the agent&#39;s own request and response logger.</p>
+<h2 id="api">API<a class="anchor" href="#api">#</a></h2>
+<pre><code class="hljs language-js">__fpspy.<span class="hljs-title function_">dump</span>()        <span class="hljs-comment">// console report: request table, api events, workers, storage, probe counts</span>
+__fpspy.<span class="hljs-title function_">payloads</span>()    <span class="hljs-comment">// decoded request bodies, newest last</span>
+__fpspy.<span class="hljs-title function_">signals</span>(p)    <span class="hljs-comment">// flatten a payload&#x27;s {s,v} pairs to id / label / status / value rows</span>
+__fpspy.<span class="hljs-title function_">probes</span>()      <span class="hljs-comment">// API call counts, most-called first</span>
+__fpspy.<span class="hljs-title function_">storage</span>()     <span class="hljs-comment">// local, session, cookie and indexedDB snapshot, framed values decoded</span>
+__fpspy.<span class="hljs-title function_">decode</span>(x)     <span class="hljs-comment">// decode a base64 string or byte array by hand</span>
+__fpspy.<span class="hljs-title function_">deepProps</span>()   <span class="hljs-comment">// also trace navigator and screen property reads</span>
+__fpspy.<span class="hljs-title function_">save</span>()        <span class="hljs-comment">// download the whole capture as JSON</span>
+__fpspy.<span class="hljs-title function_">stop</span>()        <span class="hljs-comment">// restore every original</span></code></pre>
+<p>The point of it is the request body. The agent frames every POST as
+<code>[R] [tag[0]+R] [tag[1]+R] [padLen+R] [pad] [key] [payload ^ key]</code>, all bytes mod 256, tag <code>3,13</code> for
+a plain body and <code>3,14</code> for a deflate-raw compressed one. The script brute-forces the key length
+against a JSON-shaped result, so a change to the tag or key size does not break it. The same framing
+with a 7-byte key holds the <code>&lt;prefix&gt;lr</code> entry in <code>localStorage</code>, which <code>__fpspy.storage()</code> decodes as
+well.</p>
+<p>Third-party traffic is filtered by host and path rather than by the whole URL, because analytics
+beacons carry <code>Fingerprint</code> in their query strings and a substring match logs all of them. Anything
+whose body unframes is captured regardless of host, which is what catches a customer proxying the
+endpoint under their own domain. <code>__fpspy.opts.all = true</code> logs everything.</p>
+<h2 id="detectability">Detectability<a class="anchor" href="#detectability">#</a></h2>
+<p><code>Function.prototype.toString</code> is patched to return the original source for every wrapper, so the
+hooks survive a source check. They are still detectable: a <code>Function.prototype.toString</code> that is not
+itself native is the obvious tell. <code>deepProps()</code> is worse, because it replaces property descriptors
+on <code>navigator</code> and <code>screen</code>, which is exactly what <code>s118</code>, <code>s162</code> and <code>s166</code> look at. The default is
+method wraps only.</p>
+
+        <div class="pagenav"><a href="../repo/evidence.html">← Identity evidence</a><a href="../repo/license.html">→ License and contact</a></div>
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Audio prototype extras (s201) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s201</div><h1>Audio prototype extras</h1></div>
+        <p class="lede">non-standard Audio prototype members such as srChannelCount and srLatency</p>
+<p class="lede">Group: Audio and speech · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s201 — sig_s201_srChannelCount</span>
+<span class="hljs-comment">// module cm, stage3, codes 0</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   Audio.prototype Audio.prototype.srChannelCount Audio.prototype.srLatency Image.prototype</span>
+<span class="hljs-comment">//   navigator.devicePosture window</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   value</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;getTextInformation&quot; &quot;segments&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   &gt;= 3 in &quot;devicePosture&quot; in &quot;getTextInformation&quot; in &quot;segments&quot; in &quot;srChannelCount&quot; in &quot;srLatency&quot;</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   h_s201_srChannelCount: fn9([&quot;srLatency&quot; in v571, &quot;srChannelCount&quot; in v571, &quot;devicePosture&quot; in navigator, visualViewport &amp;&amp; &quot;segments&quot; in visualViewport, &quot;getTextInformation&quot; in Image.…</span>
+<span class="hljs-comment">//   fn129: fn40(arg775)</span>
+<span class="hljs-comment">//   fn129: fn88(v896)</span>
+<span class="hljs-comment">//   fn129: fn88(v897)</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 1 owned helper inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   fn129:6642 fn40:1892 fn85:4641 fn88:4712 fn9:252</span>
+
+<span class="hljs-comment">// agent.clean.js:3813</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s201_srChannelCount</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> v571 = <span class="hljs-title class_">Audio</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>,
+    { <span class="hljs-attr">visualViewport</span>: visualViewport } = <span class="hljs-variable language_">window</span>;
+  <span class="hljs-keyword">return</span> (
+    <span class="hljs-title function_">fn9</span>([
+      <span class="hljs-string">&quot;srLatency&quot;</span> <span class="hljs-keyword">in</span> v571,
+      <span class="hljs-string">&quot;srChannelCount&quot;</span> <span class="hljs-keyword">in</span> v571,
+      <span class="hljs-string">&quot;devicePosture&quot;</span> <span class="hljs-keyword">in</span> navigator,
+      visualViewport &amp;&amp; <span class="hljs-string">&quot;segments&quot;</span> <span class="hljs-keyword">in</span> visualViewport,
+      <span class="hljs-string">&quot;getTextInformation&quot;</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">Image</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>,
+    ]) &gt;= <span class="hljs-number">3</span>
+  );
+}
+
+<span class="hljs-comment">// agent.clean.js:6104</span>
+<span class="hljs-keyword">const</span> sig_s201_srChannelCount = <span class="hljs-title function_">fn85</span>(h_s201_srChannelCount);
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

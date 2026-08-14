@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What the agent collects — fingerprint-pro-internals</title>
+    <meta name="description" content="143 wire signal ids in this build: 4 in stage1, 38 in stage2, 98 in stage3, and 3 contributed by the cm module's toRequest. The agent names them itself, in the sources table it registers, so every id " />
+    <link rel="icon" href="./logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="./index.html"><img src="./logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="./index.html">Overview</a>
+          <a href="./01-architecture.html">Guide</a>
+          <a href="./reference/signals.html">Reference</a>
+          <a href="./slices/index.html">Collectors</a>
+          <a href="./explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell with-toc">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="./index.html" data-nav="Overview">Overview</a>
+<a href="./explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="./01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="./02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="./03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="./04-collection.html" class="current" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="./05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="./06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="./07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="./08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="./09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="./reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="./reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="./reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="./reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="./reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="./reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="./reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="./reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="./slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="./repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="./repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="./repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="./repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="./repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="./repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="./repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose">
+        <div class="pagehead"><div class="kicker">Guide</div><h1>What the agent collects</h1><p class="lede">143 wire signal ids in this build: 4 in stage1, 38 in stage2, 98 in stage3, and 3 contributed by the cm module's toRequest. The agent names them itself, in the sources table it registers, so every id </p></div>
+        <p>143 wire signal ids in this build: 4 in <code>stage1</code>, 38 in <code>stage2</code>, 98 in <code>stage3</code>, and 3 contributed
+by the <code>cm</code> module&#39;s <code>toRequest</code>. The agent names them itself, in the <code>sources</code> table it registers,
+so every id in the map below is the agent&#39;s own label for its own collector.</p>
+<p>Generated inventories, all regenerated by <code>npm run map</code>:</p>
+<table><thead><tr><th>file</th><th>one row per</th></tr></thead><tbody><tr><td><a href="./reference/signals.html"><code>reference/signals.md</code></a></td><td>signal id: browser surfaces, branch tests, compared constants, status codes, value shape</td></tr>
+<tr><td><a href="./slices/index.html"><code>reference/slices/</code></a></td><td>signal id: the collector&#39;s source plus every helper only it can reach</td></tr>
+<tr><td><a href="./reference/schema.html"><code>reference/schema.md</code></a></td><td>wire key and addressable leaf: types, observed values, digest and session labels</td></tr>
+<tr><td><a href="./reference/observed.html"><code>reference/observed.md</code></a></td><td>signal id: what Chrome, Firefox and Safari actually sent</td></tr>
+<tr><td><a href="./reference/codes.html"><code>reference/codes.md</code></a></td><td>status code: every site that can produce it</td></tr></tbody></table>
+<h2 id="how-a-signal-row-is-built">How a signal row is built<a class="anchor" href="#how-a-signal-row-is-built">#</a></h2>
+<p>For each collector the tool walks the body, follows the module-level helpers it calls up to four
+levels deep, and records the browser surfaces it touches, the <code>s</code> codes it can return, and the string
+literals in its own body and its direct helpers. Local aliases are resolved, so
+<code>const n = navigator; n.languages</code> is recorded as <code>navigator.languages</code>. Surfaces are ranked
+rarest-first across all 143 signals, which sinks the shared iframe plumbing every stage2 collector
+inherits below the API that actually distinguishes the signal.</p>
+<p>An API list says which surfaces a collector touches, not what it does with them, so each row also
+carries the collector&#39;s branch structure: every <code>if</code>, ternary and returned comparison, plus the
+literals those tests compare against. That is where a threshold like <code>&gt;= 4</code> or a probe like
+<code>&quot;WebKitMediaKeys&quot; in window</code> becomes readable without opening the bundle.</p>
+<p>Four rows carry <code>truncated</code>: <code>s94</code>, <code>s219</code>, <code>s211</code> and <code>s70</code>, the WebRTC, media-capabilities and GPU
+families, whose call graphs fan out past the walk limit. Their surfaces and status codes are complete;
+their branch lists are not. Eighteen collectors branch on nothing at all: they read a property and
+report it. Four read no browser surface, only the JavaScript engine, and one reaches no recorded
+surface at all (<code>s120</code> throws a string and calls <code>toSource()</code> on the caught value, a Gecko-only method
+on a local binding, and the walk only records reads rooted at a global).</p>
+<h2 id="signals-worth-calling-out">Signals worth calling out<a class="anchor" href="#signals-worth-calling-out">#</a></h2>
+<p><strong>WebGPU timestamp queries (<code>s70</code>).</strong> A full render pipeline: shader module, 7x9 RGBA texture, four
+rotation matrices, a <code>GPUQuerySet</code> with <code>timestampWrites</code> at pass start and end, results resolved into
+a mapped buffer alongside <code>performance.now()</code> deltas. That is GPU-side execution timing, not a pixel
+hash, and it reads hardware behaviour that a software fingerprint patch does not touch.</p>
+<p><strong>Canvas (<code>s17</code>).</strong> The standard geometry-plus-text pair, <code>Cwm fjordbank gly</code> with an emoji and the
+three-circle <code>multiply</code> composite, with a stability check: the text pass renders twice and the
+collector reports <code>&quot;unstable&quot;</code> if the two differ. Winding is probed separately through
+<code>isPointInPath(..., &quot;evenodd&quot;)</code>. Per-call canvas noise fails the stability check outright rather than
+producing a new value.</p>
+<p><strong>Ad-block probes (<code>s36</code>).</strong> Base64-encoded CSS selectors for ad containers, injected and measured for
+suppression. Half of them ship as <code>atob(&quot;...&quot;)</code>, which the deobfuscator folds, so the selector list is
+readable in the slice.</p>
+<p><strong>Automation flags (<code>s157</code>).</strong> The classic <code>botd</code> name list in plaintext: <code>__webdriver_evaluate</code>,
+<code>__selenium_evaluate</code>, <code>__fxdriver_evaluate</code>, <code>__driver_unwrapped</code>, <code>_phantom</code>, <code>__nightmare</code>,
+<code>_selenium</code>, <code>__webdriver_script_fn</code>, <code>__$webdriverAsyncExecutor</code>, <code>webdriverio</code>, <code>wdioElectron</code>,
+<code>awesomium</code>, <code>phantomas</code>, plus <code>navigator.webdriver</code> read directly and reported tri-state.</p>
+<p><strong>Engine discriminators.</strong> <code>eval.toString().length</code> (<code>s24</code>) separates V8 from SpiderMonkey and JSC.
+Four collectors measure the JavaScript engine rather than any browser API: <code>s48</code> reads the
+<code>Math.random</code> sequence, <code>s81</code> reads which byte of a <code>Float32Array</code> holds an <code>Infinity</code>, <code>s119</code> reads
+an <code>Error</code> trace, <code>s148</code> reads <code>Function.prototype.bind.toString</code>.</p>
+<p><strong>The long tail.</strong> Font enumeration including the FingerprintJS-typical rare faces (<code>Vrinda</code>,
+<code>Univers CE 55 Medium</code>, <code>TRAJAN PRO</code>, <code>ZWAdobeF</code>), MathML metrics via <code>mmultiscripts</code>, speech-synthesis
+voices, <code>OfflineAudioContext</code> audio, <code>SharedArrayBuffer</code> presence, <code>RTCPeerConnection</code>, Encrypted
+Media Extensions with a Widevine service certificate, storage quota estimates, permission queries,
+media-capabilities decoding info, OPFS handles, and the full CSS media-query battery.</p>
+<h2 id="what-varies-between-browsers">What varies between browsers<a class="anchor" href="#what-varies-between-browsers">#</a></h2>
+<p><code>npm run join</code> reads the three captures in <code>captures/</code> and joins them against the static map:</p>
+<table><thead><tr><th>measure</th><th>count</th></tr></thead><tbody><tr><td>wire ids observed</td><td>144</td></tr>
+<tr><td>ids registered in the map</td><td>143</td></tr>
+<tr><td>ids reporting a different value on Chrome, Firefox and Safari</td><td>58</td></tr>
+<tr><td>ids reporting a failure status somewhere</td><td>38</td></tr>
+<tr><td>ids observed but not registered</td><td>0</td></tr>
+<tr><td>static and observed disagreements</td><td>0</td></tr></tbody></table>
+<p>The extra observed id is <code>s56</code>, which no collector produces: it is the server-issued blob the agent
+replays, matched against <code>reference/envelope.json</code> instead.</p>
+<p>The split is the useful part. The 58 varying ids are what a browser build has to keep coherent; the
+85 that are identical across all three are what it cannot betray itself with. Both counts are for one
+machine: everything here was collected on the same hardware behind the same address, so a signal that
+is constant across the three columns is only known to be constant for that machine.</p>
+<p>The <code>notes</code> column records where the static read and the capture disagree: a status code the collector
+reported that no branch in its source produces, object keys on the wire the source never names, a
+32-hex value from a collector with no call to the hash mixer on its path. Each of those is a hole in
+the static read rather than a bad capture. Against the captures in this tree the count is zero.</p>
+
+        <div class="pagenav"><a href="./03-wire-format.html">← Wire format</a><a href="./05-status-codes.html">→ Status codes</a></div>
+      </main>
+      <aside class="toc"><span>On this page</span><a href="#how-a-signal-row-is-built">How a signal row is built</a>
+<a href="#signals-worth-calling-out">Signals worth calling out</a>
+<a href="#what-varies-between-browsers">What varies between browsers</a></aside>
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="./repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./hub.js"></script>
+    
+  </body>
+</html>

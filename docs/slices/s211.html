@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media capabilities (s211) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s211</div><h1>Media capabilities</h1></div>
+        <p class="lede">decodingInfo answers for a codec set: supported, smooth, power efficient</p>
+<p class="lede">Group: Media and DRM · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s211 — sig_s211_decodingInfo</span>
+<span class="hljs-comment">// module cm, stage2, codes 0 -1</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   navigator.mediaCapabilities.decodingInfo() navigator.mediaCapabilities TextEncoder</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   SyntaxError Object.defineProperty() String.fromCharCode() Array Number() parseInt() String()</span>
+<span class="hljs-comment">//   Promise.all()</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   call null</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;audio/mp4; codecs=mp4a.40.5&quot; &quot;audio/ogg; codecs=opus&quot; &quot;function&quot; &quot;message&quot;</span>
+<span class="hljs-comment">//   &quot;video/mp4; codecs=av01.0.08M.08&quot; &quot;video/mp4; codecs=avc1.640028&quot;</span>
+<span class="hljs-comment">//   &quot;video/mp4; codecs=avc1.640033&quot; &quot;video/mp4; codecs=hvc1.1.6.L93.B0&quot;</span>
+<span class="hljs-comment">//   &quot;video/webm; codecs=vp09.00.10.08&quot; &quot;video/webm; codecs=vp8&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   == &quot;function&quot; === &quot;string&quot; in &quot;mediaCapabilities&quot;</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   !(&quot;mediaCapabilities&quot; in navigator)</span>
+<span class="hljs-comment">//   v158 instanceof Error</span>
+<span class="hljs-comment">//   readVaultedProp: typeof v316 == &quot;function&quot;</span>
+<span class="hljs-comment">//   resolveNameByHash: typeof arg801 === &quot;string&quot;</span>
+<span class="hljs-comment">//   resolveNameByHash: fn48(v928) === arg801</span>
+<span class="hljs-comment">// the call graph walk hit its limit here, so the tests above are partial</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 7 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   asUint8Array:6496 crc32OfBytes:4943 decodeJsonBytes:5252 decryptSelfKeyedTable:112</span>
+<span class="hljs-comment">//   deepClone:4738 fn48:3370 makeSelfKeyedVault:3791 readVaultedProp:1674 resolveNameByHash:7015</span>
+<span class="hljs-comment">//   stringToBytes:7901</span>
+
+<span class="hljs-comment">// agent.clean.js:838</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">sig_s211_decodingInfo</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (!(<span class="hljs-string">&quot;mediaCapabilities&quot;</span> <span class="hljs-keyword">in</span> navigator)) {
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">1</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+  }
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">v</span>: <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>(
+      h_s211_fn6.<span class="hljs-title function_">map</span>(<span class="hljs-title function_">async</span> (arg100) =&gt; {
+        <span class="hljs-keyword">try</span> {
+          <span class="hljs-keyword">const</span> v156 = <span class="hljs-keyword">await</span> navigator.<span class="hljs-property">mediaCapabilities</span>.<span class="hljs-title function_">decodingInfo</span>(arg100);
+          <span class="hljs-keyword">let</span> v157 = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">if</span> (v156.<span class="hljs-property">supported</span>) {
+            v157 += <span class="hljs-number">1</span>;
+          }
+          <span class="hljs-keyword">if</span> (v156.<span class="hljs-property">smooth</span>) {
+            v157 += <span class="hljs-number">2</span>;
+          }
+          <span class="hljs-keyword">if</span> (v156.<span class="hljs-property">powerEfficient</span>) {
+            v157 += <span class="hljs-number">4</span>;
+          }
+          <span class="hljs-keyword">return</span> v157;
+        } <span class="hljs-keyword">catch</span> (v158) {
+          <span class="hljs-keyword">return</span> v158 <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Error</span> ? <span class="hljs-title function_">readVaultedProp</span>(v158, <span class="hljs-string">&quot;message&quot;</span>) : <span class="hljs-title class_">String</span>(v158);
+        }
+      }),
+    ),
+  };
+}
+
+<span class="hljs-comment">// agent.clean.js:1602</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-params">arg240, arg241 = h_s211_fn3, arg242 = <span class="hljs-literal">null</span>, arg243 = h_s211_fn5</span>) {
+  <span class="hljs-keyword">const</span> v299 = {
+    <span class="hljs-attr">type</span>: ((v300 = vault_nd), (v301 = <span class="hljs-number">1</span>), <span class="hljs-title function_">v300</span>(v301)),
+    <span class="hljs-attr">video</span>: { <span class="hljs-attr">contentType</span>: arg240, ...arg241 },
+  };
+  <span class="hljs-keyword">var</span> v300, v301;
+  <span class="hljs-keyword">if</span> (arg242) {
+    <span class="hljs-keyword">return</span> { ...v299, <span class="hljs-attr">audio</span>: { <span class="hljs-attr">contentType</span>: arg242, ...arg243 } };
+  }
+  <span class="hljs-keyword">return</span> v299;
+}
+
+<span class="hljs-comment">// agent.clean.js:3358</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s211_fn2</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> [
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/mp4; codecs=av01.0.08M.08&quot;</span>),
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/webm; codecs=vp8&quot;</span>),
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/webm; codecs=vp09.00.10.08&quot;</span>),
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/mp4; codecs=hvc1.1.6.L93.B0&quot;</span>),
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/mp4; codecs=avc1.640028&quot;</span>),
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/mp4; codecs=avc1.640033&quot;</span>, h_s211_fn4),
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/webm; codecs=vp09.00.10.08&quot;</span>, h_s211_fn3, <span class="hljs-string">&quot;audio/ogg; codecs=opus&quot;</span>),
+    <span class="hljs-title function_">h_s211_fn</span>(<span class="hljs-string">&quot;video/mp4; codecs=avc1.640028&quot;</span>, h_s211_fn3, <span class="hljs-string">&quot;audio/mp4; codecs=mp4a.40.5&quot;</span>),
+  ];
+}
+
+<span class="hljs-comment">// agent.clean.js:8013</span>
+<span class="hljs-keyword">var</span> vault_nd = <span class="hljs-title function_">makeSelfKeyedVault</span>(
+  [
+    <span class="hljs-number">2438195688</span>, <span class="hljs-number">1087750592</span>, <span class="hljs-number">3820735174</span>, <span class="hljs-number">4289145014</span>, <span class="hljs-number">867804334</span>, <span class="hljs-number">3992103908</span>, <span class="hljs-number">3853460215</span>, <span class="hljs-number">631349426</span>,
+    <span class="hljs-number">4075924452</span>, <span class="hljs-number">2717284327</span>, <span class="hljs-number">564585452</span>, <span class="hljs-number">2762793387</span>, <span class="hljs-number">4105314727</span>, <span class="hljs-number">1927347170</span>, <span class="hljs-number">3988627958</span>, <span class="hljs-number">4256114423</span>,
+    <span class="hljs-number">1660543909</span>, <span class="hljs-number">2762274992</span>, <span class="hljs-number">3786108858</span>, <span class="hljs-number">603323124</span>, <span class="hljs-number">2728785321</span>, <span class="hljs-number">3886513574</span>, <span class="hljs-number">1895559408</span>, <span class="hljs-number">2365104616</span>,
+    <span class="hljs-number">3019796731</span>, <span class="hljs-number">698606572</span>, <span class="hljs-number">4004508834</span>, <span class="hljs-number">4238615970</span>, <span class="hljs-number">800514555</span>, <span class="hljs-number">2997089442</span>, <span class="hljs-number">2847291112</span>, <span class="hljs-number">922217954</span>,
+    <span class="hljs-number">2930111919</span>, <span class="hljs-number">4087560186</span>, <span class="hljs-number">603323053</span>, <span class="hljs-number">2728785321</span>, <span class="hljs-number">3786440102</span>, <span class="hljs-number">1895561456</span>, <span class="hljs-number">4059152374</span>, <span class="hljs-number">3019796731</span>,
+    <span class="hljs-number">698606572</span>, <span class="hljs-number">4004508834</span>, <span class="hljs-number">2867998904</span>, <span class="hljs-number">616211168</span>, <span class="hljs-number">4239651491</span>, <span class="hljs-number">2695182013</span>, <span class="hljs-number">1996222702</span>, <span class="hljs-number">4076461544</span>,
+    <span class="hljs-number">3019244283</span>, <span class="hljs-number">698606572</span>, <span class="hljs-number">4004508834</span>, <span class="hljs-number">2867998904</span>, <span class="hljs-number">616211168</span>, <span class="hljs-number">4239651491</span>, <span class="hljs-number">2695182004</span>, <span class="hljs-number">1893857262</span>,
+    <span class="hljs-number">3824722934</span>, <span class="hljs-number">4172309241</span>, <span class="hljs-number">1874502820</span>, <span class="hljs-number">4210352555</span>, <span class="hljs-number">4121502709</span>, <span class="hljs-number">2108072613</span>, <span class="hljs-number">4037273511</span>, <span class="hljs-number">2717021947</span>,
+    <span class="hljs-number">1659302640</span>, <span class="hljs-number">3030496234</span>, <span class="hljs-number">3198757297</span>, <span class="hljs-number">2075305647</span>, <span class="hljs-number">2779771622</span>, <span class="hljs-number">2897552304</span>, <span class="hljs-number">866169263</span>, <span class="hljs-number">2699214308</span>,
+    <span class="hljs-number">4272891040</span>, <span class="hljs-number">1957014767</span>, <span class="hljs-number">2929963517</span>, <span class="hljs-number">3802473905</span>, <span class="hljs-number">1957014781</span>, <span class="hljs-number">4059348903</span>, <span class="hljs-number">3185866235</span>, <span class="hljs-number">615558370</span>,
+    <span class="hljs-number">2693001391</span>, <span class="hljs-number">4171506085</span>, <span class="hljs-number">698460332</span>, <span class="hljs-number">2632114851</span>,
+  ],
+  <span class="hljs-number">6</span>,
+);
+
+<span class="hljs-comment">// agent.clean.js:8029</span>
+<span class="hljs-keyword">const</span> h_s211_fn3 = { <span class="hljs-attr">width</span>: <span class="hljs-number">1920</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">1080</span>, <span class="hljs-attr">bitrate</span>: <span class="hljs-number">5000000</span>, <span class="hljs-attr">framerate</span>: <span class="hljs-number">30</span> };
+
+<span class="hljs-comment">// agent.clean.js:8030</span>
+<span class="hljs-keyword">const</span> h_s211_fn4 = { <span class="hljs-attr">width</span>: <span class="hljs-number">3840</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">2160</span>, <span class="hljs-attr">bitrate</span>: <span class="hljs-number">20000000</span>, <span class="hljs-attr">framerate</span>: <span class="hljs-number">60</span> };
+
+<span class="hljs-comment">// agent.clean.js:8031</span>
+<span class="hljs-keyword">const</span> h_s211_fn5 = { <span class="hljs-attr">channels</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">bitrate</span>: <span class="hljs-number">132700</span>, <span class="hljs-attr">samplerate</span>: <span class="hljs-number">5200</span> };
+
+<span class="hljs-comment">// agent.clean.js:8042</span>
+<span class="hljs-keyword">const</span> h_s211_fn6 = <span class="hljs-title function_">h_s211_fn2</span>();
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

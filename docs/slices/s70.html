@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebGPU render (s70) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s70</div><h1>WebGPU render</h1></div>
+        <p class="lede">a full WebGPU pipeline with timestamp queries, so it measures GPU execution timing, not only pixels</p>
+<p class="lede">Group: Graphics · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s70 — sig_s70_textDecoder</span>
+<span class="hljs-comment">// module cm, stage2, codes 0 -1 -2 -3 -4 -5 -7, value is a digest</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   TextDecoder navigator.gpu.getPreferredCanvasFormat() window.GPUBufferUsage.COPY_DST</span>
+<span class="hljs-comment">//   window.GPUBufferUsage.COPY_SRC window.GPUBufferUsage.MAP_READ</span>
+<span class="hljs-comment">//   window.GPUBufferUsage.QUERY_RESOLVE window.GPUBufferUsage.UNIFORM window.GPUMapMode.READ</span>
+<span class="hljs-comment">//   window.GPUTextureUsage.COPY_DST window.GPUTextureUsage.TEXTURE_BINDING window.performance.now()</span>
+<span class="hljs-comment">//   navigator.gpu</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   decodeURIComponent() escape() Float32Array.BYTES_PER_ELEMENT Float64Array Array() Math.PI</span>
+<span class="hljs-comment">//   SyntaxError String.fromCharCode.apply()</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   [] null value {s,f,v,a}</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;96375&quot; &quot;auto&quot; &quot;axrs&quot; &quot;checkered&quot; &quot;encoder&quot; &quot;function&quot; &quot;message&quot; &quot;nearest&quot; &quot;none&quot; &quot;pipeline&quot;</span>
+<span class="hljs-comment">//   &quot;renderPass&quot; &quot;rgba8unorm&quot; &quot;shader&quot; &quot;store&quot; &quot;timestamp&quot; &quot;unmapped&quot; &quot;webgpu&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   !== 0 &lt;= 0 == &quot;function&quot; === &quot;string&quot; === &quot;unmapped&quot; === 0 === 4169850297</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   v1138.s !== 0</span>
+<span class="hljs-comment">//   fn142: !((v957 = arg822.cancel) == null)</span>
+<span class="hljs-comment">//   fn90: !v666</span>
+<span class="hljs-comment">//   h_s70_fn: !(v65.s === 0)</span>
+<span class="hljs-comment">//   h_s70_fn: !h_s70_gpu()</span>
+<span class="hljs-comment">//   readVaultedProp: typeof v316 == &quot;function&quot;</span>
+<span class="hljs-comment">//   h_s70_fn4: arg235 instanceof TypeError &amp;&amp; h_s70_fn5(readVaultedProp(arg235, &quot;message&quot;))</span>
+<span class="hljs-comment">//   fn157: v1032 = undefined, !v1034</span>
+<span class="hljs-comment">//   fn157: v1033-- &lt;= 0</span>
+<span class="hljs-comment">//   fn157: !v1034</span>
+<span class="hljs-comment">//   fn157: !(v1032 == null)</span>
+<span class="hljs-comment">//   visibilitychange: !(v869 || v868)</span>
+<span class="hljs-comment">//   visibilitychange: !v869 &amp;&amp; v868</span>
+<span class="hljs-comment">//   fn131: !gpu</span>
+<span class="hljs-comment">//   fn131: v918 instanceof Error &amp;&amp; fn46()</span>
+<span class="hljs-comment">//   h_s70_gpu: &quot;gpu&quot; &amp;&amp; navigator.gpu</span>
+<span class="hljs-comment">//   resolveNameByHash: typeof arg801 === &quot;string&quot;</span>
+<span class="hljs-comment">//   resolveNameByHash: fn48(v928) === arg801</span>
+<span class="hljs-comment">//   h_s70_getPreferredCanvasFormat: v772.mapState === &quot;unmapped&quot;</span>
+<span class="hljs-comment">//   h_s70_fn7: arg602.info ?? (await arg602.requestAdapterInfo())</span>
+<span class="hljs-comment">//   h_s70_fn5: !!v485 &amp;&amp; fn48(v485[1]) === 4169850297</span>
+<span class="hljs-comment">// the call graph walk hit its limit here, so the tests above are partial</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 11 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   asUint8Array:6496 base64Encode:8766 crc32OfBytes:4943 decodeJsonBytes:5252</span>
+<span class="hljs-comment">//   decryptSelfKeyedTable:112 deepClone:4738 fn124:6501 fn131:6850 fn142:7227 fn157:8239 fn158:8266</span>
+<span class="hljs-comment">//   fn165:8763 fn166:8783 fn31:1619 fn43:3089 fn46:3216 fn48:3370 fn53:3506 fn58:3750 fn65:3849</span>
+<span class="hljs-comment">//   fn74:4219 fn76:4296 fn78:4342 fn9:252 fn90:4751 fn91:4777 fn93:5043 fn96:5398 hash128:2674</span>
+<span class="hljs-comment">//   makeSelfKeyedVault:3791 readVaultedProp:1674 resolveNameByHash:7015 stringToBytes:7901</span>
+<span class="hljs-comment">//   uint8Array2:3955 uint8Array3:3956 uint8Array4:3957 v18:3959 v3:446 v4:447 v5:461 v6:462 v7:463</span>
+<span class="hljs-comment">//   v8:464 v9:465 visibilitychange:6423</span>
+
+<span class="hljs-comment">// agent.clean.js:203</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_fn</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> v65 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fn131</span>();
+  <span class="hljs-keyword">let</span> v66 = <span class="hljs-literal">null</span>;
+  <span class="hljs-keyword">if</span> (!(v65.<span class="hljs-property">s</span> === <span class="hljs-number">0</span>)) {
+    <span class="hljs-keyword">return</span> v65;
+  }
+  v66 = <span class="hljs-title function_">readVaultedProp</span>(v65, <span class="hljs-string">&quot;v&quot;</span>);
+  <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">h_s70_gpu</span>()) {
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">1</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+  }
+  <span class="hljs-keyword">const</span> v67 = <span class="hljs-title function_">h_s70_canvas</span>();
+  <span class="hljs-keyword">if</span> (v67) {
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">v</span>: [v66, v67] };
+  }
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">5</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+}
+
+<span class="hljs-comment">// agent.clean.js:660</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_fn2</span>(<span class="hljs-params">arg73, arg74</span>) {
+  <span class="hljs-keyword">const</span> v124 = <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(arg73?.<span class="hljs-property">features</span>.<span class="hljs-title function_">values</span>()),
+    [v125, v126] = <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([
+      <span class="hljs-title function_">h_s70_getPreferredCanvasFormat</span>(arg73, v124, arg74),
+      <span class="hljs-title function_">h_s70_fn7</span>(arg73),
+    ]);
+  <span class="hljs-keyword">return</span> [v125, v126, v124];
+}
+
+<span class="hljs-comment">// agent.clean.js:802</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_fn3</span>(<span class="hljs-params">canvas</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">h_s70_fn6</span>(<span class="hljs-title function_">hash128</span>(canvas.<span class="hljs-title function_">toDataURL</span>()));
+}
+
+<span class="hljs-comment">// agent.clean.js:1556</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_fn4</span>(<span class="hljs-params">arg235</span>) {
+  <span class="hljs-keyword">if</span> (arg235 <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">TypeError</span> &amp;&amp; <span class="hljs-title function_">h_s70_fn5</span>(<span class="hljs-title function_">readVaultedProp</span>(arg235, <span class="hljs-string">&quot;message&quot;</span>))) {
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">7</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+  }
+  <span class="hljs-keyword">throw</span> arg235;
+}
+
+<span class="hljs-comment">// agent.clean.js:3178</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_fn5</span>(<span class="hljs-params">arg367</span>) {
+  <span class="hljs-keyword">const</span> v485 = arg367.<span class="hljs-title function_">match</span>(h_s70_fn8);
+  <span class="hljs-keyword">return</span> !!v485 &amp;&amp; <span class="hljs-title function_">fn48</span>(v485[<span class="hljs-number">1</span>]) === <span class="hljs-number">4169850297</span>;
+}
+
+<span class="hljs-comment">// agent.clean.js:3876</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_fn6</span>(<span class="hljs-params">arg481</span>) {
+  <span class="hljs-keyword">const</span> uint8Array11 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Uint8Array</span>(arg481.<span class="hljs-property">length</span> / <span class="hljs-number">2</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v575 = <span class="hljs-number">0</span>; v575 &lt; arg481.<span class="hljs-property">length</span>; v575 += <span class="hljs-number">2</span>) {
+    uint8Array11[v575 / <span class="hljs-number">2</span>] = <span class="hljs-built_in">parseInt</span>(arg481[v575] + arg481[v575 + <span class="hljs-number">1</span>], <span class="hljs-number">16</span>);
+  }
+  <span class="hljs-keyword">return</span> uint8Array11;
+}
+
+<span class="hljs-comment">// agent.clean.js:4407</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_gpu</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;gpu&quot;</span> &amp;&amp; navigator.<span class="hljs-property">gpu</span>;
+}
+
+<span class="hljs-comment">// agent.clean.js:4774</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_fn7</span>(<span class="hljs-params">arg602</span>) {
+  <span class="hljs-keyword">return</span> arg602.<span class="hljs-property">info</span> ?? (<span class="hljs-keyword">await</span> arg602.<span class="hljs-title function_">requestAdapterInfo</span>());
+}
+
+<span class="hljs-comment">// agent.clean.js:5488</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_getPreferredCanvasFormat</span>(<span class="hljs-params">gpuAdapter, arg654, arg655</span>) {
+  <span class="hljs-keyword">const</span> v759 = <span class="hljs-keyword">await</span> gpuAdapter.<span class="hljs-title function_">requestDevice</span>({ <span class="hljs-attr">requiredFeatures</span>: arg654 }),
+    pi = <span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>,
+    v760 = [
+      [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, pi / <span class="hljs-number">7</span>],
+      [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, pi / <span class="hljs-number">8</span>],
+      [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, pi / <span class="hljs-number">4</span>],
+      [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, pi / <span class="hljs-number">8</span>],
+    ],
+    v761 = v760.<span class="hljs-property">length</span>,
+    uint8Array14 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Uint8Array</span>(v761 * <span class="hljs-number">40</span>),
+    v762 = navigator.<span class="hljs-property">gpu</span>.<span class="hljs-title function_">getPreferredCanvasFormat</span>();
+  arg655.<span class="hljs-title function_">configure</span>({ <span class="hljs-attr">device</span>: v759, <span class="hljs-attr">format</span>: v762 });
+  <span class="hljs-keyword">const</span> v763 = v759.<span class="hljs-title function_">createShaderModule</span>({
+      <span class="hljs-attr">label</span>: <span class="hljs-string">&quot;shader&quot;</span>,
+      <span class="hljs-attr">code</span>: <span class="hljs-string">&quot;struct O{@builtin(position)position:vec4f,@location(0)texcoord:vec2f}fn rotation(a:vec4f)-&gt;mat4x4f{var m=mat4x4f();var x=a.x;var y=a.y;var z=a.z;let n=sqrt(x*x+y*y+z*z);x/=n;y/=n;z/=n;let xx=x*x;let yy=y*y;let zz=z*z;let c=cos(a.w);let s=sin(a.w);let o=1-c;m[0]=vec4f(xx+(1-xx)*c,x*y*o+z*s,x*z*o-y*s,0);m[1]=vec4f(x*y*o-z*s,yy+(1-yy)*c,y*z*o+x*s,0);m[2]=vec4f(x*z*o+y*s,y*z*o-x*s,zz+(1-zz)*c,0);m[3]=vec4f(0,0,0,1);return transpose(m);}@group(1) @binding(0) var&lt;uniform&gt; axr:vec4f;@vertex fn vs(@builtin(vertex_index) i:u32)-&gt;O{let n=vec2f(-0.5,0.5);let o=vec2f(1.0,0.0);let v=array(n.xxy,n.yxy,n.xyy,n.yyy,n.xxx,n.yxx,n.xyx,n.yyx);let t=array(0,2,3,0,3,1,4,6,7,4,7,5,0,2,6,0,6,4,1,3,7,1,7,5,2,6,7,2,7,3,0,4,5,0,5,1);let u=array(o.yx,o.yy,o.xy,o.yx,o.xy,o.xx);var r:O;r.position=rotation(axr)*vec4f(v[t[i]],1);r.texcoord=u[i%6];return r;}@group(0) @binding(0) var s:sampler;@group(0) @binding(1) var t:texture_2d&lt;f32&gt;;@fragment fn fs(i:O)-&gt;@location(0) vec4f{return textureSample(t,s,i.texcoord);}&quot;</span>,
+    }),
+    v764 = v759.<span class="hljs-title function_">createRenderPipeline</span>({
+      <span class="hljs-attr">label</span>: <span class="hljs-string">&quot;pipeline&quot;</span>,
+      <span class="hljs-attr">layout</span>: <span class="hljs-string">&quot;auto&quot;</span>,
+      <span class="hljs-attr">vertex</span>: { <span class="hljs-attr">module</span>: v763 },
+      <span class="hljs-attr">fragment</span>: { <span class="hljs-attr">module</span>: v763, <span class="hljs-attr">targets</span>: [{ <span class="hljs-attr">format</span>: v762 }] },
+      <span class="hljs-attr">primitive</span>: { <span class="hljs-attr">cullMode</span>: <span class="hljs-string">&quot;none&quot;</span> },
+    }),
+    v765 = [
+      [<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>],
+      [<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>],
+      [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>],
+    ],
+    uint8Array15 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Uint8Array</span>(
+      <span class="hljs-title class_">Array</span>(<span class="hljs-number">63</span>)
+        .<span class="hljs-title function_">fill</span>(<span class="hljs-literal">undefined</span>)
+        .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg656, arg657</span>) =&gt;</span> v765[arg657 % <span class="hljs-number">3</span>])
+        .<span class="hljs-title function_">flat</span>(),
+    ),
+    v766 = v759.<span class="hljs-title function_">createTexture</span>({
+      <span class="hljs-attr">label</span>: <span class="hljs-string">&quot;checkered&quot;</span>,
+      <span class="hljs-attr">size</span>: [<span class="hljs-number">7</span>, <span class="hljs-number">9</span>],
+      <span class="hljs-attr">format</span>: <span class="hljs-string">&quot;rgba8unorm&quot;</span>,
+      <span class="hljs-attr">usage</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUTextureUsage</span>.<span class="hljs-property">TEXTURE_BINDING</span> | <span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUTextureUsage</span>.<span class="hljs-property">COPY_DST</span>,
+    });
+  v759.<span class="hljs-property">queue</span>.<span class="hljs-title function_">writeTexture</span>(
+    { <span class="hljs-attr">texture</span>: v766 },
+    uint8Array15,
+    { <span class="hljs-attr">bytesPerRow</span>: <span class="hljs-number">28</span> },
+    { <span class="hljs-attr">width</span>: <span class="hljs-number">7</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">9</span> },
+  );
+  <span class="hljs-keyword">const</span> v767 = v759.<span class="hljs-title function_">createSampler</span>({ <span class="hljs-attr">magFilter</span>: <span class="hljs-string">&quot;nearest&quot;</span> }),
+    v768 = v759.<span class="hljs-title function_">createBindGroup</span>({
+      <span class="hljs-attr">layout</span>: v764.<span class="hljs-title function_">getBindGroupLayout</span>(<span class="hljs-number">0</span>),
+      <span class="hljs-attr">entries</span>: [
+        { <span class="hljs-attr">binding</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">resource</span>: v767 },
+        { <span class="hljs-attr">binding</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">resource</span>: v766.<span class="hljs-title function_">createView</span>() },
+      ],
+    }),
+    v769 = v760.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg658</span>) =&gt;</span> {
+      <span class="hljs-keyword">const</span> v774 = v759.<span class="hljs-title function_">createBuffer</span>({
+        <span class="hljs-attr">label</span>: <span class="hljs-string">&quot;axrs&quot;</span>,
+        <span class="hljs-attr">size</span>: <span class="hljs-number">4</span> * <span class="hljs-title class_">Float32Array</span>.<span class="hljs-property">BYTES_PER_ELEMENT</span>,
+        <span class="hljs-attr">usage</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUBufferUsage</span>.<span class="hljs-property">UNIFORM</span>,
+        <span class="hljs-attr">mappedAtCreation</span>: <span class="hljs-literal">true</span>,
+      });
+      <span class="hljs-keyword">new</span> <span class="hljs-title class_">Float32Array</span>(v774.<span class="hljs-title function_">getMappedRange</span>()).<span class="hljs-title function_">set</span>(arg658);
+      v774.<span class="hljs-title function_">unmap</span>();
+      <span class="hljs-keyword">return</span> v759.<span class="hljs-title function_">createBindGroup</span>({
+        <span class="hljs-attr">layout</span>: v764.<span class="hljs-title function_">getBindGroupLayout</span>(<span class="hljs-number">1</span>),
+        <span class="hljs-attr">entries</span>: [{ <span class="hljs-attr">binding</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">resource</span>: { <span class="hljs-attr">buffer</span>: v774 } }],
+      });
+    }),
+    v770 = v759.<span class="hljs-title function_">createQuerySet</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;timestamp&quot;</span>, <span class="hljs-attr">count</span>: <span class="hljs-number">2</span> }),
+    v771 = v759.<span class="hljs-title function_">createBuffer</span>({
+      <span class="hljs-attr">size</span>: v770.<span class="hljs-property">count</span> * <span class="hljs-number">8</span>,
+      <span class="hljs-attr">usage</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUBufferUsage</span>.<span class="hljs-property">QUERY_RESOLVE</span> | <span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUBufferUsage</span>.<span class="hljs-property">COPY_SRC</span>,
+    }),
+    v772 = v759.<span class="hljs-title function_">createBuffer</span>({
+      <span class="hljs-attr">size</span>: v771.<span class="hljs-property">size</span> * v761,
+      <span class="hljs-attr">usage</span>: <span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUBufferUsage</span>.<span class="hljs-property">COPY_DST</span> | <span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUBufferUsage</span>.<span class="hljs-property">MAP_READ</span>,
+    }),
+    v773 = {
+      <span class="hljs-attr">label</span>: <span class="hljs-string">&quot;renderPass&quot;</span>,
+      <span class="hljs-attr">colorAttachments</span>: [{ <span class="hljs-attr">clearValue</span>: [<span class="hljs-number">0.3</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">1</span>], <span class="hljs-attr">loadOp</span>: <span class="hljs-string">&quot;clear&quot;</span>, <span class="hljs-attr">storeOp</span>: <span class="hljs-string">&quot;store&quot;</span> }],
+      <span class="hljs-attr">timestampWrites</span>: { <span class="hljs-attr">querySet</span>: v770, <span class="hljs-attr">beginningOfPassWriteIndex</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">endOfPassWriteIndex</span>: <span class="hljs-number">1</span> },
+    };
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v775 = <span class="hljs-number">0</span>; v775 &lt; v769.<span class="hljs-property">length</span>; v775++) {
+    <span class="hljs-keyword">const</span> v776 = v769[v775];
+    v773.<span class="hljs-property">colorAttachments</span>[<span class="hljs-number">0</span>].<span class="hljs-property">view</span> = arg655.<span class="hljs-title function_">getCurrentTexture</span>().<span class="hljs-title function_">createView</span>();
+    <span class="hljs-keyword">const</span> v777 = v759.<span class="hljs-title function_">createCommandEncoder</span>({ <span class="hljs-attr">label</span>: <span class="hljs-string">&quot;encoder&quot;</span> }),
+      v778 = v777.<span class="hljs-title function_">beginRenderPass</span>(v773);
+    v778.<span class="hljs-title function_">setPipeline</span>(v764);
+    v778.<span class="hljs-title function_">setBindGroup</span>(<span class="hljs-number">0</span>, v768);
+    v778.<span class="hljs-title function_">setBindGroup</span>(<span class="hljs-number">1</span>, v776);
+    <span class="hljs-keyword">const</span> v779 = <span class="hljs-variable language_">window</span>.<span class="hljs-property">performance</span>.<span class="hljs-title function_">now</span>();
+    v778.<span class="hljs-title function_">draw</span>(<span class="hljs-number">48</span>);
+    v778.<span class="hljs-title function_">end</span>();
+    v777.<span class="hljs-title function_">resolveQuerySet</span>(v770, <span class="hljs-number">0</span>, v770.<span class="hljs-property">count</span>, v771, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">if</span> (v772.<span class="hljs-property">mapState</span> === <span class="hljs-string">&quot;unmapped&quot;</span>) {
+      v777.<span class="hljs-title function_">copyBufferToBuffer</span>(v771, <span class="hljs-number">0</span>, v772, v775 * <span class="hljs-number">16</span>, v771.<span class="hljs-property">size</span>);
+    }
+    <span class="hljs-keyword">const</span> v780 = v777.<span class="hljs-title function_">finish</span>();
+    v759.<span class="hljs-property">queue</span>.<span class="hljs-title function_">submit</span>([v780]);
+    <span class="hljs-keyword">const</span> v781 = <span class="hljs-title function_">h_s70_fn3</span>(arg655.<span class="hljs-property">canvas</span>);
+    uint8Array14.<span class="hljs-title function_">set</span>(v781, <span class="hljs-number">8</span> + v775 * <span class="hljs-number">40</span>);
+    uint8Array14.<span class="hljs-title function_">set</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Uint8Array</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Float64Array</span>([v779]).<span class="hljs-property">buffer</span>), v775 * <span class="hljs-number">40</span>);
+  }
+  <span class="hljs-keyword">if</span> (v772.<span class="hljs-property">mapState</span> === <span class="hljs-string">&quot;unmapped&quot;</span>) {
+    <span class="hljs-keyword">await</span> v772.<span class="hljs-title function_">mapAsync</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">GPUMapMode</span>.<span class="hljs-property">READ</span>);
+    <span class="hljs-keyword">const</span> v782 = v772.<span class="hljs-title function_">getMappedRange</span>(),
+      uint8Array16 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Uint8Array</span>(v782);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v783 = <span class="hljs-number">0</span>; v783 &lt; v761; v783++) {
+      uint8Array14.<span class="hljs-title function_">set</span>(uint8Array16.<span class="hljs-title function_">subarray</span>(v783 * <span class="hljs-number">16</span>, (v783 + <span class="hljs-number">1</span>) * <span class="hljs-number">16</span>), <span class="hljs-number">24</span> + v783 * <span class="hljs-number">40</span>);
+    }
+    v772.<span class="hljs-title function_">unmap</span>();
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">base64Encode</span>(uint8Array14);
+}
+
+<span class="hljs-comment">// agent.clean.js:6513</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s70_canvas</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;canvas&quot;</span>).<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&quot;webgpu&quot;</span>);
+}
+
+<span class="hljs-comment">// agent.clean.js:7610</span>
+<span class="hljs-keyword">const</span> h_s70_fn8 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(
+  <span class="hljs-title function_">makeSelfKeyedVault</span>(
+    [
+      <span class="hljs-number">865597172</span>, <span class="hljs-number">819291933</span>, <span class="hljs-number">1162251996</span>, <span class="hljs-number">3803533715</span>, <span class="hljs-number">1156907896</span>, <span class="hljs-number">528002739</span>, <span class="hljs-number">4205401008</span>, <span class="hljs-number">1133067128</span>,
+      <span class="hljs-number">1010149879</span>, <span class="hljs-number">2776700811</span>, <span class="hljs-number">1844920372</span>,
+    ],
+    <span class="hljs-number">6</span>,
+  )(<span class="hljs-number">0</span>),
+);
+
+<span class="hljs-comment">// agent.clean.js:8942</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">sig_s70_textDecoder</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn142</span>(<span class="hljs-title function_">fn90</span>(<span class="hljs-number">600</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1e3</span>, { <span class="hljs-attr">s</span>: -<span class="hljs-number">2</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> }), <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> v1138 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">h_s70_fn</span>();
+    <span class="hljs-keyword">if</span> (v1138.<span class="hljs-property">s</span> !== <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">return</span> v1138;
+    }
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">const</span> [v1139, v1140] = <span class="hljs-title function_">readVaultedProp</span>(v1138, <span class="hljs-string">&quot;v&quot;</span>),
+        [v1141, v1142, v1143] = <span class="hljs-keyword">await</span> <span class="hljs-title function_">h_s70_fn2</span>(v1139, v1140);
+      <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">v</span>: { <span class="hljs-attr">s</span>: v1143, <span class="hljs-attr">f</span>: v1141, <span class="hljs-attr">v</span>: v1142.<span class="hljs-property">vendor</span>, <span class="hljs-attr">a</span>: v1142.<span class="hljs-property">architecture</span> } };
+    } <span class="hljs-keyword">catch</span> (v1144) {
+      <span class="hljs-keyword">return</span> <span class="hljs-title function_">h_s70_fn4</span>(v1144);
+    }
+  });
+}
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

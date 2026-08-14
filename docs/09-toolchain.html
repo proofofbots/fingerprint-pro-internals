@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toolchain — fingerprint-pro-internals</title>
+    <meta name="description" content="Every command writes into the tree and prints what it wrote. Run them in the order below; each one's output feeds the next. npm run all is the whole chain." />
+    <link rel="icon" href="./logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="./index.html"><img src="./logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="./index.html">Overview</a>
+          <a href="./01-architecture.html">Guide</a>
+          <a href="./reference/signals.html">Reference</a>
+          <a href="./slices/index.html">Collectors</a>
+          <a href="./explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell with-toc">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="./index.html" data-nav="Overview">Overview</a>
+<a href="./explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="./01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="./02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="./03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="./04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="./05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="./06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="./07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="./08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="./09-toolchain.html" class="current" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="./reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="./reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="./reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="./reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="./reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="./reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="./reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="./reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="./slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="./repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="./repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="./repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="./repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="./repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="./repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="./repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose">
+        <div class="pagehead"><div class="kicker">Guide</div><h1>Toolchain</h1><p class="lede">Every command writes into the tree and prints what it wrote. Run them in the order below; each one's output feeds the next. npm run all is the whole chain.</p></div>
+        <p>Every command writes into the tree and prints what it wrote. Run them in the order below; each one&#39;s
+output feeds the next. <code>npm run all</code> is the whole chain.</p>
+<div class="tablewrap" data-filterable><div class="tablebar"><input class="search" type="search" placeholder="Filter 22 rows" /><span class="rowcount">22 rows</span></div><table><thead><tr><th>command</th><th>reads</th><th>writes</th></tr></thead><tbody><tr><td><code>npm run fetch</code></td><td><code>agent/pin.json</code></td><td><code>artifacts/agent.original.js</code></td></tr>
+<tr><td><code>npm run libs</code></td><td>network</td><td><code>artifacts/ts-lib.*.d.ts</code></td></tr>
+<tr><td><code>npm run harvest</code></td><td>a local Chrome over CDP</td><td><code>tools/data/browser-names.json</code></td></tr>
+<tr><td><code>npm run vaults</code></td><td>the original bundle</td><td><code>agent/vaults.json</code></td></tr>
+<tr><td><code>npm run hashes</code></td><td>the original bundle</td><td><code>agent/crc32-map.json</code></td></tr>
+<tr><td><code>npm run clean</code></td><td>the original bundle</td><td><code>agent/agent.clean.js</code></td></tr>
+<tr><td><code>npm run worker</code></td><td>the original bundle</td><td><code>agent/worker.clean.js</code></td></tr>
+<tr><td><code>npm run verify</code></td><td>both files</td><td>pass or fail, and the derived hashes in <code>agent/pin.json</code></td></tr>
+<tr><td><code>npm run signals</code></td><td>the clean file</td><td><code>reference/signals.{json,md}</code></td></tr>
+<tr><td><code>npm run slice</code></td><td>the clean file</td><td><code>reference/slices/</code></td></tr>
+<tr><td><code>npm run envelope</code></td><td>the clean file</td><td><code>reference/envelope.{json,md}</code></td></tr>
+<tr><td><code>npm run codes</code></td><td>the clean file</td><td><code>reference/codes.{json,md}</code></td></tr>
+<tr><td><code>npm run endpoints</code></td><td>the clean file, a capture</td><td><code>reference/endpoints.{json,md}</code></td></tr>
+<tr><td><code>npm run join</code></td><td>the map, every capture</td><td><code>reference/observed.{json,md}</code></td></tr>
+<tr><td><code>npm run schema</code></td><td>the map, every capture</td><td><code>reference/schema.{json,md}</code></td></tr>
+<tr><td><code>npm run collector</code></td><td>the clean file</td><td><code>collector/fp-collect.js</code></td></tr>
+<tr><td><code>npm run site</code></td><td><code>site/</code>, <code>collector/fp-collect.js</code>, <code>reference/labels.json</code></td><td><code>docs/index.html</code> and its assets</td></tr>
+<tr><td><code>npm run spy</code></td><td><code>tools/fpspy.src.js</code>, the map</td><td><code>spy/fpspy.js</code></td></tr>
+<tr><td><code>npm run capture</code></td><td>the original bundle, the spy</td><td>a file in <code>captures/</code></td></tr>
+<tr><td><code>npm run scrub</code></td><td><code>captures/</code></td><td>the same files, third-party storage dropped, frames resealed with <code>--reseal</code></td></tr>
+<tr><td><code>npm run diff</code></td><td>a baseline, the map</td><td><code>reference/diff.md</code></td></tr>
+<tr><td><code>npm run evidence</code></td><td><code>artifacts/identity</code>, <code>artifacts/distill</code></td><td><code>evidence/</code></td></tr></tbody></table></div>
+<h2 id="deobfuscation">Deobfuscation<a class="anchor" href="#deobfuscation">#</a></h2>
+<p><strong><code>vaults</code></strong> loads the agent&#39;s own decryption primitives into Node and dumps every string table.
+Nothing is reimplemented: a throwaway copy of the bundle gets two edits, the CRC32 resolver is
+short-circuited through the rainbow table so no DOM is needed, and the internals are re-exported
+under stable role names. The decoders cannot drift from the bundle.</p>
+<p><strong><code>hashes</code></strong> reports every CRC32 site and what it resolves to. Diagnostic only; <code>clean</code> does its own
+resolution. The dictionary is built from the TypeScript libs, <code>known-css-properties</code>, the harvested
+browser names, every string literal in the agent, and every string recovered from the vaults, because
+the agent&#39;s own short field names exist only inside the encrypted tables. Unresolved or ambiguous
+hashes can be pinned by hand in <code>tools/data/names.json</code>, whose <code>hashes</code> map is keyed by CRC32 and
+therefore survives a version bump. Its <code>identifiers</code> map is keyed by minified name and does not.</p>
+<p><strong><code>clean</code></strong> sweeps these passes until nothing changes, regenerating and reparsing between sweeps,
+then renames every binding and formats the result.</p>
+<div class="tablewrap" data-filterable><div class="tablebar"><input class="search" type="search" placeholder="Filter 21 rows" /><span class="rowcount">21 rows</span></div><table><thead><tr><th>pass</th><th>what it does</th></tr></thead><tbody><tr><td><code>simplifyLiterals</code></td><td><code>!0</code>/<code>!1</code>/<code>void 0</code>/<code>1/0</code> back to real literals, un-Yoda comparisons</td></tr>
+<tr><td><code>ensureBlocks</code></td><td>gives every branch and loop a block so statements can be spliced in</td></tr>
+<tr><td><code>inlineOperatorWrappers</code></td><td>folds the javascript-obfuscator operator wrappers</td></tr>
+<tr><td><code>inlineWrapperObjects</code></td><td>folds the dispatch-table form of the same</td></tr>
+<tr><td><code>inlineConstantBindings</code></td><td>pushes literal-valued bindings to their use sites</td></tr>
+<tr><td><code>foldConstants</code></td><td>evaluates the arithmetic and concatenation that exposes</td></tr>
+<tr><td><code>restoreMemberAccess</code></td><td><code>readVaultedProp(o, &quot;f&quot;)(x)</code> back to <code>o.f(x)</code>, plus value positions</td></tr>
+<tr><td><code>restoreNullishOperators</code></td><td>rebuilds <code>?.</code> and <code>??</code> from the downlevelled ternaries</td></tr>
+<tr><td><code>resolveHashArguments</code></td><td>CRC32 constants to the names they stand for</td></tr>
+<tr><td><code>inlineVaultReads</code></td><td>vault table reads to the decrypted value</td></tr>
+<tr><td><code>inlineGlobalAliases</code></td><td><code>var t = atob</code> back to <code>atob</code> at every use site</td></tr>
+<tr><td><code>decodeBase64Literals</code></td><td>folds <code>atob(&quot;...&quot;)</code> on a constant</td></tr>
+<tr><td><code>normalizeMemberAccess</code></td><td><code>o[&quot;name&quot;]</code> to <code>o.name</code></td></tr>
+<tr><td><code>normalizeObjectKeys</code></td><td><code>{ [&quot;s94&quot;]: fn }</code> to <code>{ s94: fn }</code></td></tr>
+<tr><td><code>flattenSequences</code></td><td><code>(a(), b(), c)</code> to three statements</td></tr>
+<tr><td><code>statementizeControlFlow</code></td><td><code>a &amp;&amp; b();</code> to <code>if (a) b();</code></td></tr>
+<tr><td><code>statementizeReturns</code></td><td><code>return a ? x : b ? y : z</code> to the <code>if</code> chain</td></tr>
+<tr><td><code>removeUnusedBindings</code></td><td>drops what the above orphaned</td></tr>
+<tr><td><code>acceptResolvedNames</code></td><td>teaches the resolver to take a name as well as a hash</td></tr>
+<tr><td><code>collectSignalRegistries</code></td><td>reads the agent&#39;s own <code>sources</code> tables: wire id to collector</td></tr>
+<tr><td><code>renameIdentifiers</code></td><td>one readable name per binding</td></tr></tbody></table></div>
+<p>Only aliases of a bare global are inlined. An alias of a member path (<code>var t = Object.keys</code>) is left
+alone, because <code>t(x)</code> and <code>Object.keys(x)</code> do not pass the same <code>this</code>, and a destructured binding is
+left alone because both halves of <code>const { a: x, b: y } = window</code> are bindings of one declarator.</p>
+<p>Names come from evidence, never from the shape of an identifier. <code>tools/lib/naming.mjs</code> reads a
+binding&#39;s initializer, the property a destructured binding came off, the properties its uses go
+through, and the one string in a function body specific enough to have been the point of writing it.
+<code>tools/lib/surface.mjs</code> gives a collector the rarest browser surface it reaches, which is the <code>sig_*</code>
+suffix. A binding with no evidence keeps a counter. Every generated name is unique across the file.</p>
+<p>Naming the collectors alone leaves the code under them as numbers, which is where the measurement
+happens. <code>exclusiveOwners</code> walks the call graph from every collector and stops at the other
+collectors: a helper only one of them can reach is that signal&#39;s own code and is named
+<code>h_&lt;id&gt;_&lt;evidence&gt;</code>; one reached from several is shared plumbing and keeps its counter.</p>
+<p>Flags:</p>
+<ul>
+<li><code>--no-rename</code> keeps the original minified identifiers, into <code>agent/agent.clean.keepnames.js</code>.
+Useful when cross-referencing a stack trace or a breakpoint against the shipped file.</li>
+<li><code>--no-infer</code> keeps the renaming but drops the inferred names, so every binding is <code>v12</code>/<code>fn7</code>.
+Bisecting a rename that breaks <code>verify</code> starts here.</li>
+<li><code>--member-access</code> collapses every remaining vault read, including the ones held and called later.
+More readable, no longer equivalent.</li>
+</ul>
+<h2 id="mapping">Mapping<a class="anchor" href="#mapping">#</a></h2>
+<p><strong><code>signals</code></strong>, <strong><code>slice</code></strong>, <strong><code>envelope</code></strong>, <strong><code>codes</code></strong>, <strong><code>schema</code></strong> read the clean file and write
+the inventories described in <a href="./04-collection.html">04-collection</a>. <strong><code>join</code></strong> adds what the captures
+actually carried, and is where a hole in the static read shows up as a disagreement.</p>
+<p><strong><code>diff</code></strong> compares two generated maps, not two bundles, so a rebuild that only shuffles minified
+names is silent while a collector that starts reading a new surface, gains a status code or changes
+its reported shape shows up per signal. Save a baseline before pulling a new agent:</p>
+<pre><code class="hljs language-bash">npm run diff -- --save 2026-08-07-jsl4.0.0
+npm run diff
+node tools/diff.mjs reference/baselines/old.json reference/baselines/new.json</code></pre>
+<p>Counter names are normalised before comparing branch tests, so a helper that moved from <code>fn3</code> to
+<code>fn7</code> does not read as a change.</p>
+<h2 id="wire-tools">Wire tools<a class="anchor" href="#wire-tools">#</a></h2>
+<p><strong><code>codec</code></strong> makes the agent&#39;s own codec callable from Node, by the same re-export trick as <code>vaults</code>.</p>
+<pre><code class="hljs language-bash">npm run codec                                 <span class="hljs-comment"># print the detected roles, then self-test</span>
+node tools/codec.mjs --open captures/chrome-*.json
+node tools/codec.mjs --open body.bin --out payload.json
+node tools/codec.mjs --seal payload.json</code></pre>
+<p>As a library through <code>tools/lib/codec.mjs</code>: <code>encodeJson</code>/<code>decodeJson</code>, <code>base64Encode</code>/<code>base64Decode</code>,
+<code>hash128(text, seed)</code>, <code>sealFrame(bytes, profile)</code>, <code>openFrame(buffer)</code> (written here, the agent has
+no unsealer), <code>compress</code>/<code>inflate</code>, <code>helperUrl(endpoint)</code>.</p>
+<p><strong><code>replay</code></strong> rebuilds a payload and sends it from Node, then reads the verdict back.</p>
+<pre><code class="hljs language-bash">node tools/replay.mjs --payload payload.json --dry
+node tools/replay.mjs --from captures/chrome-*.json --as-origin https://demo.fingerprint.com --result
+node tools/replay.mjs --payload payload.json --<span class="hljs-built_in">set</span> s7.v=32 --result</code></pre>
+<p><code>--set</code> edits a field before sending: <code>s7=32</code> sets that signal&#39;s value, a full <code>{s,v}</code> object replaces
+the whole signal, <code>c=&#39;&quot;&lt;key&gt;&quot;&#39;</code> addresses the envelope. <code>--key</code>, <code>--endpoint</code>, <code>--origin</code> and <code>--ua</code>
+retarget another tenant.</p>
+<p>The origin is bound into several signals (<code>sc.u</code>, the window and location probe, the crypto-origin
+list, an error stack trace) and the tenant rejects the event when they disagree with the request
+<code>Origin</code> header. <code>--as-origin</code> finds the origin a capture was taken on and rewrites it everywhere by
+string, which is what lets a localhost capture present as the target. That the check falls to string
+substitution is the point worth noting: origin coherence is real, but it is client-reported data.</p>
+<p><code>--probe</code> sends the frame, then a corrupted copy, and confirms they draw different answers, so a
+<code>403</code> is the tenant&#39;s policy rather than a malformed body.</p>
+<p><strong><code>profile</code></strong> compiles a human-readable device profile into a payload, and is where a payload comes
+from when it is not a capture.</p>
+<pre><code class="hljs language-bash">node tools/profile.mjs --template --donor chrome &gt; profiles/mine.json
+node tools/profile.mjs profiles/mine.json</code></pre>
+<p>A profile is a patch over a donor capture, not a specification of 144 fields. About forty knobs
+(<code>hardware.cores</code>, <code>screen.avail</code>, <code>gpu.rendererUnmasked</code>, <code>uach.brands</code>) map onto the wire positions
+that carry them, and a knob absent from the profile writes nothing, so the donor&#39;s value stands. The
+report says how many wire keys came from the profile, how many were derived and how many are still
+the donor&#39;s. <code>--template</code> reads the map backwards, turning a donor into the profile that reproduces
+it, which is the only way a profile stays writable by hand. <code>--only</code> and <code>--skip</code> take knob prefixes.</p>
+<p>Three things happen after the knobs are written. Digests whose input the profile can carry are
+recomputed with the agent&#39;s own <code>hash128</code>; the three that hash a rendered canvas cannot be produced
+in Node at all and are reseeded from the profile&#39;s entropy instead, which is stable per profile and
+honestly not a measurement of anything. Every session uuid is reminted and every clock is shifted by
+one offset rather than set to one value, because a capture&#39;s own offsets are real measurements and
+flattening them produces a set of simultaneous readings no browser makes. Coherence rules then check
+relations a real browser cannot break; <code>fail</code> is a relation the agent&#39;s own code guarantees, <code>warn</code>
+is one real browsers hold but nothing in the client enforces.</p>
+<p><strong><code>verdict</code></strong> compiles, sends, and prints the server&#39;s answer as one row, which is what <code>--only</code> and
+<code>--skip</code> exist for.</p>
+<p><strong><code>identity</code></strong> and <strong><code>cache-bind</code></strong> are the two tools behind <a href="./06-identity.html">06-identity</a>.
+<code>identity</code> runs paired arms: mint a device the tenant has never seen, send it, send it again with one
+field changed, compare the two ids. <code>--no-cache</code> empties <code>s56</code> on every send and without it the tool
+measures nothing. <code>--rotate-ip</code> takes a fresh exit per send. <code>--mode sticky</code> asks the other question,
+how much an already established visitor absorbs.</p>
+<p><strong><code>distill</code></strong> attributes a server-side detection to input signals with a bounded request budget.</p>
+<h2 id="instrumentation">Instrumentation<a class="anchor" href="#instrumentation">#</a></h2>
+<p><strong><code>scrub</code></strong> drops third-party storage entries from a capture in place. With <code>--reseal</code> it also
+rebuilds each request&#39;s <code>reqRaw</code>: the decoded payload goes back through <code>encodeJson</code>, deflate-raw
+over 1024 bytes and <code>sealFrame</code>, and the new frame replaces the stored one, with <code>reqSize</code>, the
+plain size and the frame key updated to match. That keeps a capture internally consistent after its
+payload has been edited, which is what the published captures were run through. It needs the
+original bundle, so run <code>npm run fetch</code> first.</p>
+<p><strong><code>spy</code></strong> builds <code>spy/fpspy.js</code> from <code>tools/fpspy.src.js</code>, inlining the signal-id labels from
+<code>reference/signals.json</code> so a decoded payload is readable. <strong><code>capture</code></strong> serves the page that runs the
+stored bundle and saves what the spy recorded. Both are covered in
+<a href="./07-reproducing.html">07-reproducing</a>.</p>
+<p><strong><code>collector</code></strong> generates <code>collector/fp-collect.js</code>: the collectors, the envelope builder and the
+codec, with the vaulted property reads collapsed to plain member access, the encrypted strings
+inlined, and the roots found structurally rather than by name, so a version bump regenerates instead
+of breaking. Two reads are kept behind a <code>boundProperty</code> helper because their result is stored and
+called later, where collapsing would drop the receiver.</p>
+<h2 id="the-pages-site">The Pages site<a class="anchor" href="#the-pages-site">#</a></h2>
+<p><strong><code>site</code></strong> builds the whole documentation hub into <code>docs/</code>, which is what GitHub Pages serves. It is
+a static site generator with no client-side framework: <code>marked</code> renders the markdown, <code>highlight.js</code>
+colours the code at build time, and the only JavaScript that ships is <code>hub.js</code> (sidebar filter, table
+filter) plus <code>app.js</code> on the explorer page.</p>
+<p>What it emits:</p>
+<table><thead><tr><th>page</th><th>built from</th></tr></thead><tbody><tr><td><code>index.html</code></td><td><code>site/overview.md</code>, with the pinned version, hash and fetch date substituted from <code>agent/pin.json</code></td></tr>
+<tr><td><code>explorer.html</code></td><td><code>site/explorer.html</code> and <code>collector/fp-collect.js</code>, the live scan</td></tr>
+<tr><td><code>NN-name.html</code></td><td>each markdown file in <code>docs/</code></td></tr>
+<tr><td><code>reference/*.html</code></td><td>each generated map, with any table over 12 rows given a filter box</td></tr>
+<tr><td><code>slices/sNN.html</code></td><td>each collector source in <code>reference/slices/</code>, syntax highlighted</td></tr>
+<tr><td><code>slices/index.html</code></td><td>all of them, grouped by the same categories the explorer uses</td></tr>
+<tr><td><code>repo/*.html</code></td><td>the README of <code>agent/</code>, <code>collector/</code>, <code>captures/</code>, <code>profiles/</code>, <code>evidence/</code>, <code>spy/</code></td></tr></tbody></table>
+<p>Links between markdown files are rewritten to the generated pages through an explicit source-to-URL
+map, so a link to <code>../reference/signals.md</code> in a doc becomes a link to <code>reference/signals.html</code> on
+the site, and a link that has no published target is left alone rather than silently broken.</p>
+<p><code>reference/labels.json</code> is hand-written, not generated: one entry per wire id giving the readable
+name, the group it belongs to, and a sentence on what the collector measures. It is what turns <code>s17</code>
+into &quot;Canvas rendering&quot; in the explorer, in the slice pages and in the collector index. <code>site</code> fails
+if a signal in <code>reference/signals.md</code> has no entry or an entry names a group that does not exist, so
+a version bump that adds an id cannot ship a page with an unlabelled row. It warns, rather than
+fails, when <code>labels.json</code> still carries an id the build has dropped.</p>
+<p><code>node tools/site.mjs --check</code> exits non-zero when <code>docs/</code> differs from what the current sources would
+produce, which is the check to run before a commit. A plain run rewrites <code>docs/slices/</code>,
+<code>docs/reference/</code> and <code>docs/repo/</code> from scratch, so a removed source file does not leave a stale page
+behind.</p>
+<p>The explorer collects and renders locally. It builds the wire payload with <code>buildPayload({ apiKey: &quot;none&quot; })</code> to show the envelope key count, and sends nothing: no API key ships in the page, no
+request leaves it, no visitor id is minted. Point Pages at <code>main</code> and <code>/docs</code> to publish.</p>
+
+        <div class="pagenav"><a href="./08-not-determined.html">← Not determined</a><a href="./reference/index.html">→ What is generated</a></div>
+      </main>
+      <aside class="toc"><span>On this page</span><a href="#deobfuscation">Deobfuscation</a>
+<a href="#mapping">Mapping</a>
+<a href="#wire-tools">Wire tools</a>
+<a href="#instrumentation">Instrumentation</a>
+<a href="#the-pages-site">The Pages site</a></aside>
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="./repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./hub.js"></script>
+    
+  </body>
+</html>

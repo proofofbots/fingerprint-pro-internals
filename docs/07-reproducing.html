@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reproducing — fingerprint-pro-internals</title>
+    <meta name="description" content="## The pinned target" />
+    <link rel="icon" href="./logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="./index.html"><img src="./logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="./index.html">Overview</a>
+          <a href="./01-architecture.html">Guide</a>
+          <a href="./reference/signals.html">Reference</a>
+          <a href="./slices/index.html">Collectors</a>
+          <a href="./explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell with-toc">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="./index.html" data-nav="Overview">Overview</a>
+<a href="./explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="./01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="./02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="./03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="./04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="./05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="./06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="./07-reproducing.html" class="current" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="./08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="./09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="./reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="./reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="./reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="./reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="./reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="./reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="./reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="./reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="./slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="./repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="./repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="./repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="./repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="./repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="./repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="./repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose">
+        <div class="pagehead"><div class="kicker">Guide</div><h1>Reproducing</h1><p class="lede">## The pinned target</p></div>
+        <h2 id="the-pinned-target">The pinned target<a class="anchor" href="#the-pinned-target">#</a></h2>
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>bundle</td><td><code>https://demo.fingerprint.com/DBqbMN7zXxwl4Ei8/web/v4/kBwLN2IyH1GjeJBLpl8C?ci=jsl/4.0.0</code></td></tr>
+<tr><td>sha256</td><td><code>250c7dfed751a8699cbcbb34c98626fd08f6980f09cba9706fa8091698a40592</code></td></tr>
+<tr><td>size</td><td>194,100 bytes</td></tr>
+<tr><td>fetched</td><td>2026-08-07</td></tr>
+<tr><td>loader tag</td><td><code>jsl/4.0.0</code>, install marker <code>{m: &quot;l&quot;, l: &quot;jsl/4.0.0&quot;}</code></td></tr>
+<tr><td><code>ex</code> build marker</td><td><code>epv: &quot;3b947bb&quot;</code></td></tr>
+<tr><td>captures</td><td>Chrome 149, Firefox 151, Safari 26.4.1, macOS 26.4.1, 2026-08-07, one machine</td></tr>
+<tr><td>identity runs</td><td>public demo tenant, 2026-07-31 and 2026-08-01</td></tr>
+<tr><td>tooling</td><td>Node 20 or newer, Chrome for <code>harvest</code> and <code>capture</code></td></tr></tbody></table>
+<p>Machine-readable in <a href="../agent/pin.json"><code>agent/pin.json</code></a>, which also carries the sha256 of each
+derived file <code>npm run verify</code> accepted.</p>
+<p><strong>Shelf life.</strong> The tenant ships new builds and the path segments rotate. Between 2026-07-31 and
+2026-08-07 the bundle went from 192,978 to 194,100 bytes with no change to the loader tag or the <code>ex</code>
+build marker, and <code>npm run diff</code> reported 0 signals added, 0 removed, 56 changed. Everything under
+<code>reference/</code> describes the pinned build only.</p>
+<h2 id="install">Install<a class="anchor" href="#install">#</a></h2>
+<pre><code class="hljs language-bash">npm install
+npm run fetch</code></pre>
+<p><code>npm run fetch</code> downloads the pinned URL, writes <code>artifacts/agent.original.js</code>, and compares the hash
+against <code>agent/pin.json</code>. A mismatch means the tenant has shipped a new build: snapshot the current
+map with <code>npm run diff -- --save &lt;label&gt;</code> before regenerating anything, then read the diff.</p>
+<h2 id="rebuild-everything">Rebuild everything<a class="anchor" href="#rebuild-everything">#</a></h2>
+<pre><code class="hljs language-bash">npm run all</code></pre>
+<p>That is <code>fetch</code>, then <code>deobfuscate</code> (<code>libs</code>, <code>vaults</code>, <code>clean</code>, <code>worker</code>, <code>verify</code>), then <code>map</code>
+(<code>signals</code>, <code>slice</code>, <code>envelope</code>, <code>endpoints</code>, <code>codes</code>, <code>join</code>, <code>schema</code>, <code>collector</code>, <code>spy</code>). It
+needs network access for <code>fetch</code> and <code>libs</code> and nothing else; <code>harvest</code> is optional because
+<code>tools/data/browser-names.json</code> ships with the harvested names.</p>
+<p>Expected output on the pinned build:</p>
+<table><thead><tr><th>step</th><th>result</th></tr></thead><tbody><tr><td><code>vaults</code></td><td>32 tables found, 32 decoded</td></tr>
+<tr><td><code>clean</code></td><td>1,415 wrappers folded, 481 vault strings inlined, 0 hashes unresolved</td></tr>
+<tr><td><code>verify</code></td><td>PASS, 32 of 32 tables match, 0 identifiers introduced</td></tr>
+<tr><td><code>signals</code></td><td>143 signals, 4 truncated, 18 branchless</td></tr>
+<tr><td><code>slice</code></td><td>143 slices, 198 owned helpers inlined</td></tr>
+<tr><td><code>codes</code></td><td>11 codes, 282 sites</td></tr>
+<tr><td><code>join</code></td><td>3 captures, 144 ids observed, 58 varying, 0 disagreements</td></tr>
+<tr><td><code>schema</code></td><td>154 keys, 546 leaves, 12 digest leaves, 11 session leaves</td></tr>
+<tr><td><code>collector</code></td><td>140 collectors, 509 module-level declarations</td></tr></tbody></table>
+<h2 id="take-your-own-captures">Take your own captures<a class="anchor" href="#take-your-own-captures">#</a></h2>
+<pre><code class="hljs language-bash">npm run capture</code></pre>
+<p>Serves <code>http://localhost:8099/?b=&lt;label&gt;</code>. Open it once per browser. The page loads
+<code>spy/fpspy.js</code>, imports the stored bundle as a module, calls its exported <code>start()</code> and <code>get()</code>,
+waits 8 seconds for the delayed stages, and posts the capture back to <code>/save</code>. Nothing is
+reimplemented and nothing is driven through the npm loader: the bytes the rest of the toolchain
+analyses are the ones that run.</p>
+<p>The tenant answers <code>403 origin_not_available</code>, because the demo key is bound to its own site. That
+costs nothing: the spy records the request body inside the <code>fetch</code> hook, before the call leaves, so
+the payload is captured whatever the server thinks of the origin. The only thing lost is the
+response, which is a verdict.</p>
+<p>Third-party storage entries are dropped on save; <code>npm run scrub</code> does the same to a capture taken
+earlier.</p>
+<h2 id="watch-a-live-site-instead">Watch a live site instead<a class="anchor" href="#watch-a-live-site-instead">#</a></h2>
+<pre><code class="hljs language-bash">npm run spy</code></pre>
+<p>Writes <code>spy/fpspy.js</code>, a console script to paste into DevTools on any page running the agent. It
+hooks <code>fetch</code>, <code>XMLHttpRequest</code>, <code>sendBeacon</code>, <code>Blob</code>/<code>URL.createObjectURL</code>, <code>Worker</code>, the
+collector-facing browser APIs, and the <code>FingerprintJS</code> global if one appears. See
+<a href="./repo/spy.html"><code>spy/README.md</code></a>.</p>
+<h2 id="check-the-wire-half">Check the wire half<a class="anchor" href="#check-the-wire-half">#</a></h2>
+<pre><code class="hljs language-bash">npm run profile profiles/mac-chrome.json
+node tools/replay.mjs --payload artifacts/profiles/mac-chrome.payload.json --dry</code></pre>
+<p><code>--dry</code> builds the frame with the agent&#39;s own codec and unseals it locally. A round trip that matches
+proves the codec extraction has not drifted from the bundle. Everything past <code>--dry</code> sends real
+requests to a real tenant; <a href="./09-toolchain.html">09-toolchain</a> covers those tools and
+<a href="./08-not-determined.html">08-not-determined</a> covers what a server verdict from them is worth.</p>
+<h2 id="run-the-collectors-without-the-agent">Run the collectors without the agent<a class="anchor" href="#run-the-collectors-without-the-agent">#</a></h2>
+<pre><code class="hljs language-bash">python3 -m http.server 8123
+open http://127.0.0.1:8123/collector/index.html</code></pre>
+<p><code>collector/fp-collect.js</code> is the agent&#39;s own collectors with the protection layers folded away. On
+the machine used here it reports the same status code as the Chrome capture for 132 of the 140
+collectors; the eight that differ are the WebRTC pair, which needs the tenant&#39;s TURN credentials,
+and six signals whose result depends on page origin and browser state.</p>
+
+        <div class="pagenav"><a href="./06-identity.html">← What visitor_id is a function of</a><a href="./08-not-determined.html">→ Not determined</a></div>
+      </main>
+      <aside class="toc"><span>On this page</span><a href="#the-pinned-target">The pinned target</a>
+<a href="#install">Install</a>
+<a href="#rebuild-everything">Rebuild everything</a>
+<a href="#take-your-own-captures">Take your own captures</a>
+<a href="#watch-a-live-site-instead">Watch a live site instead</a>
+<a href="#check-the-wire-half">Check the wire half</a>
+<a href="#run-the-collectors-without-the-agent">Run the collectors without the agent</a></aside>
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="./repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./hub.js"></script>
+    
+  </body>
+</html>

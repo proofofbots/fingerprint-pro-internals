@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ad blocker probes (s36) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s36</div><h1>Ad blocker probes</h1></div>
+        <p class="lede">injects ad container selectors and measures which ones a blocker suppresses</p>
+<p class="lede">Group: Extensions and ad blocking · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s36 — sig_s36_div</span>
+<span class="hljs-comment">// module cm, stage2, codes 0 -1</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   document.createElement(&quot;div&quot;) document.body document.body.appendChild() document.createElement()</span>
+<span class="hljs-comment">//   Audio window.onorientationchange window.SharedWorker navigator.connection navigator.appVersion</span>
+<span class="hljs-comment">//   window.orientation navigator.vendor.indexOf(&quot;Apple&quot;) window.ApplePayError</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   console.log(`${}</span>
+<span class="hljs-string">``</span><span class="hljs-string">``</span>) <span class="hljs-title class_">Array</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>() <span class="hljs-title class_">Promise</span> <span class="hljs-title class_">Error</span> <span class="hljs-literal">undefined</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   value</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot; &quot; &quot;#&quot; &quot;#Ad-Content&quot; &quot;#Box-Banner-ads&quot; &quot;#FollowUs&quot; &quot;#Iklan-Melayang&quot; &quot;#Kolom-Iklan-728&quot;</span>
+<span class="hljs-comment">//   &quot;#Publicidade&quot; &quot;#SSpotIMPopSlider&quot; &quot;#SidebarIklan-wrapper&quot; &quot;#aafoot.top_box&quot; &quot;#ac-lre-player&quot;</span>
+<span class="hljs-comment">//   &quot;#ad_300X250&quot; &quot;#ad_blocker&quot; &quot;#ad_inview_area&quot; &quot;#adblock-honeypot&quot; &quot;#adcontainer_recherche&quot;</span>
+<span class="hljs-comment">//   &quot;#ads-google-middle_rectangle-group&quot; &quot;#advertentie&quot; &quot;#back-top&quot; &quot;#backkapat&quot; &quot;#bannerfloat22&quot;</span>
+<span class="hljs-comment">//   &quot;#barraPublicidade&quot; &quot;#campaign-banner&quot; &quot;#cemp_doboz&quot; &quot;#ceneo-placeholder-ceneo-12&quot;</span>
+<span class="hljs-comment">//   &quot;#cookieconsentdiv&quot; &quot;#cookies-policy-sticky&quot; &quot;#divAgahi&quot; &quot;#ea_intext_div&quot; &quot;#hirdetesek_box&quot;</span>
+<span class="hljs-comment">//   &quot;#inlineShare&quot; &quot;#kauli_yad_1&quot; &quot;#livereAdWrapper&quot; &quot;#meteored_share&quot; &quot;#mgid_iframe1&quot;</span>
+<span class="hljs-comment">//   &quot;#mobileCatfish&quot; &quot;#mod-social-share-2&quot; &quot;#navbar_notice_50&quot; &quot;#onlajny-stickers&quot; &quot;#pavePub&quot;</span>
+<span class="hljs-comment">//   &quot;#pgeldiz&quot; &quot;#pmadv&quot; &quot;#psyduckpockeball&quot; &quot;#publiEspecial&quot; &quot;#qoo-counter&quot; &quot;#queTooltip&quot;</span>
+<span class="hljs-comment">//   &quot;#reklame-rechts-mitte&quot; &quot;#reklami&quot; &quot;#reklamni-box&quot; &quot;#semilo-lrectangle&quot; &quot;#social-tools&quot;</span>
+<span class="hljs-comment">//   &quot;#social_follow&quot; &quot;#sovrn_container&quot; &quot;#stickyCookieBar&quot; &quot;#subscribe_popup&quot; &quot;#taotaole&quot;</span>
+<span class="hljs-comment">//   &quot;#top100counter&quot; &quot;#vipAdmarktBannerBlock&quot; &quot;#werbungsky&quot; &quot;#widget-quan&quot; &quot;#xenium_hot_offers&quot;</span>
+<span class="hljs-comment">//   &quot;.BetterJsPopOverlay&quot; &quot;.BlockNag__Card&quot; &quot;.ModuleTemplateCookieIndicator&quot; &quot;.Zi_ad_a_H&quot;</span>
+<span class="hljs-comment">//   &quot;.__isboostReturnAd&quot; &quot;._popIn_infinite_ad&quot; &quot;.ad-desktop-rectangle&quot; &quot;.ad__main&quot; &quot;.adblocker-root&quot;</span>
+<span class="hljs-comment">//   &quot;.adgoogle&quot; &quot;.ads300s&quot; &quot;.ads_ban&quot; &quot;.adstekst&quot; &quot;.amp_ad&quot;</span>
+<span class="hljs-comment">//   &quot;.appguide-wrap[onclick*=\&quot;bcebos.com\&quot;]&quot; &quot;.article-sharer&quot; &quot;.as-oil&quot; &quot;.aw-cookie-banner&quot;</span>
+<span class="hljs-comment">//   &quot;.box_adv_annunci&quot; &quot;.bumq&quot; &quot;.cc-CookieWarning&quot; &quot;.cfa_popup&quot; &quot;.close-ads&quot; &quot;.cnt-publi&quot;</span>
+<span class="hljs-comment">//   &quot;.community__social-desc&quot; &quot;.ctpl-fullbanner&quot; &quot;.etsy-tweet&quot; &quot;.ezmob-footer&quot; &quot;.frontpageAdvM&quot;</span>
+<span class="hljs-comment">//   &quot;.geminiLB1Ad&quot; &quot;.header-blocked-ad&quot; &quot;.hs-sosyal&quot; &quot;.img-kosana&quot; &quot;.kadr&quot; &quot;.lapni-pop-over&quot;</span>
+<span class="hljs-comment">//   &quot;.mainostila&quot; &quot;.mobile_adhesion&quot; &quot;.navigate-to-top&quot; &quot;.newsletter_holder&quot;</span>
+<span class="hljs-comment">//   &quot;.o--cookies--container&quot; &quot;.open.pushModal&quot; &quot;.optimonk-iframe-container&quot; &quot;.popup-social&quot;</span>
+<span class="hljs-comment">//   &quot;.quangcao&quot; &quot;.reclama&quot; &quot;.reklama-megaboard&quot; &quot;.reklamos_nuorodos&quot; &quot;.reklamos_tarpas&quot;</span>
+<span class="hljs-comment">//   &quot;.revenue_unit_item.dable&quot; &quot;.right-and-left-sponsers&quot; &quot;.sb-box-pubbliredazionale&quot;</span>
+<span class="hljs-comment">//   &quot;.site-pub-interstitiel&quot; &quot;.sklik&quot; &quot;.sponsored-text-links&quot; &quot;.sponsorit&quot; &quot;.sponsorlinkgruen&quot;</span>
+<span class="hljs-comment">//   &quot;.sygnal24-gdpr-modal-wrap&quot; &quot;.textad_headline&quot; &quot;.trafficjunky-ad&quot;</span>
+<span class="hljs-comment">//   &quot;.util-bar-module-firefly-visible&quot; &quot;.widget_po_ads_widget&quot; &quot;.widgetadv&quot; &quot;.wp_adblock_detect&quot;</span>
+<span class="hljs-comment">//   &quot;.yandex-rtb-block&quot; &quot;.yb-floorad&quot; &quot;.ylamainos&quot; &quot;.yt.btn-link.btn-md.btn&quot; &quot;.zergnet-recommend&quot;</span>
+<span class="hljs-comment">//   &quot;;&quot; &quot;A[href*=\&quot;adman.otenet.gr/click?\&quot;]&quot; &quot;A[href*=\&quot;http://axiabanners.exodus.gr/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;A[href*=\&quot;http://pay4results24.eu\&quot;]&quot; &quot;DIALOG&quot; &quot;DIV.agores300&quot; &quot;DOM blockers debug:\n```&quot;</span>
+<span class="hljs-comment">//   &quot;TABLE.advright&quot; &quot;TABLE[width=\&quot;140px\&quot;]&quot; &quot;[&quot; &quot;[class*=\&quot;GoogleAds\&quot;]&quot; &quot;[data-cookie-number]&quot;</span>
+<span class="hljs-comment">//   &quot;[href^=\&quot;https://aff.sendhub.pl/\&quot;]&quot; &quot;[id^=\&quot;bn_bottom_fixed_\&quot;]&quot; &quot;[id^=\&quot;sklikReklama\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;[title=\&quot;ALIENBOLA\&quot; i]&quot; &quot;a[href*=\&quot;.1956hl.com/\&quot;]&quot; &quot;a[href*=\&quot;.aflam.info\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href*=\&quot;.hthbet34.com\&quot;]&quot; &quot;a[href*=\&quot;//ad.planbplus.co.kr/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href*=\&quot;//adv.imadrep.co.kr/\&quot;]&quot; &quot;a[href*=\&quot;//febrare.ru/\&quot;]&quot; &quot;a[href*=\&quot;//utimg.ru/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href*=\&quot;/84992020.xyz\&quot;]&quot; &quot;a[href*=\&quot;/clickthrgh.asp?\&quot;]&quot; &quot;a[href*=\&quot;://chikidiki.ru\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href*=\&quot;booraq.org\&quot;]&quot; &quot;a[href*=\&quot;casinopro.se\&quot;][target=\&quot;_blank\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href*=\&quot;doktor-se.onelink.me\&quot;]&quot; &quot;a[href*=\&quot;dubizzle.com/ar/?utm_source=\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href*=\&quot;weborama.fr/fcgi-bin/\&quot;]&quot; &quot;a[href*=macau-uta-popup]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;//telegram.me/share/url?\&quot;]&quot; &quot;a[href^=\&quot;/url/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;http://ad2.trafficgate.net/\&quot;]&quot; &quot;a[href^=\&quot;http://adserv.ontek.com.tr/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;http://click.hotlog.ru/\&quot;]&quot; &quot;a[href^=\&quot;http://g1.v.fwmrm.net/ad/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;http://izlenzi.com/campaign/\&quot;]&quot; &quot;a[href^=\&quot;http://promo.vador.com/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;http://top.mail.ru/jump\&quot;]&quot; &quot;a[href^=\&quot;http://www.installads.net/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;https://ad.letmeads.com/\&quot;]&quot; &quot;a[href^=\&quot;https://adserver.html.it/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;https://app.readpeak.com/ads\&quot;]&quot; &quot;a[href^=\&quot;https://bd742.com/\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;a[href^=\&quot;https://l.profitshare.ro/\&quot;]&quot; &quot;a[href^=\&quot;https://xltube.nl/click/\&quot;]&quot; &quot;amp-auto-ads&quot;</span>
+<span class="hljs-comment">//   &quot;amp-embed[type=\&quot;24smi\&quot;]&quot; &quot;article.category-samarbete&quot; &quot;aside[data-portal-id=\&quot;leaderboard\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;block&quot; &quot;class&quot; &quot;display&quot; &quot;div#skapiec_ad&quot; &quot;div.holidAds&quot; &quot;div[class^=\&quot;app_gdpr\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;div[id^=\&quot;AdFox_banner_\&quot;]&quot; &quot;div[id^=\&quot;crt-\&quot;][data-criteo-id]&quot; &quot;div[id^=\&quot;smi2adblock\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;hidden&quot; &quot;id&quot; &quot;img[alt=\&quot;Dedikuoti.lt serveriai\&quot;]&quot; &quot;img[alt=\&quot;Hostingas Serveriai.lt\&quot;]&quot;</span>
+<span class="hljs-comment">//   &quot;img[alt=\&quot;Reklaminis skydelis\&quot;]&quot; &quot;important&quot; &quot;ins.fastview-ad&quot; &quot;td#freenet_table_ads&quot;</span>
+<span class="hljs-comment">//   &quot;ul.adsmodern&quot; &quot;visibility&quot; &quot;➡️&quot; &quot;🚫&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   === &quot;DIALOG&quot; === &quot;style&quot; === 0 &gt;= 2 &gt;= 4 in &quot;ApplePayError&quot; in &quot;CSSPrimitiveValue&quot; in &quot;Counter&quot;</span>
+<span class="hljs-comment">//   in &quot;RGBColor&quot; in &quot;SharedWorker&quot; in &quot;WebKitMediaKeys&quot; in &quot;onorientationchange&quot; in &quot;ontypechange&quot;</span>
+<span class="hljs-comment">//   in &quot;orientation&quot; in &quot;sinkId&quot;</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   fn159: arg928 == null</span>
+<span class="hljs-comment">//   fn159: arg928 != null</span>
+<span class="hljs-comment">//   h_s36_div: !fn25() &amp;&amp; !fn23()</span>
+<span class="hljs-comment">//   h_s36_div: v359.tagName === &quot;DIALOG&quot;</span>
+<span class="hljs-comment">//   h_s36_div: !v356[v360].offsetParent</span>
+<span class="hljs-comment">//   h_s36_div: !((parentElement = element3.parentNode) == null)</span>
+<span class="hljs-comment">//   h_s36_div: fn9(v364.map(arg296 =&gt; v354[arg296])) &gt; 0.6 * v364.length</span>
+<span class="hljs-comment">//   fn129: fn40(arg775)</span>
+<span class="hljs-comment">//   fn129: fn88(v896)</span>
+<span class="hljs-comment">//   fn129: fn88(v897)</span>
+<span class="hljs-comment">//   fn25: fn9([&quot;ApplePayError&quot; in window, &quot;CSSPrimitiveValue&quot; in window, &quot;Counter&quot; in window, navigator.vendor.indexOf(&quot;Apple&quot;) === 0, &quot;RGBColor&quot; in window, &quot;WebKitMediaK…</span>
+<span class="hljs-comment">//   h_s36_createElement: !v311</span>
+<span class="hljs-comment">//   h_s36_createElement: !v313</span>
+<span class="hljs-comment">//   h_s36_createElement: v303 != null</span>
+<span class="hljs-comment">//   h_s36_createElement: v314 === &quot;style&quot;</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 4 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   fn11:419 fn129:6642 fn159:8289 fn168:8902 fn23:692 fn25:712 fn40:1892 fn46:3216 fn88:4712</span>
+<span class="hljs-comment">//   fn9:252</span>
+
+<span class="hljs-comment">// agent.clean.js:1622</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s36_createElement</span>(<span class="hljs-params">arg248</span>) {
+  <span class="hljs-keyword">const</span> [v303, v304] = (<span class="hljs-keyword">function</span> (<span class="hljs-params">arg249</span>) {
+      <span class="hljs-keyword">const</span> v305 = <span class="hljs-string">`Unexpected syntax &#x27;<span class="hljs-subst">${arg249}</span>&#x27;`</span>,
+        v306 = <span class="hljs-regexp">/^\s*([a-z-]*)(.*)$/i</span>.<span class="hljs-title function_">exec</span>(arg249),
+        v307 = v306[<span class="hljs-number">1</span>] || <span class="hljs-literal">undefined</span>,
+        v308 = {},
+        v309 = <span class="hljs-regexp">/([.:#][\w-]+|\[.+?\])/gi</span>,
+        v310 = <span class="hljs-function">(<span class="hljs-params">arg250, arg251</span>) =&gt;</span> {
+          v308[arg250] = v308[arg250] || [];
+          v308[arg250].<span class="hljs-title function_">push</span>(arg251);
+        };
+      <span class="hljs-keyword">for</span> (;;) {
+        <span class="hljs-keyword">const</span> v311 = v309.<span class="hljs-title function_">exec</span>(v306[<span class="hljs-number">2</span>]);
+        <span class="hljs-keyword">if</span> (!v311) {
+          <span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">const</span> v312 = v311[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">switch</span> (v312[<span class="hljs-number">0</span>]) {
+          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;.&quot;</span>:
+            <span class="hljs-title function_">v310</span>(<span class="hljs-string">&quot;class&quot;</span>, v312.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;#&quot;</span>:
+            <span class="hljs-title function_">v310</span>(<span class="hljs-string">&quot;id&quot;</span>, v312.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;[&quot;</span>: {
+            <span class="hljs-keyword">const</span> v313 = <span class="hljs-regexp">/^\[([\w-]+)([~|^$*]?=(&quot;(.*?)&quot;|([\w-]+)))?(\s+[is])?\]$/</span>.<span class="hljs-title function_">exec</span>(v312);
+            <span class="hljs-keyword">if</span> (!v313) {
+              <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(v305);
+            }
+            <span class="hljs-title function_">v310</span>(v313[<span class="hljs-number">1</span>], v313[<span class="hljs-number">4</span>] ?? v313[<span class="hljs-number">5</span>] ?? <span class="hljs-string">&quot;&quot;</span>);
+            <span class="hljs-keyword">break</span>;
+          }
+          <span class="hljs-attr">default</span>:
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(v305);
+        }
+      }
+      <span class="hljs-keyword">return</span> [v307, v308];
+    })(arg248),
+    element2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(v303 != <span class="hljs-literal">null</span> ? v303 : <span class="hljs-string">&quot;div&quot;</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v314 <span class="hljs-keyword">of</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(v304)) {
+    <span class="hljs-keyword">const</span> v315 = v304[v314].<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot; &quot;</span>);
+    <span class="hljs-keyword">if</span> (v314 === <span class="hljs-string">&quot;style&quot;</span>) {
+      <span class="hljs-title function_">h_s36_fn2</span>(element2.<span class="hljs-property">style</span>, v315);
+    } <span class="hljs-keyword">else</span> {
+      element2.<span class="hljs-title function_">setAttribute</span>(v314, v315);
+    }
+  }
+  <span class="hljs-keyword">return</span> element2;
+}
+
+<span class="hljs-comment">// agent.clean.js:1914</span>
+<span class="hljs-keyword">const</span> h_s36_div = <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">{ debug: arg290 } = {}</span>) {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">fn25</span>() &amp;&amp; !<span class="hljs-title function_">fn23</span>()) {
+      <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">const</span> v351 = {
+        <span class="hljs-attr">abpIndo</span>: [
+          <span class="hljs-string">&quot;#Iklan-Melayang&quot;</span>,
+          <span class="hljs-string">&quot;#Kolom-Iklan-728&quot;</span>,
+          <span class="hljs-string">&quot;#SidebarIklan-wrapper&quot;</span>,
+          <span class="hljs-string">&#x27;[title=&quot;ALIENBOLA&quot; i]&#x27;</span>,
+          <span class="hljs-string">&quot;#Box-Banner-ads&quot;</span>,
+        ],
+        <span class="hljs-attr">abpvn</span>: [<span class="hljs-string">&quot;.quangcao&quot;</span>, <span class="hljs-string">&quot;#mobileCatfish&quot;</span>, <span class="hljs-string">&quot;.close-ads&quot;</span>, <span class="hljs-string">&#x27;[id^=&quot;bn_bottom_fixed_&quot;]&#x27;</span>, <span class="hljs-string">&quot;#pmadv&quot;</span>],
+        <span class="hljs-attr">adBlockFinland</span>: [
+          <span class="hljs-string">&quot;.mainostila&quot;</span>,
+          <span class="hljs-string">&quot;.sponsorit&quot;</span>,
+          <span class="hljs-string">&quot;.ylamainos&quot;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;/clickthrgh.asp?&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://app.readpeak.com/ads&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">adBlockPersian</span>: [
+          <span class="hljs-string">&quot;#navbar_notice_50&quot;</span>,
+          <span class="hljs-string">&quot;.kadr&quot;</span>,
+          <span class="hljs-string">&#x27;TABLE[width=&quot;140px&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#divAgahi&quot;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://g1.v.fwmrm.net/ad/&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">adBlockWarningRemoval</span>: [
+          <span class="hljs-string">&quot;#adblock-honeypot&quot;</span>,
+          <span class="hljs-string">&quot;.adblocker-root&quot;</span>,
+          <span class="hljs-string">&quot;.wp_adblock_detect&quot;</span>,
+          <span class="hljs-string">&quot;.header-blocked-ad&quot;</span>,
+          <span class="hljs-string">&quot;#ad_blocker&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardAnnoyances</span>: [
+          <span class="hljs-string">&quot;.hs-sosyal&quot;</span>,
+          <span class="hljs-string">&quot;#cookieconsentdiv&quot;</span>,
+          <span class="hljs-string">&#x27;div[class^=&quot;app_gdpr&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;.as-oil&quot;</span>,
+          <span class="hljs-string">&#x27;[data-cypress=&quot;soft-push-notification-modal&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">adGuardBase</span>: [
+          <span class="hljs-string">&quot;.BetterJsPopOverlay&quot;</span>,
+          <span class="hljs-string">&quot;#ad_300X250&quot;</span>,
+          <span class="hljs-string">&quot;#bannerfloat22&quot;</span>,
+          <span class="hljs-string">&quot;#campaign-banner&quot;</span>,
+          <span class="hljs-string">&quot;#Ad-Content&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardChinese</span>: [
+          <span class="hljs-string">&quot;.Zi_ad_a_H&quot;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;.hthbet34.com&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#widget-quan&quot;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;/84992020.xyz&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;.1956hl.com/&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">adGuardFrench</span>: [
+          <span class="hljs-string">&quot;#pavePub&quot;</span>,
+          <span class="hljs-string">&quot;.ad-desktop-rectangle&quot;</span>,
+          <span class="hljs-string">&quot;.mobile_adhesion&quot;</span>,
+          <span class="hljs-string">&quot;.widgetadv&quot;</span>,
+          <span class="hljs-string">&quot;.ads_ban&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardGerman</span>: [<span class="hljs-string">&#x27;aside[data-portal-id=&quot;leaderboard&quot;]&#x27;</span>],
+        <span class="hljs-attr">adGuardJapanese</span>: [
+          <span class="hljs-string">&quot;#kauli_yad_1&quot;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://ad2.trafficgate.net/&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;._popIn_infinite_ad&quot;</span>,
+          <span class="hljs-string">&quot;.adgoogle&quot;</span>,
+          <span class="hljs-string">&quot;.__isboostReturnAd&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardMobile</span>: [
+          <span class="hljs-string">&quot;amp-auto-ads&quot;</span>,
+          <span class="hljs-string">&quot;.amp_ad&quot;</span>,
+          <span class="hljs-string">&#x27;amp-embed[type=&quot;24smi&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#mgid_iframe1&quot;</span>,
+          <span class="hljs-string">&quot;#ad_inview_area&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardRussian</span>: [
+          <span class="hljs-string">&#x27;a[href^=&quot;https://ad.letmeads.com/&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;.reclama&quot;</span>,
+          <span class="hljs-string">&#x27;div[id^=&quot;smi2adblock&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;div[id^=&quot;AdFox_banner_&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#psyduckpockeball&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardSocial</span>: [
+          <span class="hljs-string">&#x27;a[href^=&quot;//www.stumbleupon.com/submit?url=&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;//telegram.me/share/url?&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;.etsy-tweet&quot;</span>,
+          <span class="hljs-string">&quot;#inlineShare&quot;</span>,
+          <span class="hljs-string">&quot;.popup-social&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardSpanishPortuguese</span>: [
+          <span class="hljs-string">&quot;#barraPublicidade&quot;</span>,
+          <span class="hljs-string">&quot;#Publicidade&quot;</span>,
+          <span class="hljs-string">&quot;#publiEspecial&quot;</span>,
+          <span class="hljs-string">&quot;#queTooltip&quot;</span>,
+          <span class="hljs-string">&quot;.cnt-publi&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardTrackingProtection</span>: [
+          <span class="hljs-string">&quot;#qoo-counter&quot;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://click.hotlog.ru/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://hitcounter.ru/top/stat.php&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://top.mail.ru/jump&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#top100counter&quot;</span>,
+        ],
+        <span class="hljs-attr">adGuardTurkish</span>: [
+          <span class="hljs-string">&quot;#backkapat&quot;</span>,
+          <span class="hljs-string">&quot;#reklami&quot;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://adserv.ontek.com.tr/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://izlenzi.com/campaign/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://www.installads.net/&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">bulgarian</span>: [
+          <span class="hljs-string">&quot;td#freenet_table_ads&quot;</span>,
+          <span class="hljs-string">&quot;#ea_intext_div&quot;</span>,
+          <span class="hljs-string">&quot;.lapni-pop-over&quot;</span>,
+          <span class="hljs-string">&quot;#xenium_hot_offers&quot;</span>,
+        ],
+        <span class="hljs-attr">easyList</span>: [
+          <span class="hljs-string">&quot;.yb-floorad&quot;</span>,
+          <span class="hljs-string">&quot;.widget_po_ads_widget&quot;</span>,
+          <span class="hljs-string">&quot;.trafficjunky-ad&quot;</span>,
+          <span class="hljs-string">&quot;.textad_headline&quot;</span>,
+          <span class="hljs-string">&quot;.sponsored-text-links&quot;</span>,
+        ],
+        <span class="hljs-attr">easyListChina</span>: [
+          <span class="hljs-string">&#x27;.appguide-wrap[onclick*=&quot;bcebos.com&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;.frontpageAdvM&quot;</span>,
+          <span class="hljs-string">&quot;#taotaole&quot;</span>,
+          <span class="hljs-string">&quot;#aafoot.top_box&quot;</span>,
+          <span class="hljs-string">&quot;.cfa_popup&quot;</span>,
+        ],
+        <span class="hljs-attr">easyListCookie</span>: [
+          <span class="hljs-string">&quot;.ezmob-footer&quot;</span>,
+          <span class="hljs-string">&quot;.cc-CookieWarning&quot;</span>,
+          <span class="hljs-string">&quot;[data-cookie-number]&quot;</span>,
+          <span class="hljs-string">&quot;.aw-cookie-banner&quot;</span>,
+          <span class="hljs-string">&quot;.sygnal24-gdpr-modal-wrap&quot;</span>,
+        ],
+        <span class="hljs-attr">easyListCzechSlovak</span>: [
+          <span class="hljs-string">&quot;#onlajny-stickers&quot;</span>,
+          <span class="hljs-string">&quot;#reklamni-box&quot;</span>,
+          <span class="hljs-string">&quot;.reklama-megaboard&quot;</span>,
+          <span class="hljs-string">&quot;.sklik&quot;</span>,
+          <span class="hljs-string">&#x27;[id^=&quot;sklikReklama&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">easyListDutch</span>: [
+          <span class="hljs-string">&quot;#advertentie&quot;</span>,
+          <span class="hljs-string">&quot;#vipAdmarktBannerBlock&quot;</span>,
+          <span class="hljs-string">&quot;.adstekst&quot;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://xltube.nl/click/&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#semilo-lrectangle&quot;</span>,
+        ],
+        <span class="hljs-attr">easyListGermany</span>: [
+          <span class="hljs-string">&quot;#SSpotIMPopSlider&quot;</span>,
+          <span class="hljs-string">&quot;.sponsorlinkgruen&quot;</span>,
+          <span class="hljs-string">&quot;#werbungsky&quot;</span>,
+          <span class="hljs-string">&quot;#reklame-rechts-mitte&quot;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://bd742.com/&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">easyListItaly</span>: [
+          <span class="hljs-string">&quot;.box_adv_annunci&quot;</span>,
+          <span class="hljs-string">&quot;.sb-box-pubbliredazionale&quot;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://affiliazioniads.snai.it/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://adserver.html.it/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://affiliazioniads.snai.it/&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">easyListLithuania</span>: [
+          <span class="hljs-string">&quot;.reklamos_tarpas&quot;</span>,
+          <span class="hljs-string">&quot;.reklamos_nuorodos&quot;</span>,
+          <span class="hljs-string">&#x27;img[alt=&quot;Reklaminis skydelis&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;img[alt=&quot;Dedikuoti.lt serveriai&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;img[alt=&quot;Hostingas Serveriai.lt&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">estonian</span>: [<span class="hljs-string">&#x27;A[href*=&quot;http://pay4results24.eu&quot;]&#x27;</span>],
+        <span class="hljs-attr">fanboyAnnoyances</span>: [
+          <span class="hljs-string">&quot;#ac-lre-player&quot;</span>,
+          <span class="hljs-string">&quot;.navigate-to-top&quot;</span>,
+          <span class="hljs-string">&quot;#subscribe_popup&quot;</span>,
+          <span class="hljs-string">&quot;.newsletter_holder&quot;</span>,
+          <span class="hljs-string">&quot;#back-top&quot;</span>,
+        ],
+        <span class="hljs-attr">fanboyAntiFacebook</span>: [<span class="hljs-string">&quot;.util-bar-module-firefly-visible&quot;</span>],
+        <span class="hljs-attr">fanboyEnhancedTrackers</span>: [
+          <span class="hljs-string">&quot;.open.pushModal&quot;</span>,
+          <span class="hljs-string">&quot;#issuem-leaky-paywall-articles-zero-remaining-nag&quot;</span>,
+          <span class="hljs-string">&quot;#sovrn_container&quot;</span>,
+          <span class="hljs-string">&#x27;div[class$=&quot;-hide&quot;][zoompage-fontsize][style=&quot;display: block;&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;.BlockNag__Card&quot;</span>,
+        ],
+        <span class="hljs-attr">fanboySocial</span>: [
+          <span class="hljs-string">&quot;#FollowUs&quot;</span>,
+          <span class="hljs-string">&quot;#meteored_share&quot;</span>,
+          <span class="hljs-string">&quot;#social_follow&quot;</span>,
+          <span class="hljs-string">&quot;.article-sharer&quot;</span>,
+          <span class="hljs-string">&quot;.community__social-desc&quot;</span>,
+        ],
+        <span class="hljs-attr">frellwitSwedish</span>: [
+          <span class="hljs-string">&#x27;a[href*=&quot;casinopro.se&quot;][target=&quot;_blank&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;doktor-se.onelink.me&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;article.category-samarbete&quot;</span>,
+          <span class="hljs-string">&quot;div.holidAds&quot;</span>,
+          <span class="hljs-string">&quot;ul.adsmodern&quot;</span>,
+        ],
+        <span class="hljs-attr">greekAdBlock</span>: [
+          <span class="hljs-string">&#x27;A[href*=&quot;adman.otenet.gr/click?&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;A[href*=&quot;http://axiabanners.exodus.gr/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;A[href*=&quot;http://interactive.forthnet.gr/click?&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;DIV.agores300&quot;</span>,
+          <span class="hljs-string">&quot;TABLE.advright&quot;</span>,
+        ],
+        <span class="hljs-attr">hungarian</span>: [
+          <span class="hljs-string">&quot;#cemp_doboz&quot;</span>,
+          <span class="hljs-string">&quot;.optimonk-iframe-container&quot;</span>,
+          <span class="hljs-string">&quot;.ad__main&quot;</span>,
+          <span class="hljs-string">&#x27;[class*=&quot;GoogleAds&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#hirdetesek_box&quot;</span>,
+        ],
+        <span class="hljs-attr">iDontCareAboutCookies</span>: [
+          <span class="hljs-string">&#x27;.alert-info[data-block-track*=&quot;CookieNotice&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;.ModuleTemplateCookieIndicator&quot;</span>,
+          <span class="hljs-string">&quot;.o--cookies--container&quot;</span>,
+          <span class="hljs-string">&quot;#cookies-policy-sticky&quot;</span>,
+          <span class="hljs-string">&quot;#stickyCookieBar&quot;</span>,
+        ],
+        <span class="hljs-attr">icelandicAbp</span>: [<span class="hljs-string">&#x27;A[href^=&quot;/framework/resources/forms/ads.aspx&quot;]&#x27;</span>],
+        <span class="hljs-attr">latvian</span>: [
+          <span class="hljs-string">&#x27;a[href=&quot;http://www.salidzini.lv/&quot;][style=&quot;display: block; width: 120px; height: 40px; overflow: hidden; position: relative;&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href=&quot;http://www.salidzini.lv/&quot;][style=&quot;display: block; width: 88px; height: 31px; overflow: hidden; position: relative;&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">listKr</span>: [
+          <span class="hljs-string">&#x27;a[href*=&quot;//ad.planbplus.co.kr/&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#livereAdWrapper&quot;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;//adv.imadrep.co.kr/&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;ins.fastview-ad&quot;</span>,
+          <span class="hljs-string">&quot;.revenue_unit_item.dable&quot;</span>,
+        ],
+        <span class="hljs-attr">listeAr</span>: [
+          <span class="hljs-string">&quot;.geminiLB1Ad&quot;</span>,
+          <span class="hljs-string">&quot;.right-and-left-sponsers&quot;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;.aflam.info&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;booraq.org&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;dubizzle.com/ar/?utm_source=&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">listeFr</span>: [
+          <span class="hljs-string">&#x27;a[href^=&quot;http://promo.vador.com/&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#adcontainer_recherche&quot;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;weborama.fr/fcgi-bin/&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;.site-pub-interstitiel&quot;</span>,
+          <span class="hljs-string">&#x27;div[id^=&quot;crt-&quot;][data-criteo-id]&#x27;</span>,
+        ],
+        <span class="hljs-attr">officialPolish</span>: [
+          <span class="hljs-string">&quot;#ceneo-placeholder-ceneo-12&quot;</span>,
+          <span class="hljs-string">&#x27;[href^=&quot;https://aff.sendhub.pl/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://advmanager.techfun.pl/redirect/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;http://www.trizer.pl/?utm_source&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;div#skapiec_ad&quot;</span>,
+        ],
+        <span class="hljs-attr">ro</span>: [
+          <span class="hljs-string">&#x27;a[href^=&quot;//afftrk.altex.ro/Counter/Click&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://blackfridaysales.ro/trk/shop/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://event.2performant.com/events/click&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;https://l.profitshare.ro/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href^=&quot;/url/&quot;]&#x27;</span>,
+        ],
+        <span class="hljs-attr">ruAd</span>: [
+          <span class="hljs-string">&#x27;a[href*=&quot;//febrare.ru/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;//utimg.ru/&quot;]&#x27;</span>,
+          <span class="hljs-string">&#x27;a[href*=&quot;://chikidiki.ru&quot;]&#x27;</span>,
+          <span class="hljs-string">&quot;#pgeldiz&quot;</span>,
+          <span class="hljs-string">&quot;.yandex-rtb-block&quot;</span>,
+        ],
+        <span class="hljs-attr">thaiAds</span>: [
+          <span class="hljs-string">&quot;a[href*=macau-uta-popup]&quot;</span>,
+          <span class="hljs-string">&quot;#ads-google-middle_rectangle-group&quot;</span>,
+          <span class="hljs-string">&quot;.ads300s&quot;</span>,
+          <span class="hljs-string">&quot;.bumq&quot;</span>,
+          <span class="hljs-string">&quot;.img-kosana&quot;</span>,
+        ],
+        <span class="hljs-attr">webAnnoyancesUltralist</span>: [
+          <span class="hljs-string">&quot;#mod-social-share-2&quot;</span>,
+          <span class="hljs-string">&quot;#social-tools&quot;</span>,
+          <span class="hljs-string">&quot;.ctpl-fullbanner&quot;</span>,
+          <span class="hljs-string">&quot;.zergnet-recommend&quot;</span>,
+          <span class="hljs-string">&quot;.yt.btn-link.btn-md.btn&quot;</span>,
+        ],
+      },
+      v352 = <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(v351),
+      v353 = [].<span class="hljs-title function_">concat</span>(...v352.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg291</span>) =&gt;</span> v351[arg291])),
+      v354 = <span class="hljs-keyword">await</span> (<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">arg292</span>) {
+        <span class="hljs-keyword">var</span> parentElement;
+        <span class="hljs-keyword">const</span> element3 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>),
+          v356 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(arg292.<span class="hljs-property">length</span>),
+          v357 = {};
+        <span class="hljs-title function_">h_s36_fn</span>(element3);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v358 = <span class="hljs-number">0</span>; v358 &lt; arg292.<span class="hljs-property">length</span>; ++v358) {
+          <span class="hljs-keyword">const</span> v359 = <span class="hljs-title function_">h_s36_createElement</span>(arg292[v358]);
+          <span class="hljs-keyword">if</span> (v359.<span class="hljs-property">tagName</span> === <span class="hljs-string">&quot;DIALOG&quot;</span>) {
+            v359.<span class="hljs-title function_">show</span>();
+          }
+          <span class="hljs-keyword">const</span> element4 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);
+          <span class="hljs-title function_">h_s36_fn</span>(element4);
+          element4.<span class="hljs-title function_">appendChild</span>(v359);
+          element3.<span class="hljs-title function_">appendChild</span>(element4);
+          v356[v358] = v359;
+        }
+        <span class="hljs-keyword">for</span> (; !<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>;) {
+          <span class="hljs-keyword">await</span> <span class="hljs-title function_">fn168</span>(<span class="hljs-number">50</span>);
+        }
+        <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(element3);
+        <span class="hljs-keyword">try</span> {
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v360 = <span class="hljs-number">0</span>; v360 &lt; arg292.<span class="hljs-property">length</span>; ++v360) {
+            <span class="hljs-keyword">if</span> (!v356[v360].<span class="hljs-property">offsetParent</span>) {
+              v357[arg292[v360]] = <span class="hljs-literal">true</span>;
+            }
+          }
+        } <span class="hljs-keyword">finally</span> {
+          <span class="hljs-keyword">if</span> (!((parentElement = element3.<span class="hljs-property">parentNode</span>) == <span class="hljs-literal">null</span>)) {
+            parentElement.<span class="hljs-title function_">removeChild</span>(element3);
+          }
+        }
+        <span class="hljs-keyword">return</span> v357;
+      })(v353);
+    <span class="hljs-keyword">if</span> (arg290) {
+      (<span class="hljs-keyword">function</span> (<span class="hljs-params">arg293, arg294</span>) {
+        <span class="hljs-keyword">let</span> v361 = <span class="hljs-string">&quot;DOM blockers debug:\n```&quot;</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v362 <span class="hljs-keyword">of</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(arg293)) {
+          v361 += <span class="hljs-string">`\n<span class="hljs-subst">${v362}</span>:`</span>;
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v363 <span class="hljs-keyword">of</span> arg293[v362]) {
+            v361 += <span class="hljs-string">`\n  <span class="hljs-subst">${arg294[v363] ? <span class="hljs-string">&quot;🚫&quot;</span> : <span class="hljs-string">&quot;➡️&quot;</span>}</span> <span class="hljs-subst">${v363}</span>`</span>;
+          }
+        }
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">${v361}</span>\n\`\`\``</span>);
+      })(v351, v354);
+    }
+    <span class="hljs-keyword">const</span> v355 = v352.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">arg295</span>) =&gt;</span> {
+      <span class="hljs-keyword">const</span> v364 = v351[arg295];
+      <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn9</span>(v364.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg296</span>) =&gt;</span> v354[arg296])) &gt; <span class="hljs-number">0.6</span> * v364.<span class="hljs-property">length</span>;
+    });
+    v355.<span class="hljs-title function_">sort</span>();
+    <span class="hljs-keyword">return</span> v355;
+  };
+
+<span class="hljs-comment">// agent.clean.js:5852</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s36_fn</span>(<span class="hljs-params">arg689</span>) {
+  arg689.<span class="hljs-property">style</span>.<span class="hljs-title function_">setProperty</span>(<span class="hljs-string">&quot;visibility&quot;</span>, <span class="hljs-string">&quot;hidden&quot;</span>, <span class="hljs-string">&quot;important&quot;</span>);
+  arg689.<span class="hljs-property">style</span>.<span class="hljs-title function_">setProperty</span>(<span class="hljs-string">&quot;display&quot;</span>, <span class="hljs-string">&quot;block&quot;</span>, <span class="hljs-string">&quot;important&quot;</span>);
+}
+
+<span class="hljs-comment">// agent.clean.js:5978</span>
+<span class="hljs-keyword">const</span> sig_s36_div = <span class="hljs-title function_">fn159</span>(h_s36_div, -<span class="hljs-number">1</span>);
+
+<span class="hljs-comment">// agent.clean.js:6633</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s36_fn2</span>(<span class="hljs-params">arg771, arg772</span>) {
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v890 <span class="hljs-keyword">of</span> arg772.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;;&quot;</span>)) {
+    <span class="hljs-keyword">const</span> v891 = <span class="hljs-regexp">/^\s*([\w-]+)\s*:\s*(.+?)(\s*!([\w-]+))?\s*$/</span>.<span class="hljs-title function_">exec</span>(v890);
+    <span class="hljs-keyword">if</span> (v891) {
+      <span class="hljs-keyword">const</span> [, v892, v893, , v894] = v891;
+      arg771.<span class="hljs-title function_">setProperty</span>(v892, v893, v894 || <span class="hljs-string">&quot;&quot;</span>);
+    }
+  }
+}
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

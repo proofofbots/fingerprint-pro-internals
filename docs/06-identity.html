@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What visitor_id is a function of — fingerprint-pro-internals</title>
+    <meta name="description" content="Measured against the public demo tenant by sending payloads from Node with no browser, on 2026-07-31 and 2026-08-01. Every number here comes from a paired experiment: mint a device the tenant has neve" />
+    <link rel="icon" href="./logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="./index.html"><img src="./logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="./index.html">Overview</a>
+          <a href="./01-architecture.html">Guide</a>
+          <a href="./reference/signals.html">Reference</a>
+          <a href="./slices/index.html">Collectors</a>
+          <a href="./explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell with-toc">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="./index.html" data-nav="Overview">Overview</a>
+<a href="./explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="./01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="./02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="./03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="./04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="./05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="./06-identity.html" class="current" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="./07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="./08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="./09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="./reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="./reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="./reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="./reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="./reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="./reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="./reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="./reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="./slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="./repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="./repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="./repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="./repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="./repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="./repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="./repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose">
+        <div class="pagehead"><div class="kicker">Guide</div><h1>What visitor_id is a function of</h1><p class="lede">Measured against the public demo tenant by sending payloads from Node with no browser, on 2026-07-31 and 2026-08-01. Every number here comes from a paired experiment: mint a device the tenant has neve</p></div>
+        <p>Measured against the public demo tenant by sending payloads from Node with no browser, on
+2026-07-31 and 2026-08-01. Every number here comes from a paired experiment: mint a device the
+tenant has never seen, send it, send it again with one thing changed, compare the two ids. The raw
+rows are in <a href="./repo/evidence.html"><code>evidence/</code></a>, with the network identifiers removed.</p>
+<p>Two identity mechanisms exist and the first one wins.</p>
+<ol>
+<li><code>s56</code> is a bearer token. It is a sealed blob the tenant issues over the agent&#39;s GET leg and the
+client replays on every POST. Once bound to a visitor, any payload carrying it answers as that
+visitor: different OS, different screen, different everything. The fingerprint is not consulted.</li>
+<li>With <code>s56</code> empty, identity is fuzzy-matched from the payload. Seven fields break the match on
+their own. Everything else sits inside a tolerance that only breaks when enough of it moves at
+once.</li>
+</ol>
+<p>The client&#39;s IP address is not part of identity. That is what makes <code>--rotate-ip</code> free: the ingress
+rate-limits per address at around 30 sends, and rotating the exit costs nothing in accuracy.</p>
+<h2 id="method-and-the-two-ways-it-goes-wrong">Method, and the two ways it goes wrong<a class="anchor" href="#method-and-the-two-ways-it-goes-wrong">#</a></h2>
+<p>The first sweep held one <code>s56</code> blob constant across every arm and concluded that nothing mattered:
+canvas, WebGL, screen, User-Agent, timezone, all changed with no effect on the id. That was the token
+pinning the answer, not tolerance. <code>--no-cache</code> empties <code>s56</code> on every send and is not optional for
+anything measuring the fingerprint.</p>
+<p>The second failure mode is history. An established visitor absorbs far more than a new one: sending
+30 variants of one device in sequence walks the cluster along with you and reads &quot;same&quot; for
+everything. So every arm mints its own device by reseeding the digests from that arm&#39;s salt, and each
+run asserts that no two arms&#39; first sends landed on the same visitor. The runs quoted here report
+zero collisions; a run with collisions measured nothing and says so.</p>
+<h2 id="fields-that-break-the-match-on-their-own">Fields that break the match on their own<a class="anchor" href="#fields-that-break-the-match-on-their-own">#</a></h2>
+<p>Each measured on separate devices with <code>s56</code> empty, twice except <code>s27</code>, which was measured once.</p>
+<table><thead><tr><th>id</th><th>what it is</th><th>why it is a plausible bucket key</th></tr></thead><tbody><tr><td><code>s3</code></td><td><code>screen.colorDepth</code></td><td>display class, tiny value set, stable for the life of the machine</td></tr>
+<tr><td><code>s4</code></td><td><code>navigator.deviceMemory</code></td><td>hardware class, quantised</td></tr>
+<tr><td><code>s19</code></td><td><code>maxTouchPoints</code>, <code>touchEvent</code>, <code>touchStart</code></td><td>desktop against touch device</td></tr>
+<tr><td><code>s24</code></td><td><code>eval.toString().length</code></td><td>engine family: 33 is V8, 37 is SpiderMonkey and JSC</td></tr>
+<tr><td><code>s27</code></td><td><code>navigator.vendor</code></td><td>browser vendor</td></tr>
+<tr><td><code>s37</code></td><td>screen colour gamut</td><td>display class</td></tr>
+<tr><td><code>s46</code></td><td>the hashed audio block</td><td>the only high-cardinality member of the set</td></tr></tbody></table>
+<p>The shape of that list reads as a blocking key: low cardinality, hard to change without changing
+machine, and mostly not things a User-Agent string can lie about. <code>s24</code> and <code>s27</code> are engine
+intrinsics. The User-Agent itself is not in the set, and neither is <code>navigator.platform</code>.</p>
+<h2 id="fields-that-do-not-break-the-match-on-their-own">Fields that do not break the match on their own<a class="anchor" href="#fields-that-do-not-break-the-match-on-their-own">#</a></h2>
+<p>Changed one at a time, each on its own minted device, every one of these came back as the same
+visitor: both canvas digests (<code>s17</code>), the second canvas digest (<code>s76</code>), all seven WebGL digests
+(<code>s75</code>), the unmasked WebGL vendor and renderer strings (<code>s74</code>), the speech-voice digest (<code>s52</code>), the
+detected font list (<code>s20</code>), the per-family font metrics (<code>s51</code>), the screen box (<code>s5</code>, <code>s84</code>),
+<code>devicePixelRatio</code> (<code>s57</code>), <code>hardwareConcurrency</code> (<code>s7</code>), the User-Agent and <code>appVersion</code> (<code>s101</code>,
+<code>s103</code>), <code>navigator.platform</code> (<code>s15</code>), languages (<code>s2</code>, <code>s82</code>, <code>s202</code>), timezone (<code>s9</code>), the plugin
+and mime table (<code>s16</code>), the session uuids (<code>s216</code>, <code>s94.u</code>, <code>s219.u</code>), the storage quota (<code>s29</code>),
+both <code>getBoundingClientRect</code> boxes (<code>s92</code>, <code>s93</code>), the keyboard layout map (<code>s222</code>), battery
+(<code>s217</code>), the WebAuthn capability table (<code>s215</code>), <code>productSub</code> (<code>s123</code>), the engine-name list
+(<code>s28</code>), <code>oscpu</code> (<code>s1</code>), the system font (<code>s206</code>), the window boxes (<code>s150</code>), the available-screen
+insets (<code>s6</code>), the client-hint block (<code>s58</code>), the WebGL limit vector (<code>s210.l</code>), the storage flags
+(<code>s10</code>, <code>s11</code>, <code>s12</code>), architecture (<code>s81</code>), WebAssembly (<code>s22</code>), and <code>s104</code>, <code>s117</code>, <code>s135</code>, <code>s152</code>,
+<code>s205</code>, <code>s214</code>.</p>
+<p>Canvas is on that list. Changing both canvas digests moves <code>confidence.score</code> from 0.99 to about
+0.97 and nothing else.</p>
+<h2 id="the-tolerance-is-cumulative-and-the-threshold-is-sharp">The tolerance is cumulative and the threshold is sharp<a class="anchor" href="#the-tolerance-is-cumulative-and-the-threshold-is-sharp">#</a></h2>
+<p>Soft changes applied in a fixed cumulative order, same device, <code>s56</code> empty:</p>
+<table><thead><tr><th>arm</th><th>changed</th><th>result</th></tr></thead><tbody><tr><td><code>soft-1</code></td><td>canvas</td><td>same</td></tr>
+<tr><td><code>soft-2</code></td><td>+ all WebGL digests</td><td>same</td></tr>
+<tr><td><code>soft-3</code></td><td>+ screen box</td><td>same</td></tr>
+<tr><td><code>soft-4</code></td><td>+ User-Agent</td><td>same</td></tr>
+<tr><td><code>soft-5</code></td><td>+ languages and timezone</td><td>same</td></tr>
+<tr><td><code>soft-6</code></td><td>+ font list and font metrics</td><td>same</td></tr>
+<tr><td><code>soft-7</code></td><td>+ <code>hardwareConcurrency</code> and <code>devicePixelRatio</code></td><td>new visitor</td></tr>
+<tr><td><code>soft-8</code></td><td>+ WebGL strings and plugins</td><td>new visitor</td></tr></tbody></table>
+<p>Canvas, every WebGL digest, the screen resolution, the User-Agent, the locale, the timezone and the
+whole font profile can move simultaneously and the tenant still calls it the same device. Two more
+hardware scalars on top and it does not.</p>
+<p><code>hardwareConcurrency</code> and <code>devicePixelRatio</code> sent together, with nothing else changed, hold. So
+<code>soft-7</code> is a threshold crossing rather than a seventh key being tripped, and the threshold sits
+between six and seven of these groups. Replicated on separate devices. <code>all-coarse-soft</code>, every
+coarse attribute except the seven keys, also breaks, which is the same threshold from the other side.</p>
+<h2 id="s56-carries-identity-between-devices">s56 carries identity between devices<a class="anchor" href="#s56-carries-identity-between-devices">#</a></h2>
+<p>Five sends per run, four runs, in <code>evidence/identity-cache-bind-*.json</code>:</p>
+<ol>
+<li>Device A with <code>s56</code> empty mints a visitor from its fingerprint.</li>
+<li>Device B, a different OS, with <code>s56</code> empty mints a different one. Asserted, not assumed.</li>
+<li>A fresh blob is fetched from the GET leg and sent with A. A keeps its id; the blob is now bound.</li>
+<li>B sends that same blob and answers as A, <code>visitor_found: true</code>, confidence 0.99.</li>
+</ol>
+<p>That held in all four runs, in both directions, across macOS and Windows payloads that share no
+attribute the matcher cares about. The blob is fetched from an endpoint that takes nothing but the
+public API key: no cookie, no fingerprint, no authentication. It is identity-free at issuance and
+becomes identity-bearing on first use.</p>
+<p>What happens to B afterwards is not settled. In two runs B, sent again with an empty <code>s56</code>, kept A&#39;s
+visitor permanently, so presenting the token once had merged B&#39;s fingerprint into A&#39;s cluster. In
+the other two runs B minted a third id instead. The split tracks direction: a Windows payload
+presenting a macOS token kept the identity, a macOS payload presenting a Windows token did not. Four
+runs is not enough to call that the mechanism, and the two devices also differ in how much history
+their family had, which is not separated.</p>
+<h2 id="confidence">Confidence<a class="anchor" href="#confidence">#</a></h2>
+<p><code>confidence.score</code> is the only continuous readout. A newly minted device reports 1. A device matched
+back to itself reports 0.97 to 0.99. Emptying <code>s56</code> on an otherwise unchanged device drops it to
+0.95. Individual soft changes move it by about 0.02. It never came close to distinguishing a match
+from a miss on its own: the id either moved or it did not, and confidence barely twitched either way.</p>
+<h2 id="reading-this-as-a-defender">Reading this as a defender<a class="anchor" href="#reading-this-as-a-defender">#</a></h2>
+<ul>
+<li>Canvas and WebGL randomisation, alone, do not produce a new visitor here. They cost about 0.02 of
+confidence.</li>
+<li>Changing the User-Agent, the screen, the locale and the fonts together also does not produce a new
+visitor.</li>
+<li>What produces a new visitor cheaply is <code>screen.colorDepth</code>, <code>navigator.deviceMemory</code>, touch
+support, colour gamut, the audio digest, <code>navigator.vendor</code> and <code>eval.toString().length</code>. The last
+two cannot move without changing engine, which is the point of them.</li>
+<li>Anything holding a bound <code>s56</code> is that visitor, whatever else it reports. The blob is issued
+without authentication and accepted from anyone, so it is a bearer token in the ordinary sense.</li>
+</ul>
+<h2 id="reproducing">Reproducing<a class="anchor" href="#reproducing">#</a></h2>
+<pre><code class="hljs language-bash">node tools/identity.mjs --payload &lt;payload.json&gt; --no-cache --rotate-ip
+node tools/identity.mjs --payload &lt;payload.json&gt; --no-cache \
+  --arms none,soft-1,soft-2,soft-3,soft-4,soft-5,soft-6,soft-7
+node tools/cache-bind.mjs --a &lt;windows.json&gt; --b &lt;macos.json&gt;</code></pre>
+<p>Raw rows land in <code>artifacts/identity/</code>; <code>npm run evidence</code> copies them into <code>evidence/</code> with the
+addresses removed. These runs send real requests to a real tenant, so read
+<a href="./08-not-determined.html">08-not-determined</a> on what a score from them is worth before quoting one.</p>
+
+        <div class="pagenav"><a href="./05-status-codes.html">← Status codes</a><a href="./07-reproducing.html">→ Reproducing</a></div>
+      </main>
+      <aside class="toc"><span>On this page</span><a href="#method-and-the-two-ways-it-goes-wrong">Method, and the two ways it goes wrong</a>
+<a href="#fields-that-break-the-match-on-their-own">Fields that break the match on their own</a>
+<a href="#fields-that-do-not-break-the-match-on-their-own">Fields that do not break the match on their own</a>
+<a href="#the-tolerance-is-cumulative-and-the-threshold-is-sharp">The tolerance is cumulative and the threshold is sharp</a>
+<a href="#s56-carries-identity-between-devices">s56 carries identity between devices</a>
+<a href="#confidence">Confidence</a>
+<a href="#reading-this-as-a-defender">Reading this as a defender</a>
+<a href="#reproducing">Reproducing</a></aside>
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="./repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./hub.js"></script>
+    
+  </body>
+</html>

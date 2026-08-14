@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Not determined — fingerprint-pro-internals</title>
+    <meta name="description" content="What this repository does not establish, stated so no section above reads as complete coverage." />
+    <link rel="icon" href="./logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="./index.html"><img src="./logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="./index.html">Overview</a>
+          <a href="./01-architecture.html">Guide</a>
+          <a href="./reference/signals.html">Reference</a>
+          <a href="./slices/index.html">Collectors</a>
+          <a href="./explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell with-toc">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="./index.html" data-nav="Overview">Overview</a>
+<a href="./explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="./01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="./02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="./03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="./04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="./05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="./06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="./07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="./08-not-determined.html" class="current" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="./09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="./reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="./reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="./reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="./reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="./reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="./reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="./reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="./reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="./slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="./repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="./repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="./repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="./repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="./repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="./repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="./repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose">
+        <div class="pagehead"><div class="kicker">Guide</div><h1>Not determined</h1><p class="lede">What this repository does not establish, stated so no section above reads as complete coverage.</p></div>
+        <p>What this repository does not establish, stated so no section above reads as complete coverage.</p>
+<h2 id="the-ex-module-is-empty-in-this-build">The <code>ex</code> module is empty in this build<a class="anchor" href="#the-ex-module-is-empty-in-this-build">#</a></h2>
+<p>Its three stages carry no collectors, so all 143 ids belong to <code>cm</code>. That is measured rather than
+assumed: across the three captures the agent fetched no second script. If a server-delivered extended
+module ever ships, the capture page records the fetch and <code>npm run diff</code> shows the ids it adds.</p>
+<h2 id="one-machine">One machine<a class="anchor" href="#one-machine">#</a></h2>
+<p>The cross-browser matrix separates what varies by browser from what does not, but every capture was
+taken on the same hardware behind the same address. A signal that is constant across the three
+columns is only known to be constant for that machine.</p>
+<p>The donor pool has the same limit. Every capture is macOS, so a profile for another OS carries macOS
+values in every position no knob covers: the detected fonts, the per-family text metrics, the two
+<code>getBoundingClientRect</code> boxes, the system colour table, the resolved system font. Two coherence rules
+catch the most obvious of those and the rest are silent. One <code>collector/fp-collect.js</code> run per target
+OS closes all of them at once.</p>
+<h2 id="four-signals-have-a-truncated-call-graph-walk">Four signals have a truncated call-graph walk<a class="anchor" href="#four-signals-have-a-truncated-call-graph-walk">#</a></h2>
+<p><code>s94</code>, <code>s219</code>, <code>s211</code> and <code>s70</code>, the WebRTC, media-capabilities and GPU families, fan out past the
+walk limit. Their surfaces and status codes are complete; their branch lists are not. <code>s120</code> reaches
+no recorded surface at all, because it throws a string and calls <code>toSource()</code> on the caught value,
+and the walk only records reads rooted at a global.</p>
+<h2 id="verify-does-not-catch-semantic-drift"><code>verify</code> does not catch semantic drift<a class="anchor" href="#verify-does-not-catch-semantic-drift">#</a></h2>
+<p>The gate proves that every string table still decodes from the cleaned file and that no identifier
+was left undeclared. It does not prove the cleaned file computes what the original computes. An
+earlier version of <code>inlineGlobalAliases</code> rewrote both halves of
+<code>const { HTMLElement: a, Document: b } = window</code> to <code>window</code> itself: the file parsed, every table
+decoded, no identifier was free, and the s63 collector read <code>window.prototype</code>. Running
+<code>collector/fp-collect.js</code> against a capture is what found it. Nothing in the repository proves the
+absence of a second bug of that shape.</p>
+<h2 id="server-side-behaviour-is-inferred-from-responses">Server-side behaviour is inferred from responses<a class="anchor" href="#server-side-behaviour-is-inferred-from-responses">#</a></h2>
+<p>Everything about scoring is read off what the tenant answers. The client cannot show whether the
+server validates a nonce, scores collection timing, or weights any particular signal. Where this
+repository says a field is a bucket key, that is the best explanation of a paired experiment, not
+something the client confirms.</p>
+<h2 id="replay-contaminates-its-own-measurements">Replay contaminates its own measurements<a class="anchor" href="#replay-contaminates-its-own-measurements">#</a></h2>
+<ul>
+<li>Everything sent comes back <code>replayed: true</code>, including payloads whose digests were reseeded and
+which mint a new <code>visitor_id</code>. So the flag is not keyed on the fingerprint, and what it is keyed on
+is not known. It contaminates <code>suspect_score</code> comparisons.</li>
+<li>A payload sent repeatedly burns as a control. The 2026-07-31 Chrome capture sent untouched a week
+later came back <code>tampering 0.82</code>, <code>anti_detect_browser true</code>, where the same bytes on the day they
+were taken recorded <code>tampering false</code>, <code>0.48</code>, <code>anti_detect false</code>. Whether that is model drift at
+the tenant or the accumulated replay history of one payload is not separated. No absolute score
+means anything; only differences against a control sent in the same session do.</li>
+<li>The request headers are part of the fingerprint, not transport. A Windows User-Agent on a macOS
+payload puts <code>anomaly_score</code> at exactly 1 with no field changed at all.</li>
+<li>A payload replayed from a Chrome window driven over the DevTools protocol came back
+<code>bot: bad, bot_type: webdriver, developer_tools: true</code>, while the payload itself reports every
+automation flag false and differs from an ordinary window only in session uuids, clocks and
+<code>navigator.connection.rtt</code>. What the server keyed that on is not determined.</li>
+</ul>
+<h2 id="identity-findings-are-one-tenant-two-days">Identity findings are one tenant, two days<a class="anchor" href="#identity-findings-are-one-tenant-two-days">#</a></h2>
+<p>The seven breaking fields, the cumulative threshold and the <code>s56</code> binding were measured against the
+public demo tenant on 2026-07-31 and 2026-08-01, on the build that shipped then. What happens to a
+device that has presented another device&#39;s token is unresolved after four runs, and the two devices
+in those runs also differ in how much history their family had, which is not separated.</p>
+<h2 id="the-get-leg-39-s-blob-is-opaque">The GET leg&#39;s blob is opaque<a class="anchor" href="#the-get-leg-39-s-blob-is-opaque">#</a></h2>
+<p><code>s56</code> is 96 bytes of sealed server output. What is inside it, and what the server does with the copy
+it receives back, is not readable from the client.</p>
+
+        <div class="pagenav"><a href="./07-reproducing.html">← Reproducing</a><a href="./09-toolchain.html">→ Toolchain</a></div>
+      </main>
+      <aside class="toc"><span>On this page</span><a href="#the-ex-module-is-empty-in-this-build">The ex module is empty in this build</a>
+<a href="#one-machine">One machine</a>
+<a href="#four-signals-have-a-truncated-call-graph-walk">Four signals have a truncated call-graph walk</a>
+<a href="#verify-does-not-catch-semantic-drift">verify does not catch semantic drift</a>
+<a href="#server-side-behaviour-is-inferred-from-responses">Server-side behaviour is inferred from responses</a>
+<a href="#replay-contaminates-its-own-measurements">Replay contaminates its own measurements</a>
+<a href="#identity-findings-are-one-tenant-two-days">Identity findings are one tenant, two days</a>
+<a href="#the-get-leg-39-s-blob-is-opaque">The GET leg&amp;#39;s blob is opaque</a></aside>
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="./repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./hub.js"></script>
+    
+  </body>
+</html>

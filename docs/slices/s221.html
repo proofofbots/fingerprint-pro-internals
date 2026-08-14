@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebGL2 extensions (s221) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s221</div><h1>WebGL2 extensions</h1></div>
+        <p class="lede">the supported extension set as a bitmask, plus any names it does not recognise</p>
+<p class="lede">Group: Graphics · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s221 — sig_s221_canvas</span>
+<span class="hljs-comment">// module cm, stage3, codes 1 0 -1</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   document.createElement(&quot;canvas&quot;)</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   Map Array.from() Math.ceil() Uint32Array undefined</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   null {b,u}</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;EXT_blend_minmax&quot; &quot;EXT_clip_control&quot; &quot;EXT_clip_cull_distance&quot; &quot;EXT_color_buffer_float&quot;</span>
+<span class="hljs-comment">//   &quot;EXT_color_buffer_half_float&quot; &quot;EXT_conservative_depth&quot; &quot;EXT_depth_clamp&quot;</span>
+<span class="hljs-comment">//   &quot;EXT_disjoint_timer_query&quot; &quot;EXT_disjoint_timer_query_webgl2&quot; &quot;EXT_float_blend&quot; &quot;EXT_frag_depth&quot;</span>
+<span class="hljs-comment">//   &quot;EXT_polygon_offset_clamp&quot; &quot;EXT_render_snorm&quot; &quot;EXT_sRGB&quot; &quot;EXT_shader_texture_lod&quot;</span>
+<span class="hljs-comment">//   &quot;EXT_texture_compression_bptc&quot; &quot;EXT_texture_compression_rgtc&quot; &quot;EXT_texture_filter_anisotropic&quot;</span>
+<span class="hljs-comment">//   &quot;EXT_texture_mirror_clamp_to_edge&quot; &quot;EXT_texture_norm16&quot; &quot;KHR_parallel_shader_compile&quot;</span>
+<span class="hljs-comment">//   &quot;NV_shader_noperspective_interpolation&quot; &quot;OES_depth_texture&quot; &quot;OES_draw_buffers_indexed&quot;</span>
+<span class="hljs-comment">//   &quot;OES_element_index_uint&quot; &quot;OES_fbo_render_mipmap&quot; &quot;OES_sample_variables&quot;</span>
+<span class="hljs-comment">//   &quot;OES_shader_multisample_interpolation&quot; &quot;OES_standard_derivatives&quot; &quot;OES_texture_float&quot;</span>
+<span class="hljs-comment">//   &quot;OES_texture_float_linear&quot; &quot;OES_texture_half_float&quot; &quot;OES_texture_half_float_linear&quot;</span>
+<span class="hljs-comment">//   &quot;OES_vertex_array_object&quot; &quot;OVR_multiview2&quot; &quot;WEBGL_blend_func_extended&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_clip_cull_distance&quot; &quot;WEBGL_color_buffer_float&quot; &quot;WEBGL_compressed_texture_astc&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_compressed_texture_etc&quot; &quot;WEBGL_compressed_texture_etc1&quot; &quot;WEBGL_compressed_texture_pvrtc&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_compressed_texture_s3tc&quot; &quot;WEBGL_compressed_texture_s3tc_srgb&quot; &quot;WEBGL_debug_renderer_info&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_debug_shaders&quot; &quot;WEBGL_depth_texture&quot; &quot;WEBGL_draw_buffers&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_get_buffer_sub_data_async&quot; &quot;WEBGL_lose_context&quot; &quot;WEBGL_multi_draw&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_multi_draw_instanced&quot; &quot;WEBGL_multiview&quot; &quot;WEBGL_polygon_mode&quot; &quot;WEBGL_provoking_vertex&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_render_shared_exponent&quot; &quot;WEBGL_shader_pixel_local_storage&quot; &quot;WEBGL_stencil_texturing&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_video_texture&quot; &quot;WEBGL_webcodecs_video_frame&quot; &quot;WEBKIT_WEBGL_compressed_texture_pvrtc&quot;</span>
+<span class="hljs-comment">//   &quot;webgl2&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   &lt; 10</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   arg373 | arg374</span>
+<span class="hljs-comment">//   !v491</span>
+<span class="hljs-comment">//   v498 === undefined</span>
+<span class="hljs-comment">//   v495.length &lt; 10</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 2 owned helpers inlined below.</span>
+
+<span class="hljs-comment">// agent.clean.js:3228</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">sig_s221_canvas</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> v490 = <span class="hljs-keyword">function</span> (<span class="hljs-params">arg373, arg374</span>) {
+    <span class="hljs-keyword">return</span> arg373 | arg374;
+  };
+  <span class="hljs-keyword">const</span> v491 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;canvas&quot;</span>).<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&quot;webgl2&quot;</span>);
+  <span class="hljs-keyword">if</span> (!v491) {
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">1</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+  }
+  <span class="hljs-keyword">const</span> v492 = v491.<span class="hljs-title function_">getSupportedExtensions</span>() ?? [],
+    v493 = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">ceil</span>(h_s221_extBlendMinmaxList.<span class="hljs-property">length</span> / <span class="hljs-number">32</span>),
+    uint32Array3 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Uint32Array</span>(v493);
+  <span class="hljs-keyword">let</span> v494 = <span class="hljs-literal">false</span>;
+  <span class="hljs-keyword">const</span> v495 = [],
+    v496 = <span class="hljs-title function_">h_s221_fn</span>();
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v497 <span class="hljs-keyword">of</span> v492) {
+    <span class="hljs-keyword">const</span> v498 = v496.<span class="hljs-title function_">get</span>(v497);
+    <span class="hljs-keyword">if</span> (v498 === <span class="hljs-literal">undefined</span>) {
+      v494 = <span class="hljs-literal">true</span>;
+      <span class="hljs-keyword">if</span> (v495.<span class="hljs-property">length</span> &lt; <span class="hljs-number">10</span>) {
+        v495.<span class="hljs-title function_">push</span>(v497.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">60</span>));
+      }
+      <span class="hljs-keyword">continue</span>;
+    }
+    <span class="hljs-keyword">const</span> v499 = (v498 / <span class="hljs-number">32</span>) | <span class="hljs-number">0</span>,
+      v500 = v498 &amp; <span class="hljs-number">31</span>;
+    uint32Array3[v499] = <span class="hljs-title function_">v490</span>(uint32Array3[v499], <span class="hljs-number">1</span> &lt;&lt; v500) &gt;&gt;&gt; <span class="hljs-number">0</span>;
+  }
+  <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: v494 ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>, <span class="hljs-attr">v</span>: { <span class="hljs-attr">b</span>: <span class="hljs-title class_">Array</span>.<span class="hljs-title function_">from</span>(uint32Array3), <span class="hljs-attr">u</span>: v495 } };
+}
+
+<span class="hljs-comment">// agent.clean.js:6382</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s221_fn</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> v859 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v860 = <span class="hljs-number">0</span>; v860 &lt; h_s221_extBlendMinmaxList.<span class="hljs-property">length</span>; v860++) {
+    v859.<span class="hljs-title function_">set</span>(h_s221_extBlendMinmaxList[v860], v860);
+  }
+  <span class="hljs-keyword">return</span> v859;
+}
+
+<span class="hljs-comment">// agent.clean.js:8356</span>
+<span class="hljs-keyword">const</span> h_s221_extBlendMinmaxList = [
+  <span class="hljs-string">&quot;EXT_blend_minmax&quot;</span>,
+  <span class="hljs-string">&quot;EXT_clip_control&quot;</span>,
+  <span class="hljs-string">&quot;EXT_clip_cull_distance&quot;</span>,
+  <span class="hljs-string">&quot;EXT_color_buffer_float&quot;</span>,
+  <span class="hljs-string">&quot;EXT_color_buffer_half_float&quot;</span>,
+  <span class="hljs-string">&quot;EXT_conservative_depth&quot;</span>,
+  <span class="hljs-string">&quot;EXT_depth_clamp&quot;</span>,
+  <span class="hljs-string">&quot;EXT_disjoint_timer_query&quot;</span>,
+  <span class="hljs-string">&quot;EXT_disjoint_timer_query_webgl2&quot;</span>,
+  <span class="hljs-string">&quot;EXT_float_blend&quot;</span>,
+  <span class="hljs-string">&quot;EXT_frag_depth&quot;</span>,
+  <span class="hljs-string">&quot;EXT_polygon_offset_clamp&quot;</span>,
+  <span class="hljs-string">&quot;EXT_render_snorm&quot;</span>,
+  <span class="hljs-string">&quot;EXT_sRGB&quot;</span>,
+  <span class="hljs-string">&quot;EXT_shader_texture_lod&quot;</span>,
+  <span class="hljs-string">&quot;EXT_texture_compression_bptc&quot;</span>,
+  <span class="hljs-string">&quot;EXT_texture_compression_rgtc&quot;</span>,
+  <span class="hljs-string">&quot;EXT_texture_filter_anisotropic&quot;</span>,
+  <span class="hljs-string">&quot;EXT_texture_mirror_clamp_to_edge&quot;</span>,
+  <span class="hljs-string">&quot;EXT_texture_norm16&quot;</span>,
+  <span class="hljs-string">&quot;KHR_parallel_shader_compile&quot;</span>,
+  <span class="hljs-string">&quot;NV_shader_noperspective_interpolation&quot;</span>,
+  <span class="hljs-string">&quot;OES_depth_texture&quot;</span>,
+  <span class="hljs-string">&quot;OES_element_index_uint&quot;</span>,
+  <span class="hljs-string">&quot;OES_fbo_render_mipmap&quot;</span>,
+  <span class="hljs-string">&quot;OES_standard_derivatives&quot;</span>,
+  <span class="hljs-string">&quot;OES_texture_float&quot;</span>,
+  <span class="hljs-string">&quot;OES_texture_float_linear&quot;</span>,
+  <span class="hljs-string">&quot;OES_texture_half_float&quot;</span>,
+  <span class="hljs-string">&quot;OES_texture_half_float_linear&quot;</span>,
+  <span class="hljs-string">&quot;OES_vertex_array_object&quot;</span>,
+  <span class="hljs-string">&quot;OES_draw_buffers_indexed&quot;</span>,
+  <span class="hljs-string">&quot;OES_sample_variables&quot;</span>,
+  <span class="hljs-string">&quot;OES_shader_multisample_interpolation&quot;</span>,
+  <span class="hljs-string">&quot;OVR_multiview2&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_blend_func_extended&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_clip_cull_distance&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_color_buffer_float&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_compressed_texture_astc&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_compressed_texture_etc&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_compressed_texture_etc1&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_compressed_texture_pvrtc&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_compressed_texture_s3tc&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_compressed_texture_s3tc_srgb&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_debug_renderer_info&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_debug_shaders&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_depth_texture&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_draw_buffers&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_draw_instanced_base_vertex_base_instance&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_get_buffer_sub_data_async&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_lose_context&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_multi_draw&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_multi_draw_instanced&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_multi_draw_instanced_base_vertex_base_instance&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_multiview&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_polygon_mode&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_provoking_vertex&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_render_shared_exponent&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_shader_pixel_local_storage&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_stencil_texturing&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_video_texture&quot;</span>,
+  <span class="hljs-string">&quot;WEBGL_webcodecs_video_frame&quot;</span>,
+  <span class="hljs-string">&quot;WEBKIT_WEBGL_compressed_texture_pvrtc&quot;</span>,
+];
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

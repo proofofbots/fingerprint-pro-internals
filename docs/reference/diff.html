@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signal map diff — fingerprint-pro-internals</title>
+    <meta name="description" content="signals-2026-07-31-jsl4.0.0.json to signals.json: 0 added, 0 removed, 56 changed." />
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" class="current" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Reference</div><h1>Signal map diff</h1><p class="lede">signals-2026-07-31-jsl4.0.0.json to signals.json: 0 added, 0 removed, 56 changed.</p></div>
+        <p><code>signals-2026-07-31-jsl4.0.0.json</code> to <code>signals.json</code>: 0 added, 0 removed, 56 changed.</p>
+<p>Compares the generated map, not the bundle, so a change here is a change in what the agent
+measures or reports — not a change in how it was minified. Save a baseline before pulling a new
+agent with <code>npm run diff -- --save</code>.</p>
+<h2 id="changed">Changed<a class="anchor" href="#changed">#</a></h2>
+<h3 id="s94-sig-s94-webkitrtcpeerconnection">s94 — <code>sig_s94_webkitRTCPeerConnection</code><a class="anchor" href="#s94-sig-s94-webkitrtcpeerconnection">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s167-sig-s167-atob">s167 — <code>sig_s167_atob</code><a class="anchor" href="#s167-sig-s167-atob">#</a></h3>
+<ul>
+<li>new codes -6</li>
+<li>compares against <code>=== -1</code></li>
+<li>3 new tests, 0 gone</li>
+</ul>
+<h3 id="s52-sig-s52-origin">s52 — <code>sig_s52_origin</code><a class="anchor" href="#s52-sig-s52-origin">#</a></h3>
+<ul>
+<li>value shape <code>value</code></li>
+<li>compares against <code>=== 0</code> <code>&gt;= 3</code> <code>&gt;= 4</code> <code>in &quot;ApplePayError&quot;</code></li>
+<li>12 new tests, 6 gone</li>
+</ul>
+<h3 id="s26-sig-s26-mediadevices">s26 — <code>sig_s26_mediaDevices</code><a class="anchor" href="#s26-sig-s26-mediadevices">#</a></h3>
+<ul>
+<li>0 new tests, 2 gone</li>
+</ul>
+<h3 id="s20-sig-s20-hidden">s20 — <code>sig_s20_hidden</code><a class="anchor" href="#s20-sig-s20-hidden">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 2 gone</li>
+</ul>
+<h3 id="s36-sig-s36-div">s36 — <code>sig_s36_div</code><a class="anchor" href="#s36-sig-s36-div">#</a></h3>
+<ul>
+<li>2 new tests, 2 gone</li>
+</ul>
+<h3 id="s51-sig-s51-iframe">s51 — <code>sig_s51_iframe</code><a class="anchor" href="#s51-sig-s51-iframe">#</a></h3>
+<ul>
+<li>5 new tests, 5 gone</li>
+</ul>
+<h3 id="s21-sig-s21-domrectlist">s21 — <code>sig_s21_domRectList</code><a class="anchor" href="#s21-sig-s21-domrectlist">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code> <code>&gt;= 4</code> <code>in &quot;ApplePayError&quot;</code> <code>in &quot;CSSPrimitiveValue&quot;</code></li>
+<li>8 new tests, 7 gone</li>
+</ul>
+<h3 id="s154-sig-s154-brave">s154 — <code>sig_s154_brave</code><a class="anchor" href="#s154-sig-s154-brave">#</a></h3>
+<ul>
+<li>2 new tests, 2 gone</li>
+</ul>
+<h3 id="s23-sig-s23-clipboarditem">s23 — <code>sig_s23_clipboardItem</code><a class="anchor" href="#s23-sig-s23-clipboarditem">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s29-sig-s29">s29 — <code>sig_s29</code><a class="anchor" href="#s29-sig-s29">#</a></h3>
+<ul>
+<li>1 new tests, 3 gone</li>
+</ul>
+<h3 id="s84-sig-s84-hidden">s84 — <code>sig_s84_hidden</code><a class="anchor" href="#s84-sig-s84-hidden">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s85-sig-s85-blob">s85 — <code>sig_s85_blob</code><a class="anchor" href="#s85-sig-s85-blob">#</a></h3>
+<ul>
+<li>no longer reads <code>TextEncoder</code></li>
+<li>value shape <code>value</code></li>
+<li>6 new tests, 7 gone</li>
+</ul>
+<h3 id="s89-sig-s89-storage">s89 — <code>sig_s89_storage</code><a class="anchor" href="#s89-sig-s89-storage">#</a></h3>
+<ul>
+<li>renamed <code>sig_s89_hidden</code> to <code>sig_s89_storage</code></li>
+<li>reads <code>navigator.storage</code>, <code>navigator.storage.getDirectory</code>, <code>navigator.storage.getDirectory()</code></li>
+<li>no longer reads <code>navigator</code>, <code>TextEncoder</code></li>
+<li>1 new tests, 5 gone</li>
+</ul>
+<h3 id="s17-sig-s17-canvas">s17 — <code>sig_s17_canvas</code><a class="anchor" href="#s17-sig-s17-canvas">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s87-sig-s87-hidden">s87 — <code>sig_s87_hidden</code><a class="anchor" href="#s87-sig-s87-hidden">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s92-sig-s92-createdocumentfragment">s92 — <code>sig_s92_createDocumentFragment</code><a class="anchor" href="#s92-sig-s92-createdocumentfragment">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s93-sig-s93-hidden">s93 — <code>sig_s93_hidden</code><a class="anchor" href="#s93-sig-s93-hidden">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s204-sig-s204-hidden">s204 — <code>sig_s204_hidden</code><a class="anchor" href="#s204-sig-s204-hidden">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s206-sig-s206-style">s206 — <code>sig_s206_style</code><a class="anchor" href="#s206-sig-s206-style">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>2 new tests, 2 gone</li>
+</ul>
+<h3 id="s210-sig-s210-gpu">s210 — <code>sig_s210_gpu</code><a class="anchor" href="#s210-sig-s210-gpu">#</a></h3>
+<ul>
+<li>renamed <code>sig_s210_style</code> to <code>sig_s210_gpu</code></li>
+<li>reads <code>navigator.gpu</code>, <code>navigator.gpu.requestAdapter()</code></li>
+<li>no longer reads <code>navigator</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s158-sig-s158-hidden">s158 — <code>sig_s158_hidden</code><a class="anchor" href="#s158-sig-s158-hidden">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s152-sig-s152-hidden">s152 — <code>sig_s152_hidden</code><a class="anchor" href="#s152-sig-s152-hidden">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s163-sig-s163-applepayerror">s163 — <code>sig_s163_applePayError</code><a class="anchor" href="#s163-sig-s163-applepayerror">#</a></h3>
+<ul>
+<li>3 new tests, 3 gone</li>
+</ul>
+<h3 id="s160-sig-s160-origin">s160 — <code>sig_s160_origin</code><a class="anchor" href="#s160-sig-s160-origin">#</a></h3>
+<ul>
+<li>compares against <code>=== 0</code> <code>&gt;= 3</code> <code>&gt;= 4</code> <code>in &quot;ApplePayError&quot;</code></li>
+<li>12 new tests, 6 gone</li>
+</ul>
+<h3 id="s70-sig-s70-textdecoder">s70 — <code>sig_s70_textDecoder</code><a class="anchor" href="#s70-sig-s70-textdecoder">#</a></h3>
+<ul>
+<li>reads <code>navigator.gpu.requestAdapter()</code></li>
+<li>no longer reads <code>navigator</code></li>
+<li>value shape <code>value</code></li>
+</ul>
+<h3 id="s214-sig-s214-storagebuckets">s214 — <code>sig_s214_storageBuckets</code><a class="anchor" href="#s214-sig-s214-storagebuckets">#</a></h3>
+<ul>
+<li>renamed <code>sig_s214_hidden</code> to <code>sig_s214_storageBuckets</code></li>
+<li>reads <code>navigator.storageBuckets</code>, <code>navigator.storageBuckets.delete</code>, <code>navigator.storageBuckets.delete()</code>, <code>navigator.storageBuckets.open</code></li>
+<li>no longer reads <code>navigator</code></li>
+<li>5 new tests, 6 gone</li>
+</ul>
+<h3 id="s216-sig-s216-managed">s216 — <code>sig_s216_managed</code><a class="anchor" href="#s216-sig-s216-managed">#</a></h3>
+<ul>
+<li>renamed <code>sig_s216_getRandomValues</code> to <code>sig_s216_managed</code></li>
+<li>reads <code>navigator.managed</code>, <code>navigator.managed.getManagedConfiguration</code>, <code>navigator.managed.getManagedConfiguration()</code></li>
+<li>no longer reads <code>navigator</code></li>
+<li>5 new tests, 5 gone</li>
+</ul>
+<h3 id="s222-sig-s222-keyboard">s222 — <code>sig_s222_keyboard</code><a class="anchor" href="#s222-sig-s222-keyboard">#</a></h3>
+<ul>
+<li>renamed <code>sig_s222</code> to <code>sig_s222_keyboard</code></li>
+<li>reads <code>navigator.keyboard</code>, <code>navigator.keyboard.getLayoutMap</code>, <code>navigator.keyboard.getLayoutMap()</code></li>
+<li>no longer reads <code>navigator</code>, <code>TextEncoder</code></li>
+<li>1 new tests, 4 gone</li>
+</ul>
+<h3 id="s223-sig-s223-presentationrequest">s223 — <code>sig_s223_presentationRequest</code><a class="anchor" href="#s223-sig-s223-presentationrequest">#</a></h3>
+<ul>
+<li>no longer reads <code>TextEncoder</code></li>
+<li>value shape <code>value</code></li>
+<li>0 new tests, 3 gone</li>
+</ul>
+<h3 id="s22-sig-s22-webassembly">s22 — <code>sig_s22_webAssembly</code><a class="anchor" href="#s22-sig-s22-webassembly">#</a></h3>
+<ul>
+<li>renamed <code>sig_s22</code> to <code>sig_s22_webAssembly</code></li>
+<li>reads <code>window.WebAssembly</code>, <code>window.WebAssembly.validate</code>, <code>window.WebAssembly.validate()</code></li>
+<li>no longer reads <code>window</code>, <code>TextEncoder</code></li>
+<li>2 new tests, 6 gone</li>
+</ul>
+<h3 id="s30-sig-s30-donottrack">s30 — <code>sig_s30_doNotTrack</code><a class="anchor" href="#s30-sig-s30-donottrack">#</a></h3>
+<ul>
+<li>renamed <code>sig_s30</code> to <code>sig_s30_doNotTrack</code></li>
+<li>reads <code>navigator.doNotTrack</code></li>
+<li>no longer reads <code>navigator</code>, <code>TextEncoder</code></li>
+<li>1 new tests, 4 gone</li>
+</ul>
+<h3 id="s33-sig-s33-brave">s33 — <code>sig_s33_brave</code><a class="anchor" href="#s33-sig-s33-brave">#</a></h3>
+<ul>
+<li>renamed <code>sig_s33_braveEthereum</code> to <code>sig_s33_brave</code></li>
+<li>reads <code>Navigator.prototype.brave</code>, <code>Navigator.prototype.connection</code>, <code>Navigator.prototype</code></li>
+<li>no longer reads <code>Navigator</code>, <code>TextEncoder</code></li>
+<li>1 new tests, 4 gone</li>
+</ul>
+<h3 id="s49-sig-s49">s49 — <code>sig_s49</code><a class="anchor" href="#s49-sig-s49">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s50-sig-s50-performance">s50 — <code>sig_s50_performance</code><a class="anchor" href="#s50-sig-s50-performance">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s61-sig-s61-webkitpersistentstorage">s61 — <code>sig_s61_webkitPersistentStorage</code><a class="anchor" href="#s61-sig-s61-webkitpersistentstorage">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s62-sig-s62-applepayerror">s62 — <code>sig_s62_applePayError</code><a class="anchor" href="#s62-sig-s62-applepayerror">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s63-sig-s63-ongestureend">s63 — <code>sig_s63_ongestureend</code><a class="anchor" href="#s63-sig-s63-ongestureend">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s64-sig-s64-style">s64 — <code>sig_s64_style</code><a class="anchor" href="#s64-sig-s64-style">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s65-sig-s65-audio">s65 — <code>sig_s65_audio</code><a class="anchor" href="#s65-sig-s65-audio">#</a></h3>
+<ul>
+<li>2 new tests, 2 gone</li>
+</ul>
+<h3 id="s72-sig-s72">s72 — <code>sig_s72</code><a class="anchor" href="#s72-sig-s72">#</a></h3>
+<ul>
+<li>compares against <code>=== &quot;client_timeout&quot;</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s2-sig-s2-browserlanguage">s2 — <code>sig_s2_browserLanguage</code><a class="anchor" href="#s2-sig-s2-browserlanguage">#</a></h3>
+<ul>
+<li>3 new tests, 3 gone</li>
+</ul>
+<h3 id="s15-sig-s15-webkitrequestfullscreen">s15 — <code>sig_s15_webkitRequestFullscreen</code><a class="anchor" href="#s15-sig-s15-webkitrequestfullscreen">#</a></h3>
+<ul>
+<li>4 new tests, 4 gone</li>
+</ul>
+<h3 id="s39-sig-s39-forcedcolors">s39 — <code>sig_s39_forcedColors</code><a class="anchor" href="#s39-sig-s39-forcedcolors">#</a></h3>
+<ul>
+<li>2 new tests, 1 gone</li>
+</ul>
+<h3 id="s42-sig-s42-minmonochrome">s42 — <code>sig_s42_minMonochrome</code><a class="anchor" href="#s42-sig-s42-minmonochrome">#</a></h3>
+<ul>
+<li>0 new tests, 1 gone</li>
+</ul>
+<h3 id="s43-sig-s43-prefersreducedmotion">s43 — <code>sig_s43_prefersReducedMotion</code><a class="anchor" href="#s43-sig-s43-prefersreducedmotion">#</a></h3>
+<ul>
+<li>1 new tests, 2 gone</li>
+</ul>
+<h3 id="s86-sig-s86-removeitem">s86 — <code>sig_s86_removeItem</code><a class="anchor" href="#s86-sig-s86-removeitem">#</a></h3>
+<ul>
+<li>renamed <code>sig_s86_onafterprint</code> to <code>sig_s86_removeItem</code></li>
+<li>reads <code>window.localStorage.removeItem(&quot;test&quot;)</code>, <code>window.localStorage.setItem(&quot;test&quot;)</code>, <code>window.localStorage</code></li>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s96-sig-s96-audiocontext">s96 — <code>sig_s96_audioContext</code><a class="anchor" href="#s96-sig-s96-audiocontext">#</a></h3>
+<ul>
+<li>3 new tests, 3 gone</li>
+</ul>
+<h3 id="s201-sig-s201-srchannelcount">s201 — <code>sig_s201_srChannelCount</code><a class="anchor" href="#s201-sig-s201-srchannelcount">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s157-sig-s157">s157 — <code>sig_s157</code><a class="anchor" href="#s157-sig-s157">#</a></h3>
+<ul>
+<li>0 new tests, 1 gone</li>
+</ul>
+<h3 id="s144-sig-s144-sharedarraybuffer">s144 — <code>sig_s144_sharedArrayBuffer</code><a class="anchor" href="#s144-sig-s144-sharedarraybuffer">#</a></h3>
+<ul>
+<li>1 new tests, 1 gone</li>
+</ul>
+<h3 id="s162-sig-s162-languages">s162 — <code>sig_s162_languages</code><a class="anchor" href="#s162-sig-s162-languages">#</a></h3>
+<ul>
+<li>renamed <code>sig_s162</code> to <code>sig_s162_languages</code></li>
+<li>reads <code>navigator.languages</code></li>
+<li>no longer reads <code>navigator</code>, <code>TextEncoder</code></li>
+<li>2 new tests, 5 gone</li>
+</ul>
+<h3 id="s165-sig-s165-event">s165 — <code>sig_s165_event</code><a class="anchor" href="#s165-sig-s165-event">#</a></h3>
+<ul>
+<li>no longer reads <code>TextEncoder</code></li>
+<li>1 new tests, 4 gone</li>
+</ul>
+<h3 id="s203-sig-s203-createelement">s203 — <code>sig_s203_createElement</code><a class="anchor" href="#s203-sig-s203-createelement">#</a></h3>
+<ul>
+<li>no longer reads <code>TextEncoder</code></li>
+<li>value shape <code>value</code></li>
+<li>0 new tests, 3 gone</li>
+</ul>
+<h3 id="s74-sig-s74-canvas">s74 — <code>sig_s74_canvas</code><a class="anchor" href="#s74-sig-s74-canvas">#</a></h3>
+<ul>
+<li>new codes -1 -2</li>
+</ul>
+<h3 id="s75-sig-s75-canvas">s75 — <code>sig_s75_canvas</code><a class="anchor" href="#s75-sig-s75-canvas">#</a></h3>
+<ul>
+<li>new codes -1 -2</li>
+</ul>
+
+        <div class="pagenav"><a href="../reference/observed.html">← Observed signals</a><a href="../slices/index.html">→ All 143 sources</a></div>
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

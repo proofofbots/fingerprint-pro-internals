@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Math precision (s46) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s46</div><h1>Math precision</h1></div>
+        <p class="lede">results of trigonometric and logarithmic functions, which differ per libm build</p>
+<p class="lede">Group: JavaScript engine · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s46 — sig_s46</span>
+<span class="hljs-comment">// module cm, stage3, codes 0, value is a digest</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   TextEncoder</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   Object.keys() Uint8Array</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   call</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;,&quot; &quot;00000000&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   != &quot;function&quot; !== 0 &lt; 32 == &quot;function&quot; === 32 &gt; 127</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   fn129: fn40(arg775)</span>
+<span class="hljs-comment">//   fn129: fn88(v896)</span>
+<span class="hljs-comment">//   fn129: fn88(v897)</span>
+<span class="hljs-comment">//   hash128: v422 &gt; 127</span>
+<span class="hljs-comment">//   hash128: (&quot;00000000&quot; + (v415[0] &gt;&gt;&gt; 0).toString(16)).slice(-8) + (&quot;00000000&quot; + (v415[1] &gt;&gt;&gt; 0).toString(16)).slice(-8) + (&quot;00000000&quot; + (v416[0] &gt;&gt;&gt; 0).toString(16)).slic…</span>
+<span class="hljs-comment">//   fn40: typeof arg286 != &quot;function&quot;</span>
+<span class="hljs-comment">//   fn88: !!arg590 &amp;&amp; typeof arg590.then == &quot;function&quot;</span>
+<span class="hljs-comment">//   fn96: (arg641 %= 64) === 32</span>
+<span class="hljs-comment">//   fn96: arg641 &lt; 32</span>
+<span class="hljs-comment">//   fn53: (arg404 %= 64) !== 0</span>
+<span class="hljs-comment">//   fn53: arg404 &lt; 32</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 3 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   fn129:6642 fn166:8783 fn40:1892 fn53:3506 fn65:3849 fn88:4712 fn91:4777 fn93:5043 fn96:5398</span>
+<span class="hljs-comment">//   hash128:2674 v3:446 v4:447 v5:461 v6:462 v7:463 v8:464 v9:465</span>
+
+<span class="hljs-comment">// agent.clean.js:1839</span>
+<span class="hljs-keyword">const</span> h_s46_fn = <span class="hljs-title class_">Math</span>;
+
+<span class="hljs-comment">// agent.clean.js:1840</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">h_s46_fn2</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-number">0</span>;
+
+<span class="hljs-comment">// agent.clean.js:2506</span>
+<span class="hljs-keyword">const</span> h_s46_fn3 = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> acos = h_s46_fn.<span class="hljs-property">acos</span> || h_s46_fn2,
+      acosh = h_s46_fn.<span class="hljs-property">acosh</span> || h_s46_fn2,
+      asin = h_s46_fn.<span class="hljs-property">asin</span> || h_s46_fn2,
+      asinh = h_s46_fn.<span class="hljs-property">asinh</span> || h_s46_fn2,
+      atanh = h_s46_fn.<span class="hljs-property">atanh</span> || h_s46_fn2,
+      atan = h_s46_fn.<span class="hljs-property">atan</span> || h_s46_fn2,
+      sin = h_s46_fn.<span class="hljs-property">sin</span> || h_s46_fn2,
+      sinh = h_s46_fn.<span class="hljs-property">sinh</span> || h_s46_fn2,
+      cos = h_s46_fn.<span class="hljs-property">cos</span> || h_s46_fn2,
+      cosh = h_s46_fn.<span class="hljs-property">cosh</span> || h_s46_fn2,
+      tan = h_s46_fn.<span class="hljs-property">tan</span> || h_s46_fn2,
+      tanh = h_s46_fn.<span class="hljs-property">tanh</span> || h_s46_fn2,
+      exp = h_s46_fn.<span class="hljs-property">exp</span> || h_s46_fn2,
+      expm1 = h_s46_fn.<span class="hljs-property">expm1</span> || h_s46_fn2,
+      log1p = h_s46_fn.<span class="hljs-property">log1p</span> || h_s46_fn2;
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">acos</span>: <span class="hljs-title function_">acos</span>(<span class="hljs-number">0.12312423423423424</span>),
+      <span class="hljs-attr">acosh</span>: <span class="hljs-title function_">acosh</span>(<span class="hljs-number">1e308</span>),
+      <span class="hljs-attr">acoshPf</span>: ((v388 = <span class="hljs-number">1e154</span>), h_s46_fn.<span class="hljs-title function_">log</span>(v388 + h_s46_fn.<span class="hljs-title function_">sqrt</span>(v388 * v388 - <span class="hljs-number">1</span>))),
+      <span class="hljs-attr">asin</span>: <span class="hljs-title function_">asin</span>(<span class="hljs-number">0.12312423423423424</span>),
+      <span class="hljs-attr">asinh</span>: <span class="hljs-title function_">asinh</span>(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">asinhPf</span>: (<span class="hljs-function">(<span class="hljs-params">arg297</span>) =&gt;</span> h_s46_fn.<span class="hljs-title function_">log</span>(arg297 + h_s46_fn.<span class="hljs-title function_">sqrt</span>(arg297 * arg297 + <span class="hljs-number">1</span>)))(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">atanh</span>: <span class="hljs-title function_">atanh</span>(<span class="hljs-number">0.5</span>),
+      <span class="hljs-attr">atanhPf</span>: (<span class="hljs-function">(<span class="hljs-params">arg298</span>) =&gt;</span> h_s46_fn.<span class="hljs-title function_">log</span>((<span class="hljs-number">1</span> + arg298) / (<span class="hljs-number">1</span> - arg298)) / <span class="hljs-number">2</span>)(<span class="hljs-number">0.5</span>),
+      <span class="hljs-attr">atan</span>: <span class="hljs-title function_">atan</span>(<span class="hljs-number">0.5</span>),
+      <span class="hljs-attr">sin</span>: <span class="hljs-title function_">sin</span>(-<span class="hljs-number">1e300</span>),
+      <span class="hljs-attr">sinh</span>: <span class="hljs-title function_">sinh</span>(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">sinhPf</span>: (<span class="hljs-function">(<span class="hljs-params">arg299</span>) =&gt;</span> h_s46_fn.<span class="hljs-title function_">exp</span>(arg299) - <span class="hljs-number">1</span> / h_s46_fn.<span class="hljs-title function_">exp</span>(arg299) / <span class="hljs-number">2</span>)(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">cos</span>: <span class="hljs-title function_">cos</span>(<span class="hljs-number">10.000000000123</span>),
+      <span class="hljs-attr">cosh</span>: <span class="hljs-title function_">cosh</span>(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">coshPf</span>: (<span class="hljs-function">(<span class="hljs-params">arg300</span>) =&gt;</span> (h_s46_fn.<span class="hljs-title function_">exp</span>(arg300) + <span class="hljs-number">1</span> / h_s46_fn.<span class="hljs-title function_">exp</span>(arg300)) / <span class="hljs-number">2</span>)(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">tan</span>: <span class="hljs-title function_">tan</span>(-<span class="hljs-number">1e300</span>),
+      <span class="hljs-attr">tanh</span>: <span class="hljs-title function_">tanh</span>(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">tanhPf</span>: (<span class="hljs-function">(<span class="hljs-params">arg301</span>) =&gt;</span> (h_s46_fn.<span class="hljs-title function_">exp</span>(<span class="hljs-number">2</span> * arg301) - <span class="hljs-number">1</span>) / (h_s46_fn.<span class="hljs-title function_">exp</span>(<span class="hljs-number">2</span> * arg301) + <span class="hljs-number">1</span>))(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">exp</span>: <span class="hljs-title function_">exp</span>(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">expm1</span>: <span class="hljs-title function_">expm1</span>(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">expm1Pf</span>: (<span class="hljs-function">(<span class="hljs-params">arg302</span>) =&gt;</span> h_s46_fn.<span class="hljs-title function_">exp</span>(arg302) - <span class="hljs-number">1</span>)(<span class="hljs-number">1</span>),
+      <span class="hljs-attr">log1p</span>: <span class="hljs-title function_">log1p</span>(<span class="hljs-number">10</span>),
+      <span class="hljs-attr">log1pPf</span>: (<span class="hljs-function">(<span class="hljs-params">arg303</span>) =&gt;</span> h_s46_fn.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span> + arg303))(<span class="hljs-number">10</span>),
+      <span class="hljs-attr">powPI</span>: (<span class="hljs-function">(<span class="hljs-params">arg304</span>) =&gt;</span> h_s46_fn.<span class="hljs-title function_">pow</span>(h_s46_fn.<span class="hljs-property">PI</span>, arg304))(-<span class="hljs-number">100</span>),
+    };
+    <span class="hljs-keyword">var</span> v388;
+  };
+
+<span class="hljs-comment">// agent.clean.js:6032</span>
+<span class="hljs-keyword">const</span> sig_s46 = <span class="hljs-title function_">fn129</span>(h_s46_fn3, <span class="hljs-function">(<span class="hljs-params">arg714</span>) =&gt;</span> ({
+    <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">v</span>: <span class="hljs-title function_">hash128</span>(
+      <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(arg714)
+        .<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg715</span>) =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${arg715}</span>=<span class="hljs-subst">${arg714[arg715]}</span>`</span>)
+        .<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;,&quot;</span>),
+    ),
+  }));
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

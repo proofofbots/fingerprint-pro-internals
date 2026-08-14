@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>captures — fingerprint-pro-internals</title>
+    <meta name="description" content="Three runs of the pinned build, one per browser, taken on 2026-08-07 on the same macOS machine through npm run capture." />
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" class="current" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Browser captures</div><h1>captures</h1><p class="lede">Three runs of the pinned build, one per browser, taken on 2026-08-07 on the same macOS machine through npm run capture.</p></div>
+        <p>Three runs of the pinned build, one per browser, taken on 2026-08-07 on the same macOS machine
+through <code>npm run capture</code>.</p>
+<table><thead><tr><th>file</th><th>browser</th><th>requests</th><th>signal ids on the wire</th></tr></thead><tbody><tr><td><code>chrome-2026-08-07T16-01-51-717Z.json</code></td><td>Chrome 149</td><td>2</td><td>144</td></tr>
+<tr><td><code>firefox-2026-08-07T15-59-37-104Z.json</code></td><td>Firefox 151</td><td>2</td><td>144</td></tr>
+<tr><td><code>safari-2026-08-07T16-00-02-124Z.json</code></td><td>Safari 26.4.1</td><td>16</td><td>144</td></tr></tbody></table>
+<p>Safari&#39;s sixteen requests are the retry queue: the demo tenant rejects a <code>localhost</code> origin, so the
+agent posted the same frame seven times and re-fetched the GET leg between attempts.</p>
+<p>A capture holds the requests with their frame bytes (<code>reqRaw</code>), the in-page decode, the API call
+log, the worker messages, the probe counts and a storage snapshot. Third-party storage entries are
+dropped on save, and <code>npm run scrub</code> does the same to a file taken earlier.</p>
+<p>The frames in the files here were rebuilt rather than kept as sent: <code>npm run scrub -- --reseal</code>
+re-encodes each request&#39;s decoded payload with the agent&#39;s own codec and writes the result back to
+<code>reqRaw</code>, so opening a frame gives the same values the file shows in plain text. The frame layout,
+the compression threshold and the seal are the agent&#39;s, so <code>node tools/codec.mjs --open</code> reads them
+like any other frame, but the byte-for-byte original request is not published.</p>
+<p><code>npm run join</code> reads every file here and writes <code>reference/observed.md</code>. <code>npm run replay</code> and
+<code>npm run profile</code> take one as a donor.</p>
+
+        <div class="pagenav"><a href="../repo/collector.html">← The standalone collectors</a><a href="../repo/profiles.html">→ Device profiles</a></div>
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

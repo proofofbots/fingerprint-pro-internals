@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media devices (s26) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s26</div><h1>Media devices</h1></div>
+        <p class="lede">enumerateDevices output, device kinds and counts without labels</p>
+<p class="lede">Group: Media and DRM · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s26 — sig_s26_mediaDevices</span>
+<span class="hljs-comment">// module cm, stage2, codes 0 -1 -2 -3 -4 -5</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   navigator.mediaDevices navigator.mediaDevices.enumerateDevices</span>
+<span class="hljs-comment">//   navigator.mediaDevices.enumerateDevices() navigator.permissions.query()</span>
+<span class="hljs-comment">//   navigator.permissions.query navigator.permissions navigator</span>
+<span class="hljs-comment">//   document.removeEventListener(&quot;visibilitychange&quot;) document.addEventListener(&quot;visibilitychange&quot;)</span>
+<span class="hljs-comment">//   document.hidden TextEncoder clearTimeout()</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   Math.ceil() Object.assign() ArrayBuffer Object.getOwnPropertyNames() Object.getPrototypeOf()</span>
+<span class="hljs-comment">//   Promise.race() Uint32Array Uint8Array</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   call null</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;96375&quot; &quot;camera&quot; &quot;denied&quot; &quot;function&quot; &quot;granted&quot; &quot;microphone&quot; &quot;prompt&quot; &quot;state&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   !== &quot;granted&quot; &lt;= 0 == &quot;function&quot; === &quot;denied&quot; === &quot;function&quot; === &quot;granted&quot; === &quot;prompt&quot;</span>
+<span class="hljs-comment">//   in &quot;mediaDevices&quot; in &quot;permissions&quot;</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   !h_s26_mediaDevices() || !fn114()</span>
+<span class="hljs-comment">//   v470 !== &quot;granted&quot;</span>
+<span class="hljs-comment">//   v470 === &quot;prompt&quot;</span>
+<span class="hljs-comment">//   fn142: !((v957 = arg822.cancel) == null)</span>
+<span class="hljs-comment">//   fn157: v1032 = undefined, !v1034</span>
+<span class="hljs-comment">//   fn157: v1033-- &lt;= 0</span>
+<span class="hljs-comment">//   fn157: !v1034</span>
+<span class="hljs-comment">//   fn157: !(v1032 == null)</span>
+<span class="hljs-comment">//   h_s26_mediaDevices: &quot;mediaDevices&quot; in navigator &amp;&amp; navigator.mediaDevices !== undefined &amp;&amp; typeof navigator.mediaDevices.enumerateDevices === &quot;function&quot;</span>
+<span class="hljs-comment">//   fn114: &quot;permissions&quot; in navigator &amp;&amp; readVaultedProp(navigator, &quot;permissions&quot;) &amp;&amp; typeof navigator.permissions.query === &quot;function&quot;</span>
+<span class="hljs-comment">//   h_s26_fn: v898 === v899</span>
+<span class="hljs-comment">//   h_s26_fn: v898 === &quot;granted&quot; || v899 === &quot;granted&quot;</span>
+<span class="hljs-comment">//   h_s26_fn: v898 === &quot;denied&quot; || v899 === &quot;denied&quot;</span>
+<span class="hljs-comment">//   visibilitychange: !(v869 || v868)</span>
+<span class="hljs-comment">//   visibilitychange: !v869 &amp;&amp; v868</span>
+<span class="hljs-comment">//   readVaultedProp: typeof v316 == &quot;function&quot;</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 4 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   asUint8Array:6496 crc32OfBytes:4943 fn114:6193 fn142:7227 fn157:8239 fn158:8266 fn31:1619</span>
+<span class="hljs-comment">//   fn48:3370 readVaultedProp:1674 resolveNameByHash:7015 stringToBytes:7901 visibilitychange:6423</span>
+
+<span class="hljs-comment">// agent.clean.js:1573</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s26_mediaDevices</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="hljs-string">&quot;mediaDevices&quot;</span> <span class="hljs-keyword">in</span> navigator &amp;&amp;
+    navigator.<span class="hljs-property">mediaDevices</span> !== <span class="hljs-literal">undefined</span> &amp;&amp;
+    <span class="hljs-keyword">typeof</span> navigator.<span class="hljs-property">mediaDevices</span>.<span class="hljs-property">enumerateDevices</span> === <span class="hljs-string">&quot;function&quot;</span>
+  );
+}
+
+<span class="hljs-comment">// agent.clean.js:3106</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">sig_s26_mediaDevices</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn142</span>(<span class="hljs-title function_">fn157</span>(<span class="hljs-number">300</span>, <span class="hljs-number">4</span>, { <span class="hljs-attr">s</span>: -<span class="hljs-number">2</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> }), <span class="hljs-title function_">async</span> () =&gt; {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">h_s26_mediaDevices</span>() || !<span class="hljs-title function_">fn114</span>()) {
+      <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">1</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+    }
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">const</span> v470 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">h_s26_fn</span>();
+      <span class="hljs-keyword">if</span> (v470 !== <span class="hljs-string">&quot;granted&quot;</span>) {
+        <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: v470 === <span class="hljs-string">&quot;prompt&quot;</span> ? -<span class="hljs-number">3</span> : -<span class="hljs-number">4</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+      }
+    } <span class="hljs-keyword">catch</span> (v471) {
+      <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">5</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+    }
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">v</span>: (<span class="hljs-keyword">await</span> navigator.<span class="hljs-property">mediaDevices</span>.<span class="hljs-title function_">enumerateDevices</span>()).<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg362</span>) =&gt;</span> ({
+        <span class="hljs-attr">d</span>: arg362.<span class="hljs-property">deviceId</span>,
+        <span class="hljs-attr">g</span>: arg362.<span class="hljs-property">groupId</span>,
+        <span class="hljs-attr">k</span>: arg362.<span class="hljs-property">kind</span>,
+        <span class="hljs-attr">l</span>: arg362.<span class="hljs-property">label</span>,
+      })),
+    };
+  });
+}
+
+<span class="hljs-comment">// agent.clean.js:4851</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s26_permissionsQuery</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">readVaultedProp</span>(<span class="hljs-keyword">await</span> navigator.<span class="hljs-property">permissions</span>.<span class="hljs-title function_">query</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;microphone&quot;</span> }), <span class="hljs-string">&quot;state&quot;</span>);
+}
+
+<span class="hljs-comment">// agent.clean.js:5414</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s26_permissionsQuery2</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">readVaultedProp</span>(<span class="hljs-keyword">await</span> navigator.<span class="hljs-property">permissions</span>.<span class="hljs-title function_">query</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;camera&quot;</span> }), <span class="hljs-string">&quot;state&quot;</span>);
+}
+
+<span class="hljs-comment">// agent.clean.js:6718</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s26_fn</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> v898 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">h_s26_permissionsQuery2</span>(),
+    v899 = <span class="hljs-keyword">await</span> <span class="hljs-title function_">h_s26_permissionsQuery</span>();
+  <span class="hljs-keyword">if</span> (v898 === v899) {
+    <span class="hljs-keyword">return</span> v898;
+  }
+  <span class="hljs-keyword">if</span> (v898 === <span class="hljs-string">&quot;granted&quot;</span> || v899 === <span class="hljs-string">&quot;granted&quot;</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;granted&quot;</span>;
+  }
+  <span class="hljs-keyword">if</span> (v898 === <span class="hljs-string">&quot;denied&quot;</span> || v899 === <span class="hljs-string">&quot;denied&quot;</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;denied&quot;</span>;
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;prompt&quot;</span>;
+}
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

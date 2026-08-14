@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Geolocation permission (s213) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s213</div><h1>Geolocation permission</h1></div>
+        <p class="lede">the geolocation permission state, queried without prompting</p>
+<p class="lede">Group: Network and permissions · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s213 — sig_s213_getCurrentPosition</span>
+<span class="hljs-comment">// module cm, stage1, codes 0 -1 -2 -3 -4 -5</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   navigator.geolocation.getCurrentPosition() navigator.permissions.query</span>
+<span class="hljs-comment">//   navigator.permissions.query() navigator.permissions navigator.geolocation navigator TextEncoder</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   Object.assign() Object.keys() ArrayBuffer Object.getOwnPropertyNames() Object.getPrototypeOf()</span>
+<span class="hljs-comment">//   Uint32Array Uint8Array Promise</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   null {la,lo,al,ac,alac,h,s,t}</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;PERMISSION_DENIED&quot; &quot;POSITION_UNAVAILABLE&quot; &quot;TIMEOUT&quot; &quot;coords&quot; &quot;denied&quot; &quot;function&quot; &quot;granted&quot;</span>
+<span class="hljs-comment">//   &quot;prompt&quot; &quot;state&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   == &quot;function&quot; === &quot;function&quot; in &quot;geolocation&quot; in &quot;permissions&quot;</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   !h_s213_geolocation() || !fn114()</span>
+<span class="hljs-comment">//   h_s213_geolocation: &quot;geolocation&quot; in navigator &amp;&amp; navigator.geolocation !== undefined</span>
+<span class="hljs-comment">//   fn114: &quot;permissions&quot; in navigator &amp;&amp; readVaultedProp(navigator, &quot;permissions&quot;) &amp;&amp; typeof navigator.permissions.query === &quot;function&quot;</span>
+<span class="hljs-comment">//   h_s213_getCurrentPosition: !arg485</span>
+<span class="hljs-comment">//   readVaultedProp: typeof v316 == &quot;function&quot;</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 3 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   asUint8Array:6496 crc32OfBytes:4943 fn114:6193 fn48:3370 fn98:5440 readVaultedProp:1674</span>
+<span class="hljs-comment">//   resolveNameByHash:7015 stringToBytes:7901</span>
+
+<span class="hljs-comment">// agent.clean.js:540</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s213_geolocation</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;geolocation&quot;</span> <span class="hljs-keyword">in</span> navigator &amp;&amp; navigator.<span class="hljs-property">geolocation</span> !== <span class="hljs-literal">undefined</span>;
+}
+
+<span class="hljs-comment">// agent.clean.js:3893</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s213_getCurrentPosition</span>(<span class="hljs-params">arg482</span>) {
+  <span class="hljs-keyword">switch</span> (arg482) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;prompt&quot;</span>:
+      <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">2</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;denied&quot;</span>:
+      <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">3</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;granted&quot;</span>:
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">arg483</span>) =&gt;</span> {
+        navigator.<span class="hljs-property">geolocation</span>.<span class="hljs-title function_">getCurrentPosition</span>(
+          <span class="hljs-function">(<span class="hljs-params">arg484</span>) =&gt;</span>
+            <span class="hljs-title function_">arg483</span>(
+              (<span class="hljs-keyword">function</span> (<span class="hljs-params">arg485</span>) {
+                <span class="hljs-keyword">if</span> (!arg485) {
+                  <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">5</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+                }
+                <span class="hljs-keyword">const</span> {
+                  <span class="hljs-attr">accuracy</span>: accuracy,
+                  <span class="hljs-attr">altitude</span>: altitude,
+                  <span class="hljs-attr">altitudeAccuracy</span>: altitudeAccuracy,
+                  <span class="hljs-attr">latitude</span>: latitude,
+                  <span class="hljs-attr">longitude</span>: longitude,
+                  <span class="hljs-attr">heading</span>: heading,
+                  <span class="hljs-attr">speed</span>: speed,
+                } = <span class="hljs-title function_">readVaultedProp</span>(arg485, <span class="hljs-string">&quot;coords&quot;</span>);
+                <span class="hljs-keyword">return</span> {
+                  <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>,
+                  <span class="hljs-attr">v</span>: {
+                    <span class="hljs-attr">la</span>: latitude,
+                    <span class="hljs-attr">lo</span>: longitude,
+                    <span class="hljs-attr">al</span>: altitude,
+                    <span class="hljs-attr">ac</span>: accuracy,
+                    <span class="hljs-attr">alac</span>: altitudeAccuracy,
+                    <span class="hljs-attr">h</span>: heading,
+                    <span class="hljs-attr">s</span>: speed,
+                    <span class="hljs-attr">t</span>: arg485.<span class="hljs-property">timestamp</span>,
+                  },
+                };
+              })(arg484),
+            ),
+          <span class="hljs-function">(<span class="hljs-params">arg486</span>) =&gt;</span>
+            <span class="hljs-title function_">arg483</span>(
+              (<span class="hljs-keyword">function</span> (<span class="hljs-params">arg487</span>) {
+                <span class="hljs-keyword">switch</span> (((v577 = arg487), <span class="hljs-title function_">readVaultedProp</span>(v577, <span class="hljs-string">&quot;code&quot;</span>))) {
+                  <span class="hljs-keyword">case</span> <span class="hljs-title function_">readVaultedProp</span>(arg487, <span class="hljs-string">&quot;PERMISSION_DENIED&quot;</span>):
+                    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">3</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+                  <span class="hljs-keyword">case</span> <span class="hljs-title function_">readVaultedProp</span>(arg487, <span class="hljs-string">&quot;POSITION_UNAVAILABLE&quot;</span>):
+                    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">5</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+                  <span class="hljs-keyword">case</span> <span class="hljs-title function_">readVaultedProp</span>(arg487, <span class="hljs-string">&quot;TIMEOUT&quot;</span>):
+                    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">4</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+                  <span class="hljs-attr">default</span>:
+                    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">5</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+                }
+                <span class="hljs-keyword">var</span> v577;
+              })(arg486),
+            ),
+          { <span class="hljs-attr">enableHighAccuracy</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">timeout</span>: <span class="hljs-number">10000</span>, <span class="hljs-attr">maximumAge</span>: <span class="hljs-number">0</span> },
+        );
+      });
+    <span class="hljs-attr">default</span>:
+      <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">5</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+  }
+}
+
+<span class="hljs-comment">// agent.clean.js:5446</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s213_permissionsQuery</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">readVaultedProp</span>(<span class="hljs-keyword">await</span> navigator.<span class="hljs-property">permissions</span>.<span class="hljs-title function_">query</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;geolocation&quot;</span> }), <span class="hljs-string">&quot;state&quot;</span>);
+}
+
+<span class="hljs-comment">// agent.clean.js:8177</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">sig_s213_getCurrentPosition</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">h_s213_geolocation</span>() || !<span class="hljs-title function_">fn114</span>()) {
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: -<span class="hljs-number">1</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+  }
+  <span class="hljs-keyword">const</span> v1027 = { <span class="hljs-attr">s</span>: -<span class="hljs-number">4</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+  <span class="hljs-title function_">h_s213_permissionsQuery</span>()
+    .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">arg911</span>) =&gt;</span> <span class="hljs-title function_">h_s213_getCurrentPosition</span>(arg911))
+    .<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">arg912</span>) =&gt;</span> {
+      <span class="hljs-title function_">fn98</span>(v1027, arg912);
+    })
+    .<span class="hljs-title function_">catch</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">fn98</span>(v1027, { <span class="hljs-attr">s</span>: -<span class="hljs-number">5</span>, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> }));
+  <span class="hljs-keyword">return</span> v1027;
+}
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

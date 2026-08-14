@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Font enumeration (s20) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s20</div><h1>Font enumeration</h1></div>
+        <p class="lede">measures a long list of named faces at 48px against fallback metrics</p>
+<p class="lede">Group: Layout and text · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s20 — sig_s20_hidden</span>
+<span class="hljs-comment">// module cm, stage2, codes 0 -101</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   DOMException document.removeEventListener(&quot;visibilitychange&quot;)</span>
+<span class="hljs-comment">//   document.addEventListener(&quot;visibilitychange&quot;) document.hidden clearTimeout() setTimeout()</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   Promise.reject() TypeError JSON.stringify() Promise.race() Promise Error undefined</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   value</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;0&quot; &quot;48px&quot; &quot;ARNO PRO&quot; &quot;Agency FB&quot; &quot;Arabic Typesetting&quot; &quot;Arial Unicode MS&quot; &quot;AvantGarde Bk BT&quot;</span>
+<span class="hljs-comment">//   &quot;BankGothic Md BT&quot; &quot;Batang&quot; &quot;Bitstream Vera Sans Mono&quot; &quot;Calibri&quot; &quot;Century&quot; &quot;Century Gothic&quot;</span>
+<span class="hljs-comment">//   &quot;Clarendon&quot; &quot;EUROSTILE&quot; &quot;Franklin Gothic&quot; &quot;Futura Bk BT&quot; &quot;Futura Md BT&quot; &quot;GOTHAM&quot; &quot;Gill Sans&quot;</span>
+<span class="hljs-comment">//   &quot;HELV&quot; &quot;Haettenschweiler&quot; &quot;Helvetica Neue&quot; &quot;Humanst521 BT&quot; &quot;Leelawadee&quot; &quot;Letter Gothic&quot;</span>
+<span class="hljs-comment">//   &quot;Levenim MT&quot; &quot;Lucida Bright&quot; &quot;Lucida Sans&quot; &quot;MS Mincho&quot; &quot;MS Outlook&quot; &quot;MS Reference Specialty&quot;</span>
+<span class="hljs-comment">//   &quot;MS UI Gothic&quot; &quot;MT Extra&quot; &quot;MYRIAD PRO&quot; &quot;Marlett&quot; &quot;Meiryo UI&quot; &quot;Menlo&quot; &quot;Microsoft Uighur&quot;</span>
+<span class="hljs-comment">//   &quot;Minion Pro&quot; &quot;Monotype Corsiva&quot; &quot;PMingLiU&quot; &quot;Pristina&quot; &quot;SCRIPTINA&quot; &quot;Segoe UI Light&quot; &quot;Serifa&quot;</span>
+<span class="hljs-comment">//   &quot;SimHei&quot; &quot;Small Fonts&quot; &quot;Staccato222 BT&quot; &quot;TRAJAN PRO&quot; &quot;Univers CE 55 Medium&quot; &quot;Vrinda&quot; &quot;ZWAdobeF&quot;</span>
+<span class="hljs-comment">//   &quot;absolute&quot; &quot;div&quot; &quot;important&quot; &quot;mmMwWLliI0O&amp;1&quot; &quot;monospace&quot; &quot;sans-serif&quot; &quot;sans-serif-thin&quot; &quot;serif&quot;</span>
+<span class="hljs-comment">//   &quot;span&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   === 0 &gt; 0</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   sharedIframeIsNotAvailable: ip === null</span>
+<span class="hljs-comment">//   sharedIframeIsNotAvailable: fn118(v1118)</span>
+<span class="hljs-comment">//   sharedIframeIsNotAvailable: ipq || aq3.length === 0</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 3 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   fn118:6312 fn158:8266 fn66:3854 sharedIframeIsNotAvailable:8819 v10:3418 v11:3419 v12:3420</span>
+<span class="hljs-comment">//   v13:3421 v14:3422 visibilitychange:6423</span>
+
+<span class="hljs-comment">// agent.clean.js:150</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s20_fn</span>(<span class="hljs-params">arg18</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">sharedIframeIsNotAvailable</span>(<span class="hljs-function">(<span class="hljs-params">arg19, { <span class="hljs-variable language_">document</span>: arg20 }</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> body = arg20.<span class="hljs-property">body</span>;
+    body.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = <span class="hljs-string">&quot;48px&quot;</span>;
+    <span class="hljs-keyword">const</span> element = arg20.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);
+    element.<span class="hljs-property">style</span>.<span class="hljs-title function_">setProperty</span>(<span class="hljs-string">&quot;visibility&quot;</span>, <span class="hljs-string">&quot;hidden&quot;</span>, <span class="hljs-string">&quot;important&quot;</span>);
+    <span class="hljs-keyword">const</span> v53 = {},
+      v54 = {},
+      v55 = <span class="hljs-function">(<span class="hljs-params">arg21</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> v60 = arg20.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;span&quot;</span>),
+          { <span class="hljs-attr">style</span>: style } = v60;
+        style.<span class="hljs-property">position</span> = <span class="hljs-string">&quot;absolute&quot;</span>;
+        style.<span class="hljs-property">top</span> = <span class="hljs-string">&quot;0&quot;</span>;
+        style.<span class="hljs-property">left</span> = <span class="hljs-string">&quot;0&quot;</span>;
+        style.<span class="hljs-property">fontFamily</span> = arg21;
+        v60.<span class="hljs-property">textContent</span> = <span class="hljs-string">&quot;mmMwWLliI0O&amp;1&quot;</span>;
+        element.<span class="hljs-title function_">appendChild</span>(v60);
+        <span class="hljs-keyword">return</span> v60;
+      },
+      v56 = <span class="hljs-function">(<span class="hljs-params">arg22, arg23</span>) =&gt;</span> <span class="hljs-title function_">v55</span>(<span class="hljs-string">`&#x27;<span class="hljs-subst">${arg22}</span>&#x27;,<span class="hljs-subst">${arg23}</span>`</span>),
+      v57 = h_s20_monospaceList.<span class="hljs-title function_">map</span>(v55),
+      v58 = (<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-keyword">const</span> v61 = {};
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v62 <span class="hljs-keyword">of</span> h_s20_sansSerifThinList) {
+          v61[v62] = h_s20_monospaceList.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg24</span>) =&gt;</span> <span class="hljs-title function_">v56</span>(v62, arg24));
+        }
+        <span class="hljs-keyword">return</span> v61;
+      })();
+    body.<span class="hljs-title function_">appendChild</span>(element);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> v63 = <span class="hljs-number">0</span>; v63 &lt; h_s20_monospaceList.<span class="hljs-property">length</span>; v63++) {
+      v53[h_s20_monospaceList[v63]] = v57[v63].<span class="hljs-property">offsetWidth</span>;
+      v54[h_s20_monospaceList[v63]] = v57[v63].<span class="hljs-property">offsetHeight</span>;
+    }
+    <span class="hljs-keyword">const</span> v59 = h_s20_sansSerifThinList.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">arg25</span>) =&gt;</span> {
+      v64 = v58[arg25];
+      <span class="hljs-keyword">return</span> h_s20_monospaceList.<span class="hljs-title function_">some</span>(
+        <span class="hljs-function">(<span class="hljs-params">arg26, arg27</span>) =&gt;</span>
+          v64[arg27].<span class="hljs-property">offsetWidth</span> !== v53[arg26] || v64[arg27].<span class="hljs-property">offsetHeight</span> !== v54[arg26],
+      );
+      <span class="hljs-keyword">var</span> v64;
+    });
+    body.<span class="hljs-title function_">removeChild</span>(element);
+    body.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = <span class="hljs-string">&quot;&quot;</span>;
+    <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">v</span>: v59 };
+  }, arg18.<span class="hljs-property">sis</span>);
+}
+
+<span class="hljs-comment">// agent.clean.js:4884</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">sig_s20_hidden</span>(<span class="hljs-params">arg614</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-title function_">h_s20_fn</span>(arg614);
+}
+
+<span class="hljs-comment">// agent.clean.js:6138</span>
+<span class="hljs-keyword">const</span> h_s20_monospaceList = [<span class="hljs-string">&quot;monospace&quot;</span>, <span class="hljs-string">&quot;sans-serif&quot;</span>, <span class="hljs-string">&quot;serif&quot;</span>];
+
+<span class="hljs-comment">// agent.clean.js:6139</span>
+<span class="hljs-keyword">const</span> h_s20_sansSerifThinList = [
+    <span class="hljs-string">&quot;sans-serif-thin&quot;</span>,
+    <span class="hljs-string">&quot;ARNO PRO&quot;</span>,
+    <span class="hljs-string">&quot;Agency FB&quot;</span>,
+    <span class="hljs-string">&quot;Arabic Typesetting&quot;</span>,
+    <span class="hljs-string">&quot;Arial Unicode MS&quot;</span>,
+    <span class="hljs-string">&quot;AvantGarde Bk BT&quot;</span>,
+    <span class="hljs-string">&quot;BankGothic Md BT&quot;</span>,
+    <span class="hljs-string">&quot;Batang&quot;</span>,
+    <span class="hljs-string">&quot;Bitstream Vera Sans Mono&quot;</span>,
+    <span class="hljs-string">&quot;Calibri&quot;</span>,
+    <span class="hljs-string">&quot;Century&quot;</span>,
+    <span class="hljs-string">&quot;Century Gothic&quot;</span>,
+    <span class="hljs-string">&quot;Clarendon&quot;</span>,
+    <span class="hljs-string">&quot;EUROSTILE&quot;</span>,
+    <span class="hljs-string">&quot;Franklin Gothic&quot;</span>,
+    <span class="hljs-string">&quot;Futura Bk BT&quot;</span>,
+    <span class="hljs-string">&quot;Futura Md BT&quot;</span>,
+    <span class="hljs-string">&quot;GOTHAM&quot;</span>,
+    <span class="hljs-string">&quot;Gill Sans&quot;</span>,
+    <span class="hljs-string">&quot;HELV&quot;</span>,
+    <span class="hljs-string">&quot;Haettenschweiler&quot;</span>,
+    <span class="hljs-string">&quot;Helvetica Neue&quot;</span>,
+    <span class="hljs-string">&quot;Humanst521 BT&quot;</span>,
+    <span class="hljs-string">&quot;Leelawadee&quot;</span>,
+    <span class="hljs-string">&quot;Letter Gothic&quot;</span>,
+    <span class="hljs-string">&quot;Levenim MT&quot;</span>,
+    <span class="hljs-string">&quot;Lucida Bright&quot;</span>,
+    <span class="hljs-string">&quot;Lucida Sans&quot;</span>,
+    <span class="hljs-string">&quot;Menlo&quot;</span>,
+    <span class="hljs-string">&quot;MS Mincho&quot;</span>,
+    <span class="hljs-string">&quot;MS Outlook&quot;</span>,
+    <span class="hljs-string">&quot;MS Reference Specialty&quot;</span>,
+    <span class="hljs-string">&quot;MS UI Gothic&quot;</span>,
+    <span class="hljs-string">&quot;MT Extra&quot;</span>,
+    <span class="hljs-string">&quot;MYRIAD PRO&quot;</span>,
+    <span class="hljs-string">&quot;Marlett&quot;</span>,
+    <span class="hljs-string">&quot;Meiryo UI&quot;</span>,
+    <span class="hljs-string">&quot;Microsoft Uighur&quot;</span>,
+    <span class="hljs-string">&quot;Minion Pro&quot;</span>,
+    <span class="hljs-string">&quot;Monotype Corsiva&quot;</span>,
+    <span class="hljs-string">&quot;PMingLiU&quot;</span>,
+    <span class="hljs-string">&quot;Pristina&quot;</span>,
+    <span class="hljs-string">&quot;SCRIPTINA&quot;</span>,
+    <span class="hljs-string">&quot;Segoe UI Light&quot;</span>,
+    <span class="hljs-string">&quot;Serifa&quot;</span>,
+    <span class="hljs-string">&quot;SimHei&quot;</span>,
+    <span class="hljs-string">&quot;Small Fonts&quot;</span>,
+    <span class="hljs-string">&quot;Staccato222 BT&quot;</span>,
+    <span class="hljs-string">&quot;TRAJAN PRO&quot;</span>,
+    <span class="hljs-string">&quot;Univers CE 55 Medium&quot;</span>,
+    <span class="hljs-string">&quot;Vrinda&quot;</span>,
+    <span class="hljs-string">&quot;ZWAdobeF&quot;</span>,
+  ];
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>

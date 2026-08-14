@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebGL parameters (s75) — fingerprint-pro-internals</title>
+    
+    <link rel="icon" href="../logo-mark.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="mark" href="../index.html"><img src="../logo.svg" alt="Fingerprint Pro Internals" /></a>
+        <nav>
+          <a href="../index.html">Overview</a>
+          <a href="../01-architecture.html">Guide</a>
+          <a href="../reference/signals.html">Reference</a>
+          <a href="../slices/index.html">Collectors</a>
+          <a href="../explorer.html">Explorer</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar">
+        <input class="search filter" id="navfilter" type="search" placeholder="Filter pages" />
+        <div class="section"><span>Start</span>
+<a href="../index.html" data-nav="Overview">Overview</a>
+<a href="../explorer.html" data-nav="explorer scan run collectors live">Signal explorer</a>
+</div>
+<div class="section"><span>Guide</span>
+<a href="../01-architecture.html" data-nav="Architecture docs/01-architecture.md">Architecture</a>
+<a href="../02-obfuscation.html" data-nav="Protection layers docs/02-obfuscation.md">Protection layers</a>
+<a href="../03-wire-format.html" data-nav="Wire format docs/03-wire-format.md">Wire format</a>
+<a href="../04-collection.html" data-nav="What the agent collects docs/04-collection.md">What the agent collects</a>
+<a href="../05-status-codes.html" data-nav="Status codes docs/05-status-codes.md">Status codes</a>
+<a href="../06-identity.html" data-nav="What visitor_id is a function of docs/06-identity.md">What visitor_id is a function of</a>
+<a href="../07-reproducing.html" data-nav="Reproducing docs/07-reproducing.md">Reproducing</a>
+<a href="../08-not-determined.html" data-nav="Not determined docs/08-not-determined.md">Not determined</a>
+<a href="../09-toolchain.html" data-nav="Toolchain docs/09-toolchain.md">Toolchain</a>
+</div>
+<div class="section"><span>Reference</span>
+<a href="../reference/index.html" data-nav="What is generated">What is generated</a>
+<a href="../reference/signals.html" data-nav="Signal map reference/signals.md">Signal map</a>
+<a href="../reference/schema.html" data-nav="Payload schema reference/schema.md">Payload schema</a>
+<a href="../reference/codes.html" data-nav="Status codes reference/codes.md">Status codes</a>
+<a href="../reference/envelope.html" data-nav="Request envelope reference/envelope.md">Request envelope</a>
+<a href="../reference/endpoints.html" data-nav="Endpoints reference/endpoints.md">Endpoints</a>
+<a href="../reference/observed.html" data-nav="Observed signals reference/observed.md">Observed signals</a>
+<a href="../reference/diff.html" data-nav="Signal map diff reference/diff.md">Signal map diff</a>
+</div>
+<div class="section"><span>Collectors</span>
+<a href="../slices/index.html" class="current" data-nav="slices collectors source">All 143 sources</a>
+</div>
+<div class="section"><span>Repository</span>
+<a href="../repo/agent.html" data-nav="The deobfuscated bundle agent/README.md">The deobfuscated bundle</a>
+<a href="../repo/collector.html" data-nav="The standalone collectors collector/README.md">The standalone collectors</a>
+<a href="../repo/captures.html" data-nav="Browser captures captures/README.md">Browser captures</a>
+<a href="../repo/profiles.html" data-nav="Device profiles profiles/README.md">Device profiles</a>
+<a href="../repo/evidence.html" data-nav="Identity evidence evidence/README.md">Identity evidence</a>
+<a href="../repo/spy.html" data-nav="DevTools instrumentation spy/README.md">DevTools instrumentation</a>
+<a href="../repo/license.html" data-nav="license unlicense legal contact email">License and contact</a>
+</div>
+      </aside>
+      <main class="prose wide">
+        <div class="pagehead"><div class="kicker">Collector s75</div><h1>WebGL parameters</h1></div>
+        <p class="lede">context attributes, parameters, extensions and shader precisions, hashed</p>
+<p class="lede">Group: Graphics · <a href="../reference/signals.html">signal map</a> · <a href="../explorer.html">run it live</a></p>
+<pre><code class="hljs language-javascript"><span class="hljs-comment">// s75 — sig_s75_canvas</span>
+<span class="hljs-comment">// module cm, stage3, codes 0 -1 -2, value is a digest</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// measures</span>
+<span class="hljs-comment">//   document.createElement(&quot;canvas&quot;) navigator.vendor.indexOf(&quot;Apple&quot;) window.ApplePayError</span>
+<span class="hljs-comment">//   window.Counter window.CSSPrimitiveValue window.RGBColor navigator.webkitPersistentStorage</span>
+<span class="hljs-comment">//   navigator.webkitTemporaryStorage window.BatteryManager window.webkitMediaStream</span>
+<span class="hljs-comment">//   window.webkitResolveLocalFileSystemURL window.webkitSpeechGrammar</span>
+<span class="hljs-comment">// engine</span>
+<span class="hljs-comment">//   Set Object.keys() Uint8Array undefined</span>
+<span class="hljs-comment">// reported value</span>
+<span class="hljs-comment">//   null {contextAttributes,parameters,parameters2,shaderPrecisions,extensions,extensionParameters,extensionParameters2,unsupportedExtensions}</span>
+<span class="hljs-comment">// probes</span>
+<span class="hljs-comment">//   &quot;&amp;&quot; &quot;,&quot; &quot;00000000&quot; &quot;32926&quot; &quot;32928&quot; &quot;34047&quot; &quot;=&quot; &quot;FRAGMENT_SHADER&quot; &quot;HIGH_FLOAT&quot; &quot;HIGH_INT&quot;</span>
+<span class="hljs-comment">//   &quot;LOW_FLOAT&quot; &quot;LOW_INT&quot; &quot;MEDIUM_FLOAT&quot; &quot;MEDIUM_INT&quot; &quot;VERTEX_SHADER&quot; &quot;WEBGL_debug_renderer_info&quot;</span>
+<span class="hljs-comment">//   &quot;WEBGL_polygon_mode&quot; &quot;number&quot; &quot;string&quot;</span>
+<span class="hljs-comment">// compares against</span>
+<span class="hljs-comment">//   != &quot;function&quot; !== &quot;34047&quot; !== 0 &lt; 32 == &quot;function&quot; == &quot;number&quot; == &quot;string&quot;</span>
+<span class="hljs-comment">//   === &quot;WEBGL_debug_renderer_info&quot; === &quot;WEBGL_polygon_mode&quot; === 32 &gt; 127</span>
+<span class="hljs-comment">// decides on</span>
+<span class="hljs-comment">//   typeof arg717 == &quot;number&quot;</span>
+<span class="hljs-comment">//   v834 !== undefined || v829.includes(v833)</span>
+<span class="hljs-comment">//   v837 !== undefined &amp;&amp; v836 !== &quot;34047&quot;</span>
+<span class="hljs-comment">//   fn129: fn40(arg775)</span>
+<span class="hljs-comment">//   fn129: fn88(v896)</span>
+<span class="hljs-comment">//   fn129: fn88(v897)</span>
+<span class="hljs-comment">//   h_s75_fn4: !v392</span>
+<span class="hljs-comment">//   h_s75_fn4: !fn62(v392)</span>
+<span class="hljs-comment">//   h_s75_fn4: h_s75_fn.has(v403)</span>
+<span class="hljs-comment">//   h_s75_fn4: v404 === &quot;WEBGL_debug_renderer_info&quot; &amp;&amp; fn112() || v404 === &quot;WEBGL_polygon_mode&quot; &amp;&amp; h_s75_fn7()</span>
+<span class="hljs-comment">//   h_s75_fn4: h_s75_fn2.has(v407)</span>
+<span class="hljs-comment">//   hash128: v422 &gt; 127</span>
+<span class="hljs-comment">//   hash128: (&quot;00000000&quot; + (v415[0] &gt;&gt;&gt; 0).toString(16)).slice(-8) + (&quot;00000000&quot; + (v415[1] &gt;&gt;&gt; 0).toString(16)).slice(-8) + (&quot;00000000&quot; + (v416[0] &gt;&gt;&gt; 0).toString(16)).slic…</span>
+<span class="hljs-comment">//   fn40: typeof arg286 != &quot;function&quot;</span>
+<span class="hljs-comment">//   fn88: !!arg590 &amp;&amp; typeof arg590.then == &quot;function&quot;</span>
+<span class="hljs-comment">//   fn62: typeof arg468.getParameter == &quot;function&quot;</span>
+<span class="hljs-comment">//   h_s75_fn7: fn11() || fn25()</span>
+<span class="hljs-comment">//   fn96: (arg641 %= 64) === 32</span>
+<span class="hljs-comment">//   fn96: arg641 &lt; 32</span>
+<span class="hljs-comment">//   fn53: (arg404 %= 64) !== 0</span>
+<span class="hljs-comment">//   fn53: arg404 &lt; 32</span>
+<span class="hljs-comment">//   h_s75_fn5: typeof arg615 == &quot;string&quot; &amp;&amp; !arg615.match(/[^A-Z0-9_x]/)</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// 9 owned helpers inlined below.</span>
+<span class="hljs-comment">// shared with other collectors, see agent.clean.js:</span>
+<span class="hljs-comment">//   fn11:419 fn112:6114 fn129:6642 fn154:8197 fn166:8783 fn25:712 fn40:1892 fn46:3216 fn53:3506</span>
+<span class="hljs-comment">//   fn62:3807 fn65:3849 fn88:4712 fn9:252 fn91:4777 fn93:5043 fn96:5398 hash128:2674 v3:446 v4:447</span>
+<span class="hljs-comment">//   v5:461 v6:462 v7:463 v8:464 v9:465</span>
+
+<span class="hljs-comment">// agent.clean.js:1874</span>
+<span class="hljs-keyword">const</span> h_s75_fn = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>([
+    <span class="hljs-number">10752</span>, <span class="hljs-number">2849</span>, <span class="hljs-number">2884</span>, <span class="hljs-number">2885</span>, <span class="hljs-number">2886</span>, <span class="hljs-number">2928</span>, <span class="hljs-number">2929</span>, <span class="hljs-number">2930</span>, <span class="hljs-number">2931</span>, <span class="hljs-number">2932</span>, <span class="hljs-number">2960</span>, <span class="hljs-number">2961</span>, <span class="hljs-number">2962</span>, <span class="hljs-number">2963</span>, <span class="hljs-number">2964</span>, <span class="hljs-number">2965</span>,
+    <span class="hljs-number">2966</span>, <span class="hljs-number">2967</span>, <span class="hljs-number">2968</span>, <span class="hljs-number">2978</span>, <span class="hljs-number">3024</span>, <span class="hljs-number">3042</span>, <span class="hljs-number">3088</span>, <span class="hljs-number">3089</span>, <span class="hljs-number">3106</span>, <span class="hljs-number">3107</span>, <span class="hljs-number">32773</span>, <span class="hljs-number">32777</span>, <span class="hljs-number">32777</span>, <span class="hljs-number">32823</span>, <span class="hljs-number">32824</span>,
+    <span class="hljs-number">32936</span>, <span class="hljs-number">32937</span>, <span class="hljs-number">32938</span>, <span class="hljs-number">32939</span>, <span class="hljs-number">32968</span>, <span class="hljs-number">32969</span>, <span class="hljs-number">32970</span>, <span class="hljs-number">32971</span>, <span class="hljs-number">3317</span>, <span class="hljs-number">33170</span>, <span class="hljs-number">3333</span>, <span class="hljs-number">3379</span>, <span class="hljs-number">3386</span>, <span class="hljs-number">33901</span>,
+    <span class="hljs-number">33902</span>, <span class="hljs-number">34016</span>, <span class="hljs-number">34024</span>, <span class="hljs-number">34076</span>, <span class="hljs-number">3408</span>, <span class="hljs-number">3410</span>, <span class="hljs-number">3411</span>, <span class="hljs-number">3412</span>, <span class="hljs-number">3413</span>, <span class="hljs-number">3414</span>, <span class="hljs-number">3415</span>, <span class="hljs-number">34467</span>, <span class="hljs-number">34816</span>, <span class="hljs-number">34817</span>,
+    <span class="hljs-number">34818</span>, <span class="hljs-number">34819</span>, <span class="hljs-number">34877</span>, <span class="hljs-number">34921</span>, <span class="hljs-number">34930</span>, <span class="hljs-number">35660</span>, <span class="hljs-number">35661</span>, <span class="hljs-number">35724</span>, <span class="hljs-number">35738</span>, <span class="hljs-number">35739</span>, <span class="hljs-number">36003</span>, <span class="hljs-number">36004</span>, <span class="hljs-number">36005</span>,
+    <span class="hljs-number">36347</span>, <span class="hljs-number">36348</span>, <span class="hljs-number">36349</span>, <span class="hljs-number">37440</span>, <span class="hljs-number">37441</span>, <span class="hljs-number">37443</span>, <span class="hljs-number">7936</span>, <span class="hljs-number">7937</span>, <span class="hljs-number">7938</span>,
+  ]);
+
+<span class="hljs-comment">// agent.clean.js:1882</span>
+<span class="hljs-keyword">const</span> h_s75_fn2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>([<span class="hljs-number">34047</span>, <span class="hljs-number">35723</span>, <span class="hljs-number">36063</span>, <span class="hljs-number">34852</span>, <span class="hljs-number">34853</span>, <span class="hljs-number">34854</span>, <span class="hljs-number">34229</span>, <span class="hljs-number">36392</span>, <span class="hljs-number">36795</span>, <span class="hljs-number">38449</span>]);
+
+<span class="hljs-comment">// agent.clean.js:1883</span>
+<span class="hljs-keyword">const</span> h_s75_fn3 = [<span class="hljs-string">&quot;FRAGMENT_SHADER&quot;</span>, <span class="hljs-string">&quot;VERTEX_SHADER&quot;</span>];
+
+<span class="hljs-comment">// agent.clean.js:1884</span>
+<span class="hljs-keyword">const</span> h_s75_lowFLOATList = [
+    <span class="hljs-string">&quot;LOW_FLOAT&quot;</span>,
+    <span class="hljs-string">&quot;MEDIUM_FLOAT&quot;</span>,
+    <span class="hljs-string">&quot;HIGH_FLOAT&quot;</span>,
+    <span class="hljs-string">&quot;LOW_INT&quot;</span>,
+    <span class="hljs-string">&quot;MEDIUM_INT&quot;</span>,
+    <span class="hljs-string">&quot;HIGH_INT&quot;</span>,
+  ];
+
+<span class="hljs-comment">// agent.clean.js:2613</span>
+<span class="hljs-keyword">const</span> h_s75_fn4 = <span class="hljs-keyword">function</span> (<span class="hljs-params">{ cache: arg306 }</span>) {
+    <span class="hljs-keyword">const</span> v392 = <span class="hljs-title function_">fn154</span>(arg306);
+    <span class="hljs-keyword">if</span> (!v392) {
+      <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">fn62</span>(v392)) {
+      <span class="hljs-keyword">return</span> -<span class="hljs-number">2</span>;
+    }
+    <span class="hljs-keyword">const</span> v393 = v392.<span class="hljs-title function_">getSupportedExtensions</span>(),
+      v394 = v392.<span class="hljs-title function_">getContextAttributes</span>(),
+      v395 = [],
+      v396 = [],
+      v397 = [],
+      v398 = [],
+      v399 = [];
+    <span class="hljs-keyword">if</span> (v394) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v401 <span class="hljs-keyword">of</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(v394)) {
+        v396.<span class="hljs-title function_">push</span>(<span class="hljs-string">`<span class="hljs-subst">${v401}</span>=<span class="hljs-subst">${v394[v401]}</span>`</span>);
+      }
+    }
+    <span class="hljs-keyword">const</span> v400 = <span class="hljs-title function_">h_s75_fn6</span>(v392);
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v402 <span class="hljs-keyword">of</span> v400) {
+      <span class="hljs-keyword">const</span> v403 = v392[v402];
+      v397.<span class="hljs-title function_">push</span>(<span class="hljs-string">`<span class="hljs-subst">${v402}</span>=<span class="hljs-subst">${v403}</span><span class="hljs-subst">${h_s75_fn.has(v403) ? <span class="hljs-string">`=<span class="hljs-subst">${v392.getParameter(v403)}</span>`</span> : <span class="hljs-string">&quot;&quot;</span>}</span>`</span>);
+    }
+    <span class="hljs-keyword">if</span> (v393) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v404 <span class="hljs-keyword">of</span> v393) {
+        <span class="hljs-keyword">if</span> (
+          (v404 === <span class="hljs-string">&quot;WEBGL_debug_renderer_info&quot;</span> &amp;&amp; <span class="hljs-title function_">fn112</span>()) ||
+          (v404 === <span class="hljs-string">&quot;WEBGL_polygon_mode&quot;</span> &amp;&amp; <span class="hljs-title function_">h_s75_fn7</span>())
+        ) {
+          <span class="hljs-keyword">continue</span>;
+        }
+        <span class="hljs-keyword">const</span> v405 = v392.<span class="hljs-title function_">getExtension</span>(v404);
+        <span class="hljs-keyword">if</span> (v405) {
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v406 <span class="hljs-keyword">of</span> <span class="hljs-title function_">h_s75_fn6</span>(v405)) {
+            <span class="hljs-keyword">const</span> v407 = v405[v406];
+            v398.<span class="hljs-title function_">push</span>(<span class="hljs-string">`<span class="hljs-subst">${v406}</span>=<span class="hljs-subst">${v407}</span><span class="hljs-subst">${h_s75_fn2.has(v407) ? <span class="hljs-string">`=<span class="hljs-subst">${v392.getParameter(v407)}</span>`</span> : <span class="hljs-string">&quot;&quot;</span>}</span>`</span>);
+          }
+        } <span class="hljs-keyword">else</span> {
+          v395.<span class="hljs-title function_">push</span>(v404);
+        }
+      }
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v408 <span class="hljs-keyword">of</span> h_s75_fn3) {
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> v409 <span class="hljs-keyword">of</span> h_s75_lowFLOATList) {
+        <span class="hljs-keyword">const</span> v410 = <span class="hljs-title function_">h_s75_fn8</span>(v392, v408, v409);
+        v399.<span class="hljs-title function_">push</span>(<span class="hljs-string">`<span class="hljs-subst">${v408}</span>.<span class="hljs-subst">${v409}</span>=<span class="hljs-subst">${v410.join(<span class="hljs-string">&quot;,&quot;</span>)}</span>`</span>);
+      }
+    }
+    v398.<span class="hljs-title function_">sort</span>();
+    v397.<span class="hljs-title function_">sort</span>();
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">contextAttributes</span>: v396,
+      <span class="hljs-attr">parameters</span>: v397,
+      <span class="hljs-attr">shaderPrecisions</span>: v399,
+      <span class="hljs-attr">extensions</span>: v393,
+      <span class="hljs-attr">extensionParameters</span>: v398,
+      <span class="hljs-attr">unsupportedExtensions</span>: v395,
+    };
+  };
+
+<span class="hljs-comment">// agent.clean.js:4926</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s75_fn5</span>(<span class="hljs-params">arg615</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> arg615 == <span class="hljs-string">&quot;string&quot;</span> &amp;&amp; !arg615.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/[^A-Z0-9_x]/</span>);
+}
+
+<span class="hljs-comment">// agent.clean.js:5249</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s75_fn6</span>(<span class="hljs-params">arg637</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(arg637.<span class="hljs-property">__proto__</span>).<span class="hljs-title function_">filter</span>(h_s75_fn5);
+}
+
+<span class="hljs-comment">// agent.clean.js:6050</span>
+<span class="hljs-keyword">const</span> sig_s75_canvas = <span class="hljs-title function_">fn129</span>(h_s75_fn4, <span class="hljs-function">(<span class="hljs-params">arg717</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> arg717 == <span class="hljs-string">&quot;number&quot;</span>) {
+      <span class="hljs-keyword">return</span> { <span class="hljs-attr">s</span>: arg717, <span class="hljs-attr">v</span>: <span class="hljs-literal">null</span> };
+    }
+    <span class="hljs-keyword">const</span> v829 = [<span class="hljs-string">&quot;32926&quot;</span>, <span class="hljs-string">&quot;32928&quot;</span>],
+      v830 = arg717.<span class="hljs-property">parameters</span>.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg718</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> [v832, v833, v834] = arg718.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-number">3</span>);
+        <span class="hljs-keyword">return</span> v834 !== <span class="hljs-literal">undefined</span> || v829.<span class="hljs-title function_">includes</span>(v833)
+          ? <span class="hljs-string">`<span class="hljs-subst">${v832}</span>(<span class="hljs-subst">${v833}</span>)=null`</span>
+          : <span class="hljs-string">`<span class="hljs-subst">${v832}</span>=<span class="hljs-subst">${v833}</span>`</span>;
+      }),
+      v831 = arg717.<span class="hljs-property">extensionParameters</span>.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">arg719</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> [v835, v836, v837] = arg719.<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-number">3</span>);
+        <span class="hljs-keyword">return</span> v837 !== <span class="hljs-literal">undefined</span> &amp;&amp; v836 !== <span class="hljs-string">&quot;34047&quot;</span>
+          ? <span class="hljs-string">`<span class="hljs-subst">${v835}</span>(<span class="hljs-subst">${v836}</span>)=<span class="hljs-subst">${v837}</span>`</span>
+          : <span class="hljs-string">`<span class="hljs-subst">${v835}</span>=<span class="hljs-subst">${v836}</span>`</span>;
+      });
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-attr">s</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">v</span>: {
+        <span class="hljs-attr">contextAttributes</span>: <span class="hljs-title function_">hash128</span>(arg717.<span class="hljs-property">contextAttributes</span>.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&amp;&quot;</span>)),
+        <span class="hljs-attr">parameters</span>: <span class="hljs-title function_">hash128</span>(v830.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&amp;&quot;</span>)),
+        <span class="hljs-attr">parameters2</span>: <span class="hljs-title function_">hash128</span>(arg717.<span class="hljs-property">parameters</span>.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&amp;&quot;</span>)),
+        <span class="hljs-attr">shaderPrecisions</span>: <span class="hljs-title function_">hash128</span>(arg717.<span class="hljs-property">shaderPrecisions</span>.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&amp;&quot;</span>)),
+        <span class="hljs-attr">extensions</span>: <span class="hljs-title function_">hash128</span>(arg717.<span class="hljs-property">extensions</span>?.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;,&quot;</span>) || <span class="hljs-string">&quot;&quot;</span>),
+        <span class="hljs-attr">extensionParameters</span>: <span class="hljs-title function_">hash128</span>(v831.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;,&quot;</span>)),
+        <span class="hljs-attr">extensionParameters2</span>: <span class="hljs-title function_">hash128</span>(arg717.<span class="hljs-property">extensionParameters</span>.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&amp;&quot;</span>)),
+        <span class="hljs-attr">unsupportedExtensions</span>: arg717.<span class="hljs-property">unsupportedExtensions</span>,
+      },
+    };
+  });
+
+<span class="hljs-comment">// agent.clean.js:7393</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s75_fn7</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">fn11</span>() || <span class="hljs-title function_">fn25</span>();
+}
+
+<span class="hljs-comment">// agent.clean.js:7897</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">h_s75_fn8</span>(<span class="hljs-params">arg894, arg895, arg896</span>) {
+  <span class="hljs-keyword">const</span> v1011 = arg894.<span class="hljs-title function_">getShaderPrecisionFormat</span>(arg894[arg895], arg894[arg896]);
+  <span class="hljs-keyword">return</span> v1011 ? [v1011.<span class="hljs-property">rangeMin</span>, v1011.<span class="hljs-property">rangeMax</span>, v1011.<span class="hljs-property">precision</span>] : [];
+}
+</code></pre>
+        
+      </main>
+      
+    </div>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>
+          One pinned build of the Fingerprint Pro v4 browser agent, taken apart offline. Every page
+          here is generated from the repository by <code>npm run site</code>: the guide from the
+          markdown in <code>docs/</code>, the tables from the maps in <code>reference/</code>, the
+          collector sources from <code>reference/slices/</code>, and the explorer from
+          <code>collector/fp-collect.js</code>.
+        </p>
+        <p>
+          Public domain, <a href="../repo/license.html">Unlicense</a>: use it however you like,
+          with no attribution required. Unofficial and not affiliated with Fingerprint;
+          "Fingerprint" and the fingerprint mark are their trademarks. Contact, including takedown
+          and legal enquiries: <a href="mailto:proofofbot@pm.me">proofofbot@pm.me</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="../hub.js"></script>
+    
+  </body>
+</html>
