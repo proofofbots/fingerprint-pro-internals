@@ -21,9 +21,10 @@ output feeds the next. `npm run all` is the whole chain.
 | `npm run join` | the map, every capture | `reference/observed.{json,md}` |
 | `npm run schema` | the map, every capture | `reference/schema.{json,md}` |
 | `npm run collector` | the clean file | `collector/fp-collect.js` |
+| `npm run site` | `site/`, `collector/fp-collect.js`, `reference/labels.json` | `docs/index.html` and its assets |
 | `npm run spy` | `tools/fpspy.src.js`, the map | `spy/fpspy.js` |
 | `npm run capture` | the original bundle, the spy | a file in `captures/` |
-| `npm run scrub` | `captures/` | the same files, third-party storage dropped |
+| `npm run scrub` | `captures/` | the same files, third-party storage dropped, frames resealed with `--reseal` |
 | `npm run diff` | a baseline, the map | `reference/diff.md` |
 | `npm run evidence` | `artifacts/identity`, `artifacts/distill` | `evidence/` |
 
@@ -184,6 +185,13 @@ how much an already established visitor absorbs.
 
 ## Instrumentation
 
+**`scrub`** drops third-party storage entries from a capture in place. With `--reseal` it also
+rebuilds each request's `reqRaw`: the decoded payload goes back through `encodeJson`, deflate-raw
+over 1024 bytes and `sealFrame`, and the new frame replaces the stored one, with `reqSize`, the
+plain size and the frame key updated to match. That keeps a capture internally consistent after its
+payload has been edited, which is what the published captures were run through. It needs the
+original bundle, so run `npm run fetch` first.
+
 **`spy`** builds `spy/fpspy.js` from `tools/fpspy.src.js`, inlining the signal-id labels from
 `reference/signals.json` so a decoded payload is readable. **`capture`** serves the page that runs the
 stored bundle and saves what the spy recorded. Both are covered in
@@ -194,3 +202,42 @@ codec, with the vaulted property reads collapsed to plain member access, the enc
 inlined, and the roots found structurally rather than by name, so a version bump regenerates instead
 of breaking. Two reads are kept behind a `boundProperty` helper because their result is stored and
 called later, where collapsing would drop the receiver.
+
+## The Pages site
+
+**`site`** builds the whole documentation hub into `docs/`, which is what GitHub Pages serves. It is
+a static site generator with no client-side framework: `marked` renders the markdown, `highlight.js`
+colours the code at build time, and the only JavaScript that ships is `hub.js` (sidebar filter, table
+filter) plus `app.js` on the explorer page.
+
+What it emits:
+
+| page | built from |
+| --- | --- |
+| `index.html` | `site/overview.md`, with the pinned version, hash and fetch date substituted from `agent/pin.json` |
+| `explorer.html` | `site/explorer.html` and `collector/fp-collect.js`, the live scan |
+| `NN-name.html` | each markdown file in `docs/` |
+| `reference/*.html` | each generated map, with any table over 12 rows given a filter box |
+| `slices/sNN.html` | each collector source in `reference/slices/`, syntax highlighted |
+| `slices/index.html` | all of them, grouped by the same categories the explorer uses |
+| `repo/*.html` | the README of `agent/`, `collector/`, `captures/`, `profiles/`, `evidence/`, `spy/` |
+
+Links between markdown files are rewritten to the generated pages through an explicit source-to-URL
+map, so a link to `../reference/signals.md` in a doc becomes a link to `reference/signals.html` on
+the site, and a link that has no published target is left alone rather than silently broken.
+
+`reference/labels.json` is hand-written, not generated: one entry per wire id giving the readable
+name, the group it belongs to, and a sentence on what the collector measures. It is what turns `s17`
+into "Canvas rendering" in the explorer, in the slice pages and in the collector index. `site` fails
+if a signal in `reference/signals.md` has no entry or an entry names a group that does not exist, so
+a version bump that adds an id cannot ship a page with an unlabelled row. It warns, rather than
+fails, when `labels.json` still carries an id the build has dropped.
+
+`node tools/site.mjs --check` exits non-zero when `docs/` differs from what the current sources would
+produce, which is the check to run before a commit. A plain run rewrites `docs/slices/`,
+`docs/reference/` and `docs/repo/` from scratch, so a removed source file does not leave a stale page
+behind.
+
+The explorer collects and renders locally. It builds the wire payload with `buildPayload({ apiKey:
+"none" })` to show the envelope key count, and sends nothing: no API key ships in the page, no
+request leaves it, no visitor id is minted. Point Pages at `main` and `/docs` to publish.
