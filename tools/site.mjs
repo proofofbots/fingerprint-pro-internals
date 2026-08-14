@@ -335,6 +335,7 @@ emit("styles.css", read("site/styles.css"));
 emit("hub.js", read("site/hub.js"));
 emit("logo.svg", read("site/logo.svg"));
 emit("logo-mark.svg", read("site/logo-mark.svg"));
+emit("logo-dark.svg", read("site/logo-dark.svg"));
 emit("app.js", read("site/app.js"));
 emit("fp-collect.js", readFileSync(join(COLLECTOR, "fp-collect.js"), "utf8"));
 emit("labels.json", `${JSON.stringify(labels, null, 2)}\n`);

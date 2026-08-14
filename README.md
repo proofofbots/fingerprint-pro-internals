@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="docs/logo.svg" alt="Fingerprint Pro Internals" width="420" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/logo-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="docs/logo.svg" />
+    <img src="docs/logo.svg" alt="Fingerprint Pro Internals" width="420" />
+  </picture>
 </p>
 
 <h3 align="center">The complete, documented teardown of the Fingerprint Pro v4 browser agent</h3>
