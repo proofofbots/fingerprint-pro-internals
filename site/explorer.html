@@ -1,0 +1,35 @@
+<p>
+  This page runs the collectors cut out of the deobfuscated agent against your own browser and shows
+  what each one measured, under readable names rather than wire ids. It builds the payload locally
+  and sends nothing: no API key, no request, no visitor id. The whole result is left on
+  <code>window.fp</code>.
+</p>
+
+<div class="controls">
+  <button class="button" id="rerun">Analyze my browser again</button>
+  <button class="button secondary" id="wire" aria-pressed="false">Show wire names</button>
+  <button class="button secondary" id="reported" aria-pressed="false">Only reported</button>
+  <button class="button secondary" id="download">Download JSON</button>
+  <input class="search" id="search" type="search" placeholder="Filter signals, values, groups" />
+</div>
+
+<div class="summary">
+  <div class="stat">
+    <div class="label">Wire signals</div>
+    <div class="value" id="stat-signals">—</div>
+  </div>
+  <div class="stat">
+    <div class="label">Reported a value</div>
+    <div class="value accent" id="stat-reported">—</div>
+  </div>
+  <div class="stat">
+    <div class="label">Wire keys built</div>
+    <div class="value" id="stat-keys">—</div>
+  </div>
+  <div class="stat">
+    <div class="label">Collection time (ms)</div>
+    <div class="value" id="stat-ms">—</div>
+  </div>
+</div>
+
+<div id="groups"></div>
