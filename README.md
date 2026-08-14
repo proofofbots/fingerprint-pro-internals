@@ -13,36 +13,36 @@
 </p>
 
 <p align="center">
-  <b><a href="docs/explorer.html">Run it on your browser</a></b> ·
-  <b><a href="docs/index.html">Read the docs</a></b> ·
-  <a href="reference/signals.md">Signal map</a> ·
-  <a href="reference/slices/">Collector sources</a>
+  <b><a href="https://proofofbots.github.io/fingerprint-pro-internals/explorer.html">Run it on your browser</a></b> ·
+  <b><a href="https://proofofbots.github.io/fingerprint-pro-internals/">Read the docs</a></b> ·
+  <a href="https://proofofbots.github.io/fingerprint-pro-internals/reference/signals.html">Signal map</a> ·
+  <a href="https://proofofbots.github.io/fingerprint-pro-internals/slices/">Collector sources</a>
 </p>
 
 ---
 
-`fpjs.io` ships its agent as an obfuscated bundle: CRC32 constants instead of property names, four
-encrypted string tables, operator wrappers over every expression, and a binary wire format. This is
-that agent taken apart.
-
 | | |
 | --- | --- |
-| [**143 signals, one row each**](reference/signals.md) | surfaces touched, status codes, constants compared, value shape |
-| [**The agent, readable**](agent/) | CRC32 names resolved, tables decrypted, wrappers folded, bindings renamed, hash-pinned |
-| [**Every collector as its own file**](reference/slices/) | one signal plus only the helpers it reaches, instead of a 200 KB bundle |
-| [**The collectors, runnable**](collector/) | `collect`, `buildPayload`, `frame`, `send` from a console. No agent, no network |
-| [**Wire format, end to end**](docs/03-wire-format.md) | JSON to bytes, deflate-raw over 1024, sealed with a key that ships inside the frame |
-| [**What `visitor_id` is a function of**](docs/06-identity.md) | 7 fields break a match alone, `s56` is a bearer token, not a fingerprint |
+| [**143 signals, one row each**](https://proofofbots.github.io/fingerprint-pro-internals/reference/signals.html) | surfaces touched, status codes, constants compared, value shape |
+| [**The agent, readable**](https://proofofbots.github.io/fingerprint-pro-internals/repo/agent.html) | CRC32 names resolved, tables decrypted, wrappers folded, bindings renamed, hash-pinned |
+| [**Every collector as its own file**](https://proofofbots.github.io/fingerprint-pro-internals/slices/) | one signal plus only the helpers it reaches, instead of a 200 KB bundle |
+| [**The collectors, runnable**](https://proofofbots.github.io/fingerprint-pro-internals/repo/collector.html) | `collect`, `buildPayload`, `frame`, `send` from a console. No agent, no network |
+| [**Wire format, end to end**](https://proofofbots.github.io/fingerprint-pro-internals/03-wire-format.html) | JSON to bytes, deflate-raw over 1024, sealed with a key that ships inside the frame |
+| [**What `visitor_id` is a function of**](https://proofofbots.github.io/fingerprint-pro-internals/06-identity.html) | 7 fields break a match alone, `s56` is a bearer token, not a fingerprint |
 
-Chrome, Firefox and Safari captures of the same pinned build back every claim, and the limits are
-written down in [08-not-determined](docs/08-not-determined.md).
+<p align="center">
+  <a href="https://proofofbots.github.io/fingerprint-pro-internals/explorer.html">
+    <img src="docs/screenshot.png" alt="The signal explorer running the 143 collectors in-browser" width="900" />
+  </a>
+</p>
 
 ## The site
 
-The whole repository is also published as a browsable site: the guide, every generated map as a
-filterable table, all 143 collector sources syntax highlighted, and the live explorer. `npm run
-site` builds it into [`docs/`](docs/), which is what GitHub Pages serves. Open `docs/index.html`
-over HTTP locally, or point Pages at `main` and `/docs`.
+The whole repository is published at
+[proofofbots.github.io/fingerprint-pro-internals](https://proofofbots.github.io/fingerprint-pro-internals/):
+the guide, every generated map as a filterable table, all 143 collector sources syntax highlighted,
+and the live explorer. `npm run site` builds it into [`docs/`](docs/), which is what GitHub Pages
+serves from `main`. Open `docs/index.html` over HTTP to preview a build locally.
 
 ## Quickstart
 
@@ -54,14 +54,17 @@ npm run site       # rebuild the documentation site into docs/
 npm run capture    # serve the capture page, open it once per browser
 ```
 
-To read rather than run, start at [`reference/signals.md`](reference/signals.md) for the inventory
-and [`reference/slices/`](reference/slices/) for the code behind any single signal.
+To read rather than run, start at
+[the signal map](https://proofofbots.github.io/fingerprint-pro-internals/reference/signals.html) for
+the inventory and
+[the collector sources](https://proofofbots.github.io/fingerprint-pro-internals/slices/) for the code
+behind any single signal.
 
 To watch the agent on a live site, paste [`spy/fpspy.js`](spy/fpspy.js) into DevTools.
 
-To run the collectors with no agent and no network, serve the repository and open
-[`collector/index.html`](collector/index.html) for the raw table, or `docs/explorer.html` for the
-explorer.
+To run the collectors with no agent and no network, open
+[the explorer](https://proofofbots.github.io/fingerprint-pro-internals/explorer.html), or serve the
+repository and open [`collector/index.html`](collector/index.html) for the raw table.
 
 Everything here describes one pinned build: `jsl/4.0.0`, sha256 `250c7dfe…`, fetched 2026-08-07. The
 tenant ships new builds and the paths rotate. `npm run fetch` checks the pin and `npm run diff` says
@@ -88,31 +91,34 @@ what changed.
 - Both protection layers come apart offline. Property names are CRC32 constants over DOM
   identifiers, which a dictionary resolves; the four string tables that key off live browser state
   key off property *names*, which the same dictionary already recovers.
-  [02-obfuscation](docs/02-obfuscation.md)
+  [02-obfuscation](https://proofofbots.github.io/fingerprint-pro-internals/02-obfuscation.html)
 - The agent names its own signals. Each module registers a `sources` table mapping the wire id to the
   collector, so the map is the agent's labels, not assigned ones. 143 ids, 4 of them scheduled first
-  because they are slow. [01-architecture](docs/01-architecture.md), [04-collection](docs/04-collection.md)
+  because they are slow.
+  [01-architecture](https://proofofbots.github.io/fingerprint-pro-internals/01-architecture.html),
+  [04-collection](https://proofofbots.github.io/fingerprint-pro-internals/04-collection.html)
 - The wire format is JSON over bytes, deflate-raw over 1024 bytes, then framed with a key that ships
-  inside the frame. [03-wire-format](docs/03-wire-format.md)
+  inside the frame.
+  [03-wire-format](https://proofofbots.github.io/fingerprint-pro-internals/03-wire-format.html)
 - `s56`, the blob the server issues over the GET leg and the client replays, is a bearer token. Any
   payload carrying a bound one answers as that visitor whatever the device reports. With it empty,
   seven fields break the identity match on their own, and the rest hold until six groups of them move
-  at once. [06-identity](docs/06-identity.md)
+  at once. [06-identity](https://proofofbots.github.io/fingerprint-pro-internals/06-identity.html)
 - Across Chrome, Firefox and Safari on one machine, 58 of the 143 signals report a different value
   and the remaining 85 are identical. The static read and the captures disagree nowhere.
-  [04-collection](docs/04-collection.md)
+  [04-collection](https://proofofbots.github.io/fingerprint-pro-internals/04-collection.html)
 
 ## Docs
 
-1. [Architecture](docs/01-architecture.md) — modules, stages, worker, request legs, symbol table
-2. [Protection layers](docs/02-obfuscation.md) — CRC32 names, encrypted tables, what the passes do
-3. [Wire format](docs/03-wire-format.md) — codec, frame, envelope, request path
-4. [What the agent collects](docs/04-collection.md) — the signal inventory and how to read it
-5. [Status codes](docs/05-status-codes.md) — the 11 codes and what they mean
-6. [Identity](docs/06-identity.md) — what `visitor_id` is a function of
-7. [Reproducing](docs/07-reproducing.md) — the pinned target and every command
-8. [Not determined](docs/08-not-determined.md) — the limits of all of the above
-9. [Toolchain](docs/09-toolchain.md) — every tool, flag by flag
+1. [Architecture](https://proofofbots.github.io/fingerprint-pro-internals/01-architecture.html) — modules, stages, worker, request legs, symbol table
+2. [Protection layers](https://proofofbots.github.io/fingerprint-pro-internals/02-obfuscation.html) — CRC32 names, encrypted tables, what the passes do
+3. [Wire format](https://proofofbots.github.io/fingerprint-pro-internals/03-wire-format.html) — codec, frame, envelope, request path
+4. [What the agent collects](https://proofofbots.github.io/fingerprint-pro-internals/04-collection.html) — the signal inventory and how to read it
+5. [Status codes](https://proofofbots.github.io/fingerprint-pro-internals/05-status-codes.html) — the 11 codes and what they mean
+6. [Identity](https://proofofbots.github.io/fingerprint-pro-internals/06-identity.html) — what `visitor_id` is a function of
+7. [Reproducing](https://proofofbots.github.io/fingerprint-pro-internals/07-reproducing.html) — the pinned target and every command
+8. [Not determined](https://proofofbots.github.io/fingerprint-pro-internals/08-not-determined.html) — the limits of all of the above
+9. [Toolchain](https://proofofbots.github.io/fingerprint-pro-internals/09-toolchain.html) — every tool, flag by flag
 
 ## Scope
 
