@@ -310,7 +310,10 @@ function download() {
   URL.revokeObjectURL(url);
 }
 
-state.labels = await fetch("./labels.json").then((response) => response.json());
+state.labels = await fetch("./labels.json").then((response) => {
+  if (!response.ok) throw new Error("Failed to load labels");
+  return response.json();
+});
 
 el("search").addEventListener("input", (event) => {
   state.query = event.target.value.trim();
