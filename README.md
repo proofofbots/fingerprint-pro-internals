@@ -36,6 +36,9 @@
   </a>
 </p>
 
+# Akamai solver + other tools
+For Akamai, and other solvers, check out this repo: https://github.com/proofofbots/web-re-toolkit
+
 ## The site
 
 The whole repository is published at
